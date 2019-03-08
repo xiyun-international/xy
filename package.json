@@ -1,0 +1,15 @@
+{
+  "name": "xy",
+  "private": false,
+  "scripts": {
+    "test": "lerna run test",
+    "new-version": "lerna version --converional-commits --yes",
+    "diff": "lerna diff",
+    "bootstrap": "lerna bootstrap",
+    "lint": "eslint --ext .js packages",
+    "publish": "npm test && ./scripts/publish.js"
+  },
+  "devDependencies": {
+    "lerna": "^3.11.1"
+  }
+}
