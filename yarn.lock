@@ -1688,16 +1688,6 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   resolved "http://registry.npm.taobao.org/core-util-is/download/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
 
-cosmiconfig@^4.0.0:
-  version "4.0.0"
-  resolved "http://registry.npm.taobao.org/cosmiconfig/download/cosmiconfig-4.0.0.tgz#760391549580bbd2df1e562bc177b13c290972dc"
-  integrity sha1-dgORVJWAu9LfHlYrwXexPCkJctw=
-  dependencies:
-    is-directory "^0.3.1"
-    js-yaml "^3.9.0"
-    parse-json "^4.0.0"
-    require-from-string "^2.0.1"
-
 cosmiconfig@^5.1.0:
   version "5.1.0"
   resolved "http://registry.npm.taobao.org/cosmiconfig/download/cosmiconfig-5.1.0.tgz#6c5c35e97f37f985061cdf653f114784231185cf"
@@ -2935,17 +2925,6 @@ gulp-cssmin@^0.2.0:
     map-stream "0.0.4"
     temp-write "~0.1.0"
 
-gulp-postcss@^8.0.0:
-  version "8.0.0"
-  resolved "http://registry.npm.taobao.org/gulp-postcss/download/gulp-postcss-8.0.0.tgz#8d3772cd4d27bca55ec8cb4c8e576e3bde4dc550"
-  integrity sha1-jTdyzU0nvKVeyMtMjlduO95NxVA=
-  dependencies:
-    fancy-log "^1.3.2"
-    plugin-error "^1.0.1"
-    postcss "^7.0.2"
-    postcss-load-config "^2.0.0"
-    vinyl-sourcemaps-apply "^0.2.1"
-
 gulp-rename@~1.1.0:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/gulp-rename/download/gulp-rename-1.1.0.tgz#93090aaaf4d386c07f20538a6888f15efba727a1"
@@ -3172,13 +3151,6 @@ ignore@^4.0.6:
   resolved "https://registry.npmjs.org/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
   integrity sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==
 
-import-cwd@^2.0.0:
-  version "2.1.0"
-  resolved "http://registry.npm.taobao.org/import-cwd/download/import-cwd-2.1.0.tgz#aa6cf36e722761285cb371ec6519f53e2435b0a9"
-  integrity sha1-qmzzbnInYShcs3HsZRn1PiQ1sKk=
-  dependencies:
-    import-from "^2.1.0"
-
 import-fresh@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/import-fresh/download/import-fresh-2.0.0.tgz#d81355c15612d386c61f9ddd3922d4304822a546"
@@ -3194,13 +3166,6 @@ import-fresh@^3.0.0:
   dependencies:
     parent-module "^1.0.0"
     resolve-from "^4.0.0"
-
-import-from@^2.1.0:
-  version "2.1.0"
-  resolved "http://registry.npm.taobao.org/import-from/download/import-from-2.1.0.tgz#335db7f2a7affd53aaa471d4b8021dee36b7f3b1"
-  integrity sha1-M1238qev/VOqpHHUuAId7ja387E=
-  dependencies:
-    resolve-from "^3.0.0"
 
 import-local@^1.0.0:
   version "1.0.0"
@@ -5141,14 +5106,6 @@ posix-character-classes@^0.1.0:
   resolved "http://registry.npm.taobao.org/posix-character-classes/download/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
 
-postcss-load-config@^2.0.0:
-  version "2.0.0"
-  resolved "http://registry.npm.taobao.org/postcss-load-config/download/postcss-load-config-2.0.0.tgz#f1312ddbf5912cd747177083c5ef7a19d62ee484"
-  integrity sha1-8TEt2/WRLNdHF3CDxe96GdYu5IQ=
-  dependencies:
-    cosmiconfig "^4.0.0"
-    import-cwd "^2.0.0"
-
 postcss-value-parser@^3.3.1:
   version "3.3.1"
   resolved "http://registry.npm.taobao.org/postcss-value-parser/download/postcss-value-parser-3.3.1.tgz#9ff822547e2893213cf1c30efa51ac5fd1ba8281"
@@ -5554,11 +5511,6 @@ require-directory@^2.1.1:
   version "2.1.1"
   resolved "http://registry.npm.taobao.org/require-directory/download/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha1-jGStX9MNqxyXbiNE/+f3kqam30I=
-
-require-from-string@^2.0.1:
-  version "2.0.2"
-  resolved "http://registry.npm.taobao.org/require-from-string/download/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
-  integrity sha1-iaf92TgmEmcxjq/hT5wy5ZjDaQk=
 
 require-main-filename@^1.0.1:
   version "1.0.1"
@@ -6575,7 +6527,7 @@ vinyl-sourcemap@^1.1.0:
     remove-bom-buffer "^3.0.0"
     vinyl "^2.0.0"
 
-vinyl-sourcemaps-apply@^0.2.0, vinyl-sourcemaps-apply@^0.2.1:
+vinyl-sourcemaps-apply@^0.2.0:
   version "0.2.1"
   resolved "http://registry.npm.taobao.org/vinyl-sourcemaps-apply/download/vinyl-sourcemaps-apply-0.2.1.tgz#ab6549d61d172c2b1b87be5c508d239c8ef87705"
   integrity sha1-q2VJ1h0XLCsbh75cUI0jnI74dwU=
