@@ -1,8 +1,11 @@
 {
   "name": "xy",
-  "private": false,
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "test": "lerna run test",
+    "test": "lerna run test --scope=@xy/tools",
     "new-version": "lerna version --converional-commits --yes",
     "diff": "lerna diff",
     "bootstrap": "lerna bootstrap",
