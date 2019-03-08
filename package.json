@@ -6,13 +6,17 @@
   ],
   "scripts": {
     "test": "lerna run test --scope=@xy/tools",
-    "new-version": "lerna version --converional-commits --yes",
+    "new-version": "lerna version",
     "diff": "lerna diff",
     "bootstrap": "lerna bootstrap",
     "lint": "eslint --ext .js packages",
     "publish": "npm test && ./scripts/publish.js"
   },
   "devDependencies": {
-    "lerna": "^3.11.1"
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "lerna": "^3.11.1",
+    "lerna-changelog": "^0.8.2"
   }
 }
