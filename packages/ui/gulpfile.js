@@ -5,14 +5,19 @@ const sass = require("gulp-sass");
 
 function defaultTask() {
   return gulp
-    .src('./index.scss')
+    .src('./styles/index.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['ie > 9', 'last 2 versions'],
       cascade: false
     }))
     .pipe(cssmin())
-    .pipe(gulp.dest("../lib/"));
+    .pipe(gulp.dest("./lib/"));
 }
 
-exports.default = defaultTask;
+function pipFonts() {
+  return gulp.src('./fonts/xy.*').pipe(gulp.dest('./lib/fonts/'));
+}
+
+exports.pipFonts = pipFonts;
+exports.default = gulp.series(defaultTask, pipFonts);

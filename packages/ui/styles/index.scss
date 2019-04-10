@@ -1,6 +1,10 @@
-@import "layout/header.scss";
-@import "layout/side.scss";
-@import "layout/footer.scss";
+@import "font";
+@import "../layout/header";
+@import "../layout/side";
+@import "../layout/footer";
+
+@import "xy-button";
+@import "xy-input";
 
 @import "utils";
 body > .el-container {

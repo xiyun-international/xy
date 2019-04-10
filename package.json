@@ -10,12 +10,16 @@
     "diff": "lerna diff",
     "bootstrap": "lerna bootstrap",
     "lint": "eslint --ext .js packages",
-    "publish": "npm test && ./scripts/publish.js"
+    "publish": "npm test && ./scripts/publish.js",
+    "build:theme": "gulp --gulpfile ./packages/ui/gulpfile.js"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-vue": "^5.2.2",
     "lerna": "^3.11.1",
     "lerna-changelog": "^0.8.2"
   }
