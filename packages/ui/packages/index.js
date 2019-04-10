@@ -1,3 +1,4 @@
+import { version } from '../package.json';
 import XyTitle from './title/index';
 import XyTitleIcon from './title-icon/index';
 import XyWrapper from './wrapper/index';
@@ -20,10 +21,6 @@ const install = (Vue) => {
   components.forEach((component) => {
     Vue.component(component.name, component);
   });
-
-  // Vue.prototype.$XYUI = {
-  //   size: opts.size || '',
-  // };
 };
 
 // auto install
@@ -31,8 +28,8 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 
-const API = {
-  version: '1.0.0',
+export {
+  version,
   install,
   XyTitle,
   XyTitleIcon,
@@ -43,4 +40,7 @@ const API = {
   XyVerification,
 };
 
-export default API;
+export default {
+  version,
+  install,
+};
