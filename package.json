@@ -11,7 +11,7 @@
     "bootstrap": "lerna bootstrap",
     "lint": "eslint --ext .js packages",
     "publish": "npm test && ./scripts/publish.js",
-    "build:theme": "gulp --gulpfile ./packages/ui/gulpfile.js"
+    "build:theme": "gulp --gulpfile ./packages/ui/theme/gulpfile.js"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

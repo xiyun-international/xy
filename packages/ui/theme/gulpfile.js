@@ -12,11 +12,11 @@ function defaultTask() {
       cascade: false
     }))
     .pipe(cssmin())
-    .pipe(gulp.dest("./lib/"));
+    .pipe(gulp.dest("../lib/"));
 }
 
 function pipFonts() {
-  return gulp.src('./fonts/xy.*').pipe(gulp.dest('./lib/fonts/'));
+  return gulp.src('./fonts/xy.*').pipe(gulp.dest('../lib/fonts/'));
 }
 
 exports.pipFonts = pipFonts;

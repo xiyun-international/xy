@@ -1,5 +1,2 @@
 # ignore unnecessary files
-fonts/
-layout/
-styles/
-gulpfile.js
+theme/
