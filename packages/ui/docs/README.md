@@ -11,14 +11,14 @@ npm install @xy/ui
 
 ```js
 // 引用样式
-import 'xy-vue-ui/lib/index.css';
+import '@xy/ui/lib/index.css';
 
 // 引用 UI 组件库
 import Vue from 'vue';
-import XyVueUI from 'xy-vue-ui';
+import XyUI from '@xy/ui';
 
 // 使用组件库
-Vue.use(XyVueUI)
+Vue.use(XyUI)
 
 new Vue().$mount('#app')
 ```

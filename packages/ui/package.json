@@ -6,10 +6,11 @@
   "license": "MIT",
   "repository": "http://github.com/xy-tools/xy/tree/master/packages/ui",
   "scripts": {
-    "build": "yarn build:ui && yarn build:theme",
+    "build": "npm run build:ui && npm run build:theme && npm run docs:build",
     "build:theme": "gulp --gulpfile ./theme/gulpfile.js",
     "build:ui": "vue-cli-service build --no-clean --dest lib --target lib --name xy-ui ./packages/index.js",
-    "docs:dev": "vuepress dev docs"
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
