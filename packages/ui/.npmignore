@@ -2,3 +2,5 @@
 theme/
 packages/
 docs/
+vue.config.js
+yarn.lock
