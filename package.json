@@ -10,8 +10,7 @@
     "diff": "lerna diff",
     "bootstrap": "lerna bootstrap",
     "lint": "eslint --ext .js packages",
-    "publish": "npm test && ./scripts/publish.js",
-    "build:theme": "gulp --gulpfile ./packages/ui/theme/gulpfile.js"
+    "publish": "npm test && ./scripts/publish.js"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

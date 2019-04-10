@@ -1,2 +1,4 @@
 # ignore unnecessary files
 theme/
+packages/
+docs/
