@@ -63,3 +63,6 @@ typings/
 
 # webStorm
 .idea/
+
+# build files
+packages/ui/lib/
