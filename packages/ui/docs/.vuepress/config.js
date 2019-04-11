@@ -24,8 +24,8 @@ module.exports = {
         title: '业务组件',
         collapsable: false,
         children: getComponentsPath([
-          'transfer',
-          'frame',
+          // 'transfer',
+          // 'frame',
           'timeline',
           'table-tree',
           'countdown',

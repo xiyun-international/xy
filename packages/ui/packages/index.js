@@ -1,17 +1,15 @@
 import { version } from '../package.json';
 import XyTitle from './title/index';
-import XyTitleIcon from './title-icon/index';
 import XyWrapper from './wrapper/index';
-import XyTimeLine from './time-line/index';
+import XyTimeline from './time-line/index';
 import XyCountdownButton from './countdown-button/index';
 import XySensText from './sens-text/index';
 import XyVerification from './verification/index';
 
 const components = [
   XyTitle,
-  XyTitleIcon,
   XyWrapper,
-  XyTimeLine,
+  XyTimeline,
   XyCountdownButton,
   XySensText,
   XyVerification,
@@ -32,9 +30,8 @@ export {
   version,
   install,
   XyTitle,
-  XyTitleIcon,
   XyWrapper,
-  XyTimeLine,
+  XyTimeline,
   XyCountdownButton,
   XySensText,
   XyVerification,

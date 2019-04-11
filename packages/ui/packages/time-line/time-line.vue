@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline">
+  <div class="xy-timeline">
     <div class="left" :style="{width: leftWidth}">
       <slot name="left"></slot>
     </div>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'XyTimeLine',
+  name: 'XyTimeline',
   props: {
     leftWidth: {
       default: '0',
@@ -66,35 +66,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-  .timeline {
-    display: flex;
-    height: 100%;
-    font-size: 14px;
-    p {
-      margin: 0;
-    }
-    .left {
-      text-align: right;
-      margin-right: 10px;
-      margin-bottom: 23px;
-    }
-    .middle {
-      width: 14px;
-      position: relative;
-      .line {
-        width: 0;
-        border: 1px solid #e6e6e6;
-        height: 100%;
-        margin: -14px auto 0;
-      }
-    }
-    .right {
-      width: 100%;
-      margin-left: 10px;
-      margin-bottom: 23px;
-    }
-  }
-
-</style>
