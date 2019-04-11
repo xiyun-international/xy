@@ -27,7 +27,7 @@ module.exports = {
           // 'transfer',
           // 'frame',
           'timeline',
-          'table-tree',
+          // 'table-tree',
           'countdown',
           'sens-text',
           'verification',

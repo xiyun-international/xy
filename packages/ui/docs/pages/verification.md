@@ -42,14 +42,12 @@ export default {
 #### 代码示例
 
 ```html
-<div style="margin-top: 10px;">
-  <xy-verification
-    telephone="13800000831"
-    @sendCode="sendCode"
-    :is-send-code.sync="isSendCode"
-    @verifyCode="verifyCode"
-  />
-</div>
+<xy-verification
+  telephone="13800000831"
+  @sendCode="sendCode"
+  :is-send-code.sync="isSendCode"
+  @verifyCode="verifyCode"
+/>
 ```
 
 ```javascript

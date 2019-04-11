@@ -73,10 +73,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-  .custom-button {
-    border: 1px solid #20a0ff;
-    color: #20a0ff;
-  }
-</style>
