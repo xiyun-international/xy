@@ -1,0 +1,30 @@
+.xy-input {
+  position: relative;
+  font-size: 14px;
+  display: inline-block;
+  width: 100%;
+}
+.xy-input .xy-input__inner {
+  /*cursor: pointer;*/
+  background-color: #fff;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #606266;
+  display: inline-block;
+  font-size: inherit;
+  height: 40px;
+  line-height: 40px;
+  outline: none;
+  padding: 0 15px;
+  transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 100%;
+  -webkit-appearance: none;
+}
+.xy-input__inner:focus {
+  outline: none;
+  border-color: #409eff;
+}
+.xy-input__inner:hover {
+  border-color: #c0c4cc;
+}

@@ -1,0 +1,7 @@
+# ignore unnecessary files
+theme/
+packages/
+docs/
+dist/
+vue.config.js
+yarn.lock
