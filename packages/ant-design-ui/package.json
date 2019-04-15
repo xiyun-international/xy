@@ -1,14 +1,14 @@
 {
-  "name": "@xy/ui",
+  "name": "@xiyun/ant-design-vue-ui",
   "version": "1.0.0",
-  "main": "./lib/xy-ui.common.js",
+  "main": "./lib/xy-ant-design-ui.common.js",
   "style": "./lib/index.css",
   "license": "MIT",
   "repository": "http://github.com/xy-tools/xy/tree/master/packages/ui",
   "scripts": {
     "build": "npm run build:ui && npm run build:theme && npm run docs:build",
     "build:theme": "gulp --gulpfile ./theme/gulpfile.js",
-    "build:ui": "vue-cli-service build --no-clean --dest lib --target lib --name xy-ui ./packages/index.js",
+    "build:ui": "vue-cli-service build --no-clean --dest lib --target lib --name xy-ant-design-ui ./packages/index.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
