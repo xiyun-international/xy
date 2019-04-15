@@ -1,0 +1,29 @@
+{
+  "name": "@xy/library",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "authors": [
+    "wubaiqing <wubaiqing@vip.qq.com> (https://github.com/wubaiqing)"
+  ],
+  "bin": {
+    "umi-library": "./bin/umi-library.js",
+    "umi-lib": "./bin/umi-library.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-decorators": "^7.4.0",
+    "@babel/plugin-proposal-do-expressions": "^7.2.0",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "rollup": "^1.10.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-replace": "^2.2.0",
+    "yargs-parser": "^13.0.0"
+  }
+}
