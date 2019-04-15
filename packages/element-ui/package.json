@@ -12,17 +12,15 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "dependencies": {
-    "element-ui": "^2.7.2",
-    "lodash": "^4.17.11"
-  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-service": "^3.5.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-component": "^1.1.1",
     "core-js": "^2.6.5",
+    "element-ui": "^2.7.2",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "gulp": "^4.0.0",
@@ -30,6 +28,7 @@
     "gulp-cssmin": "^0.2.0",
     "gulp-sass": "^4.0.2",
     "lint-staged": "^8.1.4",
+    "lodash": "^4.17.11",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.6.6",
