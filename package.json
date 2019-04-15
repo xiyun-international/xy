@@ -6,20 +6,31 @@
   ],
   "scripts": {
     "test": "lerna run test",
+    "build": "./scripts/build.js",
+    "debug": "./packages/test/bin/xy-test.js",
     "new-version": "lerna version",
     "diff": "lerna diff",
     "bootstrap": "lerna bootstrap",
     "lint": "eslint --ext .js packages",
     "publish": "npm test && ./scripts/publish.js"
   },
+  "lint-staged": {
+    "*.(t|j)s": [
+      "prettier --trailing-comma all --single-quote --write",
+      "git add"
+    ]
+  },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-import": "^2.17.1",
     "eslint-plugin-vue": "^5.2.2",
+    "husky": "^1.3.1",
     "lerna": "^3.11.1",
-    "lerna-changelog": "^0.8.2"
+    "lerna-changelog": "^0.8.2",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.17.0"
   }
 }
