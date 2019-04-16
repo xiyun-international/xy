@@ -1,21 +1,22 @@
 <template>
-  <div class="contextGrid">
+  <div class="xy-context-grid">
     <div class="breadcrumb">
       <a-breadcrumb>
-        <a-breadcrumb-item :key="-1">
-          <a href="#/">渠道商中心</a>
-        </a-breadcrumb-item>
-        <a-breadcrumb-item v-for="item in breadcrumb" :key="item.name">
-          <router-link :to="item.path" v-if="item.path">
+        <a-breadcrumb-item v-for="(item, index) in breadcrumb" :key="item.name">
+          <a
+            href="#/"
+            v-if="index === 0 && (item.path === undefined || item.path === '')"
+          >{{ item.name }}</a>
+          <router-link :to="item.path" v-else-if="item.path">
             {{ item.name }}
           </router-link>
           <span v-else>{{ item.name }}</span>
         </a-breadcrumb-item>
       </a-breadcrumb>
     </div>
-    <div class="titleGrid">
+    <div class="xy-title-grid">
       <div class="title">
-        <div />
+        <div></div>
         {{ titleName }}
       </div>
       <div style="margin: 4px auto auto 8px">
@@ -24,11 +25,11 @@
         </span>
       </div>
       <div>
-        <slot name="right"> </slot>
+        <slot name="right"></slot>
       </div>
     </div>
     <div>
-      <slot />
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -77,7 +78,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .contextGrid {
+  .xy-context-grid {
     .breadcrumb {
       font-size: 12px;
       display: flex;
@@ -86,7 +87,7 @@ export default {
       padding-bottom: 22px;
       border-bottom: 1px solid #e6e6e6;
     }
-    .titleGrid {
+    .xy-title-grid {
       margin-top: 30px;
       margin-bottom: 30px;
       display: flex;

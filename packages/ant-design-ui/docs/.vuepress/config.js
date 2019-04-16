@@ -18,6 +18,7 @@ module.exports = {
         children: getComponentsPath([
           'title',
           'wrapper',
+          'context',
         ])
       },
       {
