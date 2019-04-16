@@ -1,29 +1,38 @@
 {
   "name": "@xy/library",
   "version": "1.0.0",
-  "main": "index.js",
+  "typings": "./index.d.ts",
+  "main": "lib/index.js",
+  "bin": {
+    "xy-lib": "./bin/library.js"
+  },
+  "scripts": {
+    "build": "umi-tools build"
+  },
+  "dependencies": {
+    "ajv": "^6.10.0",
+    "chalk": "^2.4.2",
+    "eslint": "^5.15.1",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-less": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "lerna": "^3.11.1",
+    "np": "^4.0.2",
+    "signale": "^1.4.0",
+    "yargs-parser": "^13.0.0"
+  },
+  "devDependencies": {
+    "umi-tools": "^0.4.0"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "src"
+  ],
   "license": "MIT",
   "authors": [
     "wubaiqing <wubaiqing@vip.qq.com> (https://github.com/wubaiqing)"
-  ],
-  "bin": {
-    "umi-library": "./bin/umi-library.js",
-    "umi-lib": "./bin/umi-library.js"
-  },
-  "dependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/plugin-proposal-decorators": "^7.4.0",
-    "@babel/plugin-proposal-do-expressions": "^7.2.0",
-    "@babel/plugin-proposal-export-default-from": "^7.2.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "rollup": "^1.10.0",
-    "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-node-resolve": "^4.2.3",
-    "rollup-plugin-replace": "^2.2.0",
-    "yargs-parser": "^13.0.0"
-  }
+  ]
 }
