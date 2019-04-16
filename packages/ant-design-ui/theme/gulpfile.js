@@ -1,12 +1,12 @@
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const cssmin = require('gulp-cssmin');
-const sass = require('gulp-sass');
+const less = require('gulp-less');
 
 function defaultTask() {
   return gulp
-    .src('./styles/index.scss')
-    .pipe(sass().on('error', sass.logError))
+    .src('./styles/index.less')
+    .pipe(less())
     .pipe(autoprefixer({
       browsers: ['ie > 9', 'last 2 versions'],
       cascade: false,
