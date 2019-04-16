@@ -13,8 +13,8 @@ if (args.v || args.version) {
 }
 
 switch (args._[0]) {
-  case 'build':
-    require('../lib/build').default({
+  case 'theme':
+    require('../lib/gulp').default({
       cwd,
     }).catch(e => {
       signale.error(e);

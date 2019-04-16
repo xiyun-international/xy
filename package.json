@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "test": "lerna run test",
-    "build": "./scripts/build.js",
+    "build": "xy-lib theme",
     "debug": "./packages/test/bin/xy-test.js",
     "new-version": "lerna version",
     "diff": "lerna diff",
