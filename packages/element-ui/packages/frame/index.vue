@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import _ from 'lodash';
+import { debounce } from 'lodash';
 
 export default {
-  name: 'xy-frame',
+  name: 'XyFrame',
   props: ['url'],
   data() {
     return {
@@ -46,7 +46,7 @@ export default {
        * 监听滚动屏幕
        */
     listenerBodyEvent() {
-      document.body.onscroll = _.debounce(() => {
+      document.body.onscroll = debounce(() => {
         const top = document.documentElement.scrollTop;
         window.frames[0].postMessage(
           {

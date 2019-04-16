@@ -7,25 +7,25 @@
 
 <script>
 export default {
-  name: "XyTitle",
+  name: 'XyTitle',
   props: {
     first: {
       type: Boolean,
-      default: false
+      default: false,
     },
     section: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     sectionClass() {
-      return this.section ? "section show-section" : "section hide-section";
+      return this.section ? 'section show-section' : 'section hide-section';
     },
     titleClass() {
-      return this.first ? "xy-title first" : "xy-title no-first";
-    }
-  }
+      return this.first ? 'xy-title first' : 'xy-title no-first';
+    },
+  },
 };
 </script>
 

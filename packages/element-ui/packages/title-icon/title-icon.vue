@@ -20,12 +20,12 @@ export default {
   font-size: 18px;
   .prefix-icon {
     width: 6px;
-    height: 16px;
+    height: 18px;
     display: block;
     float: left;
     background: #5ca0fc;
-    margin-right: 10px;
-    margin-top: 1px;
+    margin-right: 8px;
+    margin-top: 3px;
   }
   .context {
     display: block;

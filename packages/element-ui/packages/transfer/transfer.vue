@@ -40,7 +40,8 @@
 </template>
 
 <script>
-import lodash from 'lodash';
+// eslint-disable-next-line
+import { cloneDeep, findIndex, differenceWith } from 'lodash';
 import XyTransferPanel from './transferPanel.vue';
 
 export default {
@@ -89,34 +90,34 @@ export default {
   },
   mounted() {
     const translateValue = this.translateValue(this.data, this.value);
-    const bySourceData = lodash.cloneDeep(this.data);
+    const bySourceData = cloneDeep(this.data);
     this.sourceData = this.getFilterData(bySourceData, translateValue, 'source');
-    const byTargetData = lodash.cloneDeep(this.data);
+    const byTargetData = cloneDeep(this.data);
     this.targetData = this.getFilterData(byTargetData, translateValue, 'target');
   },
   watch: {
     data(val) {
       if (val) {
         const translateValue = this.translateValue(val, this.value);
-        const bySourceData = lodash.cloneDeep(val);
+        const bySourceData = cloneDeep(val);
         this.sourceData = this.getFilterData(bySourceData, translateValue, 'source');
-        const byTargetData = lodash.cloneDeep(val);
+        const byTargetData = cloneDeep(val);
         this.targetData = this.getFilterData(byTargetData, translateValue, 'target');
       }
     },
     value(val) {
       if (val) {
         const translateValue = this.translateValue(this.data, val);
-        const bySourceData = lodash.cloneDeep(this.data);
+        const bySourceData = cloneDeep(this.data);
         this.sourceData = this.getFilterData(bySourceData, translateValue, 'source');
-        const byTargetData = lodash.cloneDeep(this.data);
+        const byTargetData = cloneDeep(this.data);
         this.targetData = this.getFilterData(byTargetData, translateValue, 'target');
       }
     },
     targetData(val) {
       const nodeArr = [];
       this.getAllNodeData(val, nodeArr);
-      // this.$emit('change', lodash.map(nodeArr, this.props.key));
+      // this.$emit('change', map(nodeArr, this.props.key));
       this.$emit('change', nodeArr);
     },
   },
@@ -148,7 +149,7 @@ export default {
         if (this.props.children in item) {
           this.translateValueData(item[this.props.children], value, outputData);
         } else {
-          const isFind = lodash.findIndex(value, v => item[this.props.key] === v);
+          const isFind = findIndex(value, v => item[this.props.key] === v);
           if (isFind !== -1) {
             outputData.push(item);
           }
@@ -172,12 +173,13 @@ export default {
           if (item[this.props.children].length) {
             const childrenItem = this.getFilterData(item[this.props.children], value, type);
             if (childrenItem.length) {
+              // eslint-disable-next-line
               item[this.props.children] = childrenItem;
               newData.push(item);
             }
           }
         } else {
-          const isFind = lodash.findIndex(value, v => item[this.props.key] === v[this.props.key]);
+          const isFind = findIndex(value, v => item[this.props.key] === v[this.props.key]);
           const filter = type === 'source' ? isFind === -1 : isFind !== -1;
           if (filter) {
             newData.push(item);
@@ -187,12 +189,12 @@ export default {
       return newData;
     },
     toRight() {
-      const bySourceData = lodash.cloneDeep(this.data);
+      const bySourceData = cloneDeep(this.data);
       const curTargetArr = [];
       this.getAllNodeData(this.targetData, curTargetArr);
       const sourceData = this.getFilterData(bySourceData, this.leftChecked.concat(curTargetArr), 'source');
 
-      const byTargetData = lodash.cloneDeep(this.data);
+      const byTargetData = cloneDeep(this.data);
       const targetData = this.getFilterData(byTargetData, this.leftChecked.concat(curTargetArr), 'target');
 
       this.sourceData = sourceData;
@@ -202,12 +204,12 @@ export default {
       let curTargetArr = [];
       this.getAllNodeData(this.targetData, curTargetArr);
       // 跟选中的节点做差集
-      curTargetArr = lodash.differenceWith(curTargetArr, this.rightChecked);
+      curTargetArr = differenceWith(curTargetArr, this.rightChecked);
 
-      const bySourceData = lodash.cloneDeep(this.data);
+      const bySourceData = cloneDeep(this.data);
       const sourceData = this.getFilterData(bySourceData, curTargetArr, 'source');
 
-      const byTargetData = lodash.cloneDeep(this.data);
+      const byTargetData = cloneDeep(this.data);
       const targetData = this.getFilterData(byTargetData, curTargetArr, 'target');
       this.sourceData = sourceData;
       this.targetData = targetData;

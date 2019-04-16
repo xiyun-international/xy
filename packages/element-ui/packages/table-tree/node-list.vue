@@ -3,12 +3,14 @@
     <el-row class="item">
       <el-col :span="columnSpan[0]" class="left-column pl16">
         <template v-if="isShowLv1Form">
-          <el-button type="primary" size="mini" @click="addNode">新增一级</el-button>
+          <el-button type="primary" size="mini" @click="addNode">新增子级</el-button>
         </template>
         <!--展示label-->
         <template v-else>
-          <span :style="computeMargin">
-            {{getNodeLabel}}
+          <span @click.stop="handleClick" :class="isPointer" :style="computeMargin">
+            <i v-if="!isLeaf" :class="iconClass"></i>
+            <i v-else class="xy-white-place"></i>
+            <span class="xy-no-select">{{getNodeLabel}}</span>
           </span>
         </template>
       </el-col>
@@ -43,31 +45,43 @@
     </el-row>
 
     <!--满足条件时递归调用本身-->
-    <template v-if="isRecursive">
+    <div v-if="isRecursive" v-show="expanded">
       <node-list
-        v-for="(item, index) in nodeData[mapFields.nodeChildren]"
+        v-for="(item, index) in nodeData[props.children]"
         :key="index"
         :columnSpan="columnSpan"
         :treeData="item"
-        :fieldsMapping="fieldsMapping"
+        :props="props"
         :maxLevel="maxLevel"
         :parentNode="nodeData"
         :on-add="onAdd"
         :onRename="onRename"
         :onDelete="onDelete"
+        :is-lv1="false"
+        :lv="level + 1"
       ></node-list>
-    </template>
+    </div>
 
   </div>
 
 </template>
 
 <script>
-import lodash from 'lodash';
+import { isEmpty } from 'lodash';
 
 export default {
   name: 'NodeList',
   props: {
+    props: {
+      type: Object,
+      default() {
+        return {
+          label: 'label',
+          id: 'id',
+          children: 'children',
+        };
+      },
+    },
     columnSpan: {
       type: Array,
       default() {
@@ -75,12 +89,6 @@ export default {
       },
     },
     treeData: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
-    fieldsMapping: {
       type: Object,
       default() {
         return {};
@@ -122,11 +130,25 @@ export default {
         return {};
       },
     },
+    isLv1: {
+      type: Boolean,
+      default() {
+        return true
+      },
+    },
+    lv: {
+      type: Number,
+      default() {
+        return 1
+      },
+    },
   },
   data() {
     return {
-      mapFields: {}, // 字段映射
       nodeData: {}, // 用于接收 treeData 数据
+      childNodeRendered: true,
+      expanded: true,
+      level: this.lv,
       form: {
         curLabel: '',
       },
@@ -138,8 +160,9 @@ export default {
      */
     isRecursive() {
       return (
-        this.mapFields.nodeChildren in this.nodeData &&
-        this.nodeData[this.mapFields.nodeChildren].length
+        this.childNodeRendered &&
+        this.props.children in this.nodeData &&
+        this.nodeData[this.props.children].length
       );
     },
 
@@ -147,7 +170,7 @@ export default {
      * 校验是否是第一级
      */
     isLevel1() {
-      return lodash.isEmpty(this.parentNode);
+      return isEmpty(this.parentNode);
     },
 
     /**
@@ -155,7 +178,7 @@ export default {
      * @returns {boolean}
      */
     isMaxLevel() {
-      return this.nodeData[this.mapFields.nodeLevel] >= this.maxLevel;
+      return this.level >= this.maxLevel;
     },
 
     /**
@@ -163,9 +186,10 @@ export default {
      * @returns {*}
      */
     getNodeLabel() {
-      if (this.nodeData[this.mapFields.nodeLevel] > 1)
-        return `|—${this.nodeData[this.mapFields.nodeName]}`;
-      return this.nodeData[this.mapFields.nodeName];
+      if ('amount' in this.nodeData) {
+        return `${this.nodeData[this.props.label]}（${this.nodeData.amount}）`
+      }
+      return this.nodeData[this.props.label];
     },
 
     /**
@@ -173,7 +197,7 @@ export default {
      * @returns {{marginLeft: string}}
      */
     computeMargin() {
-      return { marginLeft: `${20 * (this.nodeData[this.mapFields.nodeLevel] - 1)}px` };
+      return { marginLeft: `${12 * (this.level - 1)}px` };
     },
 
     /**
@@ -189,23 +213,44 @@ export default {
     isNoData() {
       return Object.keys(this.nodeData).length === 0;
     },
+    /**
+     * 切换icon
+     */
+    iconClass() {
+      if (!this.expanded) {
+        return 'el-icon-caret-right'
+      }
+      return 'el-icon-caret-bottom'
+    },
+    isLeaf() {
+      if (this.props.children in this.nodeData) {
+        return this.nodeData[this.props.children].length === 0;
+      }
+      return true;
+    },
+    isPointer() {
+      return this.isLeaf ? 'xy-default' : 'xy-label-item';
+    }
   },
-  created() {
-    this.mapFields = {
-      nodeName: this.fieldsMapping.nodeName || 'nodeName',
-      nodeId: this.fieldsMapping.nodeId || 'nodeId',
-      nodeLevel: this.fieldsMapping.nodeLevel || 'nodeLevel',
-      nodeChildren: this.fieldsMapping.nodeChildren || 'nodeChildren',
-    };
-
+  mounted() {
     this.nodeData = this.treeData;
   },
   watch: {
     treeData(data) {
       this.nodeData = data;
     },
+    expanded(val) {
+      if (val) {
+        this.childNodeRendered = true;
+      }
+    }
   },
   methods: {
+    handleClick() {
+      const children = this.nodeData[this.props.children];
+      if (children === undefined || children.length === 0) return;
+      this.expanded = !this.expanded;
+    },
     /**
      * 重命名节点
      */
@@ -231,13 +276,10 @@ export default {
       }).then(() => {
         // 如果还有子级就不允许删除
         if (
-          this.mapFields.nodeChildren in this.nodeData &&
-          this.nodeData[this.mapFields.nodeChildren].length
+          this.props.children in this.nodeData &&
+          this.nodeData[this.props.children].length
         ) {
           this.$message.error('请先删除节点下的子级！');
-          // this.$alert('该节点下还有子级，请先删除它们！', '提示', {
-          //   confirmButtonText: '确定',
-          // });
         } else {
           this.onDelete(this.nodeData);
         }
@@ -253,7 +295,6 @@ export default {
 .pl16 {
   padding-left: 16px;
 }
-
 .item {
   /*height: 40px;*/
   line-height: 40px;
@@ -262,12 +303,24 @@ export default {
   color: #1f2d3d;
   font-size: 12px;
 }
-
+.xy-label-item {
+  cursor: pointer;
+}
+.xy-default {
+  cursor: default;
+}
 .right-column {
   border-left: 1px solid #dfe6ec;
   font-size: 12px;
 }
-
+.xy-no-select {
+  user-select: none;
+}
+.xy-white-place {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+}
 .split {
   color: #e4e4e4;
 }

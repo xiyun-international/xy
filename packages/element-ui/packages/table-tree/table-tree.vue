@@ -11,18 +11,37 @@
     <node-list
       :columnSpan="columnSpan"
       :treeData="treeData"
-      :fieldsMapping="fieldsMapping"
+      :props="props"
       :maxLevel="maxLevel"
       :showLv1Form="showLv1Form"
-      :on-create="onCreate"
       :on-rename="onRename"
       :on-delete="onDelete"
+      :on-add="onAdd"
     ></node-list>
+
+
+    <el-dialog
+      :title="getTitle"
+      :visible.sync="dialogVisible"
+      width="40%"
+      :before-close="handleDialogClose"
+      @close="resetData"
+    >
+      <el-form ref="dialogForm" :model="form" :rules="validator" label-width="80px">
+        <el-form-item prop="name" :label="formLabel">
+          <el-input v-model="form.name" :placeholder="inputPlaceholder"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="resetData">取 消</el-button>
+        <el-button type="primary" @click="handleOk">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
 <script>
-import NodeList from './nodeList.vue';
+import NodeList from './node-list.vue';
 
 export default {
   name: 'XyTableTree',
@@ -30,6 +49,16 @@ export default {
     NodeList,
   },
   props: {
+    props: {
+      type: Object,
+      default() {
+        return {
+          label: 'label',
+          id: 'id',
+          children: 'children',
+        };
+      },
+    },
     columnName: {
       type: String,
       default() {
@@ -48,17 +77,6 @@ export default {
         return {};
       },
     },
-    fieldsMapping: {
-      type: Object,
-      default() {
-        return {
-          nodeName: 'nodeName',
-          nodeId: 'nodeId',
-          nodeLevel: 'nodeLevel',
-          nodeChildren: 'nodeChildren',
-        };
-      },
-    },
     maxLevel: {
       type: Number,
       default() {
@@ -71,23 +89,105 @@ export default {
         return false;
       },
     },
-    onCreate: {
-      type: Function,
+    formLabel: {
+      type: String,
       default() {
-        return {};
+        return '名称：';
       },
     },
-    onRename: {
-      type: Function,
+    inputPlaceholder: {
+      type: String,
       default() {
-        return {};
+        return '请输入';
       },
     },
-    onDelete: {
-      type: Function,
+    addTitle: {
+      type: String,
       default() {
-        return {};
+        return '新增下级';
       },
+    },
+    editTitle: {
+      type: String,
+      default() {
+        return '编辑';
+      },
+    },
+    rules: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
+  },
+  data() {
+    return {
+      isAdd: true,
+      dialogVisible: false,
+      node: {},
+      form: {
+        name: '',
+      },
+      validator: {
+        name: this.rules,
+      },
+    };
+  },
+  computed: {
+    getTitle() {
+      return this.isAdd ? this.addTitle : this.editTitle;
+    },
+  },
+  methods: {
+    resetData() {
+      this.node = {};
+      this.dialogVisible = false;
+      // 移除错误提示
+      this.$refs.dialogForm.resetFields();
+      // 解决reset把赋值当成初始值的问题
+      this.form.name = '';
+    },
+    handleOk() {
+      if (this.isAdd) {
+        this.onCreate();
+      } else {
+        this.onUpdate();
+      }
+    },
+    handleDialogClose(done) {
+      this.resetData();
+      done();
+    },
+    onAdd(node) {
+      this.isAdd = true;
+      this.node = node;
+      this.dialogVisible = true;
+    },
+    onCreate() {
+      this.$refs.dialogForm.validate((valid) => {
+        if (valid) {
+          this.$emit('on-create', this.node, this.form.name);
+          this.resetData();
+        }
+      });
+    },
+    onRename(node) {
+      this.isAdd = false;
+      this.dialogVisible = true;
+      this.node = node;
+      this.form.name = node[this.props.label];
+    },
+    onUpdate() {
+      this.$refs.dialogForm.validate((valid) => {
+        if (valid) {
+          this.$emit('on-update', this.node, this.form.name);
+          this.resetData();
+        }
+      });
+    },
+    onDelete(node) {
+      this.$emit('on-delete', node);
+      this.resetData();
     },
   },
 };
