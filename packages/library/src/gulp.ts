@@ -10,11 +10,7 @@ export default async function(opts: IOpts) {
   const { cwd } = opts;
   if (isLerna(cwd)) {
     const dirs = readdirSync(join(cwd, "packages"));
-    dirs.forEach(pkg => {
-      build(`./packages/${pkg}`, {
-        cwd
-      });
-    });
+    dirs.forEach(pkg => build(`./packages/${pkg}`, { cwd }));
   } else {
     build("./", {
       cwd
@@ -31,6 +27,7 @@ export async function build(dir: any, opts: IOpts) {
 
   // 编译 Gulp
   if (existsSync(themeDir)) {
+    // Todo: 改造成 .xy.library.js
     const type = themeDir.indexOf("element-ui") === -1 ? "less" : "scss";
 
     buildCss(type, {
