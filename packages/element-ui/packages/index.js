@@ -9,6 +9,7 @@ import XyTitleIcon from './title-icon';
 import XyTableTree from './table-tree';
 import XyTransfer from './transfer';
 import XyFrame from './frame';
+import XySelectPanel from './select-panel';
 
 const components = [
   XyTitle,
@@ -21,6 +22,7 @@ const components = [
   XyTableTree,
   XyTransfer,
   XyFrame,
+  XySelectPanel,
 ];
 
 const install = (Vue) => {
@@ -47,6 +49,7 @@ export {
   XyTableTree,
   XyTransfer,
   XyFrame,
+  XySelectPanel,
 };
 
 export default {
