@@ -1,3 +1,7 @@
-import CountdownButton from './index.vue';
+import XyCountdownButton from './index.vue';
 
-export default CountdownButton;
+XyCountdownButton.install = function (Vue) {
+  Vue.component(XyCountdownButton.name, XyCountdownButton);
+};
+
+export default XyCountdownButton;

@@ -1,3 +1,7 @@
-import transfer from './transfer.vue';
+import XyTransfer from './transfer.vue';
 
-export default transfer;
+XyTransfer.install = function (Vue) {
+  Vue.component(XyTransfer.name, XyTransfer);
+};
+
+export default XyTransfer;
