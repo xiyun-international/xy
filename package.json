@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "test": "lerna run test",
-    "build": "./scripts/build.js",
+    "build": "xy-lib theme",
     "debug": "./packages/test/bin/xy-test.js",
     "new-version": "lerna version",
     "diff": "lerna diff",
@@ -26,11 +26,15 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.17.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-vue": "^5.2.2",
     "husky": "^1.3.1",
     "lerna": "^3.11.1",
     "lerna-changelog": "^0.8.2",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0"
+  },
+  "dependencies": {
+    "umi-tools": "^0.4.0"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@xiyun/ant-design-vue-ui",
+  "name": "@xiyun/ant-design-ui",
   "version": "1.0.0",
   "main": "./lib/xy-ant-design-ui.common.js",
   "style": "./lib/index.css",
