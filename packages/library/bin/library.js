@@ -21,6 +21,14 @@ switch (args._[0]) {
       process.exit(1);
     });
     break;
+  case 'component':
+    require('../lib/gulp').default({
+      cwd,
+    }).catch(e => {
+      signale.error(e);
+      process.exit(1);
+    });
+    break;
   default:
     signale.error(chalk.red(`Unsupported command ${args._[0]}`))
     break;

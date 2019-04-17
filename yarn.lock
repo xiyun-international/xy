@@ -2892,7 +2892,7 @@
     eslint "^4.19.1"
     eslint-plugin-vue "^4.7.1"
 
-"@vue/cli-service@^3.5.0":
+"@vue/cli-service@^3.5.0", "@vue/cli-service@^3.6.0":
   version "3.6.0"
   resolved "http://r.cnpmjs.org/@vue/cli-service/download/@vue/cli-service-3.6.0.tgz#3b76d4229a9bea9020ea0a4d0cda03402ed334eb"
   integrity sha1-O3bUIpqb6pAg6gpNDNoDQC7TNOs=
