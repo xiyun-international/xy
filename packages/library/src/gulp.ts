@@ -12,10 +12,12 @@ export default async function(opts: IOpts) {
     const dirs = readdirSync(join(cwd, "packages"));
     dirs.forEach(pkg => build(`./packages/${pkg}`, { cwd }));
   } else {
-    build("./", {
-      cwd
-    });
+    build("./", { cwd });
   }
+}
+
+function isLerna(cwd) {
+  return existsSync(join(cwd, "lerna.json"));
 }
 
 export async function build(dir: any, opts: IOpts) {
@@ -50,6 +52,3 @@ export async function build(dir: any, opts: IOpts) {
   }
 }
 
-function isLerna(cwd) {
-  return existsSync(join(cwd, "lerna.json"));
-}
