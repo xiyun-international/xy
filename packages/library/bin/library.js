@@ -22,7 +22,7 @@ switch (args._[0]) {
     });
     break;
   case 'component':
-    require('../lib/gulp').default({
+    require('../lib/component').default({
       cwd,
     }).catch(e => {
       signale.error(e);
