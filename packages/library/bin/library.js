@@ -22,7 +22,7 @@ switch (args._[0]) {
     });
     break;
   case 'component':
-    require('../lib/component').default({
+    require('../lib/components').default({
       cwd,
     }).catch(e => {
       signale.error(e);
