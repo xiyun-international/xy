@@ -1,7 +1,7 @@
 {
   "name": "@xiyun/ant-design-ui",
   "version": "1.0.0",
-  "main": "./lib/xy-ant-design-ui.common.js",
+  "main": "./lib/@xiyun/ant-design-ui.umd.min.js",
   "style": "./lib/index.css",
   "license": "MIT",
   "repository": "http://github.com/xy-tools/xy/tree/master/packages/ui",

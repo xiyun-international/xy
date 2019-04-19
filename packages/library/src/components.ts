@@ -9,7 +9,9 @@ export default async function(opts: IOpts) {
   if (isLerna(cwd)) {
     const packages = join(cwd, "packages");
     const dirs = readdirSync(packages);
-    dirs.forEach(pkg => build(`./packages/${pkg}`, { cwd }));
+    dirs.forEach(pkg => {
+      build(`./packages/${pkg}`, { cwd })
+    });
   }
 }
 
@@ -45,8 +47,8 @@ export async function build(dir, opts: IOpts) {
       verbose: false,
       clean: false,
       dest: libDir,
-      target: "lib"
+      target: "lib",
+      formats: "umd-min"
     },
-    ["build", "--dest", libDir, "--target", "lib", packagesEntry]
   );
 }
