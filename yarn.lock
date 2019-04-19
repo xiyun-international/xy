@@ -2731,6 +2731,21 @@
     text-table "^0.2.0"
     webpack-log "^1.1.2"
 
+"@xiyun/tools@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@xiyun/tools/-/tools-1.0.0.tgz#662f3279fb1199fb1a6164afffbb8babddd0eace"
+  integrity sha512-XtQwUYqvDqtsa/ZpF6u7R51Aenjkk8MDIlIRM3SF9Elj+HONjTRVsRxBdprTK/cyUzALUd3d7uFWVdyudAYoOA==
+  dependencies:
+    "@vue/cli-service" "^3.6.0"
+    chalk "^2.4.2"
+    gulp "^4.0.0"
+    gulp-autoprefixer "^6.0.0"
+    gulp-cssmin "^0.2.0"
+    gulp-less "^4.0.1"
+    gulp-sass "^4.0.2"
+    signale "^1.4.0"
+    yargs-parser "^13.0.0"
+
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "http://r.cnpmjs.org/@xtuc/ieee754/download/@xtuc/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
