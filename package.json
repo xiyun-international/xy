@@ -6,9 +6,9 @@
   ],
   "scripts": {
     "test": "lerna run test",
-    "build": "xy-lib theme",
-    "build:theme": "xy-lib theme",
-    "build:component": "xy-lib component",
+    "build": "xy-tools theme && xy-tools component",
+    "build:theme": "xy-tools theme",
+    "build:component": "xy-tools component",
     "debug": "./packages/test/bin/xy-test.js",
     "new-version": "lerna version",
     "diff": "lerna diff",
@@ -34,6 +34,7 @@
     "lerna": "^3.11.1",
     "lerna-changelog": "^0.8.2",
     "lint-staged": "^8.1.5",
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "xy-tools": "^1.0.1"
   }
 }
