@@ -1,5 +1,5 @@
 {
-  "name": "@xiyun/ant-design-ui",
+  "name": "@xiyun/ant-design-vue-ui",
   "version": "1.0.1",
   "main": "./lib/@xiyun/ant-design-ui.umd.min.js",
   "style": "./lib/index.css",
@@ -8,7 +8,7 @@
   "scripts": {
     "build": "npm run build:ui && npm run build:theme",
     "build:theme": "gulp --gulpfile ./theme/gulpfile.js",
-    "build:ui": "vue-cli-service build --no-clean --dest lib --target lib --name xy-ant-design-ui ./packages/index.js",
+    "build:ui": "vue-cli-service build --no-clean --dest lib --target lib --name xyAntdUi ./packages/index.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
