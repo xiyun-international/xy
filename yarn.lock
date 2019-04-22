@@ -15583,21 +15583,6 @@ xtend@~3.0.0:
   resolved "http://r.cnpmjs.org/xtend/download/xtend-3.0.0.tgz#5cce7407baf642cba7becda568111c493f59665a"
   integrity sha1-XM50B7r2Qsunvs2laBEcST9ZZlo=
 
-xy-tools@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/xy-tools/-/xy-tools-1.0.1.tgz#95d326364c10682a424b5b8b778bde4f941bdd7f"
-  integrity sha512-W74lQLZNVLiPUWCMYecSNzmzNZ1HGZf0kzGeyEQJxZZXYusC3AswS2He5+RoV9mSvs5vctnEjeN43gKRkUrRhQ==
-  dependencies:
-    "@vue/cli-service" "^3.6.0"
-    chalk "^2.4.2"
-    gulp "^4.0.0"
-    gulp-autoprefixer "^6.0.0"
-    gulp-cssmin "^0.2.0"
-    gulp-less "^4.0.1"
-    gulp-sass "^4.0.2"
-    signale "^1.4.0"
-    yargs-parser "^13.0.0"
-
 y18n@^3.2.1:
   version "3.2.1"
   resolved "http://r.cnpmjs.org/y18n/download/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"

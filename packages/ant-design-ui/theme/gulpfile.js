@@ -16,7 +16,7 @@ function defaultTask() {
 }
 
 function pipFonts() {
-  return gulp.src('./fonts/xy.*').pipe(gulp.dest('../lib/fonts/'));
+  return gulp.src('./styles/fonts/xy.*').pipe(gulp.dest('../lib/fonts/'));
 }
 
 exports.pipFonts = pipFonts;
