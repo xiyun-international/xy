@@ -2731,21 +2731,6 @@
     text-table "^0.2.0"
     webpack-log "^1.1.2"
 
-"@xiyun/tools@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@xiyun/tools/-/tools-1.0.0.tgz#662f3279fb1199fb1a6164afffbb8babddd0eace"
-  integrity sha512-XtQwUYqvDqtsa/ZpF6u7R51Aenjkk8MDIlIRM3SF9Elj+HONjTRVsRxBdprTK/cyUzALUd3d7uFWVdyudAYoOA==
-  dependencies:
-    "@vue/cli-service" "^3.6.0"
-    chalk "^2.4.2"
-    gulp "^4.0.0"
-    gulp-autoprefixer "^6.0.0"
-    gulp-cssmin "^0.2.0"
-    gulp-less "^4.0.1"
-    gulp-sass "^4.0.2"
-    signale "^1.4.0"
-    yargs-parser "^13.0.0"
-
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "http://r.cnpmjs.org/@xtuc/ieee754/download/@xtuc/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
@@ -3356,7 +3341,7 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   resolved "http://r.cnpmjs.org/assert-plus/download/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
   integrity sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=
 
-assert@^1.1.1:
+assert@^1.1.1, assert@^1.4.1:
   version "1.4.1"
   resolved "http://r.cnpmjs.org/assert/download/assert-1.4.1.tgz#99912d591836b5a6f5b345c0f07eefc08fc65d91"
   integrity sha1-mZEtWRg2tab1s0XA8H7vwI/GXZE=
@@ -14589,7 +14574,7 @@ upath@^1.1.1:
   resolved "http://r.cnpmjs.org/upath/download/upath-1.1.2.tgz#3db658600edaeeccbe6db5e684d67ee8c2acd068"
   integrity sha1-PbZYYA7a7sy+bbXmhNZ+6MKs0Gg=
 
-update-notifier@^2.3.0:
+update-notifier@^2.3.0, update-notifier@^2.5.0:
   version "2.5.0"
   resolved "http://r.cnpmjs.org/update-notifier/download/update-notifier-2.5.0.tgz#d0744593e13f161e406acb1d9408b72cad08aff6"
   integrity sha1-0HRFk+E/Fh5AassdlAi3LK0Ir/Y=
@@ -15582,6 +15567,23 @@ xtend@~3.0.0:
   version "3.0.0"
   resolved "http://r.cnpmjs.org/xtend/download/xtend-3.0.0.tgz#5cce7407baf642cba7becda568111c493f59665a"
   integrity sha1-XM50B7r2Qsunvs2laBEcST9ZZlo=
+
+xy-tools@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/xy-tools/-/xy-tools-0.0.1.tgz#644d762d0f901b320420169c63e587525312b090"
+  integrity sha512-n0tjzicAPY20LwZBS+ws9eJHEsZwvJu6GsNICQoswhKhGEBpfBs79g0fqlqOgIdvMPc8kraRlZ5lQBTLsWOS9A==
+  dependencies:
+    "@vue/cli-service" "^3.6.0"
+    assert "^1.4.1"
+    chalk "^2.4.2"
+    gulp "^4.0.0"
+    gulp-autoprefixer "^6.0.0"
+    gulp-cssmin "^0.2.0"
+    gulp-less "^4.0.1"
+    gulp-sass "^4.0.2"
+    signale "^1.4.0"
+    update-notifier "^2.5.0"
+    yargs-parser "^13.0.0"
 
 y18n@^3.2.1:
   version "3.2.1"

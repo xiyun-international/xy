@@ -60,7 +60,7 @@
 </template>
 
 <script type="text/babel">
-/* eslint-disable */
+// eslint-disable
 import Emitter from 'element-ui/src/mixins/emitter';
 import Focus from 'element-ui/src/mixins/focus';
 import Locale from 'element-ui/src/mixins/locale';
