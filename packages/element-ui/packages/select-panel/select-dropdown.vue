@@ -8,12 +8,7 @@
 </template>
 
 <script type="text/babel">
-<<<<<<< HEAD
-  // eslint-disable
-  import Popper from 'element-ui/src/utils/vue-popper';
-=======
 import Popper from 'element-ui/src/utils/vue-popper';
->>>>>>> fix: 去掉eslint-disable
 
 export default {
   name: 'ElSelectDropdown',
