@@ -60,16 +60,19 @@
 </template>
 
 <script type="text/babel">
+<<<<<<< HEAD
 // eslint-disable
+=======
+>>>>>>> fix: 去掉eslint-disable
 import Emitter from 'element-ui/src/mixins/emitter';
 import Focus from 'element-ui/src/mixins/focus';
 import Locale from 'element-ui/src/mixins/locale';
 import ElInput from 'element-ui/packages/input';
-import ElSelectMenu from './select-dropdown.vue';
 import Clickoutside from 'element-ui/src/utils/clickoutside';
-import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
+import { addResizeListener } from 'element-ui/src/utils/resize-event';
 import { t } from 'element-ui/src/locale';
-import { isEdge, isIE, valueEquals } from 'element-ui/src/utils/util';
+import { valueEquals } from 'element-ui/src/utils/util';
+import ElSelectMenu from './select-dropdown.vue';
 
 export default {
   mixins: [Emitter, Locale, Focus('reference')],
@@ -90,12 +93,12 @@ export default {
 
   provide() {
     return {
-      'select': this,
+      select: this,
     };
   },
 
   computed: {
-    _elFormItemSize() {
+    tmpElFormItemSize() {
       return (this.elFormItem || {}).elFormItemSize;
     },
 
@@ -106,10 +109,10 @@ export default {
 
     showClose() {
       const hasValue = this.value !== undefined && this.value !== null && this.value !== '';
-      return this.clearable &&
-        !this.selectDisabled &&
-        this.inputHovering &&
-        hasValue;
+      return this.clearable
+        && !this.selectDisabled
+        && this.inputHovering
+        && hasValue;
     },
 
     iconClass() {
@@ -117,11 +120,11 @@ export default {
     },
 
     emptyText() {
-      return this.t('el.select.noData')
+      return this.t('el.select.noData');
     },
 
     selectSize() {
-      return this.size || this._elFormItemSize || (this.$ELEMENT || {}).size;
+      return this.size || this.tmpElFormItemSize || (this.$ELEMENT || {}).size;
     },
 
     selectDisabled() {
@@ -183,7 +186,8 @@ export default {
   watch: {
 
     placeholder(val) {
-      this.cachedPlaceHolder = this.currentPlaceholder = val;
+      this.cachedPlaceHolder = val;
+      this.currentPlaceholder = val;
     },
 
     value(val, oldVal) {
@@ -252,7 +256,7 @@ export default {
     },
 
     doDestroy() {
-      this.$refs.popper && this.$refs.popper.doDestroy();
+      if (this.$refs.popper) this.$refs.popper.doDestroy();
     },
 
     handleClose() {
@@ -291,21 +295,23 @@ export default {
   },
 
   created() {
-    this.cachedPlaceHolder = this.currentPlaceholder = this.placeholder;
+    this.cachedPlaceHolder = this.placeholder;
+    this.currentPlaceholder = this.placeholder;
     this.$emit('input', '');
   },
 
   mounted() {
     addResizeListener(this.$el, this.handleResize);
 
-    const reference = this.$refs.reference;
+    const { reference } = this.$refs;
     if (reference && reference.$el) {
       const sizeMap = {
         medium: 36,
         small: 32,
         mini: 28,
       };
-      this.initialInputHeight = reference.$el.getBoundingClientRect().height || sizeMap[this.selectSize];
+      this.initialInputHeight = reference.$el.getBoundingClientRect().height
+        || sizeMap[this.selectSize];
     }
     this.$nextTick(() => {
       if (reference && reference.$el) {

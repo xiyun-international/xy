@@ -1,0 +1,13 @@
+{
+  "name": "@xiyun/cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "https://github.com/xiyun-international/xy/tree/master/packages/cli",
+  "bin": {
+    "xy": "bin/xy.js"
+  },
+  "scripts": {
+    "run": "node ./bin/xy.js"
+  }
+}
