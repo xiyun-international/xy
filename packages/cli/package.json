@@ -7,7 +7,10 @@
   "bin": {
     "xy": "bin/xy.js"
   },
-  "scripts": {
-    "run": "node ./bin/xy.js"
+  "dependencies": {
+    "download-git-repo": "^1.1.0",
+    "inquirer": "^6.3.1",
+    "shelljs": "^0.8.3",
+    "validate-npm-package-name": "^3.0.0"
   }
 }
