@@ -2,6 +2,7 @@
 
 const program = require('commander');
 const inquirer = require('inquirer')
+const chalk = require('chalk');
 const create = require('../library/create');
 
 program
@@ -26,5 +27,19 @@ program
       create(ui, appName);
     })();
   });
+
+// output help information on unknown commands
+program
+  .arguments('<command>')
+  .action((cmd) => {
+    program.outputHelp()
+    console.log(`  ` + chalk.red(`Unknown command ${chalk.yellow(cmd)}.`))
+    console.log()
+  })
+
+// output help information on no arguments supplied
+if (!process.argv.slice(2).length) {
+  program.outputHelp()
+}
 
 program.parse(process.argv);
