@@ -6,9 +6,6 @@
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/element-ui",
   "scripts": {
-    "build": "npm run build:ui && npm run build:theme",
-    "build:theme": "gulp --gulpfile ./theme/gulpfile.js",
-    "build:ui": "vue-cli-service build --no-clean --dest lib --target lib --name xy-element-ui ./packages/index.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
@@ -17,57 +14,7 @@
     "lodash": "^4.17.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.5.0",
-    "@vue/cli-plugin-eslint": "^3.5.0",
-    "@vue/cli-service": "^3.5.0",
-    "@vue/eslint-config-airbnb": "^4.0.0",
-    "babel-eslint": "^10.0.1",
-    "babel-plugin-component": "^1.1.1",
-    "core-js": "^2.6.5",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-cssmin": "^0.2.0",
-    "gulp-sass": "^4.0.2",
-    "lint-staged": "^8.1.4",
-    "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
-    "vue": "^2.6.6",
-    "vue-template-compiler": "^2.5.21",
     "vuepress": "^0.14.10"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/airbnb"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
   }
 }
