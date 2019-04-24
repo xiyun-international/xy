@@ -8,7 +8,6 @@ const validateProjectName = require('validate-npm-package-name')
 const shell = require('shelljs');
 const which = require('which');
 
-
 module.exports = async function (ui, appName) {
   const cwd = process.cwd()
   const inCurrent = appName === '.'
@@ -79,5 +78,4 @@ function findExecutor() {
     } catch (e) {}
   }
   throw new Error('please install yarn or npm');
-
 }
