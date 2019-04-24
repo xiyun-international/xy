@@ -15926,10 +15926,10 @@ xtend@~3.0.0:
   resolved "http://r.cnpmjs.org/xtend/download/xtend-3.0.0.tgz#5cce7407baf642cba7becda568111c493f59665a"
   integrity sha1-XM50B7r2Qsunvs2laBEcST9ZZlo=
 
-xy-tools@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/xy-tools/-/xy-tools-0.0.1.tgz#644d762d0f901b320420169c63e587525312b090"
-  integrity sha512-n0tjzicAPY20LwZBS+ws9eJHEsZwvJu6GsNICQoswhKhGEBpfBs79g0fqlqOgIdvMPc8kraRlZ5lQBTLsWOS9A==
+xy-tools@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/xy-tools/-/xy-tools-0.0.4.tgz#42ca1ca822a11b6a3035ebe3fa75d68e265fdf40"
+  integrity sha512-0FGLa14lXCQXHF3v0wX6NQ987nAbqlMdYbIKlDrgHofXXU/enDtUfW0lVpQvOiZftXPIlO6DNHnMQsheK5F/Mw==
   dependencies:
     "@vue/cli-service" "^3.6.0"
     assert "^1.4.1"

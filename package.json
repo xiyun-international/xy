@@ -35,6 +35,6 @@
     "lerna-changelog": "^0.8.2",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
-    "xy-tools": "^0.0.1"
+    "xy-tools": "^0.0.4"
   }
 }
