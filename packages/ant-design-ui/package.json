@@ -10,6 +10,7 @@
     "docs:build": "vuepress build docs"
   },
   "devDependencies": {
+    "less-loader": "^4.1.0",
     "vuepress": "^0.14.10"
   }
 }
