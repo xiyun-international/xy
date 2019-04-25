@@ -3,7 +3,7 @@
 const program = require('commander');
 const inquirer = require('inquirer')
 const chalk = require('chalk');
-const create = require('../library/create');
+const create = require('../lib/create');
 
 program
   .version(require('../package.json').version)
@@ -24,7 +24,7 @@ program
           { name: 'ant-design-ui-template', value: 'a' },
         ]
       });
-      create(ui, appName);
+      create.default(ui, appName);
     })();
   });
 
