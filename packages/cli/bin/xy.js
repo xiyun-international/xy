@@ -24,7 +24,17 @@ program
           { name: 'ant-design-ui-template', value: 'a' },
         ]
       });
-      create.default(ui, appName);
+      const {mode} = await inquirer.prompt({
+        name: 'mode',
+        type: 'list',
+        message: 'Please select a mode:',
+        choices: [
+          { name: 'Full layout(with side nav and header bar).', value: 'full' },
+          { name: 'Simple layout(with out side nav and header var).', value: 'simple' },
+        ]
+      });
+
+      create.default(appName, {ui, mode});
     })();
   });
 

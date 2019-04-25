@@ -16,13 +16,16 @@ class Create {
   targetDir: string;
   ui: string;
   appName: string;
-  constructor(ui:string, appName:string) {
+  mode: string;
+  constructor(appName:string, params:{ui, mode}) {
+    const {ui, mode} = params;
     this.cwd = process.cwd();
     this.inCurrent = appName === '.';
     this.name = this.inCurrent ? path.relative('../', this.cwd) : appName;
     this.targetDir = path.resolve(this.cwd, appName || '.');
     this.ui = ui;
     this.appName = appName;
+    this.mode = mode;
   }
 
   validPackageName():void {
@@ -92,10 +95,19 @@ class Create {
         shell.exec(`cd ${path.join(this.cwd, this.appName)} && ${npm} install`, () => {
           console.log(chalk.green(npm + ' install end'));
           spinnerInstall.stop();
-          this.startServe();
+          this.writeEnv();
         });
       }
     })
+  }
+
+  writeEnv() {
+    shell.exec(
+      `cd ${path.join(this.cwd, this.appName)} && echo VUE_APP_MODE=${this.mode} >> .env`,
+    () => {
+      console.log(chalk.green('write mode end.'));
+      this.startServe();
+    });
   }
 
   startServe() {
@@ -116,6 +128,6 @@ class Create {
   }
 }
 
-export default function (ui, appName) {
-  return new Create(ui, appName).run();
+export default function (appName, params) {
+  return new Create(appName, params).run();
 }
