@@ -15,7 +15,7 @@ module.exports = {
       {
         title: '基础组件',
         collapsable: false,
-        children: getComponentsPath([
+        children: getComponentsPath('ant-design-ui', [
           'title',
           'wrapper',
           'context',
@@ -24,7 +24,7 @@ module.exports = {
       {
         title: '业务组件',
         collapsable: false,
-        children: getComponentsPath([
+        children: getComponentsPath('ant-design-ui', [
           // 'transfer',
           // 'frame',
           'timeline',
@@ -38,8 +38,8 @@ module.exports = {
   }
 }
 
-function getComponentsPath(components = []) {
+function getComponentsPath(package, components = []) {
   return components.map(item => {
-    return '/pages/' + item;
+    return `/${package}/` + item;
   });
 }
