@@ -1,0 +1,9 @@
+{
+  "name": "@xiyun/utils",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
