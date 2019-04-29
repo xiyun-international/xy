@@ -1,8 +1,9 @@
 import 'ant-design-vue/dist/antd.css';
-import '../../theme/styles/index.less';
+import '../../packages/ant-design-ui/theme/styles/index.less';
+import '../../packages/element-ui/theme/styles/index.scss';
 
 import Antd from 'ant-design-vue'
-import XyUI from '../../packages/index.js';
+import XyUI from '../../packages/ant-design-ui/packages/index.js';
 
 export default ({Vue}) => {
   Vue.use(Antd);

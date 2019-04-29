@@ -5,18 +5,13 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "lerna run test",
-    "build": "xy-tools theme && xy-tools component",
-    "build:theme": "xy-tools build theme",
-    "build:component": "xy-tools build component",
-    "debug": "./packages/test/bin/xy-test.js",
-    "new-version": "lerna version",
     "diff": "lerna diff",
+    "new-version": "lerna version",
     "bootstrap": "lerna bootstrap",
-    "lint": "eslint --ext .js packages",
-    "publish": "npm test && ./scripts/publish.js",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "lint": "eslint --ext .js packages",
+    "docs:build": "vuepress build docs",
+    "build": "xy-tools build theme && xy-tools build component"
   },
   "lint-staged": {
     "*.(t|j)s": [
