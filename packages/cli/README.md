@@ -12,7 +12,7 @@
 ```shell
 $ yarn global add @xiyun/cli
 或
-$ npm install -g
+$ npm install -g @xiyun/cli
 ```
 
 ### 使用
@@ -20,13 +20,13 @@ $ npm install -g
 ```shell
 $ xy create 项目名称
 ```
-创建过程中，需要在两个ui库中选择其一
+创建过程中，需要在两个UI库中选择其一
 
 ![选择ui库](https://github.com/xiyun-international/xy/blob/master/packages/cli/pictures/ui.png)
 
-element-ui-template：基于vue平台
+element-ui-template：基于Element-UI框架开发的模板
 
-ant-design-ui-template: 基于react平台
+ant-design-ui-template: 基于Ant-Design-UI框架开发的模板
 
 下一步中，需要选择布局方式
 
