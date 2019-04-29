@@ -14,7 +14,9 @@
     "diff": "lerna diff",
     "bootstrap": "lerna bootstrap",
     "lint": "eslint --ext .js packages",
-    "publish": "npm test && ./scripts/publish.js"
+    "publish": "npm test && ./scripts/publish.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "lint-staged": {
     "*.(t|j)s": [
@@ -35,6 +37,7 @@
     "lerna-changelog": "^0.8.2",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
-    "xy-tools": "^0.0.4"
+    "xy-tools": "^0.0.4",
+    "vuepress": "^0.14.11"
   }
 }
