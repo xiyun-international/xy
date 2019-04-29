@@ -5,16 +5,11 @@
   "style": "./lib/index.css",
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/element-ui",
-  "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
-  },
   "dependencies": {
     "element-ui": "^2.7.2",
     "lodash": "^4.17.11"
   },
   "devDependencies": {
-    "sass-loader": "^7.1.0",
-    "vuepress": "^0.14.10"
+    "sass-loader": "^7.1.0"
   }
 }
