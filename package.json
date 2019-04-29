@@ -33,6 +33,8 @@
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
     "xy-tools": "^0.0.4",
-    "vuepress": "^0.14.11"
+    "vuepress": "^0.14.11",
+    "sass-loader": "^7.1.0",
+    "less-loader": "^4.1.0"
   }
 }

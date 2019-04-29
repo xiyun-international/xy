@@ -8,8 +8,5 @@
   "dependencies": {
     "element-ui": "^2.7.2",
     "lodash": "^4.17.11"
-  },
-  "devDependencies": {
-    "sass-loader": "^7.1.0"
   }
 }
