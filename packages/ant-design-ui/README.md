@@ -1,4 +1,4 @@
-## 禧云 element-vue-ui 组件库
+## 禧云 ant-design-ui 组件库
 
 ## 安装
 ```
