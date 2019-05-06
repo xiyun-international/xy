@@ -87,7 +87,8 @@ module.exports = {
           title: '业务组件',
           collapsable: false,
           children: [
-            'transfer',
+            'context',
+            'frame',
             'timeline',
             'countdown',
             'sens-text',

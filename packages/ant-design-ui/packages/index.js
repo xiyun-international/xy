@@ -6,6 +6,7 @@ import XyCountdownButton from './countdown-button/index';
 import XySensText from './sens-text/index';
 import XyVerification from './verification/index';
 import XyContext from './context/index';
+import XyFrame from './frame/index';
 
 const components = [
   XyTitle,
@@ -15,6 +16,7 @@ const components = [
   XySensText,
   XyVerification,
   XyContext,
+  XyFrame,
 ];
 
 const install = (Vue) => {
@@ -38,6 +40,7 @@ export {
   XySensText,
   XyVerification,
   XyContext,
+  XyFrame,
 };
 
 export default {
