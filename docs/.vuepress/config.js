@@ -1,45 +1,43 @@
 module.exports = {
   dest: './dist',
-  title: '禧云 UI 组件库',
-  description: '禧云组件库',
+  title: '禧云生态',
+  description: '集合了 UI 组件，命令行和工具集',
   head: [
     ['link', {rel: 'icon', href: 'favicon.ico'}]
   ],
   markdown: {
     lineNumbers: true
   },
+  theme: '@xiyun/vuepress-theme-xydocs',
   themeConfig: {
-    displayAllHeaders: true,
-    sidebar: [
-      ['/', '安装和使用'],
-      {
-        title: '基础组件',
-        collapsable: false,
-        children: getComponentsPath('ant-design-ui', [
-          'title',
-          'wrapper',
-          'context',
-        ])
-      },
-      {
-        title: '业务组件',
-        collapsable: false,
-        children: getComponentsPath('ant-design-ui', [
-          // 'transfer',
-          // 'frame',
-          'timeline',
-          // 'table-tree',
-          'countdown',
-          'sens-text',
-          'verification',
-        ])
-      }
+    // displayAllHeaders: true,
+    nav: [
+      { text: '指南', link: '/guide/' },
+      { text: '命令行工具', link: '/cli/' },
+      { text: 'ElementUI组件', link: '/element-ui/' },
+      { text: 'AntdUI组件', link: '/ant-design-ui/' },
+      { text: 'GitHub', link: 'https://github.com/xiyun-international' },
     ],
+    sidebar: {
+      '/guide/': [
+        {
+          title: '指南',
+          collapsable: false,
+          children: [
+            '',
+          ],
+        }
+      ],
+      '/cli/': [
+        {
+          title: 'cli 命令行工具',
+          collapsable: false,
+          children: [
+            '',
+          ],
+        }
+      ],
+    }
   }
-}
+};
 
-function getComponentsPath(package, components = []) {
-  return components.map(item => {
-    return `/${package}/` + item;
-  });
-}
