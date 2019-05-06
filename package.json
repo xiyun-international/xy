@@ -37,5 +37,8 @@
     "sass-loader": "^7.1.0",
     "vuepress": "^1.0.0-alpha.47",
     "xy-tools": "^0.0.4"
+  },
+  "dependencies": {
+    "@xiyun/xy-element-ui": "^1.0.0"
   }
 }

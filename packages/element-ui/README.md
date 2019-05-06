@@ -2,7 +2,7 @@
 
 ## 安装
 ```
-npm install @xiyun/element-ui
+npm install @xiyun/xy-element-ui
 ```
 
 ## 使用
@@ -10,12 +10,12 @@ npm install @xiyun/element-ui
 ```js
 // 引用样式
 import 'element-ui/lib/theme-chalk/index.css';
-import '@xiyun/element-ui/lib/index.css';
+import '@xiyun/xy-element-ui/lib/index.css';
 
 // 引用 UI 组件库
 import Vue from 'vue';
 import ElementUI from 'element-ui';
-import XyUI from '@xiyun/element-ui';
+import XyUI from '@xiyun/xy-element-ui';
 
 // 使用组件库
 Vue.use(ElementUI)

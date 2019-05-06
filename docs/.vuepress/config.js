@@ -30,10 +30,20 @@ module.exports = {
       ],
       '/cli/': [
         {
-          title: 'cli 命令行工具',
+          title: '命令行工具',
           collapsable: false,
           children: [
             '',
+          ],
+        }
+      ],
+      '/element-ui/': [
+        {
+          title: 'ElementUI组件',
+          collapsable: false,
+          children: [
+            '',
+            'countdown'
           ],
         }
       ],
