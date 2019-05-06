@@ -20,7 +20,7 @@
             v-model="code"
           />
         </div>
-        <xy-antd-countdown-button @click="sendCode" :is-send.sync="isSend"></xy-antd-countdown-button>
+        <xy-countdown-button @click="sendCode" :is-send.sync="isSend"></xy-countdown-button>
         <div class="t-MT28"></div>
         <button
           class="xy-antd-button primary submit-button"
