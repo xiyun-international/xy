@@ -1,5 +1,5 @@
 <template>
-  <div class="xy-wrapper">
+  <div class="xy-ele-wrapper">
     <slot></slot>
   </div>
 </template>

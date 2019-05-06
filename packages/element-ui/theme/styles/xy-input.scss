@@ -1,10 +1,10 @@
-.xy-input {
+.xy-ele-input {
   position: relative;
   font-size: 14px;
   display: inline-block;
   width: 100%;
 }
-.xy-input .xy-input__inner {
+.xy-ele-input .xy-ele-input__inner {
   /*cursor: pointer;*/
   background-color: #fff;
   border: 1px solid #dcdfe6;
@@ -21,10 +21,10 @@
   width: 100%;
   -webkit-appearance: none;
 }
-.xy-input__inner:focus {
+.xy-ele-input__inner:focus {
   outline: none;
   border-color: #409eff;
 }
-.xy-input__inner:hover {
+.xy-ele-input__inner:hover {
   border-color: #c0c4cc;
 }

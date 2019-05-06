@@ -1,5 +1,5 @@
 <template>
-  <div class="xy-timeline">
+  <div class="xy-ele-timeline">
     <div class="left" :style="{width: leftWidth}">
       <slot name="left"></slot>
     </div>

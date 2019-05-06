@@ -1,6 +1,6 @@
 <template>
   <button
-    class="xy-button custom-button"
+    class="xy-ele-button xy-ele-custom-button"
     :class="{disabled: isDisable}"
     @click="onClick"
     :disabled="isDisable"

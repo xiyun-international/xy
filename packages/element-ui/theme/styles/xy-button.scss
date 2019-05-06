@@ -3,7 +3,7 @@ button {
   overflow: visible;
   font-family: inherit;
 }
-.xy-button {
+.xy-ele-button {
   display: inline-block;
   line-height: 1;
   white-space: nowrap;
@@ -23,28 +23,28 @@ button {
   border-radius: 4px;
   user-select: none;
 }
-.xy-button:hover,
-.xy-button:focus {
+.xy-ele-button:hover,
+.xy-ele-button:focus {
   color: #409eff;
   border-color: #c6e2ff;
   background-color: #ecf5ff;
 }
-.xy-button:active {
+.xy-ele-button:active {
   color: #3a8ee6;
   border-color: #3a8ee6;
   outline: 0;
 }
-.xy-button.primary {
+.xy-ele-button.primary {
   background-color: #409eff;
   border-color: #409eff;
   color: #fff;
 }
-.xy-button.primary:active {
+.xy-ele-button.primary:active {
   background: #3a8ee6;
   border-color: #3a8ee6;
   outline: 0;
 }
-.xy-button.disabled {
+.xy-ele-button.disabled {
   //color: rgba(0, 0, 0, 0.25);
   //background-color: #f5f5f5;
   //border-color: #d9d9d9;
@@ -52,7 +52,7 @@ button {
   box-shadow: none;
   cursor: not-allowed;
 }
-.custom-button {
+.xy-ele-custom-button {
   border: 1px solid #20a0ff;
   color: #20a0ff;
 }
