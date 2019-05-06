@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     switchClass() {
-      return this.isOpen ? 'xy-v2-kq' : 'xy-v2-yc';
+      return this.isOpen ? 'xy-antd-v2-kq' : 'xy-antd-v2-yc';
     },
     showText() {
       if (this.isOpen) return this.text;

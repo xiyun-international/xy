@@ -1,5 +1,5 @@
 <template>
-  <div class="xy-wrapper">
+  <div class="xy-antd-wrapper">
     <slot></slot>
   </div>
 </template>

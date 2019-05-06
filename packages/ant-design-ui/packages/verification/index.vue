@@ -2,7 +2,7 @@
   <div>
     <div class="card box-card">
       <div class="card-body">
-        <i class="logo xy-v2-aq"></i>
+        <i class="logo xy-antd-v2-aq"></i>
         <p class="title">安全验证</p>
 
         <div class="box-tips">
@@ -11,19 +11,19 @@
         </div>
 
         <div class="t-MT28"></div>
-        <div class="xy-input verify-input">
+        <div class="xy-antd-input verify-input">
           <input
             :maxlength="6"
-            class="xy-input__inner"
+            class="xy-antd-input__inner"
             type="text"
             autocomplete="off"
             v-model="code"
           />
         </div>
-        <xy-countdown-button @click="sendCode" :is-send.sync="isSend"></xy-countdown-button>
+        <xy-antd-countdown-button @click="sendCode" :is-send.sync="isSend"></xy-antd-countdown-button>
         <div class="t-MT28"></div>
         <button
-          class="xy-button primary submit-button"
+          class="xy-antd-button primary submit-button"
           style="width: 300px;"
           @click="verifyCode"
           :disabled="code.length !== 6"

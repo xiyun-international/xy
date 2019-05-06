@@ -1,5 +1,5 @@
 <template>
-  <div class="xy-context-grid">
+  <div class="xy-antd-context-grid">
     <div class="breadcrumb">
       <a-breadcrumb>
         <a-breadcrumb-item v-for="(item, index) in breadcrumb" :key="item.name">
@@ -14,7 +14,7 @@
         </a-breadcrumb-item>
       </a-breadcrumb>
     </div>
-    <div class="xy-title-grid">
+    <div class="xy-antd-title-grid">
       <div class="title">
         <div></div>
         {{ titleName }}
@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .xy-context-grid {
+  .xy-antd-context-grid {
     .breadcrumb {
       font-size: 12px;
       display: flex;
@@ -87,7 +87,7 @@ export default {
       padding-bottom: 22px;
       border-bottom: 1px solid #e6e6e6;
     }
-    .xy-title-grid {
+    .xy-antd-title-grid {
       margin-top: 30px;
       margin-bottom: 30px;
       display: flex;

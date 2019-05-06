@@ -1,6 +1,6 @@
 <template>
   <button
-    class="xy-button custom-button"
+    class="xy-antd-button custom-button"
     :class="{disabled: isDisable}"
     @click="onClick"
     :disabled="isDisable"
