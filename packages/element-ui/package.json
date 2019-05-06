@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/xy-element-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./lib/xy-element-ui.umd.min.js",
   "style": "./lib/index.css",
   "license": "MIT",
