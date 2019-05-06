@@ -39,11 +39,59 @@ module.exports = {
       ],
       '/element-ui/': [
         {
-          title: 'ElementUI组件',
+          title: '介绍',
           collapsable: false,
           children: [
             '',
-            'countdown'
+          ],
+        },
+        {
+          title: '基础组件',
+          collapsable: false,
+          children: [
+            'title',
+            'wrapper',
+          ],
+        },
+        {
+          title: '业务组件',
+          collapsable: false,
+          children: [
+            'transfer',
+            'frame',
+            'timeline',
+            'table-tree',
+            'countdown',
+            'sens-text',
+            'verification',
+          ],
+        },
+      ],
+      '/ant-design-ui/': [
+        {
+          title: '介绍',
+          collapsable: false,
+          children: [
+            '',
+          ],
+        },
+        {
+          title: '基础组件',
+          collapsable: false,
+          children: [
+            'title',
+            'wrapper',
+          ],
+        },
+        {
+          title: '业务组件',
+          collapsable: false,
+          children: [
+            'transfer',
+            'timeline',
+            'countdown',
+            'sens-text',
+            'verification',
           ],
         }
       ],

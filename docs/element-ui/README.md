@@ -2,12 +2,12 @@
 home: false
 ---
 
-## 安装
+### 安装
 ```
 npm install @xiyun/element-ui
 ```
 
-## 使用
+### 使用
 
 ```js
 // 引用样式
