@@ -10,12 +10,11 @@ module.exports = {
   },
   theme: '@xiyun/vuepress-theme-xydocs',
   themeConfig: {
-    // displayAllHeaders: true,
     nav: [
       { text: '指南', link: '/guide/' },
       { text: '命令行工具', link: '/cli/' },
-      { text: 'ElementUI组件', link: '/element-ui/' },
-      { text: 'AntdUI组件', link: '/ant-design-ui/' },
+      { text: 'AntD UI组件', link: '/ant-design-ui/' },
+      { text: 'ElementUI 组件', link: '/element-ui/' },
       { text: 'GitHub', link: 'https://github.com/xiyun-international' },
     ],
     sidebar: {
