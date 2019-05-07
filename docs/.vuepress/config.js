@@ -13,8 +13,8 @@ module.exports = {
     nav: [
       { text: '指南', link: '/guide/' },
       { text: '命令行工具', link: '/cli/' },
-      { text: 'AntD UI组件', link: '/ant-design-ui/' },
-      { text: 'ElementUI 组件', link: '/element-ui/' },
+      { text: 'Ant Design Vue 组件', link: '/ant-design-ui/' },
+      { text: 'Element UI 组件', link: '/element-ui/' },
       { text: 'GitHub', link: 'https://github.com/xiyun-international' },
     ],
     sidebar: {
