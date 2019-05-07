@@ -1,4 +1,4 @@
-import XyWrapper from './wrapper.vue';
+import XyWrapper from './index.vue';
 
 XyWrapper.install = function (Vue) {
   Vue.component(XyWrapper.name, XyWrapper);

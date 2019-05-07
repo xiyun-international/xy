@@ -6,7 +6,7 @@ context 内容包裹组件附带了面包屑，标题和标签状态的样式，
 
 #### 组件示例
 
-<xy-context
+<antd-xy-context
   :breadcrumb="[{ name: '渠道商中心'},{ name: '协作费管理', path: '/enterprise/bill' }, { name: '账单详情' }]"
   title="账单详情 "
   tag="审核中"
@@ -14,7 +14,7 @@ context 内容包裹组件附带了面包屑，标题和标签状态的样式，
 >
   <div>context 内容</div>
   <div slot="right">标题右侧内容</div>
-</xy-context>
+</antd-xy-context>
 
 #### 代码示例
 
