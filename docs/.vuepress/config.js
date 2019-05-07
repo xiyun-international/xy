@@ -2,7 +2,7 @@ module.exports = {
   base: '/xy/',
   dest: './dist',
   title: '禧云前端生态',
-  description: '让禧云的合作伙伴只需专注于业务',
+  description: '让禧云的 ISV 合作伙伴只需专注于业务',
   head: [
     ['link', {rel: 'icon', href: 'favicon.ico'}]
   ],

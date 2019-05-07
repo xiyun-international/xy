@@ -8,6 +8,7 @@ features:
 - title: UI 组件
   details: 我们为常用业务开发了公用组件，你可以直接使用，无需再次开发；提供有发送短信验证码、时间轴、内容包裹等业务性组件。
 - title: 工具集
-  details: 我们为业务开发了一系列工具集，你可以在需要的时候使用它们，会提升很多效率，如：敏感信息加密，Token 的处理方式，PostMessage API 的封装等等
+  details: 我们为业务开发了一系列工具集，你可以在需要的时候使用它们，会提升很多效率，如：敏感信息加密，PostMessage API 的封装等等。
 footer: MIT Licensed | Copyright © 2019-present
+
 ---
