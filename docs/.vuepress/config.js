@@ -39,7 +39,7 @@ module.exports = {
       ],
       '/element-ui/': [
         {
-          title: '介绍',
+          title: '开发指南',
           collapsable: false,
           children: [
             '',
@@ -69,7 +69,7 @@ module.exports = {
       ],
       '/ant-design-ui/': [
         {
-          title: '介绍',
+          title: '开发指南',
           collapsable: false,
           children: [
             '',
