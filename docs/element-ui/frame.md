@@ -4,7 +4,7 @@
 iFrame 组件，用于订购多个应用的支持。
 
 #### 代码示例
-<xy-frame url="http://www.baidu.com" debug></xy-frame>
+<ele-xy-frame url="http://www.baidu.com" debug></ele-xy-frame>
 
 #### 模板部分
 ```html

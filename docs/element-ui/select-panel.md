@@ -7,7 +7,7 @@ select-panel 下拉框面板组件用于为下拉框提供一个公用的面板�
 
 #### 组件示例
 
-<xy-select-panel v-model="currentSelect" :value="currentSelect" style="width: 100%;margin-top: 20px;">
+<ele-xy-select-panel v-model="currentSelect" :value="currentSelect" style="width: 100%;margin-top: 20px;">
   <el-tree
     :highlight-current="true"
     :data="data"
@@ -15,7 +15,7 @@ select-panel 下拉框面板组件用于为下拉框提供一个公用的面板�
     accordion
     @node-click="handleNodeClick">
   </el-tree>
-</xy-select-panel>
+</ele-xy-select-panel>
 
 <script>
 export default {

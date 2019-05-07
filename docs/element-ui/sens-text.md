@@ -7,7 +7,7 @@ sens-text 敏感文字查看组件，用于对手机号、身份证、银行卡�
 #### 组件示例
 
 <div style="margin-top: 20px;">
-  <xy-sens-text text="13800000831" type="mobile"></xy-sens-text>
+  <ele-xy-sens-text text="13800000831" type="mobile"></ele-xy-sens-text>
 </div>
 
 #### 代码示例

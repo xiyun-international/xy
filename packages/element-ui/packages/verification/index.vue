@@ -11,8 +11,8 @@
         </div>
 
         <div class="t-MT28"></div>
-        <div class="xy-input verify-input">
-          <input
+        <div class="xy-ele-input verify-input">
+          <el-input
             :maxlength="6"
             class="xy-input__inner"
             type="text"
@@ -23,7 +23,7 @@
         <xy-countdown-button @click="sendCode" :is-send.sync="isSend"></xy-countdown-button>
         <div class="t-MT28"></div>
         <button
-          class="xy-button primary submit-button"
+          class="xy-ele-button primary submit-button"
           style="width: 300px;"
           @click="verifyCode"
           :disabled="code.length !== 6"

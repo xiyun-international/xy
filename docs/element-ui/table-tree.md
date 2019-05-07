@@ -6,7 +6,7 @@
 #### 组件示例
 
 <div style="margin-top: 10px;">
-<xy-table-tree
+<ele-xy-table-tree
   v-loading.body="loading"
   columnName="机构名称"
   formLabel="架构名称"

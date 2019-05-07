@@ -6,7 +6,7 @@
 ```
 #### 效果
 
-<xy-title>我是通用标题组件</xy-title>
+<ele-xy-title>我是通用标题组件</ele-xy-title>
 
 ### titleIcon 带有 icon 的标题
 
@@ -18,4 +18,4 @@
 
 #### 效果
 
-<xy-title-icon>我是带有 icon 的标题组件</xy-title-icon>
+<ele-xy-title-icon>我是带有 icon 的标题组件</ele-xy-title-icon>

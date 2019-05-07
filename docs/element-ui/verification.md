@@ -7,7 +7,7 @@ verification 短信安全验证组件，用于在查看敏感信息前，需要�
 #### 组件示例
 
 <div style="margin-top: 10px;">
-  <xy-verification
+  <ele-xy-verification
     telephone="13800000831"
     @sendCode="sendCode"
     :is-send-code.sync="isSendCode"

@@ -8,7 +8,7 @@ transfer 组件可以用于业务复杂且数据量和层级都较深的数据�
 #### 1、目标选框为树型结构
 
 <div style="margin-top: 10px;">
- <xy-transfer
+ <ele-xy-transfer
    :data="[{ id: 1, label: '一级 1', children: [
                 { id: 2, label: '二级 1-1', children:
                     [
@@ -28,14 +28,14 @@ transfer 组件可以用于业务复杂且数据量和层级都较深的数据�
                 ]
             }]"
    targetType="tree"
-   :props="{ children: 'children', label: 'label', key: 'id' }"></xy-transfer>
+   :props="{ children: 'children', label: 'label', key: 'id' }"></ele-xy-transfer>
 </div>
 
 
 #### 2、目标选框为多选项组结构
 
 <div style="margin-top: 10px;">
-  <xy-transfer
+  <ele-xy-transfer
     :data="[{ id: 1, label: '一级 1', children: [
                  { id: 2, label: '二级 1-1', children:
                      [
@@ -55,7 +55,7 @@ transfer 组件可以用于业务复杂且数据量和层级都较深的数据�
                  ]
              }]"
     targetType="normal"
-    :props="{ children: 'children', label: 'label', key: 'id' }"></xy-transfer>
+    :props="{ children: 'children', label: 'label', key: 'id' }"></ele-xy-transfer>
 </div>
 
 #### 代码示例
