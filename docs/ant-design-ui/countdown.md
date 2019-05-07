@@ -6,7 +6,7 @@ countdown 倒计时按钮组件用于提供一个可点击后进入倒计时状�
 
 #### 组件示例
 
-<xy-countdown-button style="margin-top:20px;" @click="onClick" :is-send.sync="isSend"></xy-countdown-button>
+<antd-xy-countdown-button style="margin-top:20px;" @click="onClick" :is-send.sync="isSend"></antd-xy-countdown-button>
 
 <script>
 export default {

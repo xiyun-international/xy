@@ -30,9 +30,9 @@ title 标题组件可以用于页面中某块的标题，它包含两个样式�
 
 #### 效果
 
-<xy-title>我是标题组件</xy-title>
+<antd-xy-title>我是标题组件</antd-xy-title>
 
-<xy-title isShowIcon>我是带有 icon 的标题组件</xy-title>
+<antd-xy-title isShowIcon>我是带有 icon 的标题组件</antd-xy-title>
 
 #### API
 

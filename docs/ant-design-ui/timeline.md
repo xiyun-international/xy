@@ -8,10 +8,10 @@ time-line 组件可以使用在时间线和流程走向这一类的功能上。
 #### 1、只需要展示右侧内容
 
 <div style="margin-top: 10px;">
-  <xy-timeline>
+  <antd-xy-timeline>
     <span slot="right">我是右侧内容</span>
-  </xy-timeline>
-  <xy-timeline>
+  </antd-xy-timeline>
+  <antd-xy-timeline>
     <div slot="right">
       <p>我是很多内容</p>
       <p>我是很多内容</p>
@@ -19,21 +19,21 @@ time-line 组件可以使用在时间线和流程走向这一类的功能上。
       <p>我是很多内容</p>
       <p>我是很多内容</p>
     </div>
-  </xy-timeline>
+  </antd-xy-timeline>
 </div>
 
 #### 2、在左侧放置时间，同时设置不同icon颜色
 
 <div style="margin-top: 10px;">
-  <xy-timeline leftWidth="100px">
+  <antd-xy-timeline leftWidth="100px">
     <span slot="left">2018-10-10 10:00</span>
     <span slot="right">我是右侧内容</span>
-  </xy-timeline>
-  <xy-timeline leftWidth="100px" status="success">
+  </antd-xy-timeline>
+  <antd-xy-timeline leftWidth="100px" status="success">
     <span slot="left">2018-10-10 10:00</span>
     <span slot="right">我是右侧内容</span>
-  </xy-timeline>
-  <xy-timeline leftWidth="100px" status="wait" :isShowLine="false">
+  </antd-xy-timeline>
+  <antd-xy-timeline leftWidth="100px" status="wait" :isShowLine="false">
     <span slot="left">2018-10-11 10:00</span>
     <div slot="right">
       <p>我是很多内容</p>
@@ -42,7 +42,7 @@ time-line 组件可以使用在时间线和流程走向这一类的功能上。
       <p>我是很多内容</p>
       <p>我是很多内容</p>
     </div>
-  </xy-timeline>
+  </antd-xy-timeline>
 </div>
 
 #### 代码示例
