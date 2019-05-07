@@ -1,5 +1,5 @@
 module.exports = {
-  base: 'xy',
+  base: '/xy/',
   dest: './dist',
   title: '禧云前端生态',
   description: '让禧云的合作伙伴只需专注于业务',
