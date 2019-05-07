@@ -1,7 +1,8 @@
 module.exports = {
+  base: '/xy/',
   dest: './dist',
-  title: '禧云生态',
-  description: '集合了 UI 组件，命令行和工具集',
+  title: '禧云前端生态',
+  description: '让禧云的 ISV 合作伙伴只需专注于业务',
   head: [
     ['link', {rel: 'icon', href: 'favicon.ico'}]
   ],
@@ -15,8 +16,8 @@ module.exports = {
       { text: '命令行工具', link: '/cli/' },
       { text: 'Ant Design Vue 组件', link: '/ant-design-ui/' },
       { text: 'Element UI 组件', link: '/element-ui/' },
-      { text: 'GitHub', link: 'https://github.com/xiyun-international' },
       { text: '参与贡献', link: '/contribute/' },
+      { text: 'GitHub', link: 'https://github.com/xiyun-international' },
     ],
     sidebar: {
       '/guide/': [
@@ -39,7 +40,7 @@ module.exports = {
       ],
       '/element-ui/': [
         {
-          title: '介绍',
+          title: '开发指南',
           collapsable: false,
           children: [
             '',
@@ -69,7 +70,7 @@ module.exports = {
       ],
       '/ant-design-ui/': [
         {
-          title: '介绍',
+          title: '开发指南',
           collapsable: false,
           children: [
             '',
