@@ -1,7 +1,7 @@
 module.exports = {
   dest: './dist',
-  title: '禧云生态',
-  description: '集合了 UI 组件，命令行和工具集',
+  title: '禧云前端生态',
+  description: '让禧云的合作伙伴只需专注于业务',
   head: [
     ['link', {rel: 'icon', href: 'favicon.ico'}]
   ],
