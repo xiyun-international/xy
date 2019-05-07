@@ -16,8 +16,8 @@ module.exports = {
       { text: '命令行工具', link: '/cli/' },
       { text: 'Ant Design Vue 组件', link: '/ant-design-ui/' },
       { text: 'Element UI 组件', link: '/element-ui/' },
-      { text: 'GitHub', link: 'https://github.com/xiyun-international' },
       { text: '参与贡献', link: '/contribute/' },
+      { text: 'GitHub', link: 'https://github.com/xiyun-international' },
     ],
     sidebar: {
       '/guide/': [
