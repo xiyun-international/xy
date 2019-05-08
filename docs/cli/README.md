@@ -24,26 +24,26 @@ $ npm install -g @xiyun/cli
 ```shell
 $ xy create 项目名称
 ```
-创建过程中，需要在两个UI库中选择其一
+#### 创建过程中，需要在两个UI库中选择其一：
 
 ![选择ui库](./pics/ui.png)
 
-element-ui-template：基于Element-UI框架开发的模板
+说明：
+- element-ui-template：基于 ElementUI 框架开发的模板
 
-ant-design-ui-template: 基于Ant-Design-UI框架开发的模板
+- ant-design-ui-template: 基于 Ant Design Vue 框架开发的模板
 
-下一步中，需要选择布局方式
+#### 下一步中，需要选择布局方式：
 
 ![选择布局方式](./pics/layout.png)
-
-Full layout：页面布局包含头部和左侧以及脚部等公用部分，构建页面如下图所示：
+说明：
+- Full layout：页面布局包含头部和左侧以及脚部等公用部分，构建页面如下图所示：
 
 ![Full layout布局](./pics/full.png)
-
-Simple layout：页面布局不包含头部和左侧以及脚部等公用部分，构建页面如下图所示：
+说明：
+- Simple layout：页面布局不包含头部和左侧以及脚部等公用部分，构建页面如下图所示：
 
 ![Simple layout布局](./pics/simple.png)
-
 
 之后一路向下，自动安装第三方依赖文件，初始化创建项目模板
 
@@ -83,5 +83,3 @@ $ yarn run lint
 $ npm run lint
 
 ```
-
-
