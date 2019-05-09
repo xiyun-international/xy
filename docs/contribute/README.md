@@ -1,7 +1,7 @@
 # 添加公共组件
 
 <blockquote class="green-tip">
-<p>以添加 title 组件 到 Ant Design Vue 组件库为例，Element UI 组件开发流程与之类似。组件命名统一加前缀 “Xy” </p>
+<p>以添加 title 组件 到 Ant Design Vue 组件库为例，Element UI 组件开发流程与之类似。组件命名统一加前缀 “Xy”。</p>
 </blockquote>
 
 ### 代码
@@ -16,7 +16,14 @@
 │               ├── index.js   
 │               ├── index.vue  #组件实现代码
 ```
-`index.js` 文件内容是固定的，只需要替换组件名，内容如下：
+在`index.js` 中，导出组件的时候，需要给组件增加一个 install 方法，这样在存在子级组件的时候，可以方便地使用一个 `Vue.use()` 来代替多个 `Vue.component()`，例如：
+```js
+Vue.use(Input)
+//vs
+Vue.component(Input)
+Vue.component(Input.Number)
+```
+具体代码如下：
 ```js
 import XyTitle from './index.vue';
 
@@ -28,7 +35,34 @@ export default XyTitle;
 ```
 ### 代码配置
 ---
-组件需在 `packages/ant-design/packages/index.js` 中引入并导出
+组件需在 `packages/ant-design/packages/index.js` 中引入并导出，具体如下：
+```js {4,19}
+import XyTitle from './title/index'; // 引入
+...
+const components = [
+  XyTitle,
+  ...
+];
+const install = (Vue) => { // 整体 install 方法
+  components.forEach((component) => {
+    Vue.component(component.name, component);
+  });
+};
+// auto install
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue);
+}
+export {
+  version,
+  install,
+  XyTitle,
+  ...
+};
+export default {
+  version,
+  install,
+};
+```
 
 ### 编辑 markdown 文件
 ---
