@@ -13,3 +13,4 @@
 ## 架构
 
 下图是禧云生态的架构图。
+<img src="/structure.png" />
