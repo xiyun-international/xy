@@ -9,7 +9,6 @@
     "new-version": "lerna version",
     "bootstrap": "lerna bootstrap",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress dev build",
     "lint": "eslint --ext .js packages",
     "docs:build": "vuepress build docs",
     "build": "xy-tools build theme && xy-tools build component"
