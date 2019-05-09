@@ -6,15 +6,9 @@ context 内容包裹组件附带了面包屑，标题和标签状态的样式，
 
 #### 组件示例
 
-<antd-xy-context
-  :breadcrumb="[{ name: '渠道商中心'},{ name: '协作费管理', path: '/enterprise/bill' }, { name: '账单详情' }]"
-  title="账单详情 "
-  tag="审核中"
-  :tag-status="5"
->
-  <div>context 内容</div>
-  <div slot="right">标题右侧内容</div>
-</antd-xy-context>
+以下图为例，使用 context 组件后，你只需要关系红色线框中的内容展现，无需再写面包屑，标题等样式：
+
+![context](./pics/context.png)
 
 #### 代码示例
 
