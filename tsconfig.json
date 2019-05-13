@@ -1,9 +1,9 @@
 
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ESNEXT",
     "moduleResolution": "node",
-    "jsx": "preserve",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "experimentalDecorators": true
   }
 }
