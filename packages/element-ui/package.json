@@ -8,5 +8,6 @@
   "dependencies": {
     "element-ui": "~2.7.2",
     "lodash": "^4.17.11"
-  }
+  },
+  "gitHead": "d3bbe5337e6eaa29dce2b5e034be419ce5fc9e8a"
 }
