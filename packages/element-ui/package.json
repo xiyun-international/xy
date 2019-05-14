@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/element-ui",
   "dependencies": {
-    "element-ui": "^2.7.2",
+    "element-ui": "~2.7.2",
     "lodash": "^4.17.11"
   }
 }

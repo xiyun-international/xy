@@ -6193,10 +6193,10 @@ elegant-spinner@^1.0.1:
   resolved "https://registry.npm.taobao.org/elegant-spinner/download/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
   integrity sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=
 
-element-ui@^2.7.2:
-  version "2.8.0"
-  resolved "https://registry.npm.taobao.org/element-ui/download/element-ui-2.8.0.tgz#c03ba61338bb5036a687765156fbe8416d43b015"
-  integrity sha1-wDumEzi7UDamh3ZRVvvoQW1DsBU=
+element-ui@~2.7.2:
+  version "2.7.2"
+  resolved "https://registry.npm.taobao.org/element-ui/download/element-ui-2.7.2.tgz#8bc5bef5c3c53a2170422516b4324e70069c23d1"
+  integrity sha1-i8W+9cPFOiFwQiUWtDJOcAacI9E=
   dependencies:
     async-validator "~1.8.1"
     babel-helper-vue-jsx-merge-props "^2.0.0"
