@@ -105,6 +105,8 @@ module.exports = {
           collapsable: false,
           children: [
             '',
+            'cli',
+            'utils',
           ],
         }
       ],
