@@ -17,7 +17,7 @@ post 提供了四个接口，分别是：
 #### config 方法
 
 发请求前的配置项，在一般情况下，你只需要配置 baseURL 就可以了，如果你使用禧云的是 element-ui-template 
-和 antd-ui-template，那么只需要设 `{baseURL: process.env.VUE_APP_API}` 就可以了。
+和 antd-ui-template，那么只需要在`.env`中配置`VUE_APP_API`接口域名就可以了。
 
 如果你没有配置 config ，那么我们默认设置了这三个 header 选项：
 ```js
