@@ -22,14 +22,12 @@ $ xy create 项目名称
 **接下来，选择布局方式：**
 - 以”应用“的方式迁入在商家中心页面，需要选择 Simple layout 模板，作为一个可订购的应用存在
 - 如果是独立的项目，有自己的头部和菜单，则需要选择 Full layout 模板
-
 ![](./pics/create2.png)
 
 **Full layout 页面布局包含头部和左侧以及脚部等公用部分，页面如下图所示：**
 ![Full layout布局](./pics/full.png)
 
 **Simple layout 页面布局不包含头部和左侧以及脚部等公用部分，页面如下图所示：**
-
 ![Simple layout布局](./pics/simple.png)
 
 ## 目录介绍
@@ -48,7 +46,7 @@ $ xy create 项目名称
 │   └── views         # 项目页面目录
 ```
 
-## 使用
+## 开始开发
 ```shell
 # 启动项目
 $ yarn start
@@ -57,5 +55,5 @@ $ yarn start
 $ yarn build
 
 # 代码格式检查
-$ yarn run lint
+$ yarn lint
 ```

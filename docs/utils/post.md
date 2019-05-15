@@ -1,9 +1,9 @@
 
-### xyPost 
+### Post 
 
-xyPost 基于 axios 封装了 post 数据请求方法。
+post 是基于 axios 封装了 post 数据请求方法。
 
-xyPost 提供了四个接口，分别是：
+post 提供了四个接口，分别是：
 
 | API | 说明 | 默认值 |
 |---|---|---|
@@ -38,7 +38,7 @@ xyPost 提供了四个接口，分别是：
 
 示例：
 ```js
-xyPost.bizErrorHandler(res => {
+post.bizErrorHandler(res => {
   if (res.data.status !== 10000) {
     message.error(res.data.message)
     return Promise.reject(res);
@@ -54,7 +54,7 @@ xyPost.bizErrorHandler(res => {
 
 示例：
 ```js
-xyPost.catchErrorHandler(res => {
+post.catchErrorHandler(res => {
   console.log(res.data);
 });
 ```
@@ -68,7 +68,7 @@ xyPost.catchErrorHandler(res => {
 
 示例：
 ```js
-xyPost.post('/v1/get-user-detail', {uid: 123}).then(res => {
+this.post('/v1/get-user-detail', {uid: 123}).then(res => {
   console.log(res);
 })
 ```
