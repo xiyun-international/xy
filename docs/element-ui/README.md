@@ -9,8 +9,6 @@
 ## 安装
 ```
 yarn add @xiyun/xy-element-ui
-或
-npm install @xiyun/xy-element-ui
 ```
 
 ## 使用

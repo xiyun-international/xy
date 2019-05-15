@@ -1,14 +1,12 @@
 
 # 介绍
 
-  xy-cli 工具可以用来快速创建一个项目，下载所需的代码片段，免去手动搭建的步骤，节省时间。
+xy-cli 工具可以用来快速创建一个项目，下载所需的代码片段，免去手动搭建的步骤，节省时间。
 
 ## 安装
 
 ```shell
 $ yarn global add @xiyun/cli
-或
-$ npm install -g @xiyun/cli
 ```
 
 ## 配置
@@ -47,7 +45,7 @@ $ xy create 项目名称
 
 之后一路向下，自动安装第三方依赖文件，初始化创建项目模板
 
-### 项目目录结构
+## 项目目录结构
 
 ```
 ├── dist              # 打包文件目录
@@ -63,23 +61,39 @@ $ xy create 项目名称
 │   ├── utils         # 工具函数目录
 │   └── views         # 项目页面目录
 ```
-### 使用
+## 使用
 
 ```shell
-
 启动项目
 $ yarn run start
-或
-$ npm run start
 
 打包项目
 $ yarn run build
-或
-$ npm run build
 
 代码格式检查
 $ yarn run lint
-或
-$ npm run lint
+```
 
+## 参与开发
+
+1、克隆禧云生态代码
+```shell
+$ git clone https://github.com/xiyun-international/xy.git
+$ cd xy
+```
+2、进行文件监听
+```shell
+$ yarn cli:watch
+```
+3、开发测试（以创建应用为例）
+```shell
+$ node ./package/cli/bin/xy.js create my-app
+```
+4、开发完成，执行编译
+```shell
+$ yarn cli:build
+```
+5、执行发布（如果你是以PR的方式贡献代码，那么这一步将由我们来执行）
+```shell
+$ lerna publish
 ```
