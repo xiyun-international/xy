@@ -10,7 +10,7 @@
 </template>
     
 <script>
-import xyClickoutside from "../../src/libraries/clickoutside.js";
+import xyClickoutside from "../../src/libraries/clickoutside.ts";
 
 export default {
     name: 'XyClickoutside',
@@ -49,4 +49,3 @@ export default {
   }
 }
 </style>
-    
