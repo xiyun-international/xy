@@ -129,7 +129,8 @@ module.exports = {
           collapsable: false,
           children: [
             'xy-post',
-            'xy-clickoutside'
+            'xy-clickoutside',
+            'xy-filters',
           ],
         },
       ]
