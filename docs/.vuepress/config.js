@@ -110,6 +110,7 @@ module.exports = {
           collapsable: false,
           children: [
             '',
+            'ui',
             'cli',
             'utils',
           ],
