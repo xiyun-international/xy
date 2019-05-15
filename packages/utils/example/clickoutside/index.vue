@@ -33,7 +33,7 @@ export default {
 <style lang="less">
 .main{
   width:125px;
-  margin:0 auto;
+  margin-top: 20px;
   .dropdown{
     width:150px;
     height:150px;
