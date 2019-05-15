@@ -1,5 +1,5 @@
 {
-  "name": "@xiyun/cli",
+  "name": "cli",
   "version": "1.0.3",
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/cli",
@@ -20,5 +20,6 @@
     "@types/node": "^11.13.7",
     "typescript": "^3.4.5",
     "umi-tools": "^0.4.0"
-  }
+  },
+  "gitHead": "2e98ffe23988fce970d7c225918cae42f19ff2e1"
 }
