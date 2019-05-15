@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 /**
  * v-clickoutside
  * @desc 点击元素外面才会触发的事件
@@ -19,34 +17,27 @@ const on = (function() {
           element.addEventListener(event, handler, false);
         }
       };
-    } else {
-      return function(element, event, handler) {
-        if (element && event && handler) {
-          element.attachEvent('on' + event, handler);
-        }
-      };
     }
   })();
 
-!Vue.prototype.$isServer &&
-  on(document, 'click', e => {
-    nodeList.forEach(node => node[ctx].__xyClickOutside__(e));
-  });
+on(document, 'click', e => {
+  nodeList.forEach(node => node[ctx].__xyClickOutside__(e));
+});
 
 function createDocumentHandler(el, binding, vnode) {
-    return function(e = {}) {
-        if(!vnode ||
+  return function(e = {}) {
+      if(!vnode ||
         !vnode.context ||
         !e.target ||
         el.contains(e.target)||
         el === e.target
-        ) {
-            return;
-        }
-        // 判断指令是否绑定了函数，绑定则调用
-        if(binding.expression){
-            binding.value&&binding.value(e)
-        }
+      ) {
+          return;
+      }
+      // 判断指令是否绑定了函数，绑定则调用
+      if(binding.expression){
+          binding.value&&binding.value(e)
+      }
   }
 }  
 
