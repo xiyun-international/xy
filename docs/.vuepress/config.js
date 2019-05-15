@@ -128,9 +128,10 @@ module.exports = {
           title: 'API',
           collapsable: false,
           children: [
-            'xy-post'
+            'xy-post',
+            'xy-clickoutside'
           ],
-        }
+        },
       ]
     }
   }
