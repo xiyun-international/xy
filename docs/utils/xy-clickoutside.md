@@ -23,7 +23,7 @@
 </template>
     
 <script>
-import xyClickoutside from "@xiyun/utils";
+import {xyClickoutside} from "@xiyun/utils";
 
 export default {
     name: 'XyClickoutside',

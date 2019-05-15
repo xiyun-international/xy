@@ -25,7 +25,7 @@ on(document, 'click', e => {
 });
 
 function createDocumentHandler(el, binding, vnode) {
-  return function(e = {}) {
+  return function(e) {
       if(!vnode ||
         !vnode.context ||
         !e.target ||
