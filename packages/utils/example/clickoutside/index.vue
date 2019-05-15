@@ -10,12 +10,12 @@
 </template>
     
 <script>
-import xyClickoutside from "../../src/libraries/clickoutside.ts";
+import clickOutside from "../../src/libraries/clickoutside.ts";
 
 export default {
     name: 'XyClickoutside',
     directives: {
-        'xy-click-outside': xyClickoutside,
+        'xy-click-outside': clickOutside,
     },
     data() {
         return {
