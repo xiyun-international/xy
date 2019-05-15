@@ -8,21 +8,21 @@ $ yarn add @xiyun/utils
 ```
 
 ## 使用
-
-这里以**xyPost 方法**为例，xyPost 基于 axios 封装了 post 数据请求方法。
+这里以**post 方法**为例，post 基于 axios 封装了 post 数据请求方法。
 
 代码示例
 ```js
-import {xyPost} from '@xiyun/utils';
+import { post as postUtils } from '@xiyun/utils';
 
 // 配置
-xyPost.config({});
+postUtils.config({});
 // 业务级别的错误处理
-xyPost.bizErrorHandler(() => {});
+postUtils.bizErrorHandler(() => {});
 // 最终的错误处理方法
-xyPost.catchErrorHandler(() => {});
-// 发起请求
-xyPost.post('api', params).then(res => {});
+postUtils.catchErrorHandler(() => {});
+
+// 在组件中，发起请求
+postUtils.post('api', params).then(res => {});
 ```
 
-更详细的文档请参阅各方法文档。
+其它案例参考 API。

@@ -127,7 +127,7 @@ module.exports = {
       ],
       '/utils/': [
         {
-          title: '工具集',
+          title: '简介',
           collapsable: false,
           children: [
             '',
