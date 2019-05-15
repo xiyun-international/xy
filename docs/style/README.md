@@ -42,7 +42,7 @@
 
 ## 效果
 <div>
-  <button class="t-MR10">我有10像素的右边距</button>
+  <button  class="t-MR10">我有10像素的右边距</button>
   <button>按钮</button>
 </div>
 <br />
