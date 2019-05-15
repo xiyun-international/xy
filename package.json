@@ -13,7 +13,9 @@
     "docs:build": "vuepress build docs",
     "build": "xy-tools build theme && xy-tools build component",
     "cli:watch": "tsc -w -p ./packages/cli/",
-    "cli:build": "tsc -b -p ./packages/cli/"
+    "cli:build": "tsc -b ./packages/cli/",
+    "utils:watch": "tsc -w -p ./packages/utils/",
+    "utils:build": "tsc -b ./packages/utils/"
   },
   "lint-staged": {
     "*.(t|j)s": [
@@ -37,8 +39,9 @@
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
     "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10",
     "vuepress": "^1.0.0-alpha.47",
-    "xy-tools": "^0.0.4"
+    "xy-tools": "^0.0.5"
   },
   "dependencies": {
     "@xiyun/xy-element-ui": "^1.0.0"

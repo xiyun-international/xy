@@ -7,8 +7,6 @@
 
 ```shell
 $ yarn add @xiyun/utils
-or
-$ npm install @xiyun/utils
 ```
 
 ## 使用
@@ -30,3 +28,27 @@ xyPost.post('api', params).then(res => {});
 ```
 
 更详细的文档请参阅各方法文档。
+
+## 参与开发
+
+1、克隆禧云生态代码
+```shell
+$ git clone https://github.com/xiyun-international/xy.git
+$ cd xy
+```
+2、进行文件监听
+```shell
+$ yarn utils:watch
+```
+3、开发测试（以创建应用为例）
+```shell
+$ node ./package/cli/bin/xy.js create my-app
+```
+4、开发完成，执行编译
+```shell
+$ yarn utils:build
+```
+5、执行发布（如果你是以PR的方式贡献代码，那么这一步将由我们来执行）
+```shell
+$ lerna publish
+```

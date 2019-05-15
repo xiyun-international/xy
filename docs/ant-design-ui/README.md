@@ -10,8 +10,6 @@
 ## 安装
 ```
 yarn add @xiyun/ant-design-ui
-或
-npm install @xiyun/ant-design-ui
 ```
 
 ## 使用
