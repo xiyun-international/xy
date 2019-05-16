@@ -1,21 +1,20 @@
 
-### Post 
+### post 
 
-post 是基于 axios 封装了 post 数据请求方法。
+post 工具，是基于 axios 封装了一层 `HTTP POST` 数据请求方法，你只需要做一些业务级的状态码判断，就可以快速的使用。
 
-post 提供了四个接口，分别是：
+post 工具提供了四个接口，分别是：
 
 | API | 说明 | 默认值 |
 |---|---|---|
-|config|用于配置 post 时的相关选项，详情请看下文|`{ headers: {},baseURL: '', timeout: 10000 }`|
-|bizErrorHandler|用于设置请求过程中涉及到的业务级别的错误，详情请看下文 |空|
-|catchErrorHandler|用于设置请求过程中发生错误和被reject后，需要自行处理的错误，详情请看下文 |空|
+|config|用于配置 post 时的相关选项，如头部信息、请求地址等等|`{ headers: {},baseURL: '', timeout: 10000 }`|
+|bizErrorHandler|用于设置请求过程中涉及到的业务级别的错误 |空|
+|catchErrorHandler|用于设置请求过程中发生错误和被reject后，需要自行处理的错误|空|
 |post|执行请求的方法，详情请看下文 |空|
 
 ### 详细参数
 
 #### config 方法
-
 发请求前的配置项，在一般情况下，你只需要配置 baseURL 就可以了，如果你使用禧云的是 element-ui-template 
 和 antd-ui-template，那么只需要在`.env`中配置`VUE_APP_API`接口域名就可以了。
 

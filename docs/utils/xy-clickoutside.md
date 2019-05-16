@@ -1,5 +1,5 @@
 
-### xyClickoutside 
+### xy-click-outside 
 
 <blockquote class="green-tip">
   <p>clickoutside是一个自定义指令，该指令用来处理目标节点之外的点击事件，常用来处理下拉菜单等展开内容的关闭。</p>

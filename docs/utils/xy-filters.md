@@ -1,5 +1,4 @@
-
-### xyFilters 
+### xy-filters 
 
 <blockquote class="green-tip">
   <p>自定义常用过滤器，可被用于一些常见的文本格式化。</p>
