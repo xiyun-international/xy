@@ -1,3 +1,3 @@
-import XyClickoutSide from './index.vue';
+import clickOutside from './index.vue';
 
-export default XyClickoutSide;
+export default clickOutside;

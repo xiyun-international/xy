@@ -1,7 +1,7 @@
 // 隐藏 身份证 中间数字
 const hideIDMiddle = function(val) {
     val = val.toString();
-    if(val.length<7){
+    if(val.length < 7){
         return;
     }
     return `${val.substring(0,3)}****${val.substring(val.length-3)}`

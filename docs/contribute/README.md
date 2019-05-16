@@ -1,105 +1,25 @@
-# 添加公共组件
+# 背景介绍
 
-<blockquote class="green-tip">
-<p>以添加 title 组件 到 Ant Design Vue 组件库为例，Element UI 组件开发流程与之类似。组件命名统一加前缀 “Xy”。</p>
-</blockquote>
+目前商家中心有内嵌 ISV 页面，各 ISV 在接入商家中心的时候，需要开发与商家中心 UI 相符的页面，但是我们没有一个规范提供给 ISV 去使用和参考。
 
-### 代码
----
-在 `packages/ant-design/packages/` 目录下创建 `title` 文件夹，在该文件夹内创建：`index.js`、`index.vue`等，目录结构如下：
+只好跟 ISV 说：商家中心参考了 ElementUI 的设计规范，你们在开发页面的时候也需要参考这个规范，这无疑给 ISV 的开发过程带来了一定程度的不便。
 
-```
-├── packages                   
-│   ├── ant-design-ui          
-│       ├── packages           
-│           ├── title          
-│               ├── index.js   
-│               ├── index.vue  #组件实现代码
-```
-在`index.js` 中，导出组件的时候，需要给组件增加一个 install 方法，这样在存在子级组件的时候，可以方便地使用一个 `Vue.use()` 来代替多个 `Vue.component()`，例如：
-```js
-Vue.use(Input)
-//vs
-Vue.component(Input)
-Vue.component(Input.Number)
-```
-具体代码如下：
-```js
-import XyTitle from './index.vue';
+近期禧云还会做一个开放平台，开放平台还会接受更多的 ISV 接入。如果每一个 ISV 都自己去从头开发一个符合我们规范的页面，那么除去沟通成本，工时也是不少的。
 
-XyTitle.install = function (Vue) {
-  Vue.component(XyTitle.name, XyTitle);
-};
+于是我们想到，要是提供一个工具，能够把 ISV 的这些痛点解决了，这样任何一个 ISV 需要接入我们的平台就会变得相对简单了。
 
-export default XyTitle;
-```
-### 代码配置
----
-组件需在 `packages/ant-design/packages/index.js` 中引入并导出，具体如下：
-```js {4,19}
-import XyTitle from './title/index'; // 引入
-...
-const components = [
-  XyTitle,
-  ...
-];
-const install = (Vue) => { // 整体 install 方法
-  components.forEach((component) => {
-    Vue.component(component.name, component);
-  });
-};
-// auto install
-if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
-}
-export {
-  version,
-  install,
-  XyTitle,
-  ...
-};
-export default {
-  version,
-  install,
-};
-```
+在这个需求愿景下，我们决定打造一个围绕从项目搭建到产品上线这个流程的完整生态，让 ISV 只需关心业务开发即可。
 
-### 编辑 markdown 文件
----
-找到项目目录中的 `docs/ant-design-ui` 文件夹，新建一个 `.md` 文件，并以组件名命名，例：`title.md`，它的基本组成：
+如果你有兴趣参与禧云生态的建设，需要先了解禧云生态的架构图，以便能清楚你贡献的功能是在哪一个环节中会被使用到。
 
-```md
-### title 穿梭框
+## 项目规划
 
-#### 概述
-这里简要描述组件功能 
+|阶段|目标|
+|--|--|
+|一期|主要目标是整个流程的走通，满足基本的业务使用，文档的对外输出|
+|二期|主要目标是丰富生态功能，规范开发流程，达到能让其他组的人员也可以进行代码奉献|
+|三期|主要目标是打造禧云生态的产品品牌，让禧云生态能在大范围内被使用|
 
-#### 组件示例
+## 架构图
 
-#### 代码示例
-
-#### API
-这里说明属性、方法等 
-```
-
-### 配置
----
-明确目标组件的类型是基础组件或是业务组件，这里我们以业务组件为例。<br>
-将上面编辑好的 markdown 文件名 `title` 加到 `.vuepress/config.js` 以下位置：
-
-```js{11}
-sidebar: {
-      ...
-      
-      '/ant-design/': [
-       ...
-
-        {
-          title: '业务组件',
-          collapsable: false,
-          children: [
-            'title',
-          ],
-        },
-    }
-```
+![架构图](../guide/pics/structure.png)

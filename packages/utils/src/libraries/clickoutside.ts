@@ -7,7 +7,7 @@
  * ```
  */
 const nodeList = [];
-const ctx = 'xyClickoutsideContext';
+const ctx = 'clickOutsideContext';
 let seed = 0;
 
 const on = (function () {
@@ -33,7 +33,7 @@ function createDocumentHandler(el, binding, vnode) {
   }
 }
 
-const xyClickoutside = {
+const clickOutside = {
   bind: function (el, binding, vnode) {
     nodeList.push(el);
     el[ctx] = {
@@ -57,4 +57,4 @@ const xyClickoutside = {
   }
 };
 
-export default xyClickoutside;
+export default clickOutside;

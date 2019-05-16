@@ -9,15 +9,20 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
-  theme: '@xiyun/vuepress-theme-xydocs',
+  // theme: '@xiyun/vuepress-theme-xydocs',
   themeConfig: {
     nav: [
       { text: '指南', link: '/guide/' },
-      { text: '命令行工具', link: '/cli/' },
-      { text: 'Ant Design Vue 组件', link: '/ant-design-ui/' },
-      { text: 'Element UI 组件', link: '/element-ui/' },
-      { text: '工具集', link: '/utils/' },
-      { text: '工具样式', link: '/utils-style/' },
+      {
+        text: '生态系统',
+        items: [
+          { text: '@xiyun/cli', link: '/cli/' },
+          { text: '@xiyun/utils', link: '/utils/' },
+          { text: '底层样式', link: '/style/' },
+          { text: 'Element UI 组件', link: '/element-ui/' },
+          { text: 'Ant Design UI 组件', link: '/ant-design-ui/' },
+        ]
+      },
       { text: '参与贡献', link: '/contribute/' },
       { text: 'GitHub', link: 'https://github.com/xiyun-international' },
     ],
@@ -33,7 +38,7 @@ module.exports = {
       ],
       '/cli/': [
         {
-          title: '命令行工具',
+          title: '命令行',
           collapsable: false,
           children: [
             '',
@@ -105,22 +110,24 @@ module.exports = {
           collapsable: false,
           children: [
             '',
+            'ui',
             'cli',
             'utils',
           ],
         }
       ],
-      '/utils-style/': [
+      '/style/': [
         {
+          title: '底层样式',
           collapsable: false,
           children: [
-            '',
+            ''
           ],
-        }
+        },
       ],
       '/utils/': [
         {
-          title: '工具集',
+          title: '简介',
           collapsable: false,
           children: [
             '',
@@ -130,7 +137,7 @@ module.exports = {
           title: 'API',
           collapsable: false,
           children: [
-            'xy-post',
+            'post',
             'xy-clickoutside',
             'xy-filters',
           ],
