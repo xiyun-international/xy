@@ -151,7 +151,10 @@ module.exports = {
           title: '过滤',
           collapsable: false,
           children: [
-            'filter/filters',
+            // 'filter/filters',
+            'filter/hidePhoneNumber',
+            'filter/hideIDMiddle',
+            'filter/hideMailMiddle',
           ],
         },
       ]
