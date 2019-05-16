@@ -137,9 +137,21 @@ module.exports = {
           title: 'API',
           collapsable: false,
           children: [
-            'post',
-            'xy-clickoutside',
-            'xy-filters',
+            'api/post',
+          ],
+        },
+        {
+          title: '指令',
+          collapsable: false,
+          children: [
+            'directive/clickoutside',
+          ],
+        },
+        {
+          title: '过滤',
+          collapsable: false,
+          children: [
+            'filter/filters',
           ],
         },
       ]
