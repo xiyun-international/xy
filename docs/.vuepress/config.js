@@ -9,7 +9,6 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
-  // theme: '@xiyun/vuepress-theme-xydocs',
   themeConfig: {
     nav: [
       { text: '指南', link: '/guide/' },

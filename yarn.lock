@@ -2803,11 +2803,6 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
-"@xiyun/vuepress-theme-xydocs@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/@xiyun/vuepress-theme-xydocs/download/@xiyun/vuepress-theme-xydocs-1.0.1.tgz#f704c46f3271969bcf84736a6bce7c1d67a8c08b"
-  integrity sha1-9wTEbzJxlpvPhHNqa858HWeowIs=
-
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/@xtuc/ieee754/download/@xtuc/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
