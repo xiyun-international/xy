@@ -12,8 +12,8 @@
 | t-P | 设置 padding 值 | t-P15 |
 | t-PT | 设置 padding-top 值 | t-PT15 |
 | t-PR | 设置 padding-right 值 | t-PR15 |
-| t-PB | 设置 padding-bottom 值 | t-PR15 |
-| t-PL | 设置 padding-left 值 | t-PR15 |
+| t-PB | 设置 padding-bottom 值 | t-PB15 |
+| t-PL | 设置 padding-left 值 | t-PL15 |
 | t-M | 设置 margin 值 | t-M15 |
 | t-MT | 设置 margin-top 值 | t-MT15 |
 | t-MR | 设置 margin-right 值 | t-MR15 |
