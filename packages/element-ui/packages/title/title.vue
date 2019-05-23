@@ -1,7 +1,11 @@
 <template>
-  <div :class="{'xy-title': true, 'first': this.first, 'no-first': !this.first}">
-    <section :class="sectionClass"></section>
-    <slot></slot>
+  <div class="xy-title-wrapper">
+    <div :class="titleClass">
+      <slot></slot>
+    </div>
+    <div class="xy-title-right">
+      <slot name="right"></slot>
+    </div>
   </div>
 </template>
 
@@ -9,52 +13,44 @@
 export default {
   name: 'XyTitle',
   props: {
-    first: {
-      type: Boolean,
-      default: false,
-    },
-    section: {
+    isShowIcon: {
       type: Boolean,
       default: false,
     },
   },
   computed: {
-    sectionClass() {
-      return this.section ? 'section show-section' : 'section hide-section';
-    },
     titleClass() {
-      return this.first ? 'xy-title first' : 'xy-title no-first';
+      return this.isShowIcon ? 'xy-title xy-title-icon' : 'xy-title';
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.xy-title {
-  font-size: 18px;
-  height: 25px;
-  line-height: 25px;
-  color: #000;
-  margin-bottom: 20px;
-  section {
-    color: #303133;
-    background-color: #20a0ff;
-    margin-right: 20px;
-    width: 4px;
-    height: 18px;
-    vertical-align: middle;
+  .xy-title-wrapper {
+    .xy-title {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: bold;
+      position: relative;
+      line-height: 20px;
+      margin: 30px 0;
+    }
+    .xy-title-icon {
+      padding-left: 15px;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: #108ee9;
+      }
+    }
+    .xy-title-right {
+      float: right;
+      margin: 30px 0;
+    }
   }
-  .hide-section {
-    display: none;
-  }
-  .show-section {
-    display: inline-block;
-  }
-}
-.first {
-  margin-top: 0;
-}
-.no-first {
-  margin-top: 24px;
-}
 </style>

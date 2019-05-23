@@ -4,32 +4,28 @@
       <div class="card-body">
         <i class="logo xy-v2-aq"></i>
         <p class="title">安全验证</p>
-
         <div class="box-tips">
           <p v-if="isSendCode">验证码短信已发送至：{{ telephone }}，请注意查收</p>
           <p v-else>为了保障账户安全，请进行安全验证，接收验证码手机号：{{ telephone }}</p>
         </div>
-
-        <div class="t-MT28"></div>
-        <div class="xy-ele-input verify-input">
+        <div class="t-MT30">
           <el-input
+            class="verify-input"
             :maxlength="6"
-            class="xy-input__inner"
             type="text"
             autocomplete="off"
             v-model="code"
           />
+          <xy-countdown-button @click="sendCode" :is-send.sync="isSend"></xy-countdown-button>
         </div>
-        <xy-countdown-button @click="sendCode" :is-send.sync="isSend"></xy-countdown-button>
-        <div class="t-MT28"></div>
-        <button
-          class="xy-ele-button primary submit-button"
-          style="width: 300px;"
+        <el-button
+          class="verify-button"
+          type="primary"
           @click="verifyCode"
           :disabled="code.length !== 6"
         >
           <span>确定</span>
-        </button>
+        </el-button>
       </div>
     </div>
   </div>
@@ -108,11 +104,11 @@ export default {
     color: #999;
   }
   .verify-input {
-    width: 110px;
-    padding-right: 12px;
+    display: inline-block;
+    width: 120px;
   }
-  .submit-button {
-    width: 236px;
-    margin-bottom: 123px;
+  .verify-button {
+    width: 300px;
+    margin: 30px 0 238px 0;
   }
 </style>
