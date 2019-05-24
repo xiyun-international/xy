@@ -65,7 +65,5 @@ typings/
 
 # webStorm
 .idea/
-/packages/cli/lib
-/packages/utils/lib
-/packages/*/dist
+/packages/*/lib
 .cache
