@@ -5,7 +5,6 @@ import XyTimeline from './time-line';
 import XyCountdownButton from './countdown-button';
 import XySensText from './sens-text';
 import XyVerification from './verification';
-import XyTitleIcon from './title-icon';
 import XyTableTree from './table-tree';
 import XyTransfer from './transfer';
 import XyFrame from './frame';
@@ -18,7 +17,6 @@ const components = [
   XyCountdownButton,
   XySensText,
   XyVerification,
-  XyTitleIcon,
   XyTableTree,
   XyTransfer,
   XyFrame,
@@ -45,7 +43,6 @@ export {
   XyCountdownButton,
   XySensText,
   XyVerification,
-  XyTitleIcon,
   XyTableTree,
   XyTransfer,
   XyFrame,

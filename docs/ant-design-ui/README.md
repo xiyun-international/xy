@@ -9,29 +9,62 @@
 
 ## 安装
 ```
-yarn add @xiyun/ant-design-ui
+$ yarn add @xiyun/ant-design-ui
 ```
 
 ## 使用
 
+### 1、全局引入
+
 ```js
-// 引用组件样式
+// 引入样式
 import '@xiyun/ant-design-ui/lib/index.css';
-
 import Vue from 'vue';
-
-// 示例1：全部引入使用 //
 import XyUI from '@xiyun/ant-design-ui';
-Vue.use(XyUI);
-// -------------- //
 
-// 示例2：部分引入 //
+Vue.use(XyUI);
+new Vue().$mount('#app')
+```
+
+### 2、按需引入
+
+借助 [babel-plugin-component](https://github.com/ElementUI/babel-plugin-component)，我们可以只引入需要的组件，以达到减小项目体积的目的。
+
+首先，安装 babel-plugin-component：
+
+```shell
+$ yarn add -D babel-plugin-component
+```
+
+然后，将`.babelrc`修改为：
+
+```json
+{
+  "plugins": [
+    [
+      "component",
+      {
+        "libDir": "packages",
+        "libraryName": "@xiyun/ant-design-ui",
+        "style": false
+      }
+    ]
+  ]
+}
+```
+
+接下来，如果你只希望引入部分组件，比如 XyTitle 那么需要在 main.js 中写入以下内容：
+
+```js
+// 引入样式
+import '@xiyun/ant-design-ui/lib/index.css';
+import Vue from 'vue';
+// 引入标题组件
 import {XyTitle} from '@xiyun/ant-design-ui';
+
 Vue.use(XyTitle)
 // 或
 Vue.component(XyTitle)
-// -------------- //
-
 
 new Vue().$mount('#app')
 ```

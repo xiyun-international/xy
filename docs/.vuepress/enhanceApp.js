@@ -29,7 +29,6 @@ import {
   XyTableTree as EleXyTableTree,
   XyTransfer as EleXyTransfer,
   XyFrame as EleXyFrame,
-  XyTitleIcon as EleXyTitleIcon,
 } from '../../packages/element-ui/packages/index';
 
 export default ({Vue}) => {
@@ -55,7 +54,6 @@ export default ({Vue}) => {
   Vue.component('EleXyFrame', EleXyFrame);
   Vue.component('EleXyTableTree', EleXyTableTree);
   Vue.component('EleXyTransfer', EleXyTransfer);
-  Vue.component('EleXyTitleIcon', EleXyTitleIcon);
 
   // Vue.component('xyClickoutside', xyClickoutside);
 }
