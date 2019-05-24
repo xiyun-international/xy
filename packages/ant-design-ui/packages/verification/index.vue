@@ -10,26 +10,25 @@
           <p v-else>为了保障账户安全，请进行安全验证，接收验证码手机号：{{ telephone }}</p>
         </div>
 
-        <div class="t-MT28"></div>
-        <div class="xy-antd-input verify-input">
-          <input
+        <div class="t-MT30">
+          <a-input
+            class="verify-input"
             :maxlength="6"
-            class="xy-antd-input__inner"
             type="text"
             autocomplete="off"
             v-model="code"
           />
+          <xy-countdown-button @click="sendCode" :is-send.sync="isSend"></xy-countdown-button>
         </div>
-        <xy-countdown-button @click="sendCode" :is-send.sync="isSend"></xy-countdown-button>
-        <div class="t-MT28"></div>
-        <button
-          class="xy-antd-button primary submit-button"
-          style="width: 300px;"
+
+        <a-button
+          type="primary"
+          class="submit-button"
           @click="verifyCode"
           :disabled="code.length !== 6"
         >
           <span>确定</span>
-        </button>
+        </a-button>
       </div>
     </div>
   </div>
@@ -108,11 +107,11 @@ export default {
     color: #999;
   }
   .verify-input {
+    display: inline-block;
     width: 110px;
-    padding-right: 12px;
   }
   .submit-button {
-    width: 236px;
-    margin-bottom: 123px;
+    width: 260px;
+    margin: 30px 0 238px 0;
   }
 </style>

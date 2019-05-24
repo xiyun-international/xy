@@ -1,12 +1,11 @@
 <template>
-  <button
-    class="xy-antd-button custom-button"
+  <a-button
     :class="{disabled: isDisable}"
     @click="onClick"
     :disabled="isDisable"
   >
     <span>{{ btnText }}</span>
-  </button>
+  </a-button>
 </template>
 
 <script>
@@ -73,3 +72,6 @@ export default {
   },
 };
 </script>
+<style scoped lang="less">
+
+</style>
