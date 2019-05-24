@@ -1,9 +1,13 @@
 {
   "name": "@xiyun/xy-element-ui",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "main": "./lib/index.umd.min.js",
   "style": "./lib/index.css",
-  "files": ["lib", "packages", "theme"],
+  "files": [
+    "lib",
+    "packages",
+    "theme"
+  ],
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/element-ui",
   "dependencies": {
