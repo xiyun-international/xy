@@ -2,4 +2,3 @@ tsconfig.json
 tslint.json
 packages/utils/src
 packages/cli/src
-packages/cli/pictures

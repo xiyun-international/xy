@@ -3,6 +3,7 @@
   "version": "1.0.4",
   "main": "./lib/index.umd.min.js",
   "style": "./lib/index.css",
+  "files": ["lib", "packages", "theme"],
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/element-ui",
   "dependencies": {
