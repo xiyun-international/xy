@@ -24,7 +24,7 @@ export default {
   props: ['url'],
   data() {
     return {
-      isLoading: true,
+      isLoading: false,
       timer: null,
       curUrl: '',
     };
