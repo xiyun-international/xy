@@ -1,6 +1,6 @@
-import * as token from './libraries/token';
-import post from './libraries/post';
-import clickOutside from './libraries/clickoutside';
+import * as token from "./libraries/token";
+import post from "./libraries/post";
+import clickOutside from "./libraries/clickoutside";
 
 const libraries = {
   ...token,
@@ -10,8 +10,5 @@ const libraries = {
 
 export default libraries;
 
-export * from './libraries/token';
-export {
-  post,
-  clickOutside,
-};
+export * from "./libraries/token";
+export { post, clickOutside };

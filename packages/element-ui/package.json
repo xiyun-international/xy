@@ -1,5 +1,5 @@
 {
-  "name": "@xiyun/xy-element-ui",
+  "name": "@xiyun/element-ui",
   "version": "1.0.10",
   "main": "./lib/index.umd.min.js",
   "style": "./lib/index.css",

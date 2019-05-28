@@ -8,22 +8,26 @@
     "bootstrap": "lerna bootstrap",
     "docs:dev": "xy-tools docs dev",
     "docs:build": "xy-tools docs build",
-    "lint": "eslint --ext .js packages",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "prettier --write '**/*.ts'",
     "build": "xy-tools build theme && xy-tools build component",
     "cli:watch": "tsc -w -p ./packages/cli/",
     "cli:build": "tsc -b ./packages/cli/",
     "utils:watch": "tsc -w -p ./packages/utils/",
     "utils:build": "tsc -b ./packages/utils/"
   },
-  "dependencies": {
-    "@xiyun/xy-element-ui": "^1.0.0"
-  },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
     "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "lerna": "^3.11.1",
     "less-loader": "^4.1.0",
     "lint-staged": "^8.1.5",
-    "prettier": "^1.17.0",
+    "prettier": "^1.17.1",
+    "typescript": "^3.4.5",
     "vue-template-compiler": "^2.6.10",
     "xy-tools": "^0.0.8"
   }
