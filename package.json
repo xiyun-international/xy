@@ -40,7 +40,7 @@
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10",
     "vuepress": "^1.0.0-alpha.47",
-    "xy-tools": "^0.0.5"
+    "xy-tools": "^0.0.6"
   },
   "dependencies": {
     "@xiyun/xy-element-ui": "^1.0.0"
