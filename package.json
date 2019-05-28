@@ -5,43 +5,26 @@
     "packages/*"
   ],
   "scripts": {
-    "diff": "lerna diff",
-    "new-version": "lerna version",
     "bootstrap": "lerna bootstrap",
-    "docs:dev": "vuepress dev docs",
+    "docs:dev": "xy-tools docs dev",
+    "docs:build": "xy-tools docs build",
     "lint": "eslint --ext .js packages",
-    "docs:build": "vuepress build docs",
     "build": "xy-tools build theme && xy-tools build component",
     "cli:watch": "tsc -w -p ./packages/cli/",
     "cli:build": "tsc -b ./packages/cli/",
     "utils:watch": "tsc -w -p ./packages/utils/",
     "utils:build": "tsc -b ./packages/utils/"
   },
-  "lint-staged": {
-    "*.(t|j)s": [
-      "prettier --trailing-comma all --single-quote --write",
-      "git add"
-    ]
+  "dependencies": {
+    "@xiyun/xy-element-ui": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.15.1",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-import": "^2.17.1",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-vue": "^5.2.2",
-    "husky": "^1.3.1",
     "lerna": "^3.11.1",
-    "lerna-changelog": "^0.8.2",
     "less-loader": "^4.1.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
     "vue-template-compiler": "^2.6.10",
-    "vuepress": "^1.0.0-alpha.47",
-    "xy-tools": "^0.0.6"
-  },
-  "dependencies": {
-    "@xiyun/xy-element-ui": "^1.0.0"
+    "xy-tools": "^0.0.7"
   }
 }
