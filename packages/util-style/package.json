@@ -1,0 +1,14 @@
+{
+  "name": "@xiyun/util-style",
+  "version": "1.0.0",
+  "main": "lib/index.css",
+  "style": "lib/index.css",
+  "license": "MIT",
+  "files": ["lib", "src"],
+  "scripts": {
+    "build": "gulp"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
