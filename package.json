@@ -25,6 +25,6 @@
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
     "vue-template-compiler": "^2.6.10",
-    "xy-tools": "^0.0.7"
+    "xy-tools": "^0.0.8"
   }
 }
