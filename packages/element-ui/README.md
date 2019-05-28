@@ -7,9 +7,9 @@
 
 ### 安装
 ```
-yarn add @xiyun/xy-element-ui
+yarn add @xiyun/element-ui
 或
-npm install @xiyun/xy-element-ui
+npm install @xiyun/element-ui
 ```
 
 ### 使用
@@ -22,12 +22,12 @@ import Vue from 'vue';
 
 
 // 示例1：全部引入使用 //
-import XyUI from '@xiyun/xy-element-ui';
+import XyUI from '@xiyun/element-ui';
 Vue.use(XyUI);
 // -------------- //
 
 // 示例2：部分引入 //
-import {XyTitle} from '@xiyun/xy-element-ui';
+import {XyTitle} from '@xiyun/element-ui';
 Vue.use(XyTitle)
 // 或
 Vue.component(XyTitle)
