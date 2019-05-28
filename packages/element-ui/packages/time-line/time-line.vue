@@ -1,5 +1,5 @@
 <template>
-  <div class="xy-ele-timeline">
+  <div class="xy-timeline">
     <div class="left" :style="{width: leftWidth}">
       <slot name="left"></slot>
     </div>
@@ -66,8 +66,8 @@
     },
   };
 </script>
-<style scoped lang="scss">
-  .xy-ele-timeline {
+<style scoped lang="less">
+  .xy-timeline {
     display: flex;
     height: 100%;
     font-size: 14px;

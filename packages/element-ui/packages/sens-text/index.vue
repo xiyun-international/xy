@@ -1,7 +1,7 @@
 <template>
-  <div class="xy-ele-sens-text-wrapper">
+  <div class="xy-sens-text-wrapper">
     <span>{{ showText }}</span>
-    <i :class="['xy-ele-eye', switchClass]" :style="{ color: eyeColor }" @click="switchOpen"></i>
+    <i :class="switchClass" :style="{ color: eyeColor }" @click="switchOpen"></i>
   </div>
 </template>
 
@@ -49,11 +49,11 @@ export default {
 };
 </script>
 
-<style scoped>
-.xy-ele-sens-text-wrapper {
+<style scoped lang="less">
+.xy-sens-text-wrapper {
   user-select: none;
-}
-.xy-ele-eye {
-  cursor: pointer;
+  i {
+    cursor: pointer;
+  }
 }
 </style>

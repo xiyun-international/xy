@@ -1,6 +1,6 @@
 <template>
   <button
-    class="xy-ele-button xy-ele-custom-button"
+    class="xy-button xy-custom-button"
     :class="{disabled: isDisable}"
     @click="onClick"
     :disabled="isDisable"
@@ -73,14 +73,14 @@
     },
   };
 </script>
-<style scoped lang="scss">
+<style scoped lang="less">
   button {
     text-transform: none;
     overflow: visible;
     font-family: inherit;
   }
 
-  .xy-ele-button {
+  .xy-button {
     display: inline-block;
     line-height: 1;
     white-space: nowrap;
@@ -101,32 +101,32 @@
     user-select: none;
   }
 
-  .xy-ele-button:hover,
-  .xy-ele-button:focus {
+  .xy-button:hover,
+  .xy-button:focus {
     color: #409eff;
     border-color: #c6e2ff;
     background-color: #ecf5ff;
   }
 
-  .xy-ele-button:active {
+  .xy-button:active {
     color: #3a8ee6;
     border-color: #3a8ee6;
     outline: 0;
   }
 
-  .xy-ele-button.primary {
+  .xy-button.primary {
     background-color: #409eff;
     border-color: #409eff;
     color: #fff;
   }
 
-  .xy-ele-button.primary:active {
+  .xy-button.primary:active {
     background: #3a8ee6;
     border-color: #3a8ee6;
     outline: 0;
   }
 
-  .xy-ele-button.disabled {
+  .xy-button.disabled {
     //color: rgba(0, 0, 0, 0.25);
     //background-color: #f5f5f5;
     //border-color: #d9d9d9;
@@ -135,7 +135,7 @@
     cursor: not-allowed;
   }
 
-  .xy-ele-custom-button {
+  .xy-custom-button {
     border: 1px solid #20a0ff;
     color: #20a0ff;
   }

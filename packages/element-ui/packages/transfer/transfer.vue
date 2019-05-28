@@ -218,7 +218,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
   .xy-transfer {
     font-size: 14px;
     display: flex;

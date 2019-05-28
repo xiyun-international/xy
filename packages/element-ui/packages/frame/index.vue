@@ -110,7 +110,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
   #iframe {
     width: 100%;
     border: 0;

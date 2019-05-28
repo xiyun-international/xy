@@ -1,12 +1,11 @@
 import 'ant-design-vue/dist/antd.css';
 import '../../packages/ant-design-ui/theme/styles/index.less';
-import '../../packages/element-ui/theme/styles/index.scss';
+import '../../packages/element-ui/theme/styles/index.less';
 import '../common.less'
 import 'element-ui/lib/theme-chalk/index.css';
 
 import Antd from 'ant-design-vue'
 import Ele from 'element-ui'
-// import { xyClickoutside } from '../../packages/utils/example';
 
 import {
   XyTitle as AntdXyTitle,
@@ -54,6 +53,4 @@ export default ({Vue}) => {
   Vue.component('EleXyFrame', EleXyFrame);
   Vue.component('EleXyTableTree', EleXyTableTree);
   Vue.component('EleXyTransfer', EleXyTransfer);
-
-  // Vue.component('xyClickoutside', xyClickoutside);
 }

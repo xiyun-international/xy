@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
   .xy-title-wrapper {
     .xy-title {
       display: inline-block;
