@@ -16,7 +16,7 @@
     "utils:build": "tsc -b ./packages/utils/"
   },
   "dependencies": {
-    "@xiyun/xy-element-ui": "^1.0.0"
+    "@xiyun/element-ui": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

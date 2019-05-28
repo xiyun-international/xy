@@ -8,7 +8,7 @@
 
 ## 安装
 ```
-$ yarn add @xiyun/xy-element-ui
+$ yarn add @xiyun/element-ui
 ```
 
 ## 使用
@@ -19,7 +19,7 @@ $ yarn add @xiyun/xy-element-ui
 // 引入样式
 import '@xiyun/element-ui/lib/index.css';
 import Vue from 'vue';
-import XyUI from '@xiyun/xy-element-ui';
+import XyUI from '@xiyun/element-ui';
 
 Vue.use(XyUI);
 new Vue().$mount('#app')
@@ -44,7 +44,7 @@ $ yarn add -D babel-plugin-component
       "component",
       {
         "libDir": "packages",
-        "libraryName": "@xiyun/xy-element-ui",
+        "libraryName": "@xiyun/element-ui",
         "style": false
       }
     ]
@@ -59,7 +59,7 @@ $ yarn add -D babel-plugin-component
 import '@xiyun/element-ui/lib/index.css';
 import Vue from 'vue';
 // 引入标题组件
-import {XyTitle} from '@xiyun/xy-element-ui';
+import {XyTitle} from '@xiyun/element-ui';
 
 Vue.use(XyTitle)
 // 或
