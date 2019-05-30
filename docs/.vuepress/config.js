@@ -137,6 +137,7 @@ module.exports = {
           collapsable: false,
           children: [
             'api/post',
+            'api/get',
           ],
         },
         {

@@ -9,13 +9,14 @@ import shell from "shelljs";
 import which from "which";
 
 class Create {
-  private cwd: string;
-  private inCurrent: boolean;
-  private name: string;
-  private targetDir: string;
-  private ui: string;
-  private appName: string;
-  private mode: string;
+  private readonly cwd: string;
+  private readonly inCurrent: boolean;
+  private readonly name: string;
+  private readonly targetDir: string;
+  private readonly ui: string;
+  private readonly appName: string;
+  private readonly mode: string;
+
   public constructor(appName: string, params: { ui; mode }) {
     const { ui, mode } = params;
     this.cwd = process.cwd();
@@ -27,7 +28,7 @@ class Create {
     this.mode = mode;
   }
 
-  validPackageName(): void {
+  private validPackageName(): void {
     const result = validateProjectName(this.name);
 
     if (!result.validForNewPackages) {
@@ -71,7 +72,7 @@ class Create {
     }
   }
 
-  findExecutor(): string {
+  private findExecutor(): string {
     const executors = ["yarn", "tnpm", "cnpm", "npm"];
     for (let i = 0; i < executors.length; i++) {
       try {
@@ -84,7 +85,7 @@ class Create {
     process.exit(1);
   }
 
-  downloadTemplate(): void {
+  private downloadTemplate(): void {
     const spinner = ora("downloading template...");
     spinner.start();
     const repo =
@@ -112,7 +113,7 @@ class Create {
     });
   }
 
-  writeEnv() {
+  private writeEnv(): void {
     shell.exec(
       `cd ${path.join(this.cwd, this.appName)} && echo VUE_APP_MODE=${
         this.mode
@@ -124,13 +125,13 @@ class Create {
     );
   }
 
-  startServe() {
+  private startServe(): void {
     console.log(chalk.cyan("starting development server..."));
     const npm: string = this.findExecutor();
     shell.exec(`cd ${path.join(this.cwd, this.appName)} && ${npm} start`);
   }
 
-  async run() {
+  public async run() {
     this.validPackageName();
     try {
       await this.checkFileExist();
@@ -142,6 +143,6 @@ class Create {
   }
 }
 
-export default function(appName, params) {
+export default function(appName, params): Promise<void> {
   return new Create(appName, params).run();
 }

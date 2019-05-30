@@ -34,7 +34,7 @@ program
         ]
       });
 
-      create.default(appName, {ui, mode});
+      await create.default(appName, {ui, mode});
     })();
   });
 

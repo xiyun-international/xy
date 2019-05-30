@@ -12,17 +12,17 @@ $ yarn add @xiyun/utils
 
 代码示例
 ```js
-import { post as postUtils } from '@xiyun/utils';
+import { post } from '@xiyun/utils';
 
 // 配置
-postUtils.config({});
+post.config({});
 // 业务级别的错误处理
-postUtils.bizErrorHandler(() => {});
+post.bizErrorHandler((res) => {});
 // 最终的错误处理方法
-postUtils.catchErrorHandler(() => {});
+post.catchErrorHandler((err) => {});
 
-// 在组件中，发起请求
-postUtils.post('api', params).then(res => {});
+// 发起请求
+post('api', params).then(res => {});
 ```
 
-其它案例参考 API。
+详情请参考各 API 文档。
