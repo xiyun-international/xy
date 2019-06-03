@@ -136,8 +136,9 @@ module.exports = {
           title: 'API',
           collapsable: false,
           children: [
-            'api/post',
-            'api/get',
+            'api/http',
+            // 'api/post',
+            // 'api/get',
           ],
         },
         {
