@@ -2,7 +2,7 @@
   <div>
     <div class="card box-card">
       <div class="card-body">
-        <i class="logo xy-antd-v2-aq"></i>
+        <i class="logo xy-v2-aq"></i>
         <p class="title">安全验证</p>
 
         <div class="box-tips">
@@ -45,6 +45,10 @@ export default {
   props: {
     isSendCode: Boolean,
     telephone: [String, Number],
+    value: {
+      type: String,
+      default: ''
+    },
   },
   data() {
     return {
@@ -53,6 +57,12 @@ export default {
     };
   },
   watch: {
+    code(val) {
+      this.$emit('input', val);
+    },
+    value(val) {
+      this.code = val;
+    },
     isSendCode(val) {
       this.isSend = val;
     },
