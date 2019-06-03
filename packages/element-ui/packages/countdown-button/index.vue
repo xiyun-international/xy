@@ -10,6 +10,8 @@
 </template>
 
 <script>
+  const countSecond = 60;
+
   export default {
     name: 'XyCountdownButton',
     props: {
@@ -31,7 +33,7 @@
         timer: null,
         btnText: this.text,
         isDisable: false,
-        countdown: 60,
+        countdown: countSecond,
       };
     },
     watch: {
@@ -66,7 +68,7 @@
       },
       resetTimer() {
         clearInterval(this.timer);
-        this.countdown = 60;
+        this.countdown = countSecond;
         this.btnText = this.text;
         this.isDisable = false;
       },
