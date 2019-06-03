@@ -56,6 +56,9 @@ export default {
       isSend: false,
     };
   },
+  mounted() {
+    this.code = this.value;
+  },
   watch: {
     code(val) {
       this.$emit('input', val);
