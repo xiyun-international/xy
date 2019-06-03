@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/utils",
-  "version": "1.0.12",
+  "version": "1.0.14",
   "main": "lib/index.js",
   "license": "MIT",
   "dependencies": {
