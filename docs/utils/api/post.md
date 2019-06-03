@@ -72,7 +72,13 @@ import { post } from '@xiyun/utils';
 post.config({
   baseURL: 'http://api.backservice.com/'
 });
-
+get.bizErrorHandler(res => {
+  if (res.data.status !== 10000) {
+    message.error(res.data.message);
+    return Promise.reject(res);
+  }
+  return res;
+});
 post('/v1/get-user-detail', {uid: 123}).then(res => {
   console.log(res);
 })

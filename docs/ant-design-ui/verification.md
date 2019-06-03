@@ -68,6 +68,8 @@ export default {
     verifyCode(code) {
       // post('api', {code}).then(res => {
       //   ...
+      // 校验成功后，你可能需要重置状态
+         this.isSendCode = false;
       // })
     }
   }

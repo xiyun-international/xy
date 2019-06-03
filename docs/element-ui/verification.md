@@ -31,9 +31,9 @@ export default {
     },
     // 校验验证码
     verifyCode(code) {
-      // post('api', {code}).then(res => {
-      //   ...
-      // })
+      console.log(code);
+      // 校验成功后，你可能需要把状态重置
+      this.isSendCode = false;
     }
   }
 }
@@ -68,6 +68,8 @@ export default {
     verifyCode(code) {
       // post('api', {code}).then(res => {
       //   ...
+      // 校验成功后，你可能需要重置状态
+         this.isSendCode = false;
       // })
     }
   }

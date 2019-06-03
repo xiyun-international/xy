@@ -58,7 +58,7 @@ export default {
     },
     isSend(val) {
       if (val === false) {
-        this.$emit('update:isSendCode', false);
+        this.code = '';
       }
     },
   },

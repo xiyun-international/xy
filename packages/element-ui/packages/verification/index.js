@@ -1,6 +1,6 @@
-import XyVerification from './index.vue';
+import XyVerification from "./index.vue";
 
-XyVerification.install = function (Vue) {
+XyVerification.install = function(Vue) {
   Vue.component(XyVerification.name, XyVerification);
 };
 
