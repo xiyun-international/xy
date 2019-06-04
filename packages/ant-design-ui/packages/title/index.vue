@@ -30,7 +30,6 @@ export default {
     .xy-title {
       display: inline-block;
       font-size: 18px;
-      font-weight: bold;
       position: relative;
       line-height: 20px;
       margin: 24px 0;
