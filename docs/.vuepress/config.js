@@ -162,11 +162,8 @@ module.exports = {
           title: '表单验证',
           collapsable: false,
           children: [
-            'validate/validMobile',
-            'validate/validIdCard',
-            'validate/validEmail',
-            'validate/validCLN',
-            'validate/validChinese',
+            'validate/validFormInfo',
+            'validate/validForm',
           ],
         },
       ]
