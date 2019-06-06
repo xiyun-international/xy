@@ -158,6 +158,17 @@ module.exports = {
             'filter/hideMailMiddle',
           ],
         },
+        {
+          title: '表单验证',
+          collapsable: false,
+          children: [
+            'validate/validMobile',
+            'validate/validIdCard',
+            'validate/validEmail',
+            'validate/validCLN',
+            'validate/validChinese',
+          ],
+        },
       ]
     }
   }
