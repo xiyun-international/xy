@@ -4,6 +4,7 @@
     "target": "ESNEXT",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "declaration": true
   }
 }
