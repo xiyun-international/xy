@@ -120,18 +120,18 @@ const http = {
       (objValue, srcValue): string => trim(srcValue)
     );
 
-    // 格式化参数
-    const formParams = qs.stringify(args, {
-      arrayFormat: "indices",
-      ...this.defaultConfig.qs
-    });
+    // 格式化参数 格式化后发 get 请求，会发以0=开头的参数
+    // const formParams = qs.stringify(args, {
+    //   arrayFormat: "indices",
+    //   ...this.defaultConfig.qs
+    // });
 
-    delete this.defaultConfig.qs;
+    // delete this.defaultConfig.qs;
 
     return axios
       .get(api, {
         ...this.defaultConfig,
-        params: formParams
+        params: trimmedParams
       })
       .then(this.checkBiz.bind(this))
       .catch(
