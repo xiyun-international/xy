@@ -1,45 +1,49 @@
 import axios, { AxiosResponse } from "axios";
 import qs from "qs";
 import { getToken } from "./token";
+import { trim, assignWith } from "lodash";
+import { isFunction } from "./utils";
 
 type multiType = string | object | Function;
 
-export default {
+const http = {
   defaultConfig: {
     headers: {},
     baseURL: "",
-    timeout: 10000
+    timeout: 10000,
+    qs: {} // qs 配置项
   },
   selfHandleError: false,
   bizErrorFunction: null,
+  catchErrorFunction: null,
+  // 业务错误逻辑处理
   checkBiz(res): multiType {
-    if (this.selfHandleError) {
+    // 如果该参数设为 true，则表明是在请求的地方去自行处理错误，照常返回数据
+    if (this.selfHandleError === true) {
       return res.data;
     }
-    if (this.bizErrorFunction) {
+    // 如果配置了业务处理函数则调用该函数
+    if (isFunction(this.bizErrorFunction)) {
       return this.bizErrorFunction(res);
     }
+    // 其它情况正常返回数据
     return res.data;
   },
-  bizErrorHandler(cb): void {
-    if (typeof cb === "function") {
+  // 配置自定义的业务错误处理函数
+  bizErrorHandler(cb: Function): void {
+    if (isFunction(cb)) {
       this.bizErrorFunction = cb;
     }
   },
+  // 整合自定义配置项
   config(args: object = {}): void {
     for (const name in args) {
       this.defaultConfig[name] = args[name];
     }
   },
-  checkStatus(res): object | Promise<void> {
-    if (res.status >= 400) {
-      return Promise.reject(res);
-    }
-    return res;
-  },
-  catchErrorFunction: null,
-  catchErrorHandler(cb): void {
-    if (typeof cb === "function") {
+  // 配置自定义的公共非业务级错误处理函数
+  catchErrorHandler(cb: Function): void {
+    if (isFunction(cb)) {
       this.catchErrorFunction = cb;
     }
   },
@@ -52,38 +56,42 @@ export default {
   post(
     api: string,
     args: object,
-    selfHandleError: boolean = false
+    selfHandleError?: boolean
   ): Promise<void | AxiosResponse> {
-    this.selfHandleError = selfHandleError;
-    // 如果不是完整url，即接口请求时，就加上自定义header，并设置baseURL
-    if (!/(http:\/\/)|(https:\/\/)/.test(api)) {
-      this.defaultConfig.headers = {
-        Authorization: getToken(),
-        Accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-        ...this.defaultConfig.headers
-      };
-    } else {
-      // Mock
-      return axios
-        .get(api)
-        .then((res): Promise<void | AxiosResponse> => res.data);
-    }
+    this.selfHandleError = selfHandleError || false;
+    this.defaultConfig.headers = {
+      Authorization: getToken() || "",
+      Accept: "application/json",
+      "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+      ...this.defaultConfig.headers
+    };
+
+    // 过滤掉参数中的前后空格
+    const trimmedParams = {};
+    assignWith(
+      trimmedParams,
+      args,
+      (objValue, srcValue): string => trim(srcValue)
+    );
 
     // 格式化参数
-    const formParams = qs.stringify(args, { arrayFormat: "indices" });
+    const formParams = qs.stringify(args, {
+      arrayFormat: "indices",
+      ...this.defaultConfig.qs
+    });
 
     return axios
       .post(api, formParams, this.defaultConfig)
-      .then(this.checkStatus)
-      .then(this.checkBiz)
-      .catch(err => {
-        if (typeof this.catchErrorFunction === "function") {
-          this.catchErrorFunction(err);
-        } else {
-          throw new Error(JSON.stringify(err.data));
+      .then(this.checkBiz.bind(this))
+      .catch(
+        (err): void => {
+          if (isFunction(this.catchErrorFunction)) {
+            this.catchErrorFunction(err);
+          } else {
+            throw new Error(err);
+          }
         }
-      });
+      );
   },
   /**
    * @param api
@@ -94,40 +102,48 @@ export default {
   get(
     api: string,
     args: object,
-    selfHandleError: boolean = false
+    selfHandleError?: boolean
   ): Promise<void | AxiosResponse> {
-    this.selfHandleError = selfHandleError;
-    // 如果不是完整url，即接口请求时，就加上自定义header，并设置baseURL
-    if (!/(http:\/\/)|(https:\/\/)/.test(api)) {
-      this.defaultConfig.headers = {
-        Authorization: getToken(),
-        Accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-        ...this.defaultConfig.headers
-      };
-    } else {
-      // Mock
-      return axios
-        .get(api)
-        .then((res): Promise<void | AxiosResponse> => res.data);
-    }
+    this.selfHandleError = selfHandleError || false;
+    this.defaultConfig.headers = {
+      Authorization: getToken(),
+      Accept: "application/json",
+      "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+      ...this.defaultConfig.headers
+    };
+
+    // 过滤掉参数中的前后空格
+    const trimmedParams = {};
+    assignWith(
+      trimmedParams,
+      args,
+      (objValue, srcValue): string => trim(srcValue)
+    );
 
     // 格式化参数
-    const formParams = qs.stringify(args, { arrayFormat: "indices" });
+    const formParams = qs.stringify(args, {
+      arrayFormat: "indices",
+      ...this.defaultConfig.qs
+    });
+
+    delete this.defaultConfig.qs;
 
     return axios
       .get(api, {
-        params: formParams,
-        ...this.defaultConfig
+        ...this.defaultConfig,
+        params: formParams
       })
-      .then(this.checkStatus)
-      .then(this.checkBiz)
-      .catch(err => {
-        if (typeof this.catchErrorFunction === "function") {
-          this.catchErrorFunction(err);
-        } else {
-          throw new Error(JSON.stringify(err.data));
+      .then(this.checkBiz.bind(this))
+      .catch(
+        (err): void => {
+          if (isFunction(this.catchErrorFunction)) {
+            this.catchErrorFunction(err);
+          } else {
+            throw new Error(err);
+          }
         }
-      });
+      );
   }
 };
+
+export default http;

@@ -1,24 +1,20 @@
-import * as token from "./libraries/token";
-import * as validate from "./libraries/validate";
-import * as filters from "./libraries/filters";
-import post from "./libraries/post";
-import get from "./libraries/get";
+// import * as token from "./libraries/token";
+// import * as validate from "./libraries/validate";
+// import * as filters from "./libraries/filters";
 import http from "./libraries/http";
 import clickOutside from "./libraries/clickoutside";
 
-const libraries = {
-  ...token,
-  ...validate,
-  ...filters,
-  post,
-  get,
-  http,
-  clickOutside,
-};
-
-export default libraries;
+// const libraries = {
+//   ...token,
+//   ...validate,
+//   ...filters,
+//   http,
+//   clickOutside,
+// };
+//
+// export default libraries;
 
 export * from "./libraries/token";
 export * from "./libraries/validate";
 export * from "./libraries/filters";
-export { post, clickOutside, get, http };
+export { clickOutside, http };
