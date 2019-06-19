@@ -84,11 +84,15 @@ const http = {
       .post(api, formParams, this.defaultConfig)
       .then(this.checkBiz.bind(this))
       .catch(
-        (err): void => {
+        (err): Promise<any> => {
           if (isFunction(this.catchErrorFunction)) {
             this.catchErrorFunction(err);
           } else {
-            throw new Error(err);
+            if (this.selfHandleError) {
+              return Promise.reject(err);
+            } else {
+              throw new Error(err);
+            }
           }
         }
       );
@@ -135,11 +139,15 @@ const http = {
       })
       .then(this.checkBiz.bind(this))
       .catch(
-        (err): void => {
+        (err): Promise<any> => {
           if (isFunction(this.catchErrorFunction)) {
             this.catchErrorFunction(err);
           } else {
-            throw new Error(err);
+            if (this.selfHandleError) {
+              return Promise.reject(err);
+            } else {
+              throw new Error(err);
+            }
           }
         }
       );
