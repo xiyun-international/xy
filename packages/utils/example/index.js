@@ -1,5 +1,5 @@
 import http from "../lib/libraries/http";
-import post from "../lib/post";
+// import post from "../lib/post";
 
 http.config({
   baseURL: "https://www.easy-mock.com/mock/5cec94be4ab28d196665a9c3/example"
@@ -46,10 +46,10 @@ http.catchErrorHandler((err, selfHandleError) => {
 // post.config({
 //   baseURL: "https://www.easy-mock.com/mock/5cec94be4ab28d196665a9c3/example"
 // });
-post("/mock_post", {}).then(res => {
+http.post("/mock_post", {}).then(res => {
     // console.log(res);
     localStorage.setItem("TOKEN", "234234234");
-    post("/mock_post", {}).then(r => {});
+    http.post("/mock_post", {}).then(r => {});
   })
   .catch(err => {
     console.log(err);

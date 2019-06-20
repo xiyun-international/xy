@@ -15,7 +15,10 @@ function trimArgs(args): object {
 
 const http = {
   defaultConfig: {
-    headers: {},
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+    },
     baseURL: "",
     timeout: 10000,
     qs: {} // qs 配置项
@@ -96,10 +99,8 @@ const http = {
   ): Promise<void | AxiosResponse> {
     this.selfHandleError = selfHandleError || false;
     this.defaultConfig.headers = {
-      Authorization: getToken() || "",
-      Accept: "application/json",
-      "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-      ...this.defaultConfig.headers
+      ...this.defaultConfig.headers,
+      Authorization: getToken() || ""
     };
 
     // 过滤掉参数中的前后空格
@@ -130,10 +131,8 @@ const http = {
   ): Promise<void | AxiosResponse> {
     this.selfHandleError = selfHandleError || false;
     this.defaultConfig.headers = {
-      Authorization: getToken() || "",
-      Accept: "application/json",
-      "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-      ...this.defaultConfig.headers
+      ...this.defaultConfig.headers,
+      Authorization: getToken() || ""
     };
 
     // 过滤掉参数中的前后空格
