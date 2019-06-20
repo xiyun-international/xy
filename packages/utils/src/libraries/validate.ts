@@ -34,19 +34,19 @@ const validEmail = val => {
  * @param val
  * @return {boolean}
  */
-const validCLN = val => {
-  const reg = /^([a-zA-Z0-9_（）]|\p{Unified_Ideograph})+$/u;
-  return reg.test(val);
-};
+// const validCLN = val => {
+//   const reg = /^([a-zA-Z0-9_（）]|\p{Unified_Ideograph})+$/u;
+//   return reg.test(val);
+// };
 
 /**
  * 仅匹配汉字
  * @param val
  * @return {boolean}
  */
-const validChinese = val => {
-  const reg = /^\p{Unified_Ideograph}+$/u;
-  return reg.test(val);
-};
+// const validChinese = val => {
+//   const reg = /^\p{Unified_Ideograph}+$/u;
+//   return reg.test(val);
+// };
 
-export { validMobile, validIdCard, validEmail, validCLN, validChinese };
+export { validMobile, validIdCard, validEmail };

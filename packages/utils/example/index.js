@@ -1,4 +1,5 @@
 import http from "../lib/libraries/http";
+import post from "../lib/post";
 
 http.config({
   baseURL: "https://www.easy-mock.com/mock/5cec94be4ab28d196665a9c3/example"
@@ -27,23 +28,36 @@ http.catchErrorHandler((err, selfHandleError) => {
   }
 });
 // get 请求
-http.get("/mock", {}).then(res => {
-    console.log(res);
-  })
-  .catch(err => {
-    console.log(err);
-  });
+// http.get("/mock", {}).then(res => {
+//     console.log(res);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
 // post 请求
-http.post("/mock_post", {}).then(res => {
-    console.log(res);
+// http.post("/mock_post", {}).then(res => {
+//     // console.log(res);
+//     localStorage.setItem("TOKEN", "234234234");
+//     http.post("/mock_post", {}).then(r => {});
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
+// post.config({
+//   baseURL: "https://www.easy-mock.com/mock/5cec94be4ab28d196665a9c3/example"
+// });
+post("/mock_post", {}).then(res => {
+    // console.log(res);
+    localStorage.setItem("TOKEN", "234234234");
+    post("/mock_post", {}).then(r => {});
   })
   .catch(err => {
     console.log(err);
   });
 // post 请求，并自行处理错误逻辑
-http.post("/mock_post", {}, true).then(res => {
-    console.log(res);
-  })
-  .catch(err => {
-    console.log(err);
-  });
+// http.post("/mock_post", {}, true).then(res => {
+//     console.log(res);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
