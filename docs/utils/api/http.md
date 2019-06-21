@@ -9,7 +9,7 @@ http 工具提供了五个接口，分别是：
 
 | API | 说明 | 默认值 |
 |---|---|---|
-|config|用于配置发请求时的相关选项，如头部信息、请求地址等|`{ headers: {},baseURL: '', timeout: 10000 }`|
+|config|用于配置发请求时的相关选项，如头部信息、请求地址等|`{ headers: {},baseURL: '', timeout: 10000, isUseQs: true }`|
 |bizErrorHandler|用于自定义设置请求过程中涉及到的业务级别的错误 |不提供|
 |catchErrorHandler|用于自定义设置请求过程中发生错误和被reject后，需要自行处理的错误等|不提供|
 |post|执行请求的方法，详情请看下文 ||
@@ -18,17 +18,37 @@ http 工具提供了五个接口，分别是：
 ### 详细参数
 
 #### config 方法
-发请求前的配置项，在一般情况下，你只需要配置 baseURL 就可以了。
+发请求前的配置项，可以对请求的行为进行一些自定义配置。在一般情况下，你只需要配置 baseURL 就可以了。
 
-我们默认设置了这三个 header 配置选项：
+其中有一个配置项：`isUseQs`，用在 post 请求中是否需要 `qs.stringify`来格式化请求参数，格式化以后，Content-Type 就需要设置为 form-urlencoded，我们默认使用了它。
+
+你可以自定义配置 qs 选项：
+```js
+http.config({
+  qs: {
+    // 你的配置
+  }
+})
+```
+
+header 默认配置选项：
 ```js
 {
-  // getToken() 是从localStorage 中获取 TOKEN 值
+  // getToken() 是从localStorage 中获取 TOKEN 为 key 的值
   Authorization: getToken(),
   Accept: 'application/json',
   'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
 }
 ```
+自定义 header 配置项：
+```
+http.config({
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8'
+  },
+})
+```
+
 更多的配置项可以参考 [axios 的配置项](https://github.com/axios/axios#request-config)
 
 #### bizErrorHandler 业务错误处理函数
@@ -40,23 +60,24 @@ http 工具提供了五个接口，分别是：
 示例：
 ```js
 post.bizErrorHandler(res => {
-  if (res.data.status !== 10000) {
-    message.error(res.data.message)
+  if (res.code !== 200) {
+    message.error(res.message)
     return Promise.reject(res);
   }
   return res;
 });
 ```
 
-#### catchErrorHandler 请求错误处理函数
+#### catchErrorHandler 公共错误处理函数
 
-当一个请求发生错误，或被 reject 掉了，就会执行 catch 方法，你可以使用 catchErrorHandler 
-来自定义处理 catch 的逻辑，默认我们会把错误抛出来。
+当一个请求发生错误，比如：401、404、500 等，或被 reject 掉了，就会执行 catch 方法，你可以使用 catchErrorHandler 
+来自定义处理 catch 的逻辑，默认我们会把错误抛出来，你可以在 `.catch`方法中进行接收，如果你想对错误请求进行统一处理，
+那么这个处理函数就派上用场了。
 
 示例：
 ```js
 post.catchErrorHandler(res => {
-  console.log(res.data);
+  message.error(res.message)
 });
 ```
 
@@ -120,4 +141,59 @@ http.post("/mock_post", {}, true).then(res => {
   .catch(err => {
     console.log(err);
   });
+```
+
+#### 在项目中的封装示例
+
+假设在 utils 目录中，创建一个`http.js`文件。
+
+```js
+import { http, removeToken } from '@xiyun/utils';
+import { message } from 'ant-design-vue';
+import Router from '@/router/index';
+
+const apiUrl = process.env.VUE_APP_API;
+
+message.config({
+  maxCount: 1
+});
+
+http.config({
+  baseURL: apiUrl,
+});
+
+http.bizErrorHandler(res => {
+  const { code, msg } = res;
+  switch (code) {
+    // 成功
+    case 200:
+      return res;
+    case 401:
+      message.error('登录过期，请重新登录');
+      removeToken();
+      Router.replace('/login');
+      return Promise.reject(JSON.stringify({ code, msg }));
+    default:
+      message.error(msg);
+      return Promise.reject(JSON.stringify({ code, msg }));
+  }
+});
+
+// http.catchErrorHandler(res => {
+//   message({
+//     type: 'error',
+//     message: res,
+//   })
+// });
+
+function post(api, params = {}, selfHandleError = false) {
+  return http.post(api, params, selfHandleError);
+}
+
+function get(api, params = {}, selfHandleError = false) {
+  return http.get(api, params, selfHandleError);
+}
+
+export { post, get };
+
 ```
