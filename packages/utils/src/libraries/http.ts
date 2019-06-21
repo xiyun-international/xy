@@ -21,7 +21,8 @@ const http = {
     },
     baseURL: "",
     timeout: 10000,
-    qs: {} // qs 配置项
+    qs: {}, // qs 配置项
+    isUseQs: true // 是否使用 qs 格式化参数
   },
   selfHandleError: false,
   bizErrorFunction: null,
@@ -107,10 +108,10 @@ const http = {
     const trimmedArgs = trimArgs(args);
 
     // 格式化参数
-    const formParams = qs.stringify(trimmedArgs, {
+    const formParams = this.defaultConfig.isUseQs ? qs.stringify(trimmedArgs, {
       arrayFormat: "indices",
       ...this.defaultConfig.qs
-    });
+    }) : trimmedArgs;
 
     return axios
       .post(api, formParams, this.defaultConfig)
