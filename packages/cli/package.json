@@ -10,9 +10,12 @@
     "chalk": "^2.4.2",
     "download-git-repo": "^1.1.0",
     "fs-extra": "^7.0.1",
+    "fs-jetpack": "^2.2.2",
     "inquirer": "^6.3.1",
+    "mkdirp": "^0.5.1",
     "ora": "^3.4.0",
     "shelljs": "^0.8.3",
+    "user-home": "^2.0.0",
     "validate-npm-package-name": "^3.0.0",
     "which": "^1.3.1"
   },

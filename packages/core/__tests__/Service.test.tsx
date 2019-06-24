@@ -1,7 +1,7 @@
 import Service from '../src/Service';
 
+// 常用的数据部分
 const cmd = ['create', 'ant-design-ui'];
-
 const createPlugin = {
   command: 'create',
   alias: 'c',
@@ -78,6 +78,6 @@ describe('Service', () => {
     });
 
     service.run();
-    expect(mockCallback).toBeCalled();
+    expect(mockCallback).toHaveBeenCalledWith(service);
   });
 });
