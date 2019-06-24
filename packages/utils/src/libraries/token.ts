@@ -1,5 +1,5 @@
-function getToken(): void {
-  localStorage.getItem("TOKEN");
+function getToken(): string | null {
+  return localStorage.getItem("TOKEN");
 }
 
 function setToken(token: string): void {

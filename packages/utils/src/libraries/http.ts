@@ -1,48 +1,92 @@
 import axios, { AxiosResponse } from "axios";
 import qs from "qs";
 import { getToken } from "./token";
+import { trim, assignWith } from "lodash";
+import { isFunction, isObject } from "./utils";
 
 type multiType = string | object | Function;
 
-export default {
+// 过滤掉参数中的前后空格
+function trimArgs(args): object {
+  const trimmedArgs = {};
+  assignWith(trimmedArgs, args, (objValue, srcValue): string => trim(srcValue));
+  return trimmedArgs;
+}
+
+const http = {
   defaultConfig: {
-    headers: {},
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+    },
     baseURL: "",
-    timeout: 10000
+    timeout: 10000,
+    qs: {}, // qs 配置项
+    isUseQs: true // 是否使用 qs 格式化参数
   },
   selfHandleError: false,
   bizErrorFunction: null,
+  catchErrorFunction: null,
+  // 业务错误逻辑处理
   checkBiz(res): multiType {
-    if (this.selfHandleError) {
-      return res.data;
+    // 如果配置了业务处理函数则调用该函数
+    if (isFunction(this.bizErrorFunction)) {
+      return this.bizErrorFunction(res.data);
     }
-    if (this.bizErrorFunction) {
-      return this.bizErrorFunction(res);
-    }
+    // 其它情况正常返回数据
     return res.data;
   },
-  bizErrorHandler(cb): void {
-    if (typeof cb === "function") {
+  // 配置自定义的业务错误处理函数
+  bizErrorHandler(cb: Function): void {
+    if (isFunction(cb)) {
       this.bizErrorFunction = cb;
     }
   },
+  // 整合自定义配置项
   config(args: object = {}): void {
-    for (const name in args) {
-      this.defaultConfig[name] = args[name];
-    }
+    const keys = Object.keys(args);
+    keys.forEach(
+      (key): void => {
+        this.defaultConfig[key] = args[key];
+      }
+    );
+    // for (const name in args) {
+    //   this.defaultConfig[name] = args[name];
+    // }
   },
-  checkStatus(res): object | Promise<void> {
-    if (res.status >= 400) {
-      return Promise.reject(res);
-    }
-    return res;
-  },
-  catchErrorFunction: null,
-  catchErrorHandler(cb): void {
-    if (typeof cb === "function") {
+  // 配置自定义的公共非业务级错误处理函数
+  catchErrorHandler(cb: Function): void {
+    if (isFunction(cb)) {
       this.catchErrorFunction = cb;
     }
   },
+  // 错误处理函数
+  errorHandler(err): Promise<void> {
+    // 如果自定义了错误处理方法就交由外部来处理
+    if (isFunction(this.catchErrorFunction)) {
+      return this.catchErrorFunction(err, this.selfHandleError);
+    } else {
+      // 400 及以上的错误，会由 axios 抛出来，在这里接收到
+      if (err.name === "Error") {
+        if (err.response === undefined) {
+          // 网络、服务器内部等错误，没有响应体
+          throw new Error(err.message);
+        } else {
+          // 由接口返回的非200的错误，有响应体的
+          return Promise.reject(err.response.data);
+        }
+      } else {
+        // 由业务处理函数抛出的错误，在这里接收到
+        // 因为不知道自定义的业务处理函数最终会返回什么，所以要先检查 status 是不是 200
+        if (isObject(err) && err.status === 200) {
+          return Promise.reject(err.data);
+        }
+        // 否则的话，原样拒绝回去
+        return Promise.reject(err);
+      }
+    }
+  },
+
   /**
    * @param api
    * @param args
@@ -52,39 +96,29 @@ export default {
   post(
     api: string,
     args: object,
-    selfHandleError: boolean = false
+    selfHandleError?: boolean
   ): Promise<void | AxiosResponse> {
-    this.selfHandleError = selfHandleError;
-    // 如果不是完整url，即接口请求时，就加上自定义header，并设置baseURL
-    if (!/(http:\/\/)|(https:\/\/)/.test(api)) {
-      this.defaultConfig.headers = {
-        Authorization: getToken(),
-        Accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-        ...this.defaultConfig.headers
-      };
-    } else {
-      // Mock
-      return axios
-        .get(api)
-        .then((res): Promise<void | AxiosResponse> => res.data);
-    }
+    this.selfHandleError = selfHandleError || false;
+    this.defaultConfig.headers = {
+      ...this.defaultConfig.headers,
+      Authorization: getToken() || ""
+    };
+
+    // 过滤掉参数中的前后空格
+    const trimmedArgs = trimArgs(args);
 
     // 格式化参数
-    const formParams = qs.stringify(args, { arrayFormat: "indices" });
+    const formParams = this.defaultConfig.isUseQs ? qs.stringify(trimmedArgs, {
+      arrayFormat: "indices",
+      ...this.defaultConfig.qs
+    }) : trimmedArgs;
 
     return axios
       .post(api, formParams, this.defaultConfig)
-      .then(this.checkStatus)
-      .then(this.checkBiz)
-      .catch(err => {
-        if (typeof this.catchErrorFunction === "function") {
-          this.catchErrorFunction(err);
-        } else {
-          throw new Error(JSON.stringify(err.data));
-        }
-      });
+      .then(this.checkBiz.bind(this))
+      .catch(this.errorHandler.bind(this));
   },
+
   /**
    * @param api
    * @param args
@@ -94,40 +128,25 @@ export default {
   get(
     api: string,
     args: object,
-    selfHandleError: boolean = false
+    selfHandleError?: boolean
   ): Promise<void | AxiosResponse> {
-    this.selfHandleError = selfHandleError;
-    // 如果不是完整url，即接口请求时，就加上自定义header，并设置baseURL
-    if (!/(http:\/\/)|(https:\/\/)/.test(api)) {
-      this.defaultConfig.headers = {
-        Authorization: getToken(),
-        Accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-        ...this.defaultConfig.headers
-      };
-    } else {
-      // Mock
-      return axios
-        .get(api)
-        .then((res): Promise<void | AxiosResponse> => res.data);
-    }
+    this.selfHandleError = selfHandleError || false;
+    this.defaultConfig.headers = {
+      ...this.defaultConfig.headers,
+      Authorization: getToken() || ""
+    };
 
-    // 格式化参数
-    const formParams = qs.stringify(args, { arrayFormat: "indices" });
+    // 过滤掉参数中的前后空格
+    const trimmedArgs = trimArgs(args);
 
     return axios
       .get(api, {
-        params: formParams,
-        ...this.defaultConfig
+        ...this.defaultConfig,
+        params: trimmedArgs
       })
-      .then(this.checkStatus)
-      .then(this.checkBiz)
-      .catch(err => {
-        if (typeof this.catchErrorFunction === "function") {
-          this.catchErrorFunction(err);
-        } else {
-          throw new Error(JSON.stringify(err.data));
-        }
-      });
+      .then(this.checkBiz.bind(this))
+      .catch(this.errorHandler.bind(this));
   }
 };
+
+export default http;
