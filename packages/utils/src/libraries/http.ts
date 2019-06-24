@@ -1,8 +1,8 @@
-import axios, { AxiosResponse } from "axios";
-import qs from "qs";
-import { getToken } from "./token";
-import { trim, assignWith } from "lodash";
-import { isFunction, isObject } from "./utils";
+import axios, { AxiosResponse } from 'axios';
+import qs from 'qs';
+import { getToken } from './token';
+import { trim, assignWith } from 'lodash';
+import { isFunction, isObject } from './utils';
 
 type multiType = string | object | Function;
 
@@ -16,13 +16,13 @@ function trimArgs(args): object {
 const http = {
   defaultConfig: {
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+      Accept: 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
     },
-    baseURL: "",
+    baseURL: '',
     timeout: 10000,
     qs: {}, // qs 配置项
-    isUseQs: true // 是否使用 qs 格式化参数
+    isUseQs: true, // 是否使用 qs 格式化参数
   },
   selfHandleError: false,
   bizErrorFunction: null,
@@ -45,11 +45,9 @@ const http = {
   // 整合自定义配置项
   config(args: object = {}): void {
     const keys = Object.keys(args);
-    keys.forEach(
-      (key): void => {
-        this.defaultConfig[key] = args[key];
-      }
-    );
+    keys.forEach((key): void => {
+      this.defaultConfig[key] = args[key];
+    });
     // for (const name in args) {
     //   this.defaultConfig[name] = args[name];
     // }
@@ -67,7 +65,7 @@ const http = {
       return this.catchErrorFunction(err, this.selfHandleError);
     } else {
       // 400 及以上的错误，会由 axios 抛出来，在这里接收到
-      if (err.name === "Error") {
+      if (err.name === 'Error') {
         if (err.response === undefined) {
           // 网络、服务器内部等错误，没有响应体
           throw new Error(err.message);
@@ -93,26 +91,23 @@ const http = {
    * @param selfHandleError 是否自行处理业务错误，默认 false
    * @return Promise<void | AxiosResponse>
    */
-  post(
-    api: string,
-    args: object,
-    selfHandleError?: boolean
-  ): Promise<void | AxiosResponse> {
+  post(api: string, args: object, selfHandleError?: boolean): Promise<void | AxiosResponse> {
     this.selfHandleError = selfHandleError || false;
     this.defaultConfig.headers = {
       ...this.defaultConfig.headers,
-      Authorization: getToken() || ""
+      Authorization: getToken() || '',
     };
 
     // 过滤掉参数中的前后空格
     const trimmedArgs = trimArgs(args);
 
     // 格式化参数
-    const formParams = this.defaultConfig.isUseQs ? qs.stringify(trimmedArgs, {
-      arrayFormat: "indices",
-      ...this.defaultConfig.qs
-    }) : trimmedArgs;
+    const useQs = qs.stringify(trimmedArgs, {
+      arrayFormat: 'indices',
+      ...this.defaultConfig.qs,
+    });
 
+    const formParams = this.defaultConfig.isUseQs ? useQs : trimmedArgs;
     return axios
       .post(api, formParams, this.defaultConfig)
       .then(this.checkBiz.bind(this))
@@ -125,15 +120,11 @@ const http = {
    * @param selfHandleError 是否自行处理业务错误，默认 false
    * @return Promise<void | AxiosResponse>
    */
-  get(
-    api: string,
-    args: object,
-    selfHandleError?: boolean
-  ): Promise<void | AxiosResponse> {
+  get(api: string, args: object, selfHandleError?: boolean): Promise<void | AxiosResponse> {
     this.selfHandleError = selfHandleError || false;
     this.defaultConfig.headers = {
       ...this.defaultConfig.headers,
-      Authorization: getToken() || ""
+      Authorization: getToken() || '',
     };
 
     // 过滤掉参数中的前后空格
@@ -142,11 +133,11 @@ const http = {
     return axios
       .get(api, {
         ...this.defaultConfig,
-        params: trimmedArgs
+        params: trimmedArgs,
       })
       .then(this.checkBiz.bind(this))
       .catch(this.errorHandler.bind(this));
-  }
+  },
 };
 
 export default http;
