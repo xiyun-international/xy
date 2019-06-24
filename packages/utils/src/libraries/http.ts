@@ -108,11 +108,12 @@ const http = {
     const trimmedArgs = trimArgs(args);
 
     // 格式化参数
-    const formParams = this.defaultConfig.isUseQs ? qs.stringify(trimmedArgs, {
+    const useQs = qs.stringify(trimmedArgs, {
       arrayFormat: "indices",
       ...this.defaultConfig.qs
-    }) : trimmedArgs;
+    });
 
+    const formParams = this.defaultConfig.isUseQs ? useQs : trimmedArgs;
     return axios
       .post(api, formParams, this.defaultConfig)
       .then(this.checkBiz.bind(this))
