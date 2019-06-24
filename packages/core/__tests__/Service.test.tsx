@@ -1,4 +1,4 @@
-import Service from './Service';
+import Service from '../src/Service';
 
 const cmd = ['create', 'ant-design-ui'];
 
