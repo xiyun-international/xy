@@ -93,7 +93,7 @@ export default class Service {
   /**
    * 运行插件
    */
-  public run() {
+  public run(): void {
     const onRun = this.plugins[this.command];
     if (onRun) {
       onRun(this);
