@@ -1,23 +1,20 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
-  plugins: ["prettier"],
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
-  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['prettier'],
+  extends: ['airbnb', 'prettier'],
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module",
+    sourceType: 'module',
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   rules: {
-    "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/explicit-function-return-type": 0
-  }
+    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/explicit-function-return-type': 0,
+  },
 };
