@@ -1,27 +1,11 @@
 import chalk from "chalk";
-import which from "which";
-import { join, resolve } from "path";
-import { existsSync, remove } from "fs-extra";
+import { join } from "path";
+import { existsSync } from "fs-extra";
 import userHome from "user-home";
 import mkdirp from "mkdirp";
-import inquirer from "inquirer";
 
-/**
- * 获取可执行的命令
- */
-export function getExecutor(): string {
-  const executors = ["yarn", "tnpm", "cnpm", "npm"];
-  for (let i = 0; i < executors.length; i++) {
-    try {
-      which.sync(executors[i]);
-      return executors[i];
-    } catch (e) {}
-  }
-  throw new Error(`Can't find yarn or npm commander`);
-}
-
-// umi's git url parser
-const gitSiteParser = /^(https\:\/\/|http\:\/\/|git\@)((github|gitlab)[\.\w\-]+)(\/|\:)([\w\-]+)\/([\w\-]+)(\/tree\/([\w\.\-]+)([\w\-\/]+))?(.git)?$/;
+// 解析 github 地址
+const gitSiteParser = /^(https:\/\/|http:\/\/|git@)((github|gitlab)[.\w\-]+)([\/:])([\w\-]+)\/([\w\-]+)(\/tree\/([\w.\-]+)([\w\-\/]+))?(\/blob\/([\w.\-]+)([\w\-\/.]+))?(.git)?$/;
 
 export function isGitUrl(url: string): boolean {
   return gitSiteParser.test(url);
@@ -40,19 +24,39 @@ export interface UrlParse {
  * @param url
  */
 export function parseGitUrl(url: string): UrlParse {
-  // (http|s)://(host)/(group)/(name)/tree/(branch)/(path)
   const [
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     all,
     protocol,
     host,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     site,
     divide,
     group,
     name,
-    allpath,
-    branch = "master",
-    path = "/"
+    // 7 8 9 匹配目录
+    allDirPath,
+    dirBranch = "master",
+    dirPath = "/",
+    // 10 11 12 匹配单文件
+    allFilePath,
+    fileBranch,
+    filePath
+    // 如果直接提供整个仓库地址，按照目录来执行相应逻辑
   ] = gitSiteParser.exec(url);
+
+  let branch, path;
+  if (allDirPath === undefined && allFilePath === undefined) {
+    branch = dirBranch;
+    path = dirPath;
+  } else if (allDirPath !== undefined) {
+    branch = dirBranch;
+    path = dirPath;
+  } else {
+    branch = fileBranch;
+    path = filePath;
+  }
+
   return {
     repo: `${protocol}${host}${divide}${group}/${name}.git`,
     branch,
@@ -80,30 +84,4 @@ export function makeSureMaterialsTempPathExist(): string {
     mkdirp.sync(blocksTempPath);
   }
   return blocksTempPath;
-}
-
-export async function checkFileExist(targetDir: string): Promise<string> {
-  const realPath = join(resolve(targetDir), "/");
-  if (existsSync(realPath)) {
-    const { action } = await inquirer.prompt([
-      {
-        name: "action",
-        type: "list",
-        message: `Target directory ${chalk.cyan(
-          realPath
-        )} already exists. Pick an action:`,
-        choices: [
-          { name: "Overwrite", value: "overwrite" },
-          { name: "Cancel", value: false }
-        ]
-      }
-    ]);
-    if (action === "overwrite") {
-      console.log(`\nRemoving ${chalk.cyan(realPath)}...`);
-      await remove(realPath);
-      return Promise.resolve("removed");
-    } else {
-      return Promise.reject("canceled");
-    }
-  }
 }
