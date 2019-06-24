@@ -14,8 +14,7 @@
     "cli:watch": "tsc -w -p ./packages/cli/",
     "cli:build": "tsc -b ./packages/cli/",
     "utils:watch": "tsc -w -p ./packages/utils/",
-    "utils:build": "tsc -b ./packages/utils/",
-    "precommit": "lint-staged"
+    "utils:build": "tsc -b ./packages/utils/"
   },
   "lint-staged": {
     "**/*.{js,tsx,ts,less,md,json}": [
@@ -38,5 +37,10 @@
     "typescript": "^3.4.5",
     "vue-template-compiler": "^2.6.10",
     "xy-tools": "^0.0.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
