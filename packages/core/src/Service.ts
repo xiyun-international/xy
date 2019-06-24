@@ -1,4 +1,4 @@
-import { IConfig, IPluginAPI } from './types';
+import { IArgs, IConfig, IPluginAPI } from './types';
 
 export default class Service {
   /**
@@ -38,7 +38,7 @@ export default class Service {
    * 分析命令和参数
    * @param cmd
    */
-  private resolveCommand(cmd: string[]) {
+  private resolveCommand(cmd: string[]): IArgs {
     try {
       const args = cmd.length > 1 ? cmd.slice(1) : [];
 

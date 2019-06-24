@@ -11,3 +11,8 @@ export interface IConfig {
   cmd: string[];
   plugins?: Array<IPluginAPI>;
 }
+
+export interface IArgs {
+  command: string;
+  args: string[] | [];
+}
