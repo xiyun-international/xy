@@ -1,16 +1,5 @@
 import Service from '../src/Service';
 
-// 常用的数据部分
-const cmd = ['create', 'ant-design-ui'];
-const createPlugin = {
-  command: 'create',
-  alias: 'c',
-  name: 'xy-plugin-create',
-  onRun: _ => {
-    console.log(_);
-  },
-};
-
 describe('Service', () => {
   // 只输入命令（xy create）
   test('input command', () => {
@@ -23,7 +12,7 @@ describe('Service', () => {
   // 输入命令行 + 参数（xy create ant-design-ui）
   test('input command and args', () => {
     const service = new Service({
-      cmd,
+      cmd: ['create', 'ant-design-ui'],
     });
 
     expect(service.command).toBe('create');
@@ -35,8 +24,17 @@ describe('Service', () => {
   // 注册插件，并支持 alias 命名方式
   test('register plugins', () => {
     const service = new Service({
-      cmd,
-      plugins: [createPlugin],
+      cmd: ['create', 'ant-design-ui'],
+      plugins: [
+        {
+          command: 'create',
+          alias: 'c',
+          name: 'xy-plugin-create',
+          onRun: _ => {
+            console.log(_);
+          },
+        },
+      ],
     });
 
     expect(service.plugins).toHaveProperty('create');
@@ -47,9 +45,16 @@ describe('Service', () => {
   test('register plugin alias exists', () => {
     expect(() => {
       new Service({
-        cmd,
+        cmd: ['create', 'ant-design-ui'],
         plugins: [
-          createPlugin,
+          {
+            command: 'create',
+            alias: 'c',
+            name: 'xy-plugin-create',
+            onRun: _ => {
+              console.log(_);
+            },
+          },
           {
             command: 'exists-plugin',
             alias: 'c',
@@ -68,13 +73,18 @@ describe('Service', () => {
     // Mock Function
     const mockCallback = jest.fn(api => api.args);
 
-    createPlugin.onRun = _ => {
-      mockCallback(_);
-    };
-
     const service = new Service({
-      cmd,
-      plugins: [createPlugin],
+      cmd: ['create', 'ant-design-ui'],
+      plugins: [
+        {
+          command: 'create',
+          alias: 'c',
+          name: 'xy-plugin-create',
+          onRun: _ => {
+            mockCallback(_);
+          },
+        },
+      ],
     });
 
     service.run();
