@@ -9,12 +9,6 @@ export interface IPluginAPI {
   onRun: (api: object) => void;
 }
 
-export interface IConfig {
-  command: string[];
-  args?: object;
-}
-
 export interface IOpt {
-  config: IConfig;
   plugins?: Array<IPluginAPI>;
 }

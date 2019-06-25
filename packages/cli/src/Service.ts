@@ -1,7 +1,15 @@
-import { IConfig, IOpt, IPluginAPI } from './types';
+import { IOpt, IPluginAPI } from './types';
 
 export default class Service {
-  public config: IConfig;
+  /**
+   * 当前 CLI 的 Command，xy `create`
+   */
+  public command: string;
+
+  /**
+   * 其它参数选项 xy create `--version=1`
+   */
+  public args: object;
 
   /**
    * 当前服务注册的插件
@@ -17,24 +25,16 @@ export default class Service {
    * 初始化命令行、参数、插件
    * @param opts
    */
-  constructor(opts: IOpt) {
-    const { config, plugins } = opts;
-
-    if (config.command.length === 0) {
-      throw new Error('插件注册失败，`command` 命令不存在');
-    }
-
-    this.cliCommand = config.command[0];
-
-    if (config.command.length > 1) {
-      config.command = config.command.slice(1);
-    }
-
+  constructor(command: string, args: object, opts?: IOpt) {
     // 注册命令和参数
-    this.config = config;
+    this.command = command;
+    this.args = args;
 
     // 注入插件
-    this.plugins = this.resolvePlugins(plugins);
+    if (opts) {
+      const { plugins } = opts;
+      this.plugins = this.resolvePlugins(plugins);
+    }
   }
 
   /**
@@ -70,7 +70,7 @@ export default class Service {
    */
   private registerPlugin(usePluginList, command, onRun): void {
     if (usePluginList[command]) {
-      throw new Error('别名已经存在');
+      throw new Error('插件或alias已经存在');
     } else {
       usePluginList[command] = onRun;
     }
@@ -80,7 +80,7 @@ export default class Service {
    * 运行插件
    */
   public run(): void {
-    const onRun = this.plugins[this.cliCommand];
+    const onRun = this.plugins[this.command];
     if (onRun) {
       onRun(this);
     }
