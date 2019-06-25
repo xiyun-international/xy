@@ -1,15 +1,7 @@
-import { IArgs, IConfig, IPluginAPI } from './types';
+import { IConfig, IOpt, IPluginAPI } from './types';
 
 export default class Service {
-  /**
-   * 当前输入的命令行
-   */
-  public command: string;
-
-  /**
-   * 当前输入的参数
-   */
-  public args: string[];
+  public config: IConfig;
 
   /**
    * 当前服务注册的插件
@@ -17,38 +9,32 @@ export default class Service {
   public plugins: object;
 
   /**
-   * 初始化命令行、参数、插件
-   * @param config
+   * CLi 所执行的命令
    */
-  constructor(config: IConfig) {
-    const { cmd, plugins } = config;
+  private cliCommand: string;
 
-    // 分析命令行传递的命令
-    const { command, args } = this.resolveCommand(cmd);
+  /**
+   * 初始化命令行、参数、插件
+   * @param opts
+   */
+  constructor(opts: IOpt) {
+    const { config, plugins } = opts;
+
+    if (config.command.length === 0) {
+      throw new Error('插件注册失败，`command` 命令不存在');
+    }
+
+    this.cliCommand = config.command[0];
+
+    if (config.command.length > 1) {
+      config.command = config.command.slice(1);
+    }
 
     // 注册命令和参数
-    this.command = command;
-    this.args = args;
+    this.config = config;
 
     // 注入插件
     this.plugins = this.resolvePlugins(plugins);
-  }
-
-  /**
-   * 分析命令和参数
-   * @param cmd
-   */
-  private resolveCommand(cmd: string[]): IArgs {
-    try {
-      const args = cmd.length > 1 ? cmd.slice(1) : [];
-
-      return {
-        command: cmd[0],
-        args,
-      };
-    } catch (_) {
-      throw new Error('插件注册失败，`command` 命令不存在');
-    }
   }
 
   /**
@@ -94,7 +80,7 @@ export default class Service {
    * 运行插件
    */
   public run(): void {
-    const onRun = this.plugins[this.command];
+    const onRun = this.plugins[this.cliCommand];
     if (onRun) {
       onRun(this);
     }

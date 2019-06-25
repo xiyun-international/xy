@@ -1,3 +1,5 @@
+import { Interface } from 'readline';
+
 export interface IPluginAPI {
   name: string;
   alias?: string;
@@ -8,11 +10,11 @@ export interface IPluginAPI {
 }
 
 export interface IConfig {
-  cmd: string[];
-  plugins?: Array<IPluginAPI>;
+  command: string[];
+  args?: object;
 }
 
-export interface IArgs {
-  command: string;
-  args: string[] | [];
+export interface IOpt {
+  config: IConfig;
+  plugins?: Array<IPluginAPI>;
 }
