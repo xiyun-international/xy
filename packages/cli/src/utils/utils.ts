@@ -5,7 +5,7 @@ import userHome from 'user-home';
 import mkdirp from 'mkdirp';
 
 // 解析 github 地址
-const gitSiteParser = /^(https:\/\/|http:\/\/|git@)((github|gitlab)[.\w\-]+)([\/:])([\w\-]+)\/([\w\-]+)(\/tree\/([\w.\-]+)([\w\-\/]+))?(\/blob\/([\w.\-]+)([\w\-\/.]+))?(.git)?$/;
+const gitSiteParser = /^(https:\/\/|http:\/\/|git@)((github|gitlab)[.\w-]+)([/:])([\w-]+)\/([\w-]+)(\/tree\/([\w.-]+)([\w\-/]+))?(\/blob\/([\w.-]+)([\w\-/.]+))?(.git)?$/;
 
 export function isGitUrl(url: string): boolean {
   return gitSiteParser.test(url);
@@ -25,12 +25,11 @@ export interface UrlParse {
  */
 export function parseGitUrl(url: string): UrlParse {
   const [
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    all,
+    ,
+    // all matching
     protocol,
-    host,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    site,
+    host, // site
+    ,
     divide,
     group,
     name,
@@ -68,11 +67,10 @@ export function parseGitUrl(url: string): UrlParse {
 export function getParsedData(url: string): UrlParse {
   if (isGitUrl(url)) {
     return parseGitUrl(url);
-  } else {
-    console.log(`${chalk.red('Error-url: ')} ${chalk.yellowBright(url)}`);
-    console.log(`${chalk.red("can't match any pattern")}`);
-    process.exit(1);
   }
+  console.log(`${chalk.red('Error-url: ')} ${chalk.yellowBright(url)}`);
+  console.log(`${chalk.red("can't match any pattern")}`);
+  process.exit(1);
 }
 
 /**
