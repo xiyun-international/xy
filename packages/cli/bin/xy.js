@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
 const yParser = require('yargs-parser');
-const Service = require('../lib/Service');
+const Service = require('../lib/Service').default;
 const args = yParser(process.argv.slice(2));
 
-const service = new Service.default(args._[0], args, {
-  plugins: [
-    // XyPluginBlock,
-  ],
+// Plugin List
+const Block = require('xy-plugin-generator');
+
+const service = new Service(args._[0], args, {
+  plugins: [Block],
 });
 service.run();
