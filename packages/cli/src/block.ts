@@ -1,17 +1,17 @@
 import { join, resolve } from 'path';
 import ora from 'ora';
 import execa from 'execa';
-import {
-  getParsedData,
-  UrlParse,
-  makeSureMaterialsTempPathExist,
-} from './utils/utils';
 import { merge } from 'lodash';
 import { existsSync, statSync } from 'fs-extra';
 import { copy } from 'fs-jetpack';
 // import assert from "assert";
 import chalk from 'chalk';
 import inquirer from 'inquirer';
+import {
+  getParsedData,
+  UrlParse,
+  makeSureMaterialsTempPathExist,
+} from './utils/utils';
 
 interface Cmd {
   path: string;
@@ -198,4 +198,4 @@ async function run(type: string, repo: string, cmd: Cmd): Promise<void> {
   }
 }
 
-export { run };
+export default run;

@@ -14,7 +14,13 @@ module.exports = {
     },
   },
   rules: {
-    '@typescript-eslint/indent': ['error', 2],
-    '@typescript-eslint/explicit-function-return-type': 0,
+    // '@typescript-eslint/indent': ['error', 2],
+    // '@typescript-eslint/explicit-function-return-type': 0,
+    'no-console': 'off',
+    'prefer-const': 'off',
+    'consistent-return': 'off',
+    'no-unused-vars': 'off',
+    'one-var': 'off',
+    'import/no-unresolved': 'off',
   },
 };
