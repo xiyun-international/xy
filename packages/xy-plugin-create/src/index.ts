@@ -1,5 +1,6 @@
 import Create from './create';
 import inquirer from 'inquirer';
+import assert from 'assert';
 
 export { Create };
 
@@ -9,9 +10,7 @@ export default {
   alias: 'c',
   onRun: async api => {
     const { args: appName } = api;
-    if (appName === undefined || appName === '') {
-      throw new Error('No appName specified');
-    }
+    assert(appName, 'No appName specified');
 
     (async () => {
       const { ui } = await inquirer.prompt({
@@ -36,7 +35,7 @@ export default {
         ],
       });
 
-      const create = new Create({ ui, mode }, appName);
+      const create = new Create(appName, { ui, mode });
       await create.run();
     })();
   },

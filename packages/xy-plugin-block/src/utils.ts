@@ -3,6 +3,7 @@ import { join } from 'path';
 import { existsSync } from 'fs-extra';
 import userHome from 'user-home';
 import mkdirp from 'mkdirp';
+import assert from 'assert';
 
 // 解析 github 地址
 const gitSiteParser = /^(https:\/\/|http:\/\/|git@)((github|gitlab)[.\w-]+)([/:])([\w-]+)\/([\w-]+)(\/tree\/([\w.-]+)([\w\-/]+))?(\/blob\/([\w.-]+)([\w\-/.]+))?(.git)?$/;

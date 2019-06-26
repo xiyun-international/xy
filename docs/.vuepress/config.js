@@ -3,11 +3,9 @@ module.exports = {
   dest: './dist',
   title: '禧云前端生态',
   description: '让禧云的 ISV 合作伙伴只需专注于业务',
-  head: [
-    ['link', {rel: 'icon', href: 'favicon.ico'}]
-  ],
+  head: [['link', { rel: 'icon', href: 'favicon.ico' }]],
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
   },
   themeConfig: {
     nav: [
@@ -20,7 +18,7 @@ module.exports = {
           { text: '底层样式', link: '/style/' },
           { text: 'Element UI 组件', link: '/element-ui/' },
           { text: 'Ant Design UI 组件', link: '/ant-design-ui/' },
-        ]
+        ],
       },
       { text: '参与贡献', link: '/contribute/' },
       { text: 'GitHub', link: 'https://github.com/xiyun-international' },
@@ -30,35 +28,26 @@ module.exports = {
         {
           title: '指南',
           collapsable: false,
-          children: [
-            '',
-          ],
-        }
+          children: [''],
+        },
       ],
       '/cli/': [
         {
           title: '命令行',
           collapsable: false,
-          children: [
-            '',
-          ],
-        }
+          children: [''],
+        },
       ],
       '/element-ui/': [
         {
           title: '开发指南',
           collapsable: false,
-          children: [
-            '',
-          ],
+          children: [''],
         },
         {
           title: '基础组件',
           collapsable: false,
-          children: [
-            'title',
-            'wrapper',
-          ],
+          children: ['title', 'wrapper'],
         },
         {
           title: '业务组件',
@@ -78,17 +67,12 @@ module.exports = {
         {
           title: '开发指南',
           collapsable: false,
-          children: [
-            '',
-          ],
+          children: [''],
         },
         {
           title: '基础组件',
           collapsable: false,
-          children: [
-            'title',
-            'wrapper',
-          ],
+          children: ['title', 'wrapper'],
         },
         {
           title: '业务组件',
@@ -101,36 +85,27 @@ module.exports = {
             'sens-text',
             'verification',
           ],
-        }
+        },
       ],
       '/contribute/': [
         {
           title: '参与贡献',
           collapsable: false,
-          children: [
-            '',
-            'ui',
-            'cli',
-            'utils',
-          ],
-        }
+          children: ['', 'ui', 'cli', 'utils'],
+        },
       ],
       '/style/': [
         {
           title: '底层样式',
           collapsable: false,
-          children: [
-            ''
-          ],
+          children: [''],
         },
       ],
       '/utils/': [
         {
           title: '简介',
           collapsable: false,
-          children: [
-            '',
-          ],
+          children: [''],
         },
         {
           title: 'API',
@@ -144,9 +119,7 @@ module.exports = {
         {
           title: '指令',
           collapsable: false,
-          children: [
-            'directive/clickoutside',
-          ],
+          children: ['directive/clickoutside'],
         },
         {
           title: '过滤',
@@ -161,13 +134,14 @@ module.exports = {
         {
           title: '表单验证',
           collapsable: false,
-          children: [
-            'validate/validFormInfo',
-            'validate/validForm',
-          ],
+          children: ['validate/validFormInfo', 'validate/validForm'],
         },
-      ]
-    }
-  }
+        {
+          title: 'iframe 相关',
+          collapsable: false,
+          children: ['iframe/notifyHeightChange', 'iframe/receiveHeightChange'],
+        },
+      ],
+    },
+  },
 };
-
