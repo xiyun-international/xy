@@ -11,11 +11,7 @@ import {
   getParsedData,
   UrlParse,
   makeSureMaterialsTempPathExist,
-} from './utils/utils';
-
-interface Cmd {
-  path: string;
-}
+} from './utils';
 
 interface OraInter {
   start: Function;
@@ -171,7 +167,7 @@ async function copyFiles(sourcePath: string, destPath: string): Promise<void> {
   }
 }
 
-async function add(repo: string, destDir: string): Promise<void> {
+async function run(repo: string, destDir: string): Promise<void> {
   const spinner = ora();
 
   console.log(`${chalk.cyan('Parsing url and args...')}`);
@@ -192,30 +188,4 @@ async function add(repo: string, destDir: string): Promise<void> {
   await copyFiles(ctx.sourcePath, destDir);
 }
 
-async function run(type: string, repo: string, cmd: Cmd): Promise<void> {
-  if (type === 'add') {
-    await add(repo, cmd.path);
-  }
-}
-
-// export default run;
-module.exports = {
-  name: 'xy-plugin-block',
-  command: 'block',
-  alias: 'b',
-  onRun: async api => {
-    const {
-      args,
-      args: { _: argsArr },
-    } = api;
-    const repo = argsArr[1];
-
-    const length = Object.keys(api.args).length;
-    let path = './';
-    if (length > 1) {
-      path = args['p'] || args['path'] ? args['p'] || args['path'] : './';
-    }
-
-    await add(repo, path);
-  },
-};
+export default run;

@@ -19,7 +19,7 @@
   dependencies:
     "@babel/highlight" "^7.0.0"
 
-"@babel/core@7.4.5", "@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.1.2":
+"@babel/core@7.4.5", "@babel/core@^7.0.0", "@babel/core@^7.1.0", "@babel/core@^7.1.2", "@babel/core@^7.4.5":
   version "7.4.5"
   resolved "https://registry.npm.taobao.org/@babel/core/download/@babel/core-7.4.5.tgz#081f97e8ffca65a9b4b0fdc7e274e703f000c06a"
   dependencies:
@@ -669,7 +669,7 @@
     "@babel/helper-regex" "^7.4.4"
     regexpu-core "^4.5.4"
 
-"@babel/preset-env@7.4.5", "@babel/preset-env@^7.1.0":
+"@babel/preset-env@7.4.5", "@babel/preset-env@^7.1.0", "@babel/preset-env@^7.4.5":
   version "7.4.5"
   resolved "https://registry.npm.taobao.org/@babel/preset-env/download/@babel/preset-env-7.4.5.tgz#2fad7f62983d5af563b5f3139242755884998a58"
   dependencies:
@@ -3110,6 +3110,7 @@ babel-helper-vue-jsx-merge-props@^2.0.0, babel-helper-vue-jsx-merge-props@^2.0.3
 babel-jest@^24.8.0:
   version "24.8.0"
   resolved "https://registry.npm.taobao.org/babel-jest/download/babel-jest-24.8.0.tgz#5c15ff2b28e20b0f45df43fe6b7f2aae93dba589"
+  integrity sha1-XBX/KyjiCw9F30P+a38qrpPbpYk=
   dependencies:
     "@jest/transform" "^24.8.0"
     "@jest/types" "^24.8.0"
