@@ -8,11 +8,6 @@
     "lib": "lib",
     "test": "__tests__"
   },
-  "scripts": {
-    "watch": "tsc -w",
-    "build": "tsc",
-    "test": "jest"
-  },
   "files": [
     "lib"
   ],
@@ -22,10 +17,5 @@
   },
   "bugs": {
     "url": "https://github.com/xiyun-international/xy/issues"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "babel-jest": "^24.8.0"
   }
 }
