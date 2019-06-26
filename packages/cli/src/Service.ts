@@ -2,14 +2,19 @@ import { IOpt, IPluginAPI } from './types';
 
 export default class Service {
   /**
-   * 当前 CLI 的 Command，xy `create`
+   * 当前 CLI 的 Command xy generator
    */
-  public command: string;
+  private cliCommand: string;
 
   /**
-   * 其它参数选项 xy create `--version=1`
+   * 其它参数选项 xy generator list
    */
-  public args: object;
+  public args: string;
+
+  /**
+   * 参数项 xy generator list `--version=1`
+   */
+  public opts: object;
 
   /**
    * 当前服务注册的插件
@@ -17,18 +22,19 @@ export default class Service {
   public plugins: object;
 
   /**
-   * CLi 所执行的命令
-   */
-  private cliCommand: string;
-
-  /**
    * 初始化命令行、参数、插件
    * @param opts
    */
-  constructor(command: string, args: object, opts?: IOpt) {
+  constructor(command: string, args: any, opts?: IOpt) {
     // 注册命令和参数
-    this.command = command;
-    this.args = args;
+    this.cliCommand = command;
+
+    // 参数
+    if (args._.length > 1) {
+      this.args = args._[1];
+    }
+
+    this.opts = args;
 
     // 注入插件
     if (opts) {
@@ -80,7 +86,7 @@ export default class Service {
    * 运行插件
    */
   public run(): void {
-    const onRun = this.plugins[this.command];
+    const onRun = this.plugins[this.cliCommand];
     if (onRun) {
       onRun(this);
     }

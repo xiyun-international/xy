@@ -5,7 +5,7 @@ describe('Service', () => {
   test('input command', () => {
     const service = new Service('create', { _: ['create'] });
 
-    expect(service.command).toContain('create');
+    expect(service.args).toBeUndefined();
   });
 
   // 输入命令行 + 参数（xy create ant-design-ui）
@@ -15,8 +15,8 @@ describe('Service', () => {
       version: 1,
     });
 
-    expect(service.command).toBe('generator');
-    expect(service.args).toHaveProperty('version');
+    expect(service.args).toBe('list');
+    expect(service.opts).toHaveProperty('version');
   });
 
   // // // 注册插件，并支持 alias 命名方式
@@ -102,7 +102,7 @@ describe('Service', () => {
 
     service.run();
 
-    expect(service.command).toBe('generator');
+    expect(service.args).toBe('list');
     expect(mockCallback).toHaveBeenCalledWith(service);
   });
 });
