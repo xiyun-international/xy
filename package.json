@@ -5,10 +5,10 @@
     "packages/*"
   ],
   "scripts": {
+    "test": "jest",
     "bootstrap": "lerna bootstrap",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress docs build",
-    "test": "jest",
     "ts:dev": "umi-tools build --watch",
     "ts:build": "umi-tools build",
     "build": "umi-tools build && xy-tools build theme && xy-tools build component"
