@@ -70,7 +70,7 @@ export function getParsedData(url: string): UrlParse {
   }
   console.log(`${chalk.red('Error-url: ')} ${chalk.yellowBright(url)}`);
   console.log(`${chalk.red("can't match any pattern")}`);
-  process.exit(1);
+  throw new Error("can't match any pattern");
 }
 
 /**

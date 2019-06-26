@@ -1,10 +1,11 @@
 import { block } from '../src/index';
 
 describe('Block', () => {
-  const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {});
-
-  test('Fill with wrong repo', () => {
-    block('http://xiyun.com.cn', './');
-    expect(mockExit).toHaveBeenCalledWith(1);
+  test('Fill with wrong repo', async () => {
+    try {
+      await block('http://xiyun.com.cn', './');
+    } catch (e) {
+      expect(e.message).toBe("can't match any pattern");
+    }
   });
 });

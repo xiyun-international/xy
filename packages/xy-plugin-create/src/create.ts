@@ -1,12 +1,17 @@
-import path from "path";
-import fs from "fs-extra";
-import ora from "ora";
-import download from "download-git-repo";
-import inquirer from "inquirer";
-import chalk from "chalk";
-import validateProjectName from "validate-npm-package-name";
-import shell from "shelljs";
-import which from "which";
+import path from 'path';
+import fs from 'fs-extra';
+import ora from 'ora';
+import download from 'download-git-repo';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import validateProjectName from 'validate-npm-package-name';
+import shell from 'shelljs';
+import which from 'which';
+
+interface Params {
+  ui: string;
+  mode: string;
+}
 
 class Create {
   private readonly cwd: string;
@@ -17,12 +22,15 @@ class Create {
   private readonly appName: string;
   private readonly mode: string;
 
-  public constructor(appName: string, params: { ui; mode }) {
+  public constructor(params: Params, appName?: string) {
     const { ui, mode } = params;
     this.cwd = process.cwd();
-    this.inCurrent = appName === ".";
-    this.name = this.inCurrent ? path.relative("../", this.cwd) : appName;
-    this.targetDir = path.resolve(this.cwd, appName || ".");
+    if (!appName) appName = './';
+    this.inCurrent = appName === '.' || appName === './';
+    this.name = this.inCurrent ? path.relative('../', this.cwd) : appName;
+    console.log(path.relative('../', this.cwd));
+    return;
+    this.targetDir = path.resolve(this.cwd, appName || '.');
     this.ui = ui;
     this.appName = appName;
     this.mode = mode;
@@ -35,14 +43,12 @@ class Create {
       console.error(chalk.red(`Invalid project name: "${this.name}"`));
       result.errors &&
         result.errors.forEach(err => {
-          console.error(chalk.red.dim("Error: " + err));
+          console.error(chalk.red.dim('Error: ' + err));
         });
       result.warnings &&
-        result.warnings.forEach(
-          (warn): void => {
-            console.error(chalk.red.dim("Warning: " + warn));
-          }
-        );
+        result.warnings.forEach((warn): void => {
+          console.error(chalk.red.dim('Warning: ' + warn));
+        });
       process.exit(1);
     }
   }
@@ -51,29 +57,29 @@ class Create {
     if (fs.existsSync(this.targetDir)) {
       const { action } = await inquirer.prompt([
         {
-          name: "action",
-          type: "list",
+          name: 'action',
+          type: 'list',
           message: `Target directory ${chalk.cyan(
-            this.targetDir
+            this.targetDir,
           )} already exists. Pick an action:`,
           choices: [
-            { name: "Overwrite", value: "overwrite" },
-            { name: "Cancel", value: false }
-          ]
-        }
+            { name: 'Overwrite', value: 'overwrite' },
+            { name: 'Cancel', value: false },
+          ],
+        },
       ]);
-      if (action === "overwrite") {
+      if (action === 'overwrite') {
         console.log(`\nRemoving ${chalk.cyan(this.targetDir)}...`);
         await fs.remove(this.targetDir);
-        return Promise.resolve("removed");
+        return Promise.resolve('removed');
       } else {
-        return Promise.reject("canceled");
+        return Promise.reject('canceled');
       }
     }
   }
 
   private findExecutor(): string {
-    const executors = ["yarn", "tnpm", "cnpm", "npm"];
+    const executors = ['yarn', 'tnpm', 'cnpm', 'npm'];
     for (let i = 0; i < executors.length; i++) {
       try {
         which.sync(executors[i]);
@@ -81,33 +87,33 @@ class Create {
         return executors[i];
       } catch (e) {}
     }
-    console.log(chalk.red("please install yarn or npm"));
+    console.log(chalk.red('please install yarn or npm'));
     process.exit(1);
   }
 
   private downloadTemplate(): void {
-    const spinner = ora("downloading template...");
+    const spinner = ora('downloading template...');
     spinner.start();
     const repo =
-      this.ui === "e"
-        ? "xiyun-international/element-ui-template"
-        : "xiyun-international/antd-ui-template";
+      this.ui === 'e'
+        ? 'xiyun-international/element-ui-template'
+        : 'xiyun-international/antd-ui-template';
 
     download(repo, path.join(this.cwd, this.appName), { clone: false }, err => {
       spinner.stop();
       if (err) {
         console.log(chalk.red(err));
       } else {
-        const spinnerInstall = ora("Auto installing...");
+        const spinnerInstall = ora('Auto installing...');
         spinnerInstall.start();
         const npm: string = this.findExecutor();
         shell.exec(
           `cd ${path.join(this.cwd, this.appName)} && ${npm} install`,
           () => {
-            console.log(chalk.green(npm + " install end"));
+            console.log(chalk.green(npm + ' install end'));
             spinnerInstall.stop();
             this.writeEnv();
-          }
+          },
         );
       }
     });
@@ -119,14 +125,14 @@ class Create {
         this.mode
       } >> .env`,
       () => {
-        console.log(chalk.green("write mode end."));
+        console.log(chalk.green('write mode end.'));
         this.startServe();
-      }
+      },
     );
   }
 
   private startServe(): void {
-    console.log(chalk.cyan("starting development server..."));
+    console.log(chalk.cyan('starting development server...'));
     const npm: string = this.findExecutor();
     shell.exec(`cd ${path.join(this.cwd, this.appName)} && ${npm} start`);
   }
@@ -136,13 +142,11 @@ class Create {
     try {
       await this.checkFileExist();
     } catch (e) {
-      console.log(chalk.cyan("User canceled."));
+      console.log(chalk.cyan('User canceled.'));
       process.exit(1);
     }
     this.downloadTemplate();
   }
 }
 
-export default function(appName, params): Promise<void> {
-  return new Create(appName, params).run();
-}
+export default Create;
