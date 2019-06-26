@@ -6,8 +6,8 @@
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "docs:dev": "xy-tools docs dev",
-    "docs:build": "xy-tools docs build",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress docs build",
     "lint": "eslint . --ext .ts",
     "test": "jest",
     "lint:fix": "prettier --write '**/*.ts'",
