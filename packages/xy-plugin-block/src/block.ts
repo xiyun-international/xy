@@ -11,11 +11,7 @@ import {
   getParsedData,
   UrlParse,
   makeSureMaterialsTempPathExist,
-} from './utils/utils';
-
-interface Cmd {
-  path: string;
-}
+} from './utils';
 
 interface OraInter {
   start: Function;
@@ -171,7 +167,7 @@ async function copyFiles(sourcePath: string, destPath: string): Promise<void> {
   }
 }
 
-async function add(repo: string, destDir: string): Promise<void> {
+async function run(repo: string, destDir: string): Promise<void> {
   const spinner = ora();
 
   console.log(`${chalk.cyan('Parsing url and args...')}`);
@@ -190,12 +186,6 @@ async function add(repo: string, destDir: string): Promise<void> {
 
   // 3、把目标文件复制到指定目录中
   await copyFiles(ctx.sourcePath, destDir);
-}
-
-async function run(type: string, repo: string, cmd: Cmd): Promise<void> {
-  if (type === 'add') {
-    await add(repo, cmd.path);
-  }
 }
 
 export default run;
