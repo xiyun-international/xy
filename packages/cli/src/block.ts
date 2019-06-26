@@ -198,4 +198,24 @@ async function run(type: string, repo: string, cmd: Cmd): Promise<void> {
   }
 }
 
-export default run;
+// export default run;
+module.exports = {
+  name: 'xy-plugin-block',
+  command: 'block',
+  alias: 'b',
+  onRun: async api => {
+    const {
+      args,
+      args: { _: argsArr },
+    } = api;
+    const repo = argsArr[1];
+
+    const length = Object.keys(api.args).length;
+    let path = './';
+    if (length > 1) {
+      path = args['p'] || args['path'] ? args['p'] || args['path'] : './';
+    }
+
+    await add(repo, path);
+  },
+};

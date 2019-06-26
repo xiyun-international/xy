@@ -5,7 +5,7 @@ const Service = require('../lib/Service').default;
 const args = yParser(process.argv.slice(2));
 
 // Plugin List
-const Block = require('xy-plugin-generator');
+const Block = require('../lib/block');
 
 const service = new Service(args._[0], args, {
   plugins: [Block],

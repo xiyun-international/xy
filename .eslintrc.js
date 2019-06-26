@@ -1,9 +1,9 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['prettier'],
-  extends: ['airbnb', 'prettier'],
+  extends: ['prettier'],
   env: {
-    browser: true,
+    browser: false,
     node: true,
   },
   parserOptions: {
