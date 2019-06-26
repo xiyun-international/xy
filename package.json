@@ -8,14 +8,10 @@
     "bootstrap": "lerna bootstrap",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress docs build",
-    "lint": "eslint . --ext .ts",
     "test": "jest",
-    "lint:fix": "prettier --write '**/*.ts'",
-    "build": "xy-tools build theme && xy-tools build component",
-    "cli:watch": "tsc -w -p ./packages/cli/",
-    "cli:build": "tsc -b ./packages/cli/",
-    "utils:watch": "tsc -w -p ./packages/utils/",
-    "utils:build": "tsc -b ./packages/utils/"
+    "ts:dev": "umi-tools build --watch",
+    "ts:build": "umi-tools build",
+    "build": "umi-tools build && xy-tools build theme && xy-tools build component"
   },
   "lint-staged": {
     "**/*.{js,tsx,ts,less,md,json}": [
@@ -40,6 +36,7 @@
     "prettier": "^1.17.1",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.5",
+    "umi-tools": "^0.4.0",
     "vue-template-compiler": "^2.6.10",
     "xy-tools": "^0.0.8"
   },

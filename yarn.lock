@@ -3110,7 +3110,6 @@ babel-helper-vue-jsx-merge-props@^2.0.0, babel-helper-vue-jsx-merge-props@^2.0.3
 babel-jest@^24.8.0:
   version "24.8.0"
   resolved "https://registry.npm.taobao.org/babel-jest/download/babel-jest-24.8.0.tgz#5c15ff2b28e20b0f45df43fe6b7f2aae93dba589"
-  integrity sha1-XBX/KyjiCw9F30P+a38qrpPbpYk=
   dependencies:
     "@jest/transform" "^24.8.0"
     "@jest/types" "^24.8.0"
@@ -12764,7 +12763,7 @@ umi-test@^1.2.0:
 
 umi-tools@^0.4.0:
   version "0.4.0"
-  resolved "https://registry.npm.taobao.org/umi-tools/download/umi-tools-0.4.0.tgz#ff1573df6abc6a579ed523a522581ed68246ff3e"
+  resolved "https://registry.npmjs.org/umi-tools/-/umi-tools-0.4.0.tgz#ff1573df6abc6a579ed523a522581ed68246ff3e"
   dependencies:
     "@babel/core" "^7.1.2"
     "@babel/plugin-proposal-class-properties" "^7.1.0"
