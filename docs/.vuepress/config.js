@@ -139,7 +139,11 @@ module.exports = {
         {
           title: 'iframe 相关',
           collapsable: false,
-          children: ['iframe/notifyHeightChange', 'iframe/receiveHeightChange'],
+          children: [
+            'iframe/notifyHeightChange',
+            'iframe/receiveHeightChange',
+            'iframe/notifyLogout',
+          ],
         },
       ],
     },
