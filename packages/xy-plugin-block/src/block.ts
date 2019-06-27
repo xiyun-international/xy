@@ -7,7 +7,6 @@ import { copy } from 'fs-jetpack';
 import assert from 'assert';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-import signale from 'signale';
 
 import {
   getParsedData,
