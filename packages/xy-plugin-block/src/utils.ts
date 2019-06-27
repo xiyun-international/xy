@@ -29,8 +29,9 @@ export function parseGitUrl(url: string): UrlParse {
     ,
     // all matching
     protocol,
-    host, // site
+    host,
     ,
+    // site
     divide,
     group,
     name,
