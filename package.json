@@ -9,9 +9,9 @@
     "bootstrap": "lerna bootstrap",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress docs build",
-    "ts:dev": "umi-tools build --watch",
-    "ts:build": "umi-tools build",
-    "build": "umi-tools build && xy-tools build theme && xy-tools build component"
+    "ts:build": "xy-tools build typescript",
+    "ts:dev": "xy-tools build typescript --watch",
+    "build": "xy-tools build typescript && xy-tools build theme && xy-tools build component"
   },
   "lint-staged": {
     "**/*.{js,tsx,ts,less,md,json}": [
@@ -21,8 +21,6 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
-    "@typescript-eslint/eslint-plugin": "^1.9.0",
-    "@typescript-eslint/parser": "^1.9.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -31,14 +29,11 @@
     "husky": "^2.4.1",
     "jest": "^24.8.0",
     "lerna": "^3.11.1",
-    "less-loader": "^4.1.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.1",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.4.5",
-    "umi-tools": "^0.4.0",
     "vue-template-compiler": "^2.6.10",
-    "xy-tools": "^0.0.8"
+    "xy-tools": "^0.0.9"
   },
   "husky": {
     "hooks": {
