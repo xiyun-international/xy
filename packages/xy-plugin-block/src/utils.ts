@@ -1,9 +1,7 @@
-import chalk from 'chalk';
 import { join } from 'path';
 import { existsSync } from 'fs-extra';
 import userHome from 'user-home';
 import mkdirp from 'mkdirp';
-import assert from 'assert';
 
 // 解析 github 地址
 const gitSiteParser = /^(https:\/\/|http:\/\/|git@)((github|gitlab)[.\w-]+)([/:])([\w-]+)\/([\w-]+)(\/tree\/([\w.-]+)([\w\-/]+))?(\/blob\/([\w.-]+)([\w\-/.]+))?(.git)?$/;
@@ -70,9 +68,10 @@ export function getParsedData(url: string): UrlParse {
   if (isGitUrl(url)) {
     return parseGitUrl(url);
   }
-  console.log(`${chalk.red('Error-url: ')} ${chalk.yellowBright(url)}`);
-  console.log(`${chalk.red("can't match any pattern")}`);
-  throw new Error("can't match any pattern");
+  return null;
+  // console.log(`${chalk.red('Error-url: ')} ${chalk.yellowBright(url)}`);
+  // console.log(`${chalk.red("can't match any pattern")}`);
+  // throw new Error("can't match any pattern");
 }
 
 /**

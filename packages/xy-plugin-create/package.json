@@ -17,5 +17,8 @@
   },
   "bugs": {
     "url": "https://github.com/xiyun-international/xy/issues"
+  },
+  "dependencies": {
+    "signale": "^1.4.0"
   }
 }
