@@ -13013,9 +13013,9 @@ vuepress-plugin-container@^2.0.0:
   dependencies:
     markdown-it-container "^2.0.0"
 
-vuepress@^1.0.0-alpha.48:
+vuepress@^1.0.0-rc.1:
   version "1.0.2"
-  resolved "https://registry.npm.taobao.org/vuepress/download/vuepress-1.0.2.tgz#da62d6e43faca0b8af0bcffff6975fa27dbfdea3"
+  resolved "https://registry.npmjs.org/vuepress/-/vuepress-1.0.2.tgz#da62d6e43faca0b8af0bcffff6975fa27dbfdea3"
   dependencies:
     "@vuepress/core" "^1.0.2"
     "@vuepress/theme-default" "^1.0.2"
@@ -13419,9 +13419,9 @@ xtend@~3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/xtend/download/xtend-3.0.0.tgz#5cce7407baf642cba7becda568111c493f59665a"
 
-xy-tools@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.npmjs.org/xy-tools/-/xy-tools-0.0.9.tgz#88cf894fb0d08d5473a9858d7f73648c7ff0dbff"
+xy-tools@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.npmjs.org/xy-tools/-/xy-tools-0.0.10.tgz#970e258da11b7a2ef957b025cdf4151ddce63d2a"
   dependencies:
     "@vue/cli-service" "^3.6.0"
     assert "^1.4.1"
@@ -13433,7 +13433,7 @@ xy-tools@^0.0.9:
     signale "^1.4.0"
     update-notifier "^2.5.0"
     vue-template-compiler "^2.6.10"
-    vuepress "^1.0.0-alpha.48"
+    vuepress "^1.0.0-rc.1"
     yargs-parser "^13.0.0"
 
 y18n@^3.2.1:

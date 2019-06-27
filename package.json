@@ -7,8 +7,8 @@
   "scripts": {
     "test": "jest",
     "bootstrap": "lerna bootstrap",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress docs build",
+    "docs:dev": "xy-tools docs dev",
+    "docs:build": "xy-tools docs build",
     "ts:build": "xy-tools build typescript",
     "ts:dev": "xy-tools build typescript --watch",
     "build": "xy-tools build typescript && xy-tools build theme && xy-tools build component"
@@ -33,7 +33,7 @@
     "prettier": "^1.17.1",
     "ts-jest": "^24.0.2",
     "vue-template-compiler": "^2.6.10",
-    "xy-tools": "^0.0.9"
+    "xy-tools": "^0.0.10"
   },
   "husky": {
     "hooks": {
