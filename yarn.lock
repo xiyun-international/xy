@@ -6078,6 +6078,7 @@ fs-extra@^7.0.0, fs-extra@^7.0.1:
 fs-jetpack@^2.2.2:
   version "2.2.2"
   resolved "https://registry.npm.taobao.org/fs-jetpack/download/fs-jetpack-2.2.2.tgz#c3737c585a618d8d636f76165c881b985493d6fd"
+  integrity sha1-w3N8WFphjY1jb3YWXIgbmFST1v0=
   dependencies:
     minimatch "^3.0.2"
     rimraf "^2.6.3"
