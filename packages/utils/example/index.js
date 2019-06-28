@@ -1,8 +1,10 @@
-import http from "../lib/libraries/http";
+import http from '../lib/libraries/http';
+import axios from 'axios';
 // import post from "../lib/post";
 
 http.config({
-  baseURL: "https://www.easy-mock.com/mock/5cec94be4ab28d196665a9c3/example"
+  baseURL: 'https://www.easy-mock.com/mock/5cec94be4ab28d196665a9c3/example',
+  isUseQs: true,
 });
 http.bizErrorHandler(res => {
   // 自行处理业务错误逻辑
@@ -46,10 +48,12 @@ http.catchErrorHandler((err, selfHandleError) => {
 // post.config({
 //   baseURL: "https://www.easy-mock.com/mock/5cec94be4ab28d196665a9c3/example"
 // });
-http.post("/mock_post", {}).then(res => {
+http
+  .post('/mock_post', { a: 123 })
+  .then(res => {
     // console.log(res);
-    localStorage.setItem("TOKEN", "234234234");
-    http.post("/mock_post", {}).then(r => {});
+    // localStorage.setItem("TOKEN", "234234234");
+    // http.post("/mock_post", {}).then(r => {});
   })
   .catch(err => {
     console.log(err);
@@ -61,3 +65,17 @@ http.post("/mock_post", {}).then(res => {
 //   .catch(err => {
 //     console.log(err);
 //   });
+// axios.post('/mock_post', {
+//   a: 1,
+//   b: 3,
+//   c: [1231,'2342']
+// },{
+//   baseURL: "https://www.easy-mock.com/mock/5cec94be4ab28d196665a9c3/example",
+//   headers: {
+//     // Accept: 'application/json',
+//     // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
+//   },
+//   timeout: 10000,
+//   qs: {}, // qs 配置项
+//   isUseQs: true, // 是否使用 qs 格式化参数
+// })

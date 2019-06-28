@@ -1,28 +1,22 @@
 import axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
 import { getToken } from './token';
-import { trim, assignWith } from 'lodash';
 import { isFunction, isObject } from './utils';
 
 type multiType = string | object | Function;
 
-// 过滤掉参数中的前后空格
-function trimArgs(args): object {
-  const trimmedArgs = {};
-  assignWith(trimmedArgs, args, (objValue, srcValue): string => trim(srcValue));
-  return trimmedArgs;
-}
-
 const http = {
+  contentType: {
+    form: 'application/x-www-form-urlencoded;charset=utf-8',
+    json: 'application/json;charset=UTF-8',
+  },
   defaultConfig: {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-    },
+    headers: {},
     baseURL: '',
     timeout: 10000,
     qs: {}, // qs 配置项
-    isUseQs: true, // 是否使用 qs 格式化参数
+    isUseQs: false, // 是否使用 qs 格式化参数
+    postType: '', // 不填，可以由 axios 自行决定
   },
   selfHandleError: false,
   bizErrorFunction: null,
@@ -45,12 +39,11 @@ const http = {
   // 整合自定义配置项
   config(args: object = {}): void {
     const keys = Object.keys(args);
-    keys.forEach((key): void => {
-      this.defaultConfig[key] = args[key];
-    });
-    // for (const name in args) {
-    //   this.defaultConfig[name] = args[name];
-    // }
+    keys.forEach(
+      (key): void => {
+        this.defaultConfig[key] = args[key];
+      },
+    );
   },
   // 配置自定义的公共非业务级错误处理函数
   catchErrorHandler(cb: Function): void {
@@ -97,21 +90,25 @@ const http = {
     selfHandleError?: boolean,
   ): Promise<void | AxiosResponse> {
     this.selfHandleError = selfHandleError || false;
+    if (this.contentType[this.defaultConfig.postType]) {
+      this.defaultConfig.headers['Content-Type'] = this.contentType[
+        this.defaultConfig.postType
+      ];
+    }
     this.defaultConfig.headers = {
       ...this.defaultConfig.headers,
+      // 放在最后，避免嵌套调用时被覆盖
       Authorization: getToken() || '',
     };
 
-    // 过滤掉参数中的前后空格
-    const trimmedArgs = trimArgs(args);
+    // 使用 qs 格式化参数，格式化后的参数会是 form url encode 的形式
+    const formParams = this.defaultConfig.isUseQs
+      ? qs.stringify(args, {
+          arrayFormat: 'indices',
+          ...this.defaultConfig.qs,
+        })
+      : args;
 
-    // 格式化参数
-    const useQs = qs.stringify(trimmedArgs, {
-      arrayFormat: 'indices',
-      ...this.defaultConfig.qs,
-    });
-
-    const formParams = this.defaultConfig.isUseQs ? useQs : trimmedArgs;
     return axios
       .post(api, formParams, this.defaultConfig)
       .then(this.checkBiz.bind(this))
@@ -135,13 +132,10 @@ const http = {
       Authorization: getToken() || '',
     };
 
-    // 过滤掉参数中的前后空格
-    const trimmedArgs = trimArgs(args);
-
     return axios
       .get(api, {
         ...this.defaultConfig,
-        params: trimmedArgs,
+        params: args,
       })
       .then(this.checkBiz.bind(this))
       .catch(this.errorHandler.bind(this));
