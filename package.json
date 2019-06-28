@@ -33,7 +33,7 @@
     "prettier": "^1.17.1",
     "ts-jest": "^24.0.2",
     "vue-template-compiler": "^2.6.10",
-    "xy-tools": "^0.0.10"
+    "@xiyun/xy-tools": "^0.0.10"
   },
   "husky": {
     "hooks": {
