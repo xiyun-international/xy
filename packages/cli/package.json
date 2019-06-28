@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/cli",
-  "version": "1.0.12",
+  "version": "1.1.6",
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/cli",
   "bin": {
