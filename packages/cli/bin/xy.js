@@ -5,8 +5,8 @@ const Service = require('../lib/Service').default;
 const args = yParser(process.argv.slice(2));
 
 // Plugin List
-const Block = require('xy-plugin-block').default;
-const Create = require('xy-plugin-create').default;
+const Block = require('@xiyun/xy-plugin-block').default;
+const Create = require('@xiyun/xy-plugin-create').default;
 
 const service = new Service(args._[0], args, {
   plugins: [Block, Create],
