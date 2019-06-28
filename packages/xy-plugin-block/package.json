@@ -1,5 +1,5 @@
 {
-  "name": "xy-plugin-block",
+  "name": "@xiyun/xy-plugin-block",
   "version": "1.1.6",
   "main": "lib/index.js",
   "license": "MIT",
