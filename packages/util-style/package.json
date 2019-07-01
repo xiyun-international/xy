@@ -1,6 +1,12 @@
 {
   "name": "@xiyun/util-style",
   "version": "1.1.10",
-  "main": "utils.less",
-  "license": "MIT"
+  "main": "lib/utils.css",
+  "license": "MIT",
+  "scripts": {
+    "build": "lessc src/utils.less lib/utils.css"
+  },
+  "devDependencies": {
+    "less": "^3.9.0"
+  }
 }
