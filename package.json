@@ -14,7 +14,7 @@
     "build": "xy-tools build typescript && xy-tools build theme && xy-tools build component"
   },
   "lint-staged": {
-    "**/*.{js,tsx,ts,less,md,json}": [
+    "**/*.{js,tsx,ts}": [
       "prettier --write",
       "git add"
     ]
