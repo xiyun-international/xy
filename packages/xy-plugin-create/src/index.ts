@@ -7,7 +7,6 @@ export { Create };
 export default {
   name: 'xy-plugin-create',
   command: 'create',
-  alias: 'c',
   onRun: async api => {
     const { args: appName } = api;
     assert(appName, 'No appName specified');

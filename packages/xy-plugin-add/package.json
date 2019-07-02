@@ -1,0 +1,21 @@
+{
+  "name": "@xiyun/xy-plugin-add",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "homepage": "https://github.com/xiyun-international/xy#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiyun-international/xy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xiyun-international/xy/issues"
+  }
+}
