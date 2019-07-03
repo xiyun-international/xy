@@ -10,7 +10,9 @@ const Create = require('@xiyun/xy-plugin-create').default;
 const Generator = require('@xiyun/xy-plugin-generator').default;
 const Add = require('@xiyun/xy-plugin-add').default;
 
+const plugins = [Block, Create, Generator, Add];
+
 const service = new Service(args._[0], args, {
-  plugins: [Block, Create, Generator, Add],
+  plugins,
 });
 service.run();
