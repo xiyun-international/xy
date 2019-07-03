@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/xy-plugin-block",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "main": "lib/index.js",
   "license": "MIT",
   "homepage": "https://github.com/xiyun-international/xy#readme",
