@@ -13,7 +13,7 @@
   "dependencies": {
     "ant-design-vue": "^1.3.8"
   },
-  "gitHead": "2e98ffe23988fce970d7c225918cae42f19ff2e1",
+  "gitHead": "13c2b7cd9b4ef2296d7b530042ed82556ac8e596",
   "devDependencies": {
     "less-loader": "^5.0.0"
   }

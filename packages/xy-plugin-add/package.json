@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/xy-plugin-add",
-  "version": "1.1.11",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "license": "MIT",
   "homepage": "https://github.com/xiyun-international/xy#readme",
@@ -26,5 +26,6 @@
     "signale": "^1.4.0",
     "user-home": "^2.0.0",
     "which": "^1.3.1"
-  }
+  },
+  "gitHead": "13c2b7cd9b4ef2296d7b530042ed82556ac8e596"
 }
