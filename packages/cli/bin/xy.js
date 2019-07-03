@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const assert = require('assert');
 const yParser = require('yargs-parser');
 const fs = require('fs');
 const Service = require('../lib/Service').default;
@@ -21,13 +20,12 @@ module.paths.unshift(path.resolve(userHome, '.xy', 'plugins', 'node_modules'));
 
 const xyPluginPkg = path.resolve(userHome, '.xy', 'plugins', 'package.json');
 
-assert(fs.existsSync(xyPluginPkg), 'No plugin installed');
-
-const dependencies = require(xyPluginPkg).dependencies;
-
-Object.keys(dependencies).forEach(item => {
-  pluginList.push(require(item).default);
-});
+if (fs.existsSync(xyPluginPkg)) {
+  const dependencies = require(xyPluginPkg).dependencies;
+  Object.keys(dependencies).forEach(item => {
+    pluginList.push(require(item).default);
+  });
+}
 
 const service = new Service(args._[0], args, {
   plugins: pluginList,

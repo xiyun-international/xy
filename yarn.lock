@@ -3013,6 +3013,7 @@ assert@^1.1.1, assert@^1.4.1:
 assert@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/assert/download/assert-2.0.0.tgz#95fc1c616d48713510680f2eaf2d10dd22e02d32"
+  integrity sha1-lfwcYW1IcTUQaA8ury0Q3SLgLTI=
   dependencies:
     es6-object-assign "^1.1.0"
     is-nan "^1.2.1"
