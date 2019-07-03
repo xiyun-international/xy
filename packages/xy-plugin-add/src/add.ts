@@ -1,5 +1,4 @@
 import execa from 'execa';
-import assert from 'assert';
 import { existsSync } from 'fs-extra';
 import mkdirp from 'mkdirp';
 import userHome from 'user-home';
