@@ -27,38 +27,44 @@ if (window.self !== window.parent) {
 ##### notifyHeight.js
 
 ```js
-import Vue from 'vue';
-
 export default function changeHeight(router, isAntUI) {
+  const setFrameHeight = {
+    updated() {
+      const height = () => {
+        const current = !isAntUI
+          ? document.querySelector('.main-content').clientHeight
+          : document.querySelector('.ant-layout-content>div').clientHeight;
+        return current > 400 ? current + 66 : 400;
+      };
+      const params = {
+        isLoading: false,
+        height: height(),
+      };
+      window.parent.postMessage(params, '*');
+    },
+  };
+
   router.beforeEach((to, from, next) => {
     to.matched.forEach(b => {
       if (!b.components) {
         return false;
       }
       const vm = b.components.default;
-      const setFrameHeight = Vue.extend({
-        updated() {
-          const params = {
-            isLoading: false,
-            height: !isAntUI
-              ? document.querySelector('.main-content').clientHeight + 40
-              : document.querySelector('.ant-layout-content>div').clientHeight +
-                40,
-          };
-          window.parent.postMessage(params, '*');
-        },
-      });
       // eslint-disable-next-line
       for (let i in vm.components) {
         if (!vm.components[i].mixins) {
           vm.components[i].mixins = [setFrameHeight];
+        } else {
+          vm.components[i].mixins.push(setFrameHeight);
         }
       }
       if (!vm.mixins) {
         vm.mixins = [setFrameHeight];
+      } else {
+        vm.mixins.push(setFrameHeight);
       }
-      next();
     });
+    next();
   });
 }
 ```

@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/element-ui",
-  "version": "1.0.18",
+  "version": "1.1.13",
   "main": "./lib/index.umd.min.js",
   "style": "./lib/index.css",
   "files": [
@@ -14,5 +14,5 @@
     "element-ui": "~2.7.2",
     "lodash": "^4.17.11"
   },
-  "gitHead": "2e98ffe23988fce970d7c225918cae42f19ff2e1"
+  "gitHead": "248cbf962eab10124062f09b06b18b8d322ceb07"
 }

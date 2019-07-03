@@ -4,9 +4,10 @@ import execa from 'execa';
 import { merge } from 'lodash';
 import { existsSync, statSync } from 'fs-extra';
 import { copy } from 'fs-jetpack';
-// import assert from "assert";
+import assert from 'assert';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
+
 import {
   getParsedData,
   UrlParse,
@@ -35,6 +36,7 @@ function getCtx(url: string): CtxInter {
   let ctx: CtxInter;
   // 解析 git repo 地址
   ctx = getParsedData(url);
+  if (!ctx) return null;
 
   // 创建临时目录
   const blocksTempPath = makeSureMaterialsTempPathExist();
@@ -172,6 +174,7 @@ async function run(repo: string, destDir: string): Promise<void> {
 
   console.log(`${chalk.cyan('Parsing url and args...')}`);
   const ctx = getCtx(repo);
+  assert(ctx, "can't match any pattern");
 
   // 1、如果 block 项目不存在就执行 clone git repo
   if (!ctx.repoExists) {

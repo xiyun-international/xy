@@ -61,7 +61,7 @@ class Create {
 
   private validPackageName(): void {
     const result = validateProjectName(this.name);
-    assert(!result.validForNewPackages, 'package name is not valid');
+    assert(result.validForNewPackages, 'package name is not valid');
   }
 
   private async checkFileExist(): Promise<string> {

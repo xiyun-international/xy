@@ -6,7 +6,7 @@ describe('Block', () => {
     try {
       await block('http://xiyun.com.cn', './');
     } catch (e) {
-      expect(e).toEqual(new Error("can't match any pattern"));
+      expect(e.message).toEqual("can't match any pattern");
     }
   });
 });
