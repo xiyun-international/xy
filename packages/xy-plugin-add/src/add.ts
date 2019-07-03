@@ -70,7 +70,7 @@ async function installPkg(pkg: string) {
 }
 
 async function run(pkg: string) {
-  assert(pkg && pkg.indexOf('xy-plugin-') < 0, 'Invalid package name');
+  assert(pkg && !(pkg.indexOf('xy-plugin-') === -1), 'Invalid package name');
 
   await installPkg(pkg);
 }
