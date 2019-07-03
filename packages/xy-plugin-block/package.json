@@ -18,7 +18,16 @@
   "bugs": {
     "url": "https://github.com/xiyun-international/xy/issues"
   },
-  "devDependencies": {
-    "fs-jetpack": "^2.2.2"
+  "dependencies": {
+    "assert": "^2.0.0",
+    "chalk": "^2.4.2",
+    "execa": "^2.0.2",
+    "fs-extra": "^8.1.0",
+    "fs-jetpack": "^2.2.2",
+    "inquirer": "^6.4.1",
+    "lodash": "^4.17.11",
+    "mkdirp": "^0.5.1",
+    "ora": "^3.4.0",
+    "user-home": "^2.0.0"
   }
 }
