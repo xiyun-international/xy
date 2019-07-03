@@ -12,9 +12,10 @@ const args = yParser(process.argv.slice(2));
 // Plugin List
 const Block = require('@xiyun/xy-plugin-block').default;
 const Create = require('@xiyun/xy-plugin-create').default;
+const Generator = require('@xiyun/xy-plugin-generator').default;
 const Add = require('@xiyun/xy-plugin-add').default;
 
-const pluginList = [Block, Create, Add];
+const pluginList = [Block, Create, Add, Generator];
 
 module.paths.unshift(path.resolve(userHome, '.xy', 'plugins', 'node_modules'));
 
