@@ -1,13 +1,13 @@
 {
   "name": "@xiyun/cli",
-  "version": "1.1.15",
+  "version": "1.1.18",
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/cli",
   "bin": {
     "xy": "bin/xy.js"
   },
   "dependencies": {
-    "@xiyun/xy-plugin-add": "^1.1.14",
+    "@xiyun/xy-plugin-add": "^1.1.18",
     "@xiyun/xy-plugin-block": "^1.1.13",
     "@xiyun/xy-plugin-create": "^1.1.13",
     "@xiyun/xy-plugin-generator": "^1.1.14",
