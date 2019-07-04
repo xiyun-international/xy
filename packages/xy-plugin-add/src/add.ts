@@ -2,6 +2,7 @@ import execa from 'execa';
 import { existsSync } from 'fs-extra';
 import mkdirp from 'mkdirp';
 import userHome from 'user-home';
+import assert from 'assert';
 import signale from 'signale';
 import chalk from 'chalk';
 import which from 'which';
@@ -32,6 +33,8 @@ function findPluginsDir() {
 }
 
 async function installPkg(pkg: string) {
+  signale.start('Installing package...');
+
   const executor = await findExecutor();
   const pluginsDir = findPluginsDir();
   const pkgFile = join(pluginsDir, 'package.json');
@@ -41,6 +44,7 @@ async function installPkg(pkg: string) {
       cwd: pluginsDir,
       env: process.env,
     });
+    signale.info('created package.json file');
   }
 
   if (executor === 'yarn') {
@@ -62,9 +66,12 @@ async function installPkg(pkg: string) {
       throw new Error('install plugin error');
     }
   }
+  signale.success('install complete');
 }
 
 async function run(pkg: string) {
+  assert(pkg && !(pkg.indexOf('xy-plugin-') === -1), 'Invalid package name');
+
   await installPkg(pkg);
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/xy-plugin-add",
-  "version": "1.1.13",
+  "version": "1.1.18",
   "main": "lib/index.js",
   "license": "MIT",
   "homepage": "https://github.com/xiyun-international/xy#readme",
@@ -19,6 +19,7 @@
     "url": "https://github.com/xiyun-international/xy/issues"
   },
   "dependencies": {
+    "assert": "^2.0.0",
     "chalk": "^2.4.2",
     "execa": "^2.0.2",
     "fs-extra": "^8.1.0",
