@@ -13,8 +13,9 @@ const Block = require('@xiyun/xy-plugin-block').default;
 const Create = require('@xiyun/xy-plugin-create').default;
 const Generator = require('@xiyun/xy-plugin-generator').default;
 const Add = require('@xiyun/xy-plugin-add').default;
+const Init = require('@xiyun/xy-plugin-init').default;
 
-const pluginList = [Block, Create, Add, Generator];
+const pluginList = [Block, Create, Add, Generator, Init];
 
 module.paths.unshift(path.resolve(userHome, '.xy', 'plugins', 'node_modules'));
 
