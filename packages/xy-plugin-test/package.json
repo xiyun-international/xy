@@ -27,7 +27,6 @@
     "url": "https://github.com/xiyun-international/xy/issues"
   },
   "devDependencies": {
-    "@vue/test-utils": "^1.0.0-beta.29",
     "babel-jest": "^24.8.0",
     "vue-jest": "^3.0.4"
   }
