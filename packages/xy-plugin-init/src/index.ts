@@ -5,8 +5,11 @@ export default {
   command: 'init',
   alias: 'i',
   onRun: async api => {
-    copyFile('./.yarnrc', api.args, err => {
-      console.log('拷贝成功');
+    const cwd = process.cwd();
+    copyFile('./.yarnrc', `${cwd}\.yarnrc`, err => {
+      if (!err) {
+        console.log('拷贝成功');
+      }
     });
   },
 };
