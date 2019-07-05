@@ -1,0 +1,33 @@
+{
+  "name": "xy-plugin-test",
+  "version": "1.1.10",
+  "description": "测试.vue 项目 而非 .ts 项目",
+  "keywords": [
+    "test",
+    "vue"
+  ],
+  "homepage": "https://github.com/xiyun-international/xy#readme",
+  "license": "ISC",
+  "main": "src/index.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiyun-international/xy.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/xiyun-international/xy/issues"
+  },
+  "devDependencies": {
+    "babel-jest": "^24.8.0",
+    "vue-jest": "^3.0.4"
+  }
+}

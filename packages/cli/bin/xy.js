@@ -13,13 +13,15 @@ const Block = require('@xiyun/xy-plugin-block').default;
 const Create = require('@xiyun/xy-plugin-create').default;
 const Generator = require('@xiyun/xy-plugin-generator').default;
 const Add = require('@xiyun/xy-plugin-add').default;
+const Init = require('@xiyun/xy-plugin-init').default;
 
-const pluginList = [Block, Create, Add, Generator];
+const pluginList = [Block, Create, Add, Generator, Init];
 
+// 处理外部装载的插件
 module.paths.unshift(path.resolve(userHome, '.xy', 'plugins', 'node_modules'));
 
+// 根据宿主目录，./xy/plugins/packages.json 注入到 Service 中
 const xyPluginPkg = path.resolve(userHome, '.xy', 'plugins', 'package.json');
-
 if (fs.existsSync(xyPluginPkg)) {
   const dependencies = require(xyPluginPkg).dependencies;
   Object.keys(dependencies).forEach(item => {
