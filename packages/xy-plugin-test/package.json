@@ -1,5 +1,5 @@
 {
-  "name": "xy-plugin-test",
+  "name": "@xiyun/xy-plugin-test",
   "version": "1.1.10",
   "description": "测试.vue 项目 而非 .ts 项目",
   "keywords": [
