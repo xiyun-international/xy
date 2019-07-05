@@ -1,0 +1,34 @@
+{
+  "name": "@xiyun/xy-plugin-block",
+  "version": "1.1.13",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "homepage": "https://github.com/xiyun-international/xy#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiyun-international/xy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xiyun-international/xy/issues"
+  },
+  "dependencies": {
+    "assert": "^2.0.0",
+    "chalk": "^2.4.2",
+    "execa": "^2.0.2",
+    "fs-extra": "^8.1.0",
+    "fs-jetpack": "^2.2.2",
+    "inquirer": "^6.4.1",
+    "lodash": "^4.17.11",
+    "mkdirp": "^0.5.1",
+    "ora": "^3.4.0",
+    "user-home": "^2.0.0"
+  },
+  "gitHead": "248cbf962eab10124062f09b06b18b8d322ceb07"
+}

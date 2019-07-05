@@ -1,5 +1,5 @@
 <template>
-  <div class="xy-ele-wrapper">
+  <div class="xy-wrapper">
     <slot></slot>
   </div>
 </template>
@@ -8,3 +8,11 @@ export default {
   name: 'XyWrapper',
 };
 </script>
+<style scoped>
+  .xy-wrapper {
+    box-sizing: border-box;
+    padding: 24px 28px;
+    background: #fff;
+    border-radius: 2px;
+  }
+</style>

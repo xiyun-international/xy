@@ -26,15 +26,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
   .xy-title-wrapper {
     .xy-title {
       display: inline-block;
-      font-size: 16px;
-      font-weight: bold;
+      font-size: 18px;
       position: relative;
       line-height: 20px;
-      margin: 30px 0;
+      margin: 24px 0;
     }
     .xy-title-icon {
       padding-left: 15px;

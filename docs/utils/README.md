@@ -8,21 +8,60 @@ $ yarn add @xiyun/utils
 ```
 
 ## 使用
-这里以**post 方法**为例，post 基于 axios 封装了 post 数据请求方法。
+这里以**http 方法**为例，http 工具基于 axios 封装了 post 和 get 数据请求方法。
 
 代码示例
 ```js
-import { post as postUtils } from '@xiyun/utils';
+import { http } from '@xiyun/utils';
 
-// 配置
-postUtils.config({});
-// 业务级别的错误处理
-postUtils.bizErrorHandler(() => {});
-// 最终的错误处理方法
-postUtils.catchErrorHandler(() => {});
-
-// 在组件中，发起请求
-postUtils.post('api', params).then(res => {});
+http.config({
+  baseURL: "https://www.easy-mock.com/mock/5cec94be4ab28d196665a9c3/example"
+});
+http.bizErrorHandler(res => {
+  // 自行处理业务错误逻辑
+  if (res.success !== true) {
+    return Promise.reject(res);
+  } else {
+    return res;
+  }
+});
+// 第二个参数代表发请求时设置的是否是自己处理错误，
+// 因为你可能会在错误处理中配置错误消息展示之类的逻辑，如果某个地方不需要这种功能，就可以交由该请求自行处理
+http.catchErrorHandler((err, selfHandleError) => {
+  // 如果
+  if (selfHandleError) {
+    return Promise.reject(err);
+  } else {
+    console.log(selfHandleError);
+    console.log(err);
+    console.log(err.name, err.message);
+    console.log(err.response);
+    throw new Error(err.message);
+    // 或
+    // return Promise.reject(err);
+  }
+});
+// get 请求
+http.get("/mock", {}).then(res => {
+    console.log(res);
+  })
+  .catch(err => {
+    console.log(err);
+  });
+// post 请求
+http.post("/mock_post", {}).then(res => {
+    console.log(res);
+  })
+  .catch(err => {
+    console.log(err);
+  });
+// post 请求，并自行处理错误逻辑
+http.post("/mock_post", {}, true).then(res => {
+    console.log(res);
+  })
+  .catch(err => {
+    console.log(err);
+  });
 ```
 
-其它案例参考 API。
+详情请参考各 API 文档。

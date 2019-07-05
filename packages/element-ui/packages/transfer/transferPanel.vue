@@ -171,7 +171,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
   .xy-transfer-panel {
     border: 1px solid #ebeef5;
     border-radius: 4px;

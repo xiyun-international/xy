@@ -42,6 +42,10 @@ export default {
   props: {
     isSendCode: Boolean,
     telephone: [String, Number],
+    value: {
+      type: String,
+      default: ''
+    },
   },
   data() {
     return {
@@ -49,13 +53,23 @@ export default {
       isSend: false,
     };
   },
+  mounted() {
+    this.code = this.value;
+  },
   watch: {
+    code(val) {
+      this.$emit('input', val);
+    },
+    value(val) {
+      this.code = val;
+    },
     isSendCode(val) {
       this.isSend = val;
     },
     isSend(val) {
       if (val === false) {
         this.$emit('update:isSendCode', false);
+        this.code = '';
       }
     },
   },

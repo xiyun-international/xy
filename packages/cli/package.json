@@ -1,25 +1,36 @@
 {
   "name": "@xiyun/cli",
-  "version": "1.0.4",
+  "version": "1.1.18",
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/cli",
   "bin": {
     "xy": "bin/xy.js"
   },
   "dependencies": {
+    "@xiyun/xy-plugin-add": "^1.1.18",
+    "@xiyun/xy-plugin-block": "^1.1.13",
+    "@xiyun/xy-plugin-create": "^1.1.13",
+    "@xiyun/xy-plugin-generator": "^1.1.16",
     "chalk": "^2.4.2",
     "download-git-repo": "^1.1.0",
+    "execa": "^1.0.0",
     "fs-extra": "^7.0.1",
+    "fs-jetpack": "^2.2.2",
     "inquirer": "^6.3.1",
+    "lodash": "^4.17.11",
+    "mkdirp": "^0.5.1",
     "ora": "^3.4.0",
     "shelljs": "^0.8.3",
+    "user-home": "^2.0.0",
     "validate-npm-package-name": "^3.0.0",
-    "which": "^1.3.1"
+    "which": "^1.3.1",
+    "yargs": "^13.2.4",
+    "yargs-parser": "^13.1.1"
   },
   "devDependencies": {
     "@types/node": "^11.13.7",
     "typescript": "^3.4.5",
     "umi-tools": "^0.4.0"
   },
-  "gitHead": "2e98ffe23988fce970d7c225918cae42f19ff2e1"
+  "gitHead": "248cbf962eab10124062f09b06b18b8d322ceb07"
 }

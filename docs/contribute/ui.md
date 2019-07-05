@@ -103,3 +103,15 @@ sidebar: {
         },
     }
 ```
+
+### 构建 UI 组件
+
+```shell
+$ yarn build
+```
+
+### 发布 UI 组件
+
+```shell
+$ lerna publish
+```

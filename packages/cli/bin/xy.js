@@ -1,55 +1,34 @@
 #!/usr/bin/env node
 
-const program = require('commander');
-const inquirer = require('inquirer')
-const chalk = require('chalk');
-const create = require('../lib/create');
+const yParser = require('yargs-parser');
+const fs = require('fs');
+const Service = require('../lib/Service').default;
+const path = require('path');
+const userHome = require('user-home');
 
-program
-  .version(require('../package.json').version)
-  .description('A command line tool to create template quickly.')
-  .usage('<command> [options]');
+const args = yParser(process.argv.slice(2));
 
-program
-  .command('create <app-name>')
-  .description('To create a template.')
-  .action(appName => {
-    (async () => {
-      const {ui} = await inquirer.prompt({
-        name: 'ui',
-        type: 'list',
-        message: 'Which UI template do you want to create?',
-        choices: [
-          { name: 'element-ui-template', value: 'e' },
-          { name: 'ant-design-ui-template', value: 'a' },
-        ]
-      });
-      const {mode} = await inquirer.prompt({
-        name: 'mode',
-        type: 'list',
-        message: 'Please select a mode:',
-        choices: [
-          { name: 'Full layout(with side nav and header bar).', value: 'full' },
-          { name: 'Simple layout(with out side nav and header var).', value: 'simple' },
-        ]
-      });
+// Plugin List
+const Block = require('@xiyun/xy-plugin-block').default;
+const Create = require('@xiyun/xy-plugin-create').default;
+const Generator = require('@xiyun/xy-plugin-generator').default;
+const Add = require('@xiyun/xy-plugin-add').default;
 
-      create.default(appName, {ui, mode});
-    })();
+const pluginList = [Block, Create, Add, Generator];
+
+module.paths.unshift(path.resolve(userHome, '.xy', 'plugins', 'node_modules'));
+
+const xyPluginPkg = path.resolve(userHome, '.xy', 'plugins', 'package.json');
+
+if (fs.existsSync(xyPluginPkg)) {
+  const dependencies = require(xyPluginPkg).dependencies;
+  Object.keys(dependencies).forEach(item => {
+    pluginList.push(require(item).default);
   });
-
-// output help information on unknown commands
-program
-  .arguments('<command>')
-  .action((cmd) => {
-    program.outputHelp()
-    console.log(`  ` + chalk.red(`Unknown command ${chalk.yellow(cmd)}.`))
-    console.log()
-  })
-
-// output help information on no arguments supplied
-if (!process.argv.slice(2).length) {
-  program.outputHelp()
 }
 
-program.parse(process.argv);
+const service = new Service(args._[0], args, {
+  plugins: pluginList,
+});
+
+service.run();

@@ -7,12 +7,12 @@
  * ```
  */
 const nodeList = [];
-const ctx = 'clickOutsideContext';
+const ctx = "clickOutsideContext";
 let seed = 0;
 
-const on = (function () {
+const on = (function() {
   if (document.addEventListener) {
-    return function (element, event, handler) {
+    return function(element, event, handler) {
       if (element && event && handler) {
         element.addEventListener(event, handler, false);
       }
@@ -20,31 +20,38 @@ const on = (function () {
   }
 })();
 
-on(document, 'click', e => {
+on(document, "click", e => {
   nodeList.forEach(node => node[ctx].__xyClickOutside__(e));
 });
 
 function createDocumentHandler(el, binding, vnode) {
-  return function (e) {
-    if (!vnode || !vnode.context || !e.target || el.contains(e.target) || el === e.target) return;
+  return function(e) {
+    if (
+      !vnode ||
+      !vnode.context ||
+      !e.target ||
+      el.contains(e.target) ||
+      el === e.target
+    )
+      return;
 
     // 判断指令是否绑定了函数，绑定则调用
     if (binding.expression) binding.value && binding.value(e);
-  }
+  };
 }
 
 const clickOutside = {
-  bind: function (el, binding, vnode) {
+  bind: function(el, binding, vnode) {
     nodeList.push(el);
     el[ctx] = {
       id: seed,
       __xyClickOutside__: createDocumentHandler(el, binding, vnode)
-    }
+    };
   },
   update(el, binding, vnode) {
-    el[ctx].__xyClickOutside__ = createDocumentHandler(el, binding, vnode)
+    el[ctx].__xyClickOutside__ = createDocumentHandler(el, binding, vnode);
   },
-  unbind: function (el) {
+  unbind: function(el) {
     const len = nodeList.length;
 
     for (let i = 0; i < len; i++) {
