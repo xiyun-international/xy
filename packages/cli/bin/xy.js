@@ -9,7 +9,7 @@ const userHome = require('user-home');
 const args = yParser(process.argv.slice(2));
 // 自动注册插件
 const pluginList = [];
-const dependencies = fs.readdirSync('../package.json').dependencies;
+const dependencies = require('../package.json').dependencies;
 Object.keys(dependencies).forEach(key => {
   if (key.indexOf('@xiyun/xy-plugin') !== -1) {
     const xyPlugin = require(key).default;
