@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const yParser = require('yargs-parser');
 const fs = require('fs');
 const Service = require('../lib/Service').default;
@@ -7,9 +9,7 @@ const userHome = require('user-home');
 const args = yParser(process.argv.slice(2));
 // 自动注册插件
 const pluginList = [];
-const xyPlugins = fs.readdirSync('package.json');
-const dependencies = require(xyPlugins).dependencies;
-const pluginList = [];
+const dependencies = fs.readdirSync('package.json').dependencies;
 Object.keys(dependencies).forEach(key => {
   if (key.indexOf('@xiyun/xy-plugin') !== -1) {
     const xyPlugin = require(key).default;
