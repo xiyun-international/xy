@@ -8,7 +8,7 @@
     "test": "jest",
     "bootstrap": "lerna bootstrap",
     "docs:dev": "xy-tools docs dev",
-    "docs:build": "xy-tools docs build",
+    "docs:build": "vuepress build docs",
     "ts:build": "xy-tools build typescript",
     "ts:dev": "xy-tools build typescript --watch",
     "build": "xy-tools build typescript && xy-tools build theme && xy-tools build component"
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
+    "@typescript-eslint/parser": "^1.11.0",
     "@xiyun/xy-tools": "^0.0.13",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
