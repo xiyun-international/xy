@@ -1,11 +1,13 @@
 # `xy-plugin-generator`
 
-> TODO: description
+> xy-plugin-generator 针对业务的通用表单生成工具
 
-## Usage
+## 使用方法
 
 ```
-const xyPluginGenerator = require('xy-plugin-generator');
+npm install -g @xiyun/xy-plugin-generator
+or
+yarn global add @xiyun/xy-plugin-generator
 
-// TODO: DEMONSTRATE API
 ```
+输入命令 xy generator templateName or xy g templateName
