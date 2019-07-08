@@ -1,7 +1,7 @@
 {
   "name": "@xiyun/xy-plugin-test",
   "version": "1.1.19",
-  "description": "测试.vue 项目 而非 .ts 项目",
+  "description": "针对于业务级（.vue）的测试工具",
   "keywords": [
     "test",
     "vue"
