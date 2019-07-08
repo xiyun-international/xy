@@ -1,11 +1,13 @@
 # `xy-plugin-init`
 
-> TODO: description
+> xy-plugin-init Yarn 镜像源设置
 
-## Usage
+## 使用方法
 
 ```
-const xyPluginInit = require('xy-plugin-init');
+npm install -g @xiyun/xy-plugin-generator
+or
+yarn global add @xiyun/xy-plugin-generator
 
-// TODO: DEMONSTRATE API
 ```
+执行命令 xy init or xy i
