@@ -1,11 +1,13 @@
 # `xy-plugin-test`
 
-> TODO: description
+> xy-plugin-test 是针对于业务级（.vue）的测试工具封装。
 
 ## Usage
 
-```
-const xyPluginTest = require('xy-plugin-test');
+``` sh
+npm install -g @xy/xy-plugin-test
+or 
+yarn global add @xy/xy-plugin-test 
 
-// TODO: DEMONSTRATE API
+xy test 
 ```

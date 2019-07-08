@@ -36,6 +36,10 @@ export default {
           return text.replace(/(\d{3})\d{4}/, '$1****');
         case 'idCard':
           return text.replace(/(\d{3})\d{11}/, '$1***********');
+        case 'email':
+          return text.replace(/^(\w{2}).+?@.+?(\.\w{2,3})$/, (all, pre, aft) => {
+            return `${pre}***@***${aft}`;
+          });
         default:
           return text.replace(/(\w{3})\w{8}/, '$1********');
       }

@@ -6,9 +6,7 @@ export default {
   alias: 'g',
   onRun: async api => {
     block(
-      `https://github.com/xiyun-international/template/tree/master/projects/${
-        api.args
-      }`,
+      `https://github.com/xiyun-international/template/tree/master/projects/${api.args}`,
       `./${api.args}`,
     );
   },
