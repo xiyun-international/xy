@@ -3,13 +3,23 @@
 const yParser = require('yargs-parser');
 const Service = require('../lib/Service').default;
 const args = yParser(process.argv.slice(2));
+// 自动注册插件
+const fs = require('fs');
+var readDir = fs.readdirSync('"packages.json"');
+const pluginList = [];
+Object.keys(readDir.dependencies).forEach(key => {
+  if (key.indexOf('xy-plugin') !== -1) {
+    pluginList.push(key.split('xy-plugin-')[1].default);
+  }
+});
 
 // Plugin List
-const Block = require('@xiyun/xy-plugin-block').default;
-const Create = require('@xiyun/xy-plugin-create').default;
-const Add = require('@xiyun/xy-plugin-add').default;
+// const Block = require('@xiyun/xy-plugin-block').default;
+// const Create = require('@xiyun/xy-plugin-create').default;
+// const Add = require('@xiyun/xy-plugin-add').default;
 
 const service = new Service(args._[0], args, {
-  plugins: [Block, Create, Add],
+  // plugins: [Block, Create, Add],
+  plugins: pluginList,
 });
 service.run();
