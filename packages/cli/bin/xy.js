@@ -5,16 +5,6 @@ const path = require('path');
 const userHome = require('user-home');
 
 const args = yParser(process.argv.slice(2));
-
-// Plugin List
-// const Block = require('@xiyun/xy-plugin-block').default;
-// const Create = require('@xiyun/xy-plugin-create').default;
-// const Generator = require('@xiyun/xy-plugin-generator').default;
-// const Add = require('@xiyun/xy-plugin-add').default;
-// const Init = require('@xiyun/xy-plugin-init').default;
-
-// const pluginList = [Block, Create, Add, Generator, Init];
-
 // 自动注册插件
 const pluginList = [];
 const xyPlugins = fs.readdirSync('package.json');
