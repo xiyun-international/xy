@@ -5,9 +5,9 @@
 ## Usage
 
 ``` sh
-npm install -g @xy/xy-plugin-test
+npm install -g @xiyun/cli
 or 
-yarn global add @xy/xy-plugin-test 
+yarn global add @xiyun/cli 
 
 xy test 
 ```
