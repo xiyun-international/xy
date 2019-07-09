@@ -1,10 +1,16 @@
 import assert from 'assert';
 import path from 'path';
 import fs from 'fs';
+import signale from 'signale';
 import template from './template';
 
 function run(dir: string) {
   assert(dir, 'no directory specified');
+  assert(
+    !(dir === '.' || dir === './'),
+    'directory can not specified with "." or "./"',
+  );
+  signale.start('start adding router...');
 
   const cwd = process.cwd();
   const res = /.*?\/src/.exec(cwd);
@@ -28,6 +34,7 @@ function run(dir: string) {
 
   try {
     fs.mkdirSync(routerPath);
+    signale.success(`create "${dir}" directory at "${routerPath}"`);
   } catch (e) {
     throw new Error('create target directory error');
   }
@@ -36,6 +43,7 @@ function run(dir: string) {
 
   try {
     fs.writeFileSync(path.resolve(routerPath, 'index.js'), replace);
+    signale.success(`create "index.js" in "${routerPath}"`);
   } catch (e) {
     throw new Error('create router file error');
   }
@@ -43,7 +51,30 @@ function run(dir: string) {
   const childrenRouterStr = fs.readFileSync(childrenRouterPath, {
     encoding: 'utf8',
   });
-  console.log(childrenRouterStr);
+  const rawArr = childrenRouterStr.split(/[\n]/);
+  const tmp = [];
+  const end = [];
+  rawArr.forEach((line, idx) => {
+    if (line.indexOf('import') !== -1) {
+      tmp.push(idx);
+    }
+    if (line.indexOf(']') !== -1) {
+      end.push(idx);
+    }
+  });
+  const lastTmpKey = tmp[tmp.length - 1];
+  rawArr[lastTmpKey] = `${
+    rawArr[lastTmpKey]
+  }\n\nimport ${dir} from './routers/${dir}';`;
+  const lastEndKey = end[end.length - 1];
+  rawArr[lastEndKey] = `  ...${dir},\n${rawArr[lastEndKey]}`;
+  const newStr = rawArr.join('\n');
+  try {
+    fs.writeFileSync(childrenRouterPath, newStr);
+    signale.success('write router complete');
+  } catch (e) {
+    throw new Error('write "childrenRouter.js" file error');
+  }
 }
 
 export default run;
