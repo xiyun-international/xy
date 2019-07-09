@@ -5,9 +5,18 @@ export default {
   command: 'generator',
   alias: 'g',
   onRun: async api => {
-    block(
-      `https://github.com/xiyun-international/template/tree/master/projects/${api.args}`,
-      `./${api.args}`,
-    );
+    const scaffold = api.opts.scaffold;
+    const dirname = __dirname;
+    if (scaffold) {
+      block(
+        `https://github.com/xiyun-international/template/tree/master/projects`,
+        `${dirname}/${api.args}`,
+      );
+    } else {
+      block(
+        `https://github.com/xiyun-international/template/tree/master/projects/${api.args}`,
+        `${dirname}/${api.args}`,
+      );
+    }
   },
 };
