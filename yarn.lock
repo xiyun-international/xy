@@ -8241,6 +8241,7 @@ jest-worker@^24.6.0:
 jest@^24.8.0:
   version "24.8.0"
   resolved "https://registry.npm.taobao.org/jest/download/jest-24.8.0.tgz#d5dff1984d0d1002196e9b7f12f75af1b2809081"
+  integrity sha1-1d/xmE0NEAIZbpt/Evda8bKAkIE=
   dependencies:
     import-local "^2.0.0"
     jest-cli "^24.8.0"

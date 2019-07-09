@@ -29,5 +29,8 @@
   "devDependencies": {
     "babel-jest": "^24.8.0",
     "vue-jest": "^3.0.4"
+  },
+  "dependencies": {
+    "jest": "^24.8.0"
   }
 }
