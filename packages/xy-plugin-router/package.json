@@ -1,0 +1,24 @@
+{
+  "name": "@xiyun/xy-plugin-router",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "homepage": "https://github.com/xiyun-international/xy#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiyun-international/xy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xiyun-international/xy/issues"
+  },
+  "dependencies": {
+    "signale": "^1.4.0"
+  }
+}

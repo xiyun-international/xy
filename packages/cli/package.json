@@ -13,6 +13,7 @@
     "@xiyun/xy-plugin-generator": "^1.1.21",
     "@xiyun/xy-plugin-init": "^1.1.21",
     "@xiyun/xy-plugin-test": "^1.1.23",
+    "@xiyun/xy-plugin-router": "^1.0.0",
     "chalk": "^2.4.2",
     "download-git-repo": "^1.1.0",
     "execa": "^1.0.0",
