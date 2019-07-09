@@ -1,3 +1,7 @@
 import plugin, { router } from '../src/index';
 
-describe('Router', () => {});
+describe('Router', () => {
+  test('', () => {
+    // router();
+  });
+});
