@@ -26,11 +26,27 @@ title 标题组件可以用于页面中某块的标题，它包含两个样式�
     <button>按钮</button>
   </template>
 </xy-title>
+
+<xy-title isShowIcon>
+  可以设置副标题
+  <template v-slot:sub-title>
+    <span>我是副标题的内容</span>
+  </template>
+</xy-title>
 ```
 
 #### 效果
 
 <antd-xy-title>我是标题组件</antd-xy-title>
+
+<div>
+  <antd-xy-title isShowIcon>
+    我是主标题
+    <template v-slot:sub-title>
+      <span>我是副标题的内容</span>
+    </template>
+  </antd-xy-title>
+</div>
 
 <antd-xy-title isShowIcon>我是带有 icon 的标题组件</antd-xy-title>
 
@@ -40,3 +56,4 @@ title 标题组件可以用于页面中某块的标题，它包含两个样式�
 | ------ | :------: | ------ | :------: |
 | isShowIcon | Boolean | 用于显示或隐藏前缀 icon | false |
 | v-slot:right | VNode | 放置标题右侧插槽内容 | 无 |
+| v-slot:sub-title | VNode | 跟随在主标题右边的副标题 | 无 |
