@@ -1,4 +1,5 @@
 import { block } from '@xiyun/xy-plugin-block/lib';
+import { router } from '@xiyun/xy-plugin-router/lib';
 
 export default {
   name: 'xy-plugin-generator',
@@ -8,15 +9,19 @@ export default {
     const scaffold = api.opts.scaffold;
     const dirname = __dirname;
     if (scaffold) {
-      block(
+      await block(
         `https://github.com/xiyun-international/template/tree/master/projects`,
         `${dirname}/${api.args}`,
       );
+      await router(api.args);
     } else {
-      block(
-        `https://github.com/xiyun-international/template/tree/master/projects/${api.args}`,
+      await block(
+        `https://github.com/xiyun-international/template/tree/master/projects/${
+          api.args
+        }`,
         `${dirname}/${api.args}`,
       );
+      await router(api.args);
     }
   },
 };
