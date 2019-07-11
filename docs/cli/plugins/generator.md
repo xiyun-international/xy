@@ -1,4 +1,4 @@
-### init
+### generator
 
 #### 功能描述
 
