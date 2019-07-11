@@ -37,6 +37,11 @@ module.exports = {
           collapsable: false,
           children: [''],
         },
+        {
+          title: '插件',
+          collapsable: false,
+          children: ['plugins/add', 'plugins/block', 'plugins/router'],
+        },
       ],
       '/element-ui/': [
         {
