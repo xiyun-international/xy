@@ -45,6 +45,8 @@ module.exports = {
             'plugins/block',
             'plugins/router',
             'plugins/test',
+            'plugins/generator',
+            'plugins/init',
           ],
         },
       ],
