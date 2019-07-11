@@ -40,7 +40,12 @@ module.exports = {
         {
           title: '插件',
           collapsable: false,
-          children: ['plugins/add', 'plugins/block', 'plugins/router'],
+          children: [
+            'plugins/add',
+            'plugins/block',
+            'plugins/router',
+            'plugins/test',
+          ],
         },
       ],
       '/element-ui/': [
