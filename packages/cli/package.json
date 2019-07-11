@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/cli",
-  "version": "1.1.23",
+  "version": "1.1.24",
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/cli",
   "bin": {
@@ -10,8 +10,9 @@
     "@xiyun/xy-plugin-add": "^1.1.20",
     "@xiyun/xy-plugin-block": "^1.1.20",
     "@xiyun/xy-plugin-create": "^1.1.20",
-    "@xiyun/xy-plugin-generator": "^1.1.21",
-    "@xiyun/xy-plugin-init": "^1.1.21",
+    "@xiyun/xy-plugin-generator": "^1.1.24",
+    "@xiyun/xy-plugin-init": "^1.1.24",
+    "@xiyun/xy-plugin-router": "^1.1.24",
     "@xiyun/xy-plugin-test": "^1.1.23",
     "chalk": "^2.4.2",
     "download-git-repo": "^1.1.0",

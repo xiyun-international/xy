@@ -1,4 +1,5 @@
 import { copyFile } from 'fs';
+import { resolve } from 'path';
 
 export default {
   name: 'xy-plugin-init',
@@ -6,8 +7,9 @@ export default {
   alias: 'i',
   onRun: async api => {
     const cwd = process.cwd();
-    const dirname = __dirname;
-    copyFile(`${dirname}\\.yarnrc`, `${cwd}\.yarnrc`, err => {
+    console.log(cwd);
+    const dirname = resolve(__dirname, '..');
+    copyFile(`${dirname}\\.yarnrc`, `${cwd}\\.yarnrc`, err => {
       if (!err) {
         console.log('拷贝成功');
       }

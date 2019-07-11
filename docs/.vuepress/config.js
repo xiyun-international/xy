@@ -37,6 +37,11 @@ module.exports = {
           collapsable: false,
           children: [''],
         },
+        {
+          title: '插件',
+          collapsable: false,
+          children: ['plugins/add', 'plugins/block', 'plugins/router'],
+        },
       ],
       '/element-ui/': [
         {
@@ -91,7 +96,7 @@ module.exports = {
         {
           title: '参与贡献',
           collapsable: false,
-          children: ['', 'ui', 'cli', 'utils'],
+          children: ['', 'ui', 'cli', 'plugin', 'utils'],
         },
       ],
       '/style/': [
