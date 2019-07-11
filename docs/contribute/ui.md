@@ -1,7 +1,7 @@
 # 添加公共组件
 
 <blockquote class="green-tip">
-<p>以添加 title 组件 到 Ant Design Vue 组件库为例，Element UI 组件开发流程与之类似。组件命名统一加前缀 “Xy”。</p>
+<p>以添加 xy-title 组件到 Ant Design Vue 组件库为例，Element UI 组件开发流程与之类似。组件命名统一加前缀 “Xy”。</p>
 </blockquote>
 
 ### 代码

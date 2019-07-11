@@ -96,7 +96,7 @@ module.exports = {
         {
           title: '参与贡献',
           collapsable: false,
-          children: ['', 'ui', 'cli', 'utils'],
+          children: ['', 'ui', 'cli', 'plugin', 'utils'],
         },
       ],
       '/style/': [
