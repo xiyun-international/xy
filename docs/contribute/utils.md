@@ -9,7 +9,7 @@ $ cd xy
 2、进行文件监听
 
 ```shell
-$ yarn utils:watch
+$ yarn ts:dev
 ```
 3、开发测试
 
@@ -18,7 +18,7 @@ $ yarn utils:watch
 4、开发完成，执行编译
 
 ```shell
-$ yarn utils:build
+$ yarn ts:build
 ```
 5、执行发布（如果你是以PR的方式贡献代码，那么这一步将由我们来执行）
 
