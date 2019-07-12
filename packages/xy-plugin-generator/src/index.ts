@@ -1,5 +1,5 @@
-import { block } from '@xiyun/xy-plugin-block/lib';
-import { router } from '@xiyun/xy-plugin-router/lib';
+import { block } from '@xiyun/xy-plugin-block';
+import { router } from '@xiyun/xy-plugin-router';
 
 export default {
   name: 'xy-plugin-generator',
@@ -16,9 +16,7 @@ export default {
       await router(api.args);
     } else {
       await block(
-        `https://github.com/xiyun-international/template/tree/master/projects/${
-          api.args
-        }`,
+        `https://github.com/xiyun-international/template/tree/master/projects/${api.args}`,
         `${dirname}/${api.args}`,
       );
       await router(api.args);

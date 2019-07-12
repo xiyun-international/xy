@@ -15,22 +15,19 @@ export default {
       const { ui } = await inquirer.prompt({
         name: 'ui',
         type: 'list',
-        message: 'Which UI template do you want to create?',
+        message: '您要对接哪套系统?',
         choices: [
-          { name: 'element-ui-template', value: 'e' },
-          { name: 'ant-design-ui-template', value: 'a' },
+          { name: '商家中心', value: 'e' },
+          { name: '开放平台', value: 'a' },
         ],
       });
       const { mode } = await inquirer.prompt({
         name: 'mode',
         type: 'list',
-        message: 'Please select a mode:',
+        message: '请选择模板:',
         choices: [
-          { name: 'Full layout(with side nav and header bar).', value: 'full' },
-          {
-            name: 'Simple layout(with out side nav and header var).',
-            value: 'simple',
-          },
+          { name: '独立的管理后台', value: 'full' },
+          { name: '以第三方应用接入', value: 'simple' },
         ],
       });
 
