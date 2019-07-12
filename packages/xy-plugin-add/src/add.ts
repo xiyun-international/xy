@@ -7,6 +7,7 @@ import signale from 'signale';
 import chalk from 'chalk';
 import which from 'which';
 import { join } from 'path';
+import npmName from 'npm-name';
 
 async function findExecutor() {
   const executors = ['yarn', 'pnpm', 'cnpm', 'npm'];
@@ -33,8 +34,10 @@ function findPluginsDir() {
 }
 
 async function installPkg(pkg: string) {
-  signale.start('Installing package...');
+  const isNpmPkg = await npmName(pkg);
+  assert(!isNpmPkg, 'invalid npm package name');
 
+  signale.start('Installing package...');
   const executor = await findExecutor();
   const pluginsDir = findPluginsDir();
   const pkgFile = join(pluginsDir, 'package.json');
