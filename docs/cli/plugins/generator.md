@@ -1,24 +1,27 @@
 ### generator
 
-#### 功能描述
+#### 简介
 
-init 插件，是`@xiyun/cli`里的一个重要插件。
-它的主要功能是通过调用`@xiyun/xy-plugin-block`的`block`方法将定义好的template模板下载下来，
-并且通过调用`@xiyun/xy-plugin-router`的`router`方法将模板对应的路由的代码也直接下载下来。
-这样直接提高了至少10%的工作效率。
+generator 插件，是针对业务的通用表单生成工具。安装 generator 插件后可以生成一套通用的 template 模板，无需手动从零开始排版。
 
-#### 使用方法
+#### 安装
+使用 xy-plugin-generator 首先需要安装 @xiyun/cli
 
-npm install -g @xiyun/xy-plugin-generator
-or
-yarn global add @xiyun/xy-plugin-generator
+```shell
+yarn global add @xiyun/cli
+```
+再执行
+```shell
+xy add @xiyun/xy-plugin-generator
+```
 
 #### 示例
-```bash
-# 下载指定template模板
+下载指定 template 模板：
+```shell
 $ xy generator templateName
-
-# 下载所有template模板
+```
+下载所有 template 模板：
+```shell
 $ xy generator templateName --scaffold
 ```
 
