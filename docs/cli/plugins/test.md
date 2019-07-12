@@ -11,13 +11,13 @@ yarn global add @xiyun/cli
 ```
 再执行
 ```shell
-yarn add @xiyun/xy-plugin-test
+xy add @xiyun/xy-plugin-test
 ```
 
 ## 示例
 命令如下：
 ```shell
-xy test <regexForTestFiles> <--options>
+xy test <regexForTestFiles> <options>
 ```
 运行所有测试(默认):
 ```shell
