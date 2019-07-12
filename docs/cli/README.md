@@ -2,7 +2,7 @@
 @xiyun/cli 是禧云提供的脚手架工具，类似于 Vue-CLI；通过内置命令即可创建出来符合禧云 UI 规范的项目，避免了改造样式、手动搭建和配置环境的步骤。后续它会提供多项命令，如与 ISV 共享业务的代码等，是禧云生态的核心工具。
 
 ## 安装
-```shell
+```bash
 $ yarn global add @xiyun/cli
 ```
 
@@ -10,7 +10,7 @@ $ yarn global add @xiyun/cli
 Windows 环境需要配置 Yarn 的 **环境变量**，MacOS 系统不需要配置。  
 
 ## 初始化
-```shell
+```bash
 $ xy create 项目名称
 ```
 
