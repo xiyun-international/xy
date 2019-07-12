@@ -1,22 +1,20 @@
 # 简介
-@xiyun/cli 是禧云提供的脚手架工具，类似于 Vue-CLI；通过内置命令即可创建出来符合禧云 UI 规范的项目，避免了改造样式、手动搭建和配置环境的步骤。后续它会提供多项命令，如与 ISV 共享业务的代码等，是禧云生态的核心工具。
+@xiyun/cli 是禧云提供的脚手架工具，类似于 Vue CLI；通过一条命令即可创建出来一套符合禧云生态规范的项目，避免了改造样式、手动搭建和配置环境等繁琐步骤。后续它会提供多项命令，如与 ISV 共享业务的代码等，是禧云生态的核心工具。
 
 ## 安装
+Windows 环境需要配置 Yarn 的 **环境变量**，MacOS 系统不需要配置。
 ```bash
 $ yarn global add @xiyun/cli
 ```
 
-## 配置
-Windows 环境需要配置 Yarn 的 **环境变量**，MacOS 系统不需要配置。  
-
-## 初始化
+## 创建一个项目
 ```bash
 $ xy create 项目名称
 ```
 
 **创建项目的过程中，选择你需要用到的 UI 库：**  
-- 从开放平台创建的应用需要选择 element-ui-template 模板
-- 需要对接蚂蚁金服的项目，需要选择 ant-design-ui-template 模板
+- 如果需要接入商家中心的应用需要选择 element-ui-template 模板
+- 需要接入开放平台的项目，需要选择 ant-design-ui-template 模板
 ![](./pics/create.png)
 
 **接下来，选择布局样式：**
