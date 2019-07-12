@@ -1,10 +1,9 @@
-### router
+# router
 
-#### 简介
-router 插件，是`@xiyun/cli`的一个核心功能，已在内部集成。
-它为`@xiyun/cli`的`generator`命令提供了一个自动创建路由的功能。
+## 简介
+router 插件为`@xiyun/cli`的`generator`命令提供了一个自动创建路由的功能。
 
-#### 使用方法
+## 使用方法
 
 虽然 router 插件已在内部集成，可以直接在命令行中执行，
 但还是需要放到 generator 插件中去调用。
@@ -17,7 +16,7 @@ import { router } from '@xiyun/xy-plugin-router';
 router('foo');
 ```
 
-#### 示例
+## 示例
 
 首先执行 generator 命令：
 ```bash
