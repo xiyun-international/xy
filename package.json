@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "jest",
+    "test": "xy-tools test",
     "bootstrap": "lerna bootstrap",
     "docs:dev": "xy-tools docs dev",
     "docs:build": "vuepress build docs",
@@ -29,11 +29,9 @@
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",
     "husky": "^2.4.1",
-    "jest": "^24.8.0",
     "lerna": "^3.11.1",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.1",
-    "ts-jest": "^24.0.2",
     "vue-template-compiler": "^2.6.10"
   },
   "husky": {
