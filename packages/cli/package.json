@@ -1,17 +1,17 @@
 {
   "name": "@xiyun/cli",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/cli",
   "bin": {
     "xy": "bin/xy.js"
   },
   "dependencies": {
-    "@xiyun/xy-plugin-add": "^1.1.20",
+    "@xiyun/xy-plugin-add": "^1.2.1",
     "@xiyun/xy-plugin-block": "^1.1.20",
     "@xiyun/xy-plugin-create": "^1.2.0",
-    "@xiyun/xy-plugin-generator": "^1.2.0",
-    "@xiyun/xy-plugin-init": "^1.2.0",
+    "@xiyun/xy-plugin-generator": "^1.2.1",
+    "@xiyun/xy-plugin-init": "^1.2.1",
     "@xiyun/xy-plugin-router": "^1.2.0",
     "@xiyun/xy-plugin-test": "^1.2.0",
     "chalk": "^2.4.2",
