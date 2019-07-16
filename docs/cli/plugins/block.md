@@ -1,16 +1,16 @@
-### block
+# block
 
-#### 功能描述
-block 插件，是`@xiyun/cli`的一个核心功能，已在内部集成。
-它为`@xiyun/cli`提供了一个可以从 github 下载代码到项目中的功能。
+## 简介
+block 插件为`@xiyun/cli`提供了一个可以从 github 下载代码到项目中的功能。
 
-#### 使用方法
+## 使用方法
 
 ```bash
 $ xy block <git-repo> <target-directory>
 ```
 
-#### 示例
+## 示例
+
 ```bash
 # 从 github 下载一个指定文件到当前目录
 $ xy block https://github.com/xiyun-international/antd-ui-template/blob/master/src/utils/http.js
