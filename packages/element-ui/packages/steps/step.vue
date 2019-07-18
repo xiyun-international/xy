@@ -98,6 +98,7 @@
       border: 1px solid rgba(0, 0, 0, 0.25);
       border-radius: 24px;
       margin-right: 8px;
+      color: rgba(0, 0, 0, 0.45);
     }
     .xy-steps-item-content {
       display: inline-block;
