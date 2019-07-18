@@ -9,6 +9,7 @@ import XyTableTree from './table-tree';
 import XyTransfer from './transfer';
 import XyFrame from './frame';
 import XySelectPanel from './select-panel';
+import XySteps from './steps';
 
 const components = [
   XyTitle,
@@ -21,11 +22,12 @@ const components = [
   XyTransfer,
   XyFrame,
   XySelectPanel,
+  XySteps,
 ];
 
-const install = (Vue) => {
-  components.forEach((component) => {
-    Vue.component(component.name, component);
+const install = Vue => {
+  components.forEach(component => {
+    Vue.use(component);
   });
 };
 
@@ -47,6 +49,7 @@ export {
   XyTransfer,
   XyFrame,
   XySelectPanel,
+  XySteps,
 };
 
 export default {

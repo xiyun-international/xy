@@ -72,6 +72,7 @@ module.exports = {
             'countdown',
             'sens-text',
             'verification',
+            'steps',
           ],
         },
       ],
