@@ -30,9 +30,9 @@ export default {
 </script>
 <style scoped lang="less">
   .xy-title-wrapper {
+    font-size: 18px;
     .xy-title {
       display: inline-block;
-      font-size: 18px;
       position: relative;
       line-height: 20px;
       margin: 24px 0;
