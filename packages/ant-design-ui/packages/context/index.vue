@@ -94,6 +94,7 @@ export default {
     .context-body {
       margin: 24px;
       background: #fff;
+      padding: 28px 32px;
     }
   }
 </style>
