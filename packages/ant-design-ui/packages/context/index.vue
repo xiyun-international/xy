@@ -57,9 +57,10 @@ export default {
     },
   },
   data() {
+    // blue - 008EF0 green-13CE66 red-FA4B4B yellow-F8BA2A
     return {
       titleName: '',
-      LabelColorMap: ['', '', '#FFCC66', '#FFCC66', '', '#DC143C'],
+      LabelColorMap: ['', '#F8BA2A', '#F8BA2A', '#008EF0', '#FA4B4B', '#13CE66'],
     };
   },
   mounted() {
