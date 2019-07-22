@@ -4,20 +4,20 @@
 test 插件是针对于业务级（.vue）项目的测试工具。安装 test 插件后，目标项目不需要安装 jest、配置 babel。此插件可选，未集成到 Cli 中。
 
 ## 安装
-如果想使用 xy-plugin-test 插件，首先需要安装 @vue/cli
+如果想使用 xy-plugin-test 插件，首先需要安装 @xiyun/cli
 
 ```shell
 yarn global add @xiyun/cli
 ```
 再执行
 ```shell
-yarn add @xiyun/xy-plugin-test
+xy add @xiyun/xy-plugin-test
 ```
 
 ## 示例
 命令如下：
 ```shell
-xy test <regexForTestFiles> <--options>
+xy test <regexForTestFiles> <options>
 ```
 运行所有测试(默认):
 ```shell

@@ -13,24 +13,20 @@ function run(dir: string) {
   signale.start('start adding router...');
 
   const cwd = process.cwd();
-  const res = /.*?\/src/.exec(cwd);
+  let res = /.*?\/src/.exec(cwd);
+  if (!res) {
+    res = /.*?\/src/.exec(path.resolve(cwd, 'src'));
+  }
 
   assert(res, 'can not found the "src" directory');
 
-  const routerPath = path.resolve(res[0], 'router', 'routers', dir);
+  const routerPath = path.resolve(res[0], 'router', 'routes', dir);
 
   assert(!fs.existsSync(routerPath), 'target path is already exist');
 
-  const childrenRouterPath = path.resolve(
-    res[0],
-    'router',
-    'childrenRouter.js',
-  );
+  const childrenRouterPath = path.resolve(res[0], 'router', 'children.js');
 
-  assert(
-    fs.existsSync(childrenRouterPath),
-    '"childrenRouter.js" file is not exist',
-  );
+  assert(fs.existsSync(childrenRouterPath), '"children.js" file is not exist');
 
   try {
     fs.mkdirSync(routerPath);
@@ -73,7 +69,7 @@ function run(dir: string) {
     fs.writeFileSync(childrenRouterPath, newStr);
     signale.success('write router complete');
   } catch (e) {
-    throw new Error('write "childrenRouter.js" file error');
+    throw new Error('write "children.js" file error');
   }
 }
 

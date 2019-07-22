@@ -13,7 +13,7 @@ describe('Add', () => {
     try {
       await add('@xiyun/xy-plugin-create000');
     } catch (e) {
-      expect(e.message).toEqual('install plugin error');
+      expect(e.message).toEqual('invalid npm package name');
     }
   });
 });
