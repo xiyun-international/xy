@@ -7,53 +7,35 @@ title 标题组件可以用于页面中某块的标题，它包含两个样式�
 #### 代码示例
 
 ```html
-<xy-title>我是标题组件</xy-title>
-
-<xy-title isShowIcon>我是带有 icon 的标题组件</xy-title>
-
-<xy-title class="customClass" style="font-size: 20px;color: blue;">可以自定义标题样式</xy-title>
-
-<xy-title isShowIcon>可以自定义默认 icon 颜色</xy-title>
-<style>
-.xy-title-icon::before {
-  background: blue;
-}
-</style>
-
-<xy-title isShowIcon>
-  可以设置标题右侧的内容
-  <template v-slot:right>
-    <button>按钮</button>
+<xy-title large>大号标题</xy-title>
+<xy-title no-top-margin>小号标题</xy-title>
+<xy-title no-top-margin show-icon large sub-title="副标题">
+  拥有右侧内容的大号标题
+  <template slot="right">
+    <a-button type="primary">按钮</a-button>
   </template>
 </xy-title>
-
-<xy-title isShowIcon>
-  可以设置副标题
-  <template v-slot:sub-title>
-    <span>我是副标题的内容</span>
+<xy-title no-top-margin show-icon sub-title="副标题">
+  拥有右侧内容的小号标题
+  <template slot="right">
+    <a-button type="primary">按钮</a-button>
   </template>
 </xy-title>
 ```
 
 #### 效果
 
-<antd-xy-title>我是标题组件</antd-xy-title>
-
-<div>
-  <antd-xy-title isShowIcon>
-    我是主标题
-    <template v-slot:sub-title>
-      <span>我是副标题的内容</span>
-    </template>
-  </antd-xy-title>
-</div>
-
-<antd-xy-title isShowIcon>我是带有 icon 的标题组件</antd-xy-title>
+<antd-xy-title large sub-title="副标题">大号标题</antd-xy-title>
+<antd-xy-title no-top-margin>小号标题</antd-xy-title>
+<antd-xy-title no-top-margin show-icon large sub-title="副标题">拥有右侧内容的大号标题<template slot="right"><a-button type="primary">按钮</a-button></template></antd-xy-title>
+<antd-xy-title no-top-margin show-icon sub-title="副标题">拥有右侧内容的小号标题<template slot="right"><a-button type="primary">按钮</a-button></template></antd-xy-title>
 
 #### API
 
 | 属性 | 类型 | 说明 | 默认值 |
 | ------ | :------: | ------ | :------: |
-| isShowIcon | Boolean | 用于显示或隐藏前缀 icon | false |
-| v-slot:right | VNode | 放置标题右侧插槽内容 | 无 |
-| v-slot:sub-title | VNode | 跟随在主标题右边的副标题 | 无 |
+| show-icon | Boolean | 用于显示或隐藏前缀 icon | false |
+| slot="right" | VNode | 放置标题右侧插槽内容 | 无 |
+| sub-title | String | 跟随在主标题右边的副标题 | 无 |
+| no-top-margin | Boolean | 去掉标题的 margin-top 属性 | false |
+| large | Boolean | 指定标题为大号标题，否则为小号标题 | false |

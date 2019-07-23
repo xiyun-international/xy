@@ -1,10 +1,8 @@
 <template>
-  <div class="xy-title-wrapper">
-    <div :class="titleClass">
+  <div class="xy-title-wrapper" :class="noTopMarginClass">
+    <div class="xy-title" :class="[iconClass, sizeClass]">
       <slot></slot>
-    </div>
-    <div class="xy-sub-title">
-      <slot name="sub-title"></slot>
+      <span v-if="isHasSubTitle" class="xy-sub-title">{{subTitle}}</span>
     </div>
     <div class="xy-title-right">
       <slot name="right"></slot>
@@ -20,34 +18,73 @@ export default {
       type: Boolean,
       default: false,
     },
+    showIcon: {
+      type: Boolean,
+      default: false,
+    },
+    large: {
+      type: Boolean,
+      default: false,
+    },
+    color: {
+      type: String,
+      default: '#000',
+    },
+    iconColor: {
+      type: String,
+      default: '#20a0ff',
+    },
+    noTopMargin: {
+      type: Boolean,
+      default: false,
+    },
+    subTitle: {
+      type: String,
+      default: '',
+    }
   },
   computed: {
-    titleClass() {
-      return this.isShowIcon ? 'xy-title xy-title-icon' : 'xy-title';
+    iconClass() {
+      return this.isShowIcon || this.showIcon ? 'xy-title-icon' : '';
     },
+    sizeClass() {
+      return this.large ? 'large-title' : 'small-title';
+    },
+    noTopMarginClass() {
+      return this.noTopMargin ? 'no-top-margin' : '';
+    },
+    isHasSubTitle() {
+      return this.subTitle !== '';
+    }
   },
 };
 </script>
 <style scoped lang="less">
   .xy-title-wrapper {
-    font-size: 18px;
+    margin: 24px 0;
+    overflow: hidden;
     .xy-title {
       display: inline-block;
       position: relative;
-      line-height: 20px;
-      margin: 24px 0;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+    .large-title {
+      font-size: 20px;
+      vertical-align: text-top;
+    }
+    .small-title {
+      font-size: 16px;
+      vertical-align: sub;
     }
     .xy-sub-title {
-      display: inline-block;
-      font-size: 13px;
+      font-size: 12px;
       color: rgb(156, 156, 156);
       font-weight: 400;
-      position: relative;
-      line-height: 20px;
-      margin: 24px 0 24px 10px;
+      margin-left: 8px;
     }
     .xy-title-icon {
-      padding-left: 15px;
+      padding-left: 13px;
       &::before {
         content: '';
         position: absolute;
@@ -60,8 +97,9 @@ export default {
     }
     .xy-title-right {
       float: right;
-      margin: 30px 0;
     }
   }
-
+  .no-top-margin {
+    margin-top: unset;
+  }
 </style>
