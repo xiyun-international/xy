@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/xy-plugin-router",
-  "version": "1.2.2",
+  "version": "1.2.10",
   "main": "lib/index.js",
   "license": "MIT",
   "directories": {
