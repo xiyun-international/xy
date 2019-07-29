@@ -1,12 +1,57 @@
 .ant-layout-sider {
-  background: #f8fafc;
-  ///deep/ .ant-menu-sub.ant-menu-inline {
-  .ant-menu-sub.ant-menu-inline {
-    background: inherit;
-  }
-  .ant-menu {
-    border: none;
+  // 导航颜色
+  background: rgba(4, 9, 21, 0.95);
+
+  // UL 的间距
+  .ant-menu.ant-menu-dark {
+    margin-top: 15px;
     background: none;
-    margin-top: 0;
+
+    // 每行菜单的样式
+    .ant-menu-item {
+      margin-bottom: 0px;
+      margin-top: 0px;
+      height: 48px;
+      line-height: 48px;
+      a {
+        color: #a1a4a9;
+      }
+    }
+
+    // 当前行选中的颜色
+    .ant-menu-item-selected {
+      background: #161c29;
+    }
+
+    // 二级菜单 - 选中的字体颜色
+    .ant-menu-submenu-selected {
+      color: #a1a4a9;
+    }
+
+    // 二级菜单 - 字体颜色
+    .ant-menu-submenu-open {
+      color: #a1a4a9;
+    }
+
+    // 二级菜单 - 文字间距
+    .ant-menu-sub {
+      .ant-menu-item {
+        padding-left: 48px !important;
+      }
+    }
+
+    // 二级菜单
+    .ant-menu-submenu-title {
+      // icon 和文字的间距
+      .anticon {
+        margin-right: 12px;
+      }
+      //
+      &:hover,
+      &:active {
+        color: #a1a4a9;
+      }
+    }
   }
+
 }
