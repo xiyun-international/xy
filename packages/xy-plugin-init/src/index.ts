@@ -7,7 +7,6 @@ export default {
   alias: 'i',
   onRun: async api => {
     const cwd = process.cwd();
-    console.log(cwd);
     const dirname = resolve(__dirname, '..');
     copyFile(`${dirname}\\.yarnrc`, `${cwd}\\.yarnrc`, err => {
       if (!err) {

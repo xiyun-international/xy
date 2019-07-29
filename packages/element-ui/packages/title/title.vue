@@ -31,9 +31,9 @@ export default {
 
 <style lang="less" scoped>
   .xy-title-wrapper {
+    font-size: 18px;
     .xy-title {
       display: inline-block;
-      font-size: 18px;
       position: relative;
       line-height: 20px;
       margin: 24px 0;
@@ -42,10 +42,10 @@ export default {
       display: inline-block;
       font-size: 13px;
       color: rgb(156, 156, 156);
-      font-weight: bold;
+      font-weight: 400;
       position: relative;
       line-height: 20px;
-      margin: 30px 0 30px 10px;
+      margin: 24px 0 24px 10px;
     }
     .xy-title-icon {
       padding-left: 15px;
@@ -56,7 +56,7 @@ export default {
         left: 0;
         width: 5px;
         height: 100%;
-        background: #108ee9;
+        background: #20a0ff;
       }
     }
     .xy-title-right {

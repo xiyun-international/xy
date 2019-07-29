@@ -1,11 +1,11 @@
 import 'ant-design-vue/dist/antd.css';
 import '../../packages/ant-design-ui/theme/styles/index.less';
 import '../../packages/element-ui/theme/styles/index.less';
-import '../common.less'
+import '../common.less';
 import 'element-ui/lib/theme-chalk/index.css';
 
-import Antd from 'ant-design-vue'
-import Ele from 'element-ui'
+import Antd from 'ant-design-vue';
+import Ele from 'element-ui';
 
 import {
   XyTitle as AntdXyTitle,
@@ -28,9 +28,10 @@ import {
   XyTableTree as EleXyTableTree,
   XyTransfer as EleXyTransfer,
   XyFrame as EleXyFrame,
+  XySteps,
 } from '../../packages/element-ui/packages/index';
 
-export default ({Vue}) => {
+export default ({ Vue }) => {
   Vue.use(Antd);
   Vue.use(Ele);
 
@@ -53,4 +54,5 @@ export default ({Vue}) => {
   Vue.component('EleXyFrame', EleXyFrame);
   Vue.component('EleXyTableTree', EleXyTableTree);
   Vue.component('EleXyTransfer', EleXyTransfer);
-}
+  Vue.use(XySteps);
+};

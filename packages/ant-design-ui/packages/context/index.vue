@@ -1,6 +1,6 @@
 <template>
-  <div class="xy-context-grid">
-    <div class="breadcrumb">
+  <div class="xy-context">
+    <div class="context-header">
       <a-breadcrumb>
         <a-breadcrumb-item v-for="(item, index) in breadcrumb" :key="item.name">
           <a
@@ -13,22 +13,19 @@
           <span v-else>{{ item.name }}</span>
         </a-breadcrumb-item>
       </a-breadcrumb>
-    </div>
-    <div class="xy-title-grid">
-      <div class="title">
-        <div></div>
-        {{ titleName }}
-      </div>
-      <div style="margin: 4px auto auto 8px">
-        <span v-if="tag">
-          <a-tag :color="LabelColorMap[tagStatus]">{{ tag }}</a-tag>
-        </span>
-      </div>
-      <div>
-        <slot name="right"></slot>
+      <div class="context-title">
+        <div>
+          <span class="title">
+            {{ titleName }}
+          </span>
+          <a-tag v-if="tag" :color="LabelColorMap[tagStatus]">{{ tag }}</a-tag>
+        </div>
+        <div>
+          <slot name="right"></slot>
+        </div>
       </div>
     </div>
-    <div>
+    <div class="context-body">
       <slot></slot>
     </div>
   </div>
@@ -60,9 +57,10 @@ export default {
     },
   },
   data() {
+    // blue - 008EF0 green-13CE66 red-FA4B4B yellow-F8BA2A
     return {
       titleName: '',
-      LabelColorMap: ['', '', '#FFCC66', '#FFCC66', '', '#DC143C'],
+      LabelColorMap: ['', '#F8BA2A', '#F8BA2A', '#008EF0', '#FA4B4B', '#13CE66'],
     };
   },
   mounted() {
@@ -77,33 +75,27 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .xy-context-grid {
-    .breadcrumb {
-      font-size: 12px;
-      display: flex;
-      width: 100%;
-      margin-top: 6px;
-      padding-bottom: 22px;
-      border-bottom: 1px solid #e6e6e6;
+  .xy-context {
+    .context-header {
+      padding: 20px 24px;
+      background: #fff;
     }
-    .xy-title-grid {
-      margin-top: 30px;
-      margin-bottom: 30px;
+    .context-title {
+      margin-top: 20px;
       display: flex;
       justify-content: space-between;
       .title {
         font-size: 20px;
-        font-weight: 500;
-        display: flex;
-        div {
-          width: 5px;
-          height: 18px;
-          margin-top: 6px;
-          background: #108ee9;
-          display: block;
-          margin-right: 10px;
-        }
+        font-weight: bold;
+        line-height: 32px;
+        vertical-align: middle;
+        margin-right: 8px;
       }
+    }
+    .context-body {
+      margin: 24px;
+      background: #fff;
+      padding: 28px 32px;
     }
   }
 </style>
