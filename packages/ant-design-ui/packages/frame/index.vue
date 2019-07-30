@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { removeToken } from '@xiyun/utils';
+
 export default {
   name: 'XyFrame',
   props: ['url'],
@@ -37,8 +39,9 @@ export default {
         if (typeof data !== 'object') return false;
 
         if (data.logout) {
+          removeToken();
           this.$message.error('账号已过期，请重新登录');
-          this.$router.push('/login');
+          window.location.href = '/#/login';
         } else if (data.isLoading === false) {
           this.isLoading = false;
           this.height = data.height;
