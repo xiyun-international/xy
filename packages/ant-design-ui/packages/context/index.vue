@@ -67,7 +67,7 @@ export default {
   },
   computed: {
     isHasBreadcrumb() {
-      return this.breadcrumb.length > 1;
+      return this.breadcrumb.length > 0;
     }
   },
   mounted() {
