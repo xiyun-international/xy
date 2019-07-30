@@ -2,8 +2,10 @@
   <div>
     <div class="card box-card">
       <div class="card-body">
-        <i class="logo xy-v2-aq"></i>
-        <p class="title">安全验证</p>
+        <div class="verify-title">
+          <a-icon type="safety-certificate" class="logo" />
+          <span class="title">安全验证</span>
+        </div>
         <div class="box-tips">
           <p v-if="isSendCode">验证码短信已发送至：{{ telephone }}，请注意查收</p>
           <p v-else>为了保障账户安全，请进行安全验证，接收验证码手机号：{{ telephone }}</p>
@@ -101,8 +103,11 @@ export default {
     margin: 20px auto 28px auto;
     text-align: center;
   }
-  .logo {
+  .verify-title {
     margin-top: 120px;
+  }
+  .logo {
+    vertical-align: middle;
     font-size: 40px;
     color: #20a0ff;
   }

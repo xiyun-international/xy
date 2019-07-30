@@ -1,18 +1,20 @@
 <template>
   <div class="xy-context">
     <div class="context-header">
-      <a-breadcrumb>
-        <a-breadcrumb-item v-for="(item, index) in breadcrumb" :key="item.name">
-          <a
-            href="#/"
-            v-if="index === 0 && (item.path === undefined || item.path === '')"
-          >{{ item.name }}</a>
-          <router-link :to="item.path" v-else-if="item.path">
-            {{ item.name }}
-          </router-link>
-          <span v-else>{{ item.name }}</span>
-        </a-breadcrumb-item>
-      </a-breadcrumb>
+      <template v-if="isHasBreadcrumb">
+        <a-breadcrumb class="breadcrumb">
+          <a-breadcrumb-item v-for="(item, index) in breadcrumb" :key="item.name">
+            <a
+              href="#/"
+              v-if="index === 0 && (item.path === undefined || item.path === '')"
+            >{{ item.name }}</a>
+            <router-link :to="item.path" v-else-if="item.path">
+              {{ item.name }}
+            </router-link>
+            <span v-else>{{ item.name }}</span>
+          </a-breadcrumb-item>
+        </a-breadcrumb>
+      </template>
       <div class="context-title">
         <div>
           <span class="title">
@@ -63,6 +65,11 @@ export default {
       LabelColorMap: ['', '#F8BA2A', '#F8BA2A', '#008EF0', '#FA4B4B', '#13CE66'],
     };
   },
+  computed: {
+    isHasBreadcrumb() {
+      return this.breadcrumb.length > 0;
+    }
+  },
   mounted() {
     let titleName = this.title;
     if (titleName.length === 0) {
@@ -76,12 +83,14 @@ export default {
 
 <style lang="less" scoped>
   .xy-context {
+    .breadcrumb {
+      margin-bottom: 20px;
+    }
     .context-header {
       padding: 20px 24px;
       background: #fff;
     }
     .context-title {
-      margin-top: 20px;
       display: flex;
       justify-content: space-between;
       .title {
