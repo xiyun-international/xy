@@ -3,14 +3,8 @@
     <div class="context-header">
       <template v-if="isHasBreadcrumb">
         <a-breadcrumb class="breadcrumb">
-          <a-breadcrumb-item v-for="(item, index) in breadcrumb" :key="item.name">
-            <a
-              href="#/"
-              v-if="index === 0 && (item.path === undefined || item.path === '')"
-            >{{ item.name }}</a>
-            <router-link :to="item.path" v-else-if="item.path">
-              {{ item.name }}
-            </router-link>
+          <a-breadcrumb-item v-for="item in breadcrumb" :key="item.name">
+            <router-link v-if="item.path" :to="item.path">{{ item.name }}</router-link>
             <span v-else>{{ item.name }}</span>
           </a-breadcrumb-item>
         </a-breadcrumb>
