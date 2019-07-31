@@ -58,13 +58,12 @@ export default {
         if (ele) {
           await block(
             `https://github.com/xiyun-international/template/tree/master/projects/ele/${folder}`,
-            `./src/views/${folder}`,
+            `./${folder}`,
           );
-          await router(folder);
         } else {
           await block(
             `https://github.com/xiyun-international/template/tree/master/projects/antd/${folder}`,
-            `./src/views/${folder}`,
+            `./${folder}`,
           );
           await router(folder);
         }
