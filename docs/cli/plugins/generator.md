@@ -1,7 +1,8 @@
 # generator
 
 ## 简介
-generator 插件，是针对业务的通用表单生成工具。安装 generator 插件后可以生成一套通用的 template 模板，无需手动从零开始排版。
+generator 插件，是针对业务的通用表单生成工具。安装 generator 插件后可以生成一套通用的 template 模板。
+分为 antd 模板跟 element 模板，无需手动从零开始排版。且会默认下载 antd 模板。
 
 ## 安装
 
@@ -17,12 +18,19 @@ xy add @xiyun/xy-plugin-generator
 
 ## 示例
 
-下载指定 template 模板：
+下载指定 template 模板（默认下载 antd 模板）：
 ```shell
 $ xy generator pageName
 ```
-下载所有 template 模板：
+下载指定 ele 模板：
+```shell
+$ xy generator pageName --ele
+```
+下载所有 template 模板（默认下载 antd 模板）：
 ```shell
 $ xy generator pageName --scaffold
 ```
+下载所有 ele 模板：
+```
+$ xy generator pageName --ele --scaffold
 
