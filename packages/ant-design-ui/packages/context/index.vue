@@ -89,6 +89,7 @@ export default {
       justify-content: space-between;
       .title {
         font-size: 20px;
+        font-weight: normal;
         line-height: 32px;
         vertical-align: middle;
         margin-right: 8px;
