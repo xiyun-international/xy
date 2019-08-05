@@ -16,6 +16,7 @@ import {
   XyVerification as AntdXyVerification,
   XyContext as AntdXyContext,
   XyFrame as AntdXyFrame,
+  XySelectCity as AntdXySelectCity,
 } from '../../packages/ant-design-ui/packages/index';
 import {
   XyTitle as EleXyTitle,
@@ -43,6 +44,7 @@ export default ({ Vue }) => {
   Vue.component('AntdXyVerification', AntdXyVerification);
   Vue.component('AntdXyContext', AntdXyContext);
   Vue.component('AntdXyFrame', AntdXyFrame);
+  Vue.component('AntdXySelectCity', AntdXySelectCity);
 
   Vue.component('EleXyTitle', EleXyTitle);
   Vue.component('EleXyWrapper', EleXyWrapper);
