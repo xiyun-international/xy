@@ -59,6 +59,6 @@ export default {
   .iframe {
     width: 100%;
     border: unset;
-    overflow-scrolling: unset;
+    overflow: unset;
   }
 </style>

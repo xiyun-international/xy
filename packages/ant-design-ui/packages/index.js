@@ -7,6 +7,7 @@ import XySensText from './sens-text/index';
 import XyVerification from './verification/index';
 import XyContext from './context/index';
 import XyFrame from './frame/index';
+import XySelectCity from './select-city/index';
 
 const components = [
   XyTitle,
@@ -17,10 +18,11 @@ const components = [
   XyVerification,
   XyContext,
   XyFrame,
+  XySelectCity,
 ];
 
-const install = (Vue) => {
-  components.forEach((component) => {
+const install = Vue => {
+  components.forEach(component => {
     Vue.component(component.name, component);
   });
 };
@@ -41,6 +43,7 @@ export {
   XyVerification,
   XyContext,
   XyFrame,
+  XySelectCity,
 };
 
 export default {
