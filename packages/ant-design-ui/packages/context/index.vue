@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="context-body">
-      <slot></slot>
+      <div class="context-flex"><slot></slot></div>
     </div>
   </div>
 </template>
@@ -104,11 +104,10 @@ export default {
     }
 
     .context-body {
+      height: inherit;
       margin: 24px 24px 0 24px;
       background: #fff;
-      padding: 28px 32px 0 32px;
-      padding-bottom: 9999px;
-      margin-bottom: -9971px;
+      padding: 28px 32px 28px 32px;
     }
   }
 </style>

@@ -39,15 +39,15 @@ export default {
     listenerPostMessageEvent() {
       window.addEventListener('message', event => {
         const { data } = event;
-        if (typeof data !== 'object') return false;
-
-        if (data.logout) {
-          removeToken();
-          this.$message.error('账号已过期，请重新登录');
-          window.location.href = '/#/login';
-        } else if (data.isLoading === false) {
-          this.isLoading = false;
-          this.height = data.height;
+        if (typeof data === 'object' && Object.prototype.hasOwnProperty.call(data, 'isLoading')) {
+          if (data.logout) {
+            removeToken();
+            window.location.href = '/#/login';
+            window.location.reload();
+          } else if (data.isLoading === false) {
+            this.isLoading = false;
+            this.height = data.height;
+          }
         }
       });
     },
