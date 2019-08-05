@@ -96,15 +96,24 @@ export default {
         if (res && res.code === 10000) {
           this.dataList = res.resultObject;
           for (let i = 0; i < this.dataList.length; i += 1) {
+            this.dataList[i].count = 0;
             for (let k = 0; k < this.dataList[i].children.length; k += 1) {
               if (this.initCity.includes(String(this.dataList[i].children[k].value))) {
                 this.$set(this.dataList[i].children[k], 'checked', true);
                 this.selectedList.push(this.dataList[i].children[k].value);
+                this.dataList[i].count += 1;
+              }
+              if(k ===this.dataList[i].children.length-1){
+                if (this.dataList[i].count > 0 && this.dataList[i].count !== this.dataList[i].children.length) {
+                  this.dataList[i].indeterminate = true;
+                } else if(this.dataList[i].count === this.dataList[i].children.length) {
+                  this.$set(this.dataList[i], 'checked', true);
+                }
               }
             }
           }
-          this.$nextTick(()=>{
-              this.loading = false;
+          this.$nextTick(() => {
+            this.loading = false;
           });
         }
       });
