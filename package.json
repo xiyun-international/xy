@@ -7,7 +7,7 @@
   "scripts": {
     "test": "xy-tools test",
     "bootstrap": "lerna bootstrap",
-    "docs:dev": "xy-tools docs dev",
+    "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "ts:build": "xy-tools build typescript",
     "ts:dev": "xy-tools build typescript --watch",

@@ -97,6 +97,7 @@ module.exports = {
             'countdown',
             'sens-text',
             'verification',
+            'select-city',
           ],
         },
       ],
