@@ -77,28 +77,38 @@ export default {
 
 <style lang="less" scoped>
   .xy-context {
-    .breadcrumb {
-      margin-bottom: 20px;
-    }
+    background: inherit;
+    height: inherit;
+    overflow: hidden;
+
     .context-header {
       padding: 20px 24px;
       background: #fff;
-    }
-    .context-title {
-      display: flex;
-      justify-content: space-between;
-      .title {
-        font-size: 20px;
-        font-weight: normal;
-        line-height: 32px;
-        vertical-align: middle;
-        margin-right: 8px;
+
+      .breadcrumb {
+        margin-bottom: 20px;
+      }
+
+      .context-title {
+        display: flex;
+        justify-content: space-between;
+
+        .title {
+          font-size: 20px;
+          font-weight: normal;
+          line-height: 32px;
+          vertical-align: middle;
+          margin-right: 8px;
+        }
       }
     }
+
     .context-body {
-      margin: 24px;
+      margin: 24px 24px 0 24px;
       background: #fff;
-      padding: 28px 32px;
+      padding: 28px 32px 0 32px;
+      padding-bottom: 9999px;
+      margin-bottom: -9971px;
     }
   }
 </style>

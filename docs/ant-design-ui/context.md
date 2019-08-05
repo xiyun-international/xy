@@ -8,10 +8,10 @@
 
 使用 context 组件后，你只需要关心内容的展现，无需再写面包屑，标题等样式：
 
-<div style="background: #EDF0F4; border: 1px solid #ccc;">
+<div style="background: #EDF0F4; border: 1px solid #ccc;height: 500px;">
   <antd-xy-context
     :breadcrumb="[
-      { name: '服务商中心', path: ''},
+      { name: '服务商中心'},
       { name: '协作费管理', path: ''}, 
       { name: '账单详情' }
     ]"
@@ -19,11 +19,6 @@
     tag="审核中"
     :tag-status="5"
   >
-    <p>我是内容区</p>
-    <p>我是内容区</p>
-    <p>我是内容区</p>
-    <p>我是内容区</p>
-    <p>我是内容区</p>
     <p>我是内容区</p>
     <p>我是内容区</p>
     <p>我是内容区</p>
