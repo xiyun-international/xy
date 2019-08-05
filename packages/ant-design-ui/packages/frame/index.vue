@@ -10,8 +10,11 @@
 </template>
 
 <script>
-import { removeToken } from '@xiyun/utils';
-
+// import { removeToken } from '@xiyun/utils';
+// 临时处理
+function removeToken() {
+  localStorage.removeItem("TOKEN");
+}
 export default {
   name: 'XyFrame',
   props: ['url'],

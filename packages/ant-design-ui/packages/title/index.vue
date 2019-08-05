@@ -66,7 +66,6 @@ export default {
     .xy-title {
       display: inline-block;
       position: relative;
-      font-weight: bold;
       line-height: 1.3;
     }
     .large-title {
