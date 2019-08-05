@@ -10,7 +10,7 @@ select-city 城市多选弹窗，选中省则选中省内的所有城市，选�
 #### 代码示例
 
 ```html
-<selct-city :initCity="cityList" @submitSelected="submitSelectedCity" :url="/api/v1/city/tree"/>
+<select-city :initCity="cityList" @submitSelected="submitSelectedCity" :url="/api/v1/city/tree"/>
 ```
 
 #### API
