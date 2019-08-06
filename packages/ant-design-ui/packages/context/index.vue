@@ -78,7 +78,7 @@ export default {
 <style lang="less" scoped>
   .xy-context {
     background: inherit;
-    height: inherit;
+    /*height: inherit;*/
     overflow: hidden;
 
     .context-header {
@@ -104,7 +104,7 @@ export default {
     }
 
     .context-body {
-      height: inherit;
+      min-height: 74vh;
       margin: 24px 24px 0 24px;
       background: #fff;
       padding: 28px 32px 28px 32px;
