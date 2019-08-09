@@ -8,6 +8,7 @@ import XyVerification from './verification/index';
 import XyContext from './context/index';
 import XyFrame from './frame/index';
 import XySelectCity from './select-city/index';
+import XyFlowDetail from './flow-detail/index';
 
 const components = [
   XyTitle,
@@ -19,6 +20,7 @@ const components = [
   XyContext,
   XyFrame,
   XySelectCity,
+  XyFlowDetail,
 ];
 
 const install = Vue => {
@@ -44,6 +46,7 @@ export {
   XyContext,
   XyFrame,
   XySelectCity,
+  XyFlowDetail,
 };
 
 export default {
