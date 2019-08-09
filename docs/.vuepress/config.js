@@ -98,7 +98,7 @@ module.exports = {
             'sens-text',
             'verification',
             'select-city',
-            'flow-detail',
+            // 'flow-detail',
           ],
         },
       ],

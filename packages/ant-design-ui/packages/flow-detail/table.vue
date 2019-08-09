@@ -44,10 +44,11 @@
 </template>
 
 <script>
-import { XySensText } from '../sens-text/index.vue';
-import { XyTitle } from '../title/index.vue';
+import XySensText from '../sens-text';
+import XyTitle from '../title';
 
 export default {
+  name: 'flow-table',
   props: {
     data: {
       type: Object,

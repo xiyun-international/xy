@@ -20,9 +20,11 @@
 <script>
 import FlowTable from './table.vue';
 import FlowTabs from './tabs.vue';
+import XyTitle from '../title';
 import data from './data';
 
 export default {
+  name: 'xy-flow-detail',
   data() {
     return {
       data,
@@ -31,6 +33,7 @@ export default {
   components: {
     FlowTable,
     FlowTabs,
+    XyTitle,
   },
   methods: {
     getFieldType(type) {
