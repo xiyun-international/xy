@@ -4,11 +4,13 @@
       <template slot="title" v-if="block.info.examin">
         <span :style="getExaminStyle(block.info.examin.status)">
           <a-icon :type="getExaminIcon(block.info.examin.status)" />
-          {{ block.info.examin.title }}
+          {{ block.info.examin.text }}
         </span>
+        <span class="sub-title">备注：{{ block.info.examin.message }}</span>
       </template>
       <template slot="title" v-else>
           {{ block.info.title }}
+          <span class="sub-title">{{ block.info.subTitle }}</span>
       </template>
       <div v-for="patch in block.patchs" :key="patch.tilte">
         <xy-title isShowIcon>{{ patch.title }}</xy-title>
@@ -20,20 +22,20 @@
 <script>
 import FlowTable from './table.vue';
 import FlowTabs from './tabs.vue';
-import XyTitle from '../title';
-import data from './data';
 
 export default {
-  name: 'xy-flow-detail',
-  data() {
-    return {
-      data,
-    };
+  name: 'XyFlowDetail',
+  props: {
+    data: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
   },
   components: {
     FlowTable,
     FlowTabs,
-    XyTitle,
   },
   methods: {
     getFieldType(type) {
@@ -41,33 +43,40 @@ export default {
     },
     getExaminIcon(status) {
       switch (status) {
-        case 'waiting':
+        case 0:
           return 'exclamation-circle';
-          break;
-        case 'pass':
-          break;
-        case 'check-circle':
-          break;
+        case 3:
+          return 'check-circle';
+        case 1:
+          return 'exclamation-circle';
+        case 2:
+          return 'close-circle';
         default:
-          return;
+          return 'exclamation-circle';
       }
     },
-    getExaminStyle(status) {
+    getExaminStyle(status) { // 0-待审批，1-审批中，2-审批驳回，3-审批通过
       switch (status) {
-        case 'waiting':
+        case 0:
           return {
-            color: '#ec9926',
+            color: '#faad14',
           };
-          break;
-        case 'pass':
+        case 3:
           return {
-            color: '#60B660',
+            color: '#13ce66',
           };
-          break;
-        case 'exclamation-circle':
-          break;
+        case 1:
+          return {
+            color: '#faad14',
+          };
+        case 2:
+          return {
+            color: '#ff4949',
+          };
         default:
-          return;
+          return {
+            color: '#faad14',
+          };
       }
     },
   },
@@ -80,6 +89,11 @@ export default {
 }
 .ant-card-body >div:first-child>.xy-title-wrapper:first-child {
     margin-top: 0;
+}
+.sub-title {
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: unset;
+  float: right;
 }
 </style>
 

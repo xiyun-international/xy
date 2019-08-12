@@ -1,7 +1,7 @@
 // 结构参考来源：https://github.com/vue-generators/vue-form-generator
 // 表格结构参考来源：https://ant.design/components/table-cn/
 
-let chunks = [
+const chunks = [
   // 大块内容
   {
     // 定义大块信息
@@ -10,8 +10,9 @@ let chunks = [
       subTitle: '项目编号：201906186844',
       // 审批状态
       examin: {
-        title: '当前状态：待审批',
-        status: 'waiting',
+        text: '当前状态：待审批',
+        status: 0,
+        message: '营业执照照片不符合要求',
       },
     },
     // 小块内容
@@ -26,6 +27,7 @@ let chunks = [
             // 定义表格数据结构
             [
               {
+                type: 'text',
                 value: '业务线',
                 // 选项
                 options: {
@@ -37,6 +39,7 @@ let chunks = [
               },
               {
                 // 字段
+                type: 'text',
                 value: '中学事业部',
                 options: {
                   colspan: 3,
@@ -45,6 +48,7 @@ let chunks = [
             ],
             [
               {
+                type: 'text',
                 value: '餐饮中心名称',
                 // 选项
                 options: {
@@ -56,16 +60,14 @@ let chunks = [
               },
               {
                 // 字段
+                type: 'text',
                 value: '232323hj-223	',
                 options: {
                   colspan: 1,
-                  extra: {
-                    type: 'components',
-                    components: 'sensitive',
-                  },
                 },
               },
               {
+                type: 'text',
                 value: '联系人手机号',
                 // 选项
                 options: {
@@ -77,13 +79,11 @@ let chunks = [
               },
               {
                 // 字段
+                type: 'components',
+                components: 'sensitive',
                 value: '18219872083',
                 options: {
                   colspan: 1,
-                  extra: {
-                    type: 'components',
-                    components: 'sensitive',
-                  },
                 },
               },
             ],
@@ -127,6 +127,7 @@ let chunks = [
             // 定义表格数据结构
             [
               {
+                type: 'text',
                 value: '设备',
                 // 选项
                 options: {
@@ -135,6 +136,7 @@ let chunks = [
               },
               {
                 // 字段
+                type: 'text',
                 value: 'D : 3',
                 options: {
                   colspan: 1,
@@ -142,6 +144,7 @@ let chunks = [
               },
               {
                 // 字段
+                type: 'text',
                 value: 'D : 5',
                 options: {
                   colspan: 1,
@@ -149,6 +152,7 @@ let chunks = [
               },
               {
                 // 字段
+                type: 'text',
                 value: 'D : +2',
                 options: {
                   colspan: 1,
@@ -164,164 +168,32 @@ let chunks = [
         fields: [
           {
             info: {
-              name: '阿迪达斯',
+              name: 'tab1',
               key: 'first',
             },
             patchs: [
               {
-                title: 'adidas',
+                title: 'tab11',
                 type: 'table',
                 fields: {
-                  body: [
-                    // 定义表格数据结构
-                    [
-                      {
-                        value: '业务线',
-                        // 选项
-                        options: {
-                          colspan: 1,
-                          style: {
-                            fontWeight: 'bold',
-                          },
-                        },
-                      },
-                      {
-                        // 字段
-                        value: '中学事业部',
-                        options: {
-                          colspan: 3,
-                        },
-                      },
-                    ],
-                    [
-                      {
-                        value: '餐饮中心名称',
-                        // 选项
-                        options: {
-                          colspan: 1,
-                          style: {
-                            fontWeight: 'bold',
-                          },
-                        },
-                      },
-                      {
-                        // 字段
-                        value: '232323hj-223	',
-                        options: {
-                          colspan: 1,
-                          extra: {
-                            type: 'components',
-                            components: 'sensitive',
-                          },
-                        },
-                      },
-                      {
-                        value: '联系人手机号',
-                        // 选项
-                        options: {
-                          colspan: 1,
-                          style: {
-                            fontWeight: 'bold',
-                          },
-                        },
-                      },
-                      {
-                        // 字段
-                        value: '18219872083',
-                        options: {
-                          colspan: 1,
-                          extra: {
-                            type: 'components',
-                            components: 'sensitive',
-                          },
-                        },
-                      },
-                    ],
-                  ],
+                  body: [],
                 },
               },
-              // {}
             ],
           },
           {
             info: {
-              name: 'nike',
+              name: 'tab2',
               key: 'second',
             },
             patchs: [
               {
-                title: 'nike',
+                title: 'tib22',
                 type: 'table',
                 fields: {
-                  body: [
-                    // 定义表格数据结构
-                    [
-                      {
-                        value: '业务线',
-                        // 选项
-                        options: {
-                          colspan: 1,
-                          style: {
-                            fontWeight: 'bold',
-                          },
-                        },
-                      },
-                      {
-                        // 字段
-                        value: '中学事业部',
-                        options: {
-                          colspan: 3,
-                        },
-                      },
-                    ],
-                    [
-                      {
-                        value: '餐饮中心名称',
-                        // 选项
-                        options: {
-                          colspan: 1,
-                          style: {
-                            fontWeight: 'bold',
-                          },
-                        },
-                      },
-                      {
-                        // 字段
-                        value: '232323hj-223	',
-                        options: {
-                          colspan: 1,
-                          extra: {
-                            type: 'components',
-                            components: 'sensitive',
-                          },
-                        },
-                      },
-                      {
-                        value: '联系人手机号',
-                        // 选项
-                        options: {
-                          colspan: 1,
-                          style: {
-                            fontWeight: 'bold',
-                          },
-                        },
-                      },
-                      {
-                        // 字段
-                        value: '18219872083',
-                        options: {
-                          colspan: 1,
-                          extra: {
-                            type: 'components',
-                            components: 'sensitive',
-                          },
-                        },
-                      },
-                    ],
-                  ],
+                  body: [],
                 },
               },
-              // {}
             ],
           },
         ],
@@ -343,28 +215,9 @@ let chunks = [
         type: 'table', // 定义小块类型
         fields: {
           body: [
-            // 定义表格数据结构
             [
               {
-                value: '业务线',
-                // 选项
-                options: {
-                  colspan: 1,
-                  style: {
-                    fontWeight: 'bold',
-                  },
-                },
-              },
-              {
-                // 字段
-                value: '中学事业部',
-                options: {
-                  colspan: 3,
-                },
-              },
-            ],
-            [
-              {
+                type: 'text',
                 value: '资质证书照片',
                 // 选项
                 options: {
@@ -375,9 +228,10 @@ let chunks = [
                 },
               },
               {
+                type: 'components',
+                components: 'v-viewer',
                 value: [
                   {
-                    type: 'picWall',
                     name: 'xiyun.jpg',
                     src: 'http://www.baidu.com/img/baidu_resultlogo@2.png',
                     desc: '2019-01-23',
@@ -385,6 +239,7 @@ let chunks = [
                 ],
               },
               {
+                type: 'text',
                 value: '附件',
                 // 选项
                 options: {
@@ -395,9 +250,11 @@ let chunks = [
                 },
               },
               {
+                // 类型为下载的组件
+                type: 'components',
+                components: 'download',
                 value: [
                   {
-                    type: 'download',
                     name: 'xiyun1.jpg',
                     src: 'http://www.baidu.com/img/baidu_resultlogo@2.png',
                     desc: '2019-01-23',
