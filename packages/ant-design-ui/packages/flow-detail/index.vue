@@ -22,20 +22,22 @@
 <script>
 import FlowTable from './table.vue';
 import FlowTabs from './tabs.vue';
+import XyTitle from '../title'
 
 export default {
   name: 'XyFlowDetail',
   props: {
     data: {
-      type: Object,
+      type: Array,
       default() {
-        return {};
+        return [];
       },
     },
   },
   components: {
     FlowTable,
     FlowTabs,
+    XyTitle,
   },
   methods: {
     getFieldType(type) {

@@ -1,7 +1,7 @@
 import 'ant-design-vue/dist/antd.css';
+import '../common.less';
 import '../../packages/ant-design-ui/theme/styles/index.less';
 import '../../packages/element-ui/theme/styles/index.less';
-import '../common.less';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import Antd from 'ant-design-vue';

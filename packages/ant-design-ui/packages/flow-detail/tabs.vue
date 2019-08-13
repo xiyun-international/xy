@@ -10,8 +10,9 @@
 </template>
 
 <script>
-import { XySensText } from '../sens-text';
+import XySensText from '../sens-text';
 import FlowTable from './table.vue';
+import XyTitle from '../title'
 
 export default {
   name: 'flow-tabs',
@@ -26,6 +27,7 @@ export default {
   components: {
     XySensText,
     FlowTable,
+    XyTitle,
   },
   methods: {
     getComponent(name) {

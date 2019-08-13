@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <table style="width: 100%">
+  <div class="ant-table">
+    <table>
       <thead v-if="data.head" class="ant-table-thead">
         <tr>
           <th
@@ -26,8 +26,8 @@
             <template v-if="td.components==='v-viewer'||td.components==='download'">
               <template v-for="(img,imgIndex) in td.value">
                 <div v-viewer :key="imgIndex">
-                  <img v-if="img.type==='picWall'" :src="img.src" />
-                  <a v-if="img.type==='download'" :href="img.src">{{ img.name }}</a>
+                  <img :src="img.src" />
+                  <a v-if="td.components==='download'" :href="img.src" style="display: block;">{{ img.name }}</a>
                   <div>{{ img.desc }}</div>
                 </div>
               </template>
@@ -47,9 +47,12 @@
 </template>
 
 <script>
-import VueViewer from 'v-viewer'
+import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
-import { XySensText } from '../sens-text';
+import Vue from 'vue'
+Vue.use(Viewer)
+
+import XySensText from '../sens-text';
 
 export default {
   props: {
@@ -62,7 +65,6 @@ export default {
   },
   components: {
     XySensText,
-    VueViewer,
   },
   methods: {
     getComponent(name) {

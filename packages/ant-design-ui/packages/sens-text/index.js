@@ -1,7 +1,7 @@
-import XySelectCity from './index.vue';
+import XySensText from './index.vue';
 
-XySelectCity.install = function(Vue) {
-  Vue.component(XySelectCity.name, XySelectCity);
+XySensText.install = function(Vue) {
+  Vue.component(XySensText.name, XySensText);
 };
 
-export default XySelectCity;
+export default XySensText;
