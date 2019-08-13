@@ -50,7 +50,7 @@
 
 <script>
 export default {
-  name: 'select-city',
+  name: 'XySelectCity',
   props: {
     initCity: {
       type: Array,
@@ -58,7 +58,8 @@ export default {
         return [];
       },
     },
-    url: { // 获取城市列表数据接口地址
+    url: {
+      // 获取城市列表数据接口地址
       type: String,
       default: '',
     },
@@ -93,29 +94,34 @@ export default {
     getList() {
       this.loading = true;
       this.$post(this.url).then(res => {
-        if (res && res.code === 10000) {
-          this.dataList = res.resultObject;
-          for (let i = 0; i < this.dataList.length; i += 1) {
-            this.dataList[i].count = 0;
-            for (let k = 0; k < this.dataList[i].children.length; k += 1) {
-              if (this.initCity.includes(String(this.dataList[i].children[k].value))) {
-                this.$set(this.dataList[i].children[k], 'checked', true);
-                this.selectedList.push(this.dataList[i].children[k].value);
-                this.dataList[i].count += 1;
-              }
-              if(k ===this.dataList[i].children.length-1){
-                if (this.dataList[i].count > 0 && this.dataList[i].count !== this.dataList[i].children.length) {
-                  this.dataList[i].indeterminate = true;
-                } else if(this.dataList[i].count === this.dataList[i].children.length) {
-                  this.$set(this.dataList[i], 'checked', true);
-                }
+        this.dataList = res.resultObject || res.data.resultObject;
+        for (let i = 0; i < this.dataList.length; i += 1) {
+          this.dataList[i].count = 0;
+          for (let k = 0; k < this.dataList[i].children.length; k += 1) {
+            if (
+              this.initCity.includes(String(this.dataList[i].children[k].value))
+            ) {
+              this.$set(this.dataList[i].children[k], 'checked', true);
+              this.selectedList.push(this.dataList[i].children[k].value);
+              this.dataList[i].count += 1;
+            }
+            if (k === this.dataList[i].children.length - 1) {
+              if (
+                this.dataList[i].count > 0 &&
+                this.dataList[i].count !== this.dataList[i].children.length
+              ) {
+                this.dataList[i].indeterminate = true;
+              } else if (
+                this.dataList[i].count === this.dataList[i].children.length
+              ) {
+                this.$set(this.dataList[i], 'checked', true);
               }
             }
           }
-          this.$nextTick(() => {
-            this.loading = false;
-          });
         }
+        this.$nextTick(() => {
+          this.loading = false;
+        });
       });
     },
     handleSubmit() {
@@ -132,8 +138,10 @@ export default {
               this.selectedList.push(children[i].value);
             } else {
               this.selectedList.splice(
-                this.selectedList.findIndex(itemFirst => itemFirst.value === children[i].value),
-                1
+                this.selectedList.findIndex(
+                  itemFirst => itemFirst.value === children[i].value,
+                ),
+                1,
               );
             }
           }
@@ -141,18 +149,26 @@ export default {
           break;
         case 1:
           if (children.length > 0) {
-            this.$set(this.dataList[indexFirst].children[indexSecond], 'checked', e.target.checked);
+            this.$set(
+              this.dataList[indexFirst].children[indexSecond],
+              'checked',
+              e.target.checked,
+            );
             if (e.target.checked) {
               this.selectedList.push(children[indexSecond].value);
             } else {
               this.selectedList.splice(
                 this.selectedList.findIndex(
-                  itemSecond => itemSecond.value === children[indexSecond].value
+                  itemSecond =>
+                    itemSecond.value === children[indexSecond].value,
                 ),
-                1
+                1,
               );
             }
-            if (this.selectedList.length > 0 && this.selectedList.length !== children.length) {
+            if (
+              this.selectedList.length > 0 &&
+              this.selectedList.length !== children.length
+            ) {
               this.dataList[indexFirst].indeterminate = true;
               this.$set(this.dataList[indexFirst], 'checked', false);
             } else {

@@ -2,10 +2,15 @@ import 'ant-design-vue/dist/antd.css';
 import '../common.less';
 import '../../packages/ant-design-ui/theme/styles/index.less';
 import '../../packages/element-ui/theme/styles/index.less';
+import axios from 'axios';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import Antd from 'ant-design-vue';
 import Ele from 'element-ui';
+
+import Vue from 'vue';
+// 设置 http 请求方法
+Vue.prototype.$post = axios.post;
 
 import {
   XyTitle as AntdXyTitle,
