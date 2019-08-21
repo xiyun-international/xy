@@ -44,9 +44,14 @@ export default {
             removeToken();
             window.location.href = '/#/login';
             window.location.reload();
-          } else if (data.isLoading === false) {
+          } 
+          if (data.isLoading === false) {
             this.isLoading = false;
             this.height = data.height;
+          }
+          if (data['redirect-url']&& data['redirect-url'].indexOf('/#/')>-1) { 
+            //从iframe页面跳转到vue页面 add by yuyue
+            window.location.href = data['redirect-url'];
           }
         }
       });
