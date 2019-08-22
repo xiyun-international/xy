@@ -1,5 +1,4 @@
 import { block } from '@xiyun/xy-plugin-block';
-import { router } from '@xiyun/xy-plugin-router';
 
 export default {
   name: 'xy-plugin-generator',
@@ -30,13 +29,11 @@ export default {
             `https://github.com/xiyun-international/template/tree/master/projects/ele`,
             `./src/views/${folder}`,
           );
-          await router(folder);
         } else {
           await block(
             `https://github.com/xiyun-international/template/tree/master/projects/ele`,
             `./src/views`,
           );
-          await router('views');
         }
       } else {
         if (folder) {
@@ -44,13 +41,11 @@ export default {
             `https://github.com/xiyun-international/template/tree/master/projects/antd`,
             `./src/views/${folder}`,
           );
-          await router(folder);
         } else {
           await block(
             `https://github.com/xiyun-international/template/tree/master/projects/antd`,
             `./src/views`,
           );
-          await router('views');
         }
       }
     } else {
@@ -65,7 +60,6 @@ export default {
             `https://github.com/xiyun-international/template/tree/master/projects/antd/${folder}`,
             `./${folder}`,
           );
-          await router(folder);
         }
       } else {
         console.log('命令中应有保存到的文件夹');
