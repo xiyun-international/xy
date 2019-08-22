@@ -49,10 +49,10 @@ export default {
             this.isLoading = false;
             this.height = data.height;
           }
-          if (data['redirect-url'] && data['redirect-url'].indexOf('/#/')>-1) { 
-            //从iframe页面跳转到vue页面 add by yuyue
-            window.location.href = data['redirect-url'];
-          }
+        }
+        if (data.redirectUrl && data.redirectUrl.indexOf('/#/') > -1) { 
+          // 从iframe页面跳转到vue页面 add by yuyue
+          window.location.href = data.redirectUrl;
         }
       });
     },
