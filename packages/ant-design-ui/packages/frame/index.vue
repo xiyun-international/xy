@@ -50,7 +50,7 @@ export default {
             this.height = data.height;
           }
         }
-        if (data.redirectUrl && data.redirectUrl.indexOf('/#/')>-1) { 
+        if (data.redirectUrl && data.redirectUrl.indexOf('/#/') > -1) { 
           // 从iframe页面跳转到vue页面 add by yuyue
           window.location.href = data.redirectUrl;
         }
