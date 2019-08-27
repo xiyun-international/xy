@@ -5,13 +5,17 @@
       :src="curUrl"
       :height="height"
       class="iframe"
+      frameborder="0"
+      scrolling="no"
+      marginwidth="0"
+      marginheight="0"
+      leftmargin="0"
+      topmargin="0"
     ></iframe>
   </a-spin>
 </template>
 
 <script>
-// import { removeToken } from '@xiyun/utils';
-// 临时处理
 function removeToken() {
   localStorage.removeItem("TOKEN");
 }
