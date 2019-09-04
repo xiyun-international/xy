@@ -17,7 +17,12 @@ xy add @xiyun/xy-plugin-init
 
 ## 示例
 
-拷贝 Yarn 镜像源代码：
+生成 .yarnrc 文件，并且设置 Yarn 镜像源：
 ```shell
-$ xy init
+$ xy init --yarn
+```
+
+生成 .editorconfig 文件
+```shell
+$ xy init --editor
 ```
