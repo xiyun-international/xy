@@ -24,6 +24,8 @@
     "url": "https://github.com/xiyun-international/xy/issues"
   },
   "dependencies": {
-    "@xiyun/xy-plugin-block": "^1.1.20"
+    "@xiyun/xy-plugin-block": "^1.1.20",
+    "chalk": "^2.4.2",
+    "signale": "^1.4.0"
   }
 }

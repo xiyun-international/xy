@@ -1,14 +1,24 @@
+import signale from 'signale';
 import { copyFile } from 'fs';
-import { resolve } from 'path';
+import { getPath } from './getPath';
 
 export default {
   name: 'xy-plugin-init',
   command: 'init',
-  alias: 'i',
   onRun: async api => {
-    const cwd = process.cwd();
-    const dirname = resolve(__dirname, '..');
-    copyFile(`${dirname}\\.yarnrc`, `${cwd}\\.yarnrc`, err => {
+    const opts = Object.keys(api.opts);
+    if (opts.length === 1) {
+      signale.error('请输入正确参数');
+    }
+
+    const filename = opts[1];
+    const map = {
+      yarn: '.yarnrc',
+      editor: '.editorconfig',
+    };
+
+    const [sourceFile, target] = getPath(map[filename]);
+    copyFile(sourceFile, target, err => {
       if (!err) {
         console.log('拷贝成功');
       }
