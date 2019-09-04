@@ -27,5 +27,6 @@
     "@xiyun/xy-plugin-block": "^1.1.20",
     "chalk": "^2.4.2",
     "signale": "^1.4.0"
-  }
+  },
+  "gitHead": "e045003d146a192b5bb7f743f6b3e9fab06130ee"
 }

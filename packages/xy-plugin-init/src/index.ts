@@ -20,7 +20,7 @@ export default {
     const [sourceFile, target] = getPath(map[filename]);
     copyFile(sourceFile, target, err => {
       if (!err) {
-        console.log('拷贝成功');
+        signale.success(`${map[filename]} 文件设置成功`);
       }
     });
   },
