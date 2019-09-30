@@ -15834,12 +15834,7 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-viewerjs@^1.3.2:
-  version "1.3.6"
-  resolved "https://registry.npm.taobao.org/viewerjs/download/viewerjs-1.3.6.tgz?cache=0&sync_timestamp=1562239916223&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fviewerjs%2Fdownload%2Fviewerjs-1.3.6.tgz#5b2e68c48623f2ef117da2e2a382059cab147df9"
-  integrity sha1-Wy5oxIYj8u8RfaLio4IFnKsUffk=
-
-viewerjs@^1.3.6:
+viewerjs@^1.3.2, viewerjs@^1.3.6:
   version "1.3.6"
   resolved "https://registry.npm.taobao.org/viewerjs/download/viewerjs-1.3.6.tgz#5b2e68c48623f2ef117da2e2a382059cab147df9"
   integrity sha1-Wy5oxIYj8u8RfaLio4IFnKsUffk=

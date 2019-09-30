@@ -125,6 +125,7 @@ export default {
   .verify-input {
     display: inline-block;
     width: 120px;
+    margin-right: 10px;
   }
   .verify-button {
     width: 300px;
