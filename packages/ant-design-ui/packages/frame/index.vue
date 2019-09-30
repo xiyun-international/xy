@@ -5,13 +5,17 @@
       :src="curUrl"
       :height="height"
       class="iframe"
+      frameborder="0"
+      scrolling="no"
+      marginwidth="0"
+      marginheight="0"
+      leftmargin="0"
+      topmargin="0"
     ></iframe>
   </a-spin>
 </template>
 
 <script>
-// import { removeToken } from '@xiyun/utils';
-// 临时处理
 function removeToken() {
   localStorage.removeItem("TOKEN");
 }
@@ -46,8 +50,11 @@ export default {
             window.location.reload();
           } 
           if (data.isLoading === false) {
+            // 添加iframe最小高度 即menu高度
+            let content = document.getElementsByClassName('ant-menu');
+            let minHeight = content ? content[0].clientHeight : 0;
             this.isLoading = false;
-            this.height = data.height;
+            this.height = data.height > minHeight ? data.height : minHeight;
           }
         }
         if (data.redirectUrl && data.redirectUrl.indexOf('/#/') > -1) { 

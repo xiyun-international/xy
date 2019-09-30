@@ -9,6 +9,10 @@ const userHome = require('user-home');
 const args = yParser(process.argv.slice(2));
 const pluginList = [];
 
+const updateNotifier = require('update-notifier');
+const pkg = require('../package.json');
+updateNotifier({ pkg }).notify({ defer: true });
+
 // 自动注册插件  1.本目录引入的插件
 const dependencies = require('../package.json').dependencies;
 Object.keys(dependencies).forEach(key => {

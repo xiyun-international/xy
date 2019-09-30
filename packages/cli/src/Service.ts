@@ -1,3 +1,5 @@
+import signale from 'signale';
+import chalk from 'chalk';
 import { IOpt, IPluginAPI } from './types';
 
 export default class Service {
@@ -89,6 +91,8 @@ export default class Service {
     const onRun = this.plugins[this.cliCommand];
     if (onRun) {
       onRun(this);
+    } else {
+      signale.error(`Command ${chalk.underline.cyan(name)} does not exists`);
     }
   }
 }

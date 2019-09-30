@@ -1,4 +1,16 @@
-each(range(32), {
+each(range(40, 100), {
+  .w@{value} {
+    width: (@value * 1%);
+  }
+})
+
+.tl {text-align: left;}
+.tc {text-align: center;}
+.tr {text-align: right;}
+.fl {float: left;}
+.fr {float: right;}
+
+each(range(0, 32), {
   .t-P@{value} {
     padding: (@value * 1px);
   }
