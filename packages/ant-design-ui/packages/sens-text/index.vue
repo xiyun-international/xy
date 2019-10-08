@@ -16,7 +16,10 @@
 export default {
   name: 'XySensText',
   props: {
-    text: String,
+    text: {
+      type: String,
+      default: '',
+    },
     eyeColor: {
       type: String,
       default: '#20A0FF',

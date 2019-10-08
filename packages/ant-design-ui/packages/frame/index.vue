@@ -50,8 +50,11 @@ export default {
             window.location.reload();
           } 
           if (data.isLoading === false) {
+            // 添加iframe最小高度 即menu高度
+            let content = document.getElementsByClassName('ant-menu');
+            let minHeight = content ? content[0].clientHeight : 0;
             this.isLoading = false;
-            this.height = data.height;
+            this.height = data.height > minHeight ? data.height : minHeight;
           }
         }
         if (data.redirectUrl && data.redirectUrl.indexOf('/#/') > -1) { 
