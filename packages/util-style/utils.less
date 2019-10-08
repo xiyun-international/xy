@@ -1,16 +1,38 @@
-each(range(40, 100), {
-  .w@{value} {
+// 百分比宽度，从 40% 到 100%，示例：.t-W100
+@minWidth: 40; @maxWidth: 100;
+each(range(@minWidth, @maxWidth), {
+  .t-W@{value} {
     width: (@value * 1%);
   }
 })
 
-.tl {text-align: left;}
-.tc {text-align: center;}
-.tr {text-align: right;}
-.fl {float: left;}
-.fr {float: right;}
+// 文本对齐，示例：.t-TAC
+@textAlign: {TAL: left; TAC: center; TAR: right;}
+each(@textAlign, {
+  .t-@{key} {
+    text-align: @value;
+  }
+})
 
-each(range(0, 32), {
+// 浮动方式，示例：.t-FL
+@float: {FL: left;FR: right;}
+each(@float, {
+  .t-@{key} {
+    float: @value;
+  }
+})
+
+// 清除浮动，示例：.t-CL
+.t-CL:after {
+  content: '.';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+// margin 和 padding，示例：.t-MT10
+each(range(0, 40), {
   .t-P@{value} {
     padding: (@value * 1px);
   }
@@ -41,23 +63,23 @@ each(range(0, 32), {
   .t-ML@{value} {
     margin-left: (@value * 1px);
   }
-  .t-R@{value} {
-    border-radius: (@value * 1px);
-  }
-  .t-RT@{value} {
-    border-top-left-radius: (@value * 1px);
-    border-top-right-radius: (@value * 1px);
-  }
-  .t-RR@{value} {
-    border-top-right-radius: (@value * 1px);
-    border-bottom-right-radius: (@value * 1px);
-  }
-  .t-RB@{value} {
-    border-bottom-left-radius: (@value * 1px);
-    border-bottom-right-radius: (@value * 1px);
-  }
-  .t-RL@{value} {
-    border-top-left-radius: (@value * 1px);
-    border-bottom-left-radius: (@value * 1px);
-  }
+  // .t-R@{value} {
+  //   border-radius: (@value * 1px);
+  // }
+  // .t-RT@{value} {
+  //   border-top-left-radius: (@value * 1px);
+  //   border-top-right-radius: (@value * 1px);
+  // }
+  // .t-RR@{value} {
+  //   border-top-right-radius: (@value * 1px);
+  //   border-bottom-right-radius: (@value * 1px);
+  // }
+  // .t-RB@{value} {
+  //   border-bottom-left-radius: (@value * 1px);
+  //   border-bottom-right-radius: (@value * 1px);
+  // }
+  // .t-RL@{value} {
+  //   border-top-left-radius: (@value * 1px);
+  //   border-bottom-left-radius: (@value * 1px);
+  // }
 })
