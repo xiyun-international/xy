@@ -46,7 +46,7 @@ export default {
     telephone: [String, Number],
     value: {
       type: String,
-      default: ''
+      default: '',
     },
   },
   data() {
