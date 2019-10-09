@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/element-ui",
-  "version": "1.2.39",
+  "version": "1.2.41",
   "main": "./lib/index.umd.min.js",
   "style": "./lib/index.css",
   "files": [
