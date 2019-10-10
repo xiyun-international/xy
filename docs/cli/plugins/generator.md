@@ -8,26 +8,26 @@ generator 插件，是针对业务的通用表单生成工具。安装 generator
 
 使用 xy-plugin-generator 首先需要安装 @xiyun/cli
 
-```shell
+```bash
 yarn global add @xiyun/cli
 ```
 再执行
-```shell
+```bash
 xy add @xiyun/xy-plugin-generator
 ```
 
 ## 示例
 
 下载指定 template 模板（默认下载 antd 模板）：
-```shell
+```bash
 $ xy generator pageName
 ```
 下载指定 ele 模板：
-```shell
+```bash
 $ xy generator pageName --ele
 ```
 下载所有 template 模板（默认下载 antd 模板）：
-```shell
+```bash
 $ xy generator pageName --scaffold
 ```
 下载所有 ele 模板：

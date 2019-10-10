@@ -2,25 +2,25 @@
 
 1、克隆禧云生态代码
 
-```shell
+```bash
 $ git clone https://github.com/xiyun-international/xy.git
 $ cd xy
 ```
 
 2、创建一个 xy-plugin-yarn 插件
-```shell
+```bash
 lerna create xy-plugin-yarn
 ```
 
 3、启动 TS 监听模式，使用 TypeScript 进行开发
-```shell
+```bash
 $ yarn ts:dev
 ```
 
 4、按照 PluginAPI 规范开发插件
 
 开发要在 src 目录创建入口文件
-```shell
+```bash
 .
 ├── README.md
 ├── __tests__
@@ -43,11 +43,11 @@ export default {
 ```
 
 5、开发完成，执行编译，会创建 lib 目录
-```shell
+```bash
 $ yarn ts:build
 ```
 
 6、执行发布（如果你是以PR的方式贡献代码，那么这一步将由我们来执行）
-```shell
+```bash
 $ lerna publish
 ```

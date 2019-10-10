@@ -18,7 +18,7 @@ options 支持两个选项：
 ```json
 {
   "blocks": {
-    "title": "https://github.com/xiyun-international/xy/tree/master/packages/ant-design-ui/packages/countdown-button"
+    "title": "https://github.com/xiyun-international/xy/tree/master/packages/ant-design-ui/packages/title"
   }
 }
 ```

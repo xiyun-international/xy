@@ -106,12 +106,12 @@ sidebar: {
 
 ### 构建 UI 组件
 
-```shell
+```bash
 $ yarn build
 ```
 
 ### 发布 UI 组件
 
-```shell
+```bash
 $ lerna publish
 ```

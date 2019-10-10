@@ -3,7 +3,7 @@
 
 ## 安装
 
-```shell
+```bash
 $ yarn add @xiyun/utils
 ```
 

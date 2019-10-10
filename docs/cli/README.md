@@ -45,7 +45,7 @@ $ xy create 项目名称
 ```
 
 ## 开始开发
-```shell
+```bash
 # 启动项目
 $ yarn start
 

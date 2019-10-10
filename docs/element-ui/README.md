@@ -31,7 +31,7 @@ new Vue().$mount('#app')
 
 首先，安装 babel-plugin-component：
 
-```shell
+```bash
 $ yarn add -D babel-plugin-component
 ```
 

@@ -6,29 +6,29 @@ test 插件是针对于业务级（.vue）项目的测试工具。安装 test �
 ## 安装
 如果想使用 xy-plugin-test 插件，首先需要安装 @xiyun/cli
 
-```shell
+```bash
 yarn global add @xiyun/cli
 ```
 再执行
-```shell
+```bash
 xy add @xiyun/xy-plugin-test
 ```
 
 ## 示例
 命令如下：
-```shell
+```bash
 xy test <regexForTestFiles> <options>
 ```
 运行所有测试(默认):
-```shell
+```bash
 xy test
 ```
 仅运行符合指定用模板或文件名的测试︰
-```shell
+```bash
 xy test example.test.js
 ```
 运行监视模式︰
-```shell
+```bash
 xy test --watch
 ```
 
