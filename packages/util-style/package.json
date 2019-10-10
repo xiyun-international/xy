@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/util-style",
-  "version": "1.2.40",
+  "version": "1.2.42",
   "main": "utils.less",
   "license": "MIT"
 }
