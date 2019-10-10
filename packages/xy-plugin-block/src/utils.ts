@@ -19,7 +19,6 @@ export interface UrlParse {
 
 /**
  * 解析 git url
- *
  * @param url
  */
 export function parseGitUrl(url: string): UrlParse {
@@ -69,9 +68,6 @@ export function getParsedData(url: string): UrlParse {
     return parseGitUrl(url);
   }
   return null;
-  // console.log(`${chalk.red('Error-url: ')} ${chalk.yellowBright(url)}`);
-  // console.log(`${chalk.red("can't match any pattern")}`);
-  // throw new Error("can't match any pattern");
 }
 
 /**

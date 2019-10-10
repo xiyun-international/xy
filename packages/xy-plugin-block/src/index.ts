@@ -17,16 +17,6 @@ export default {
       },
     } = api;
 
-    // 断言为 false 时才会抛出错误
-    assert(args[1] !== undefined, '请填写要下载的区块 URL');
-
-    /**
-     * 选项 -p (path）
-     * 如果下载的是一个目录，那么 -p 就表示要下载到哪个目录下，默认当前目录
-     * 如果下载的是一个文件，那么 -p 就表示要把下载的文件重命名为指定的文件，默认不会重命名
-     */
-    const directory = opts.p ? opts.p : './';
-
-    await block(args[1], directory);
+    await block(opts, args);
   },
 };

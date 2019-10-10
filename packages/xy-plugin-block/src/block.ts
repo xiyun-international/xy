@@ -6,7 +6,6 @@ import { existsSync, statSync } from 'fs-extra';
 import { copy } from 'fs-jetpack';
 import assert from 'assert';
 import chalk from 'chalk';
-// import inquirer from 'inquirer';
 
 import {
   getParsedData,
@@ -29,7 +28,6 @@ interface CtxInter extends UrlParse {
 
 /**
  * 解析 github url ，创建临时目录，返回组合好的所需数据
- *
  * @param url
  */
 function getCtx(url: string): CtxInter {
@@ -52,6 +50,11 @@ function getCtx(url: string): CtxInter {
   return ctx;
 }
 
+/**
+ * 拉取 git 仓库
+ * @param ctx 解析 url 后得到的路径上下文
+ * @param spinner loading
+ */
 async function gitClone(ctx: CtxInter, spinner: OraInter): Promise<void> {
   spinner.start('Clone git repo');
   try {
@@ -70,6 +73,11 @@ async function gitClone(ctx: CtxInter, spinner: OraInter): Promise<void> {
   spinner.succeed();
 }
 
+/**
+ * 更新 git 仓库
+ * @param ctx 解析 url 后得到的路径上下文
+ * @param spinner loading
+ */
 async function gitUpdate(ctx: CtxInter, spinner: OraInter): Promise<void> {
   spinner.start('Git fetch');
   try {
@@ -105,36 +113,43 @@ async function gitUpdate(ctx: CtxInter, spinner: OraInter): Promise<void> {
   spinner.succeed();
 }
 
+/**
+ * 复制
+ * @param sourcePath 临时路径
+ * @param destPath 目标路径
+ */
 async function copyFiles(sourcePath: string, destPath: string): Promise<void> {
   const spinner = ora();
   // 源路径
   const sp = resolve(sourcePath);
   // 目标路径
   let dp;
-  // 如果是一个文件，并且没有配置目标文件名，就使用原文件名
-  if (statSync(sp).isFile() && destPath === './') {
-    const fileName = sourcePath.split('/').reverse()[0];
-    dp = resolve(destPath, fileName);
+
+  // 判断下载的是文件还是目录
+  if (statSync(sp).isFile()) {
+    const [fileName, dirName] = sourcePath.split('/').reverse();
+    dp = resolve(destPath, dirName, fileName);
   } else {
-    dp = resolve(destPath);
+    const dirName = sourcePath.split('/').reverse()[0];
+    dp = resolve(destPath, dirName);
   }
 
-  try {
-    // 优先使用 shell 原生命令复制
-    await execa(`cp`, [`-R`, sp, dp]);
-  } catch (e) {
-    // 如果下载的是一个单独的文件，并且指定了一个不存在的目录作为下载路径，
-    // 就会导致 cp 命令失败，这时使用 copy 工具来处理新建目录等操作。
-    copy(sp, dp, { overwrite: true });
-  }
+  // 复制文件
+  copy(sp, dp, { overwrite: true });
+
   spinner.succeed('下载完成');
 }
 
-async function run(repo: string, destDir: string): Promise<void> {
+/**
+ * 下载
+ * @param url GitHub url
+ * @param destPath 目标路径
+ */
+async function download(url: string, destPath: string) {
   const spinner = ora();
 
   console.log(`${chalk.cyan('正在解析 URL 和参数')}`);
-  const ctx = getCtx(repo);
+  const ctx = getCtx(url);
   assert(ctx, '没有匹配到合适的 GitHub URL，请检查你的 URL 是否正确');
 
   // 1、如果 block 项目不存在就执行 clone git repo
@@ -148,7 +163,40 @@ async function run(repo: string, destDir: string): Promise<void> {
   }
 
   // 3、把目标文件复制到指定目录中
-  await copyFiles(ctx.sourcePath, destDir);
+  await copyFiles(ctx.sourcePath, destPath);
+}
+
+type opts = {
+  // 下载集合的选项
+  collection: boolean;
+  // 下载的目标路径
+  path: string;
+};
+
+/**
+ * 运行
+ * @param opts 选项
+ * @param args 参数
+ */
+async function run(opts: opts, args: Array<any>): Promise<void> {
+  // 选项 --collection 集合下载
+  // 如果不是集合下载，才校验是否有 url
+  if (!opts.collection) {
+    // args[1] 为 GitHub url，断言为 false 时才会抛出错误
+    assert(args[1] !== undefined, '请填写要下载的区块 URL');
+
+    // 选项 --path，表示要下载到哪个目录下，默认当前目录
+    const destPath = opts.path ? opts.path : './';
+
+    await download(args[1], destPath);
+  } else {
+    // 集合下载逻辑
+    const pkgJson = require(resolve(process.env.PWD, 'package.json'));
+    const destPath = './src/blocks/';
+    Object.keys(pkgJson.blocks).map(async key => {
+      await download(pkgJson.blocks[key], destPath);
+    });
+  }
 }
 
 export default run;
