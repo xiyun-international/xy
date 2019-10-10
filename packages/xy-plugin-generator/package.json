@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/xy-plugin-generator",
-  "version": "1.2.42",
+  "version": "1.2.43",
   "description": "> TODO: description",
   "author": "huqiangqiang <huqiangqiang@xiyun.com.cn>",
   "homepage": "https://github.com/xiyun-international/xy#readme",
@@ -24,7 +24,7 @@
     "url": "https://github.com/xiyun-international/xy/issues"
   },
   "dependencies": {
-    "@xiyun/xy-plugin-block": "^1.2.42",
+    "@xiyun/xy-plugin-block": "^1.2.43",
     "@xiyun/xy-plugin-router": "^1.2.10"
   }
 }
