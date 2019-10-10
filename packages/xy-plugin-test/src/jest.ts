@@ -17,8 +17,10 @@ const config = {
   testPathIgnorePatterns: ['/node_modules/'],
 };
 
-async function run(cmd) {
+function run(cmd: object): void {
   const jestArgs = [
+    ...cmd['_'].slice(1, cmd['_'].length),
+    ...Object.keys(cmd).slice(1, Object.keys(cmd).length),
     '--env',
     'node',
     '--runInBand',
