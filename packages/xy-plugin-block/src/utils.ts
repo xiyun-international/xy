@@ -6,6 +6,10 @@ import mkdirp from 'mkdirp';
 // 解析 github 地址
 const gitSiteParser = /^(https:\/\/|http:\/\/|git@)((github|gitlab)[.\w-]+)([/:])([\w-]+)\/([\w-]+)(\/tree\/([\w.-]+)([\w\-/]+))?(\/blob\/([\w.-]+)([\w\-/.]+))?(.git)?$/;
 
+/**
+ * 校验是否是合法的 url
+ * @param url GitHub url
+ */
 export function isGitUrl(url: string): boolean {
   return gitSiteParser.test(url);
 }
