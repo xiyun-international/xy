@@ -40,9 +40,7 @@ export default function run(opts: opts, args: Array<string>): void {
   // 开发服务配置项
   const devServerOptions = {
     open: true,
-    stats: {
-      colors: true,
-    },
+    stats: 'errors-only',
   };
 
   const server = new WebpackDevServer(compiler, devServerOptions);
