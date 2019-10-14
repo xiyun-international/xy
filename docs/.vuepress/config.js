@@ -48,6 +48,7 @@ module.exports = {
             'plugins/generator',
             'plugins/init',
             'plugins/block-dev',
+            'plugins/block-create',
           ],
         },
       ],

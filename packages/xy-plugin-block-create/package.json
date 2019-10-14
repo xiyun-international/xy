@@ -1,0 +1,17 @@
+{
+  "name": "@xiyun/xy-plugin-block-create",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "directories": {
+    "lib": "./lib"
+  },
+  "files": [
+    "lib/",
+    "block-demo/"
+  ],
+  "dependencies": {
+    "fs-jetpack": "^2.2.2",
+    "assert": "^2.0.0"
+  }
+}

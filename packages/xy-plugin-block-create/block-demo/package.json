@@ -1,0 +1,17 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "我的组件",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiyun-international/blocks/tree/master/"
+  },
+  "blockConfig": {
+    "title": "我的组件",
+    "categories": [
+      "我的组件"
+    ],
+    "screenshot": ""
+  }
+}

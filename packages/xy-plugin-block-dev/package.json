@@ -30,6 +30,7 @@
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.41.0",
     "webpack-dev-server": "^3.8.2",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "assert": "^2.0.0"
   }
 }
