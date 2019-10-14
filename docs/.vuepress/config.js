@@ -47,6 +47,7 @@ module.exports = {
             'plugins/test',
             'plugins/generator',
             'plugins/init',
+            'plugins/block-dev',
           ],
         },
       ],
