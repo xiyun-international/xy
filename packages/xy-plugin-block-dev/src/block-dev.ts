@@ -3,6 +3,8 @@ import WebpackDevServer from 'webpack-dev-server';
 import webpackConfig from '../webpack.config.js';
 import mergeConfig from 'webpack-merge';
 import path from 'path';
+import assert from 'assert';
+import fs from 'fs';
 
 type opts = {
   // 服务运行端口
@@ -17,8 +19,11 @@ type opts = {
 export default function run(opts: opts, args: Array<string>): void {
   // --port 代表端口选项，默认 8080 端口
   const port = opts.port || 8080;
+
   // 入口文件
   const entryFile = path.resolve(args[1]);
+
+  assert(fs.existsSync(entryFile), '没有提供组件或组件不存在');
 
   const configs = mergeConfig(webpackConfig, {
     plugins: [
