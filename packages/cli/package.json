@@ -14,6 +14,7 @@
     "@xiyun/xy-plugin-init": "^1.2.43",
     "@xiyun/xy-plugin-router": "^1.2.10",
     "@xiyun/xy-plugin-test": "^1.2.0",
+    "@xiyun/xy-plugin-block-dev": "^1.0.0",
     "chalk": "^2.4.2",
     "download-git-repo": "^1.1.0",
     "execa": "^1.0.0",

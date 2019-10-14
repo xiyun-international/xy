@@ -1,0 +1,3 @@
+<template>
+  <async-component />
+</template>
