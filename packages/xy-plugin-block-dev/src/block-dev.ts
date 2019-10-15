@@ -78,10 +78,29 @@ function setUserConfig(
   resourceLists: Array<string>,
 ) {
   const userConfig = require(path.resolve(configFile));
-  if (userConfig.resources && userConfig.resources.length > 0) {
-    // 设置用户资源
-    setXyConfig(userConfig.resources, externals, resourceLists);
+  // 设置用户资源
+  setXyConfig(userConfig.resources, externals, resourceLists);
+}
+
+/**
+ * 校验执行逻辑的条件
+ * @param configFile 配置文件
+ * @param error 如果文件不存在是否抛出错误
+ * @return true - 配置项正常 | false - 配置项无效
+ */
+function checkCondition(configFile: string, error: boolean = false): boolean {
+  if (!fs.existsSync(path.resolve(configFile))) {
+    if (error) {
+      throw new Error(`${configFile} 文件不存在，请检查`);
+    }
+    return false;
   }
+  const userConfig = require(path.resolve(configFile));
+  const { resources } = userConfig;
+  if (!(resources && resources instanceof Array)) {
+    return false;
+  }
+  return true;
 }
 
 type opts = {
@@ -115,31 +134,47 @@ export default function run(opts: opts, args: Array<string>) {
   // 设置基础资源
   setXyConfig(xyConfig.resources, externals, resourceLists);
 
+  /**
+   * 按哪种条件来执行逻辑，优先级依次降低
+   * 1、appoint - 指定配置文件
+   * 2、config - 当前配置文件
+   * 3、package - 当前 package.json
+   * 4、option - 根据选项参数
+   */
+  let condition = 'option';
+  let isEnd = false;
+
   // 如果指定了资源配置文件，那么优先级最高
-  if (opts.config) {
+  if (opts.config && checkCondition(opts.config, true)) {
+    condition = 'appoint';
+    isEnd = true;
     setUserConfig(opts.config, externals, resourceLists);
   }
-  // 在没有指定资源配置文件的情况下，就找配置文件和参数选项
-  else {
-    // 如果用户当前目录下存在 xy.config.js 配置文件
-    if (fs.existsSync(path.resolve('xy.config.js'))) {
-      setUserConfig('xy.config.js', externals, resourceLists);
-    }
-    // 如果用户当前目录存在 package.json 文件
-    else if (fs.existsSync(path.resolve('package.json'))) {
-      setUserConfig('package.json', externals, resourceLists);
-    }
-    // 读取选项
-    else {
-      const defaultUI = xyConfig.defaultUIResources;
-      if (opts.vant) {
-        setOptsConfig(defaultUI, 'vant', externals, resourceLists);
-      } else if (opts.element) {
-        setOptsConfig(defaultUI, 'element', externals, resourceLists);
-      } else {
-        // 默认使用 antd UI
-        setOptsConfig(defaultUI, 'antd', externals, resourceLists);
-      }
+
+  // 如果用户当前目录存在 xy.config.js 配置文件
+  if (isEnd === false && checkCondition('xy.config.js')) {
+    condition = 'config';
+    isEnd = true;
+    setUserConfig('xy.config.js', externals, resourceLists);
+  }
+
+  // 如果用户当前目录存在 package.json 文件
+  if (isEnd === false && checkCondition('package.json')) {
+    condition = 'package';
+    isEnd = true;
+    setUserConfig('package.json', externals, resourceLists);
+  }
+
+  // 上述条件不成立，就读取选项
+  if (isEnd === false && condition === 'option') {
+    const defaultUI = xyConfig.defaultUIResources;
+    if (opts.vant) {
+      setOptsConfig(defaultUI, 'vant', externals, resourceLists);
+    } else if (opts.element) {
+      setOptsConfig(defaultUI, 'element', externals, resourceLists);
+    } else {
+      // 默认使用 antd UI
+      setOptsConfig(defaultUI, 'antd', externals, resourceLists);
     }
   }
 
