@@ -20,7 +20,7 @@ beforeAll(async () => {});
 afterAll(() => {});
 
 test('get', async () => {
-  const { body } = await got(`http://127.0.0.1/api/a`);
+  const { body } = await got(`http://127.0.0.1/api/w`);
   expect(body).toEqual(`{"a":1}`);
 });
 
