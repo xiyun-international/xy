@@ -5,7 +5,7 @@
 禧云区块开发服务工具是为了方便开发独立 Vue 组件使用的，运行该命令后，会开启一个开发环境服务，并渲染你提供的组件，非常方便。
 
 本环境默认提供了以下这些资源，你可以在组件中使用：
-- ant-design-vue 全局 UI 组件，你无需额外引入即可使用。
+- ant-design-vue 默认提供的全局 UI 组件，你无需额外引入即可使用，可被选项和配置文件覆盖。
 - lodash 
 - moment
 - less
@@ -73,5 +73,7 @@ module.exports = {
   ]
 ```
 
+如果当前目录存在`xy.config.js`或`package.json`文件，那么会自动读取其中的配置，无需手动指定。
+
 ## 资源配置项的优先顺序
-`--config <config-file>` > `xy.config.js` > `package.json` > `默认命令行选项：--element 等`
+`手动指定 --config <config-file>` > `xy.config.js` > `package.json` > `默认命令行选项：--element 等`

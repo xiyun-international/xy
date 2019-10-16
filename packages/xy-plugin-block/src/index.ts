@@ -1,5 +1,4 @@
 import block from './block';
-import assert from 'assert';
 
 export { block };
 

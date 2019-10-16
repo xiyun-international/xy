@@ -66,5 +66,7 @@ module.exports = {
   ]
 ```
 
+如果当前目录存在`xy.config.js`或`package.json`文件，那么会自动读取其中的配置，无需手动指定。
+
 #### 资源配置项的优先顺序
-`--config <config-file>` > `xy.config.js` > `package.json` > `默认命令行选项：--element 等`
+`手动指定 --config <config-file>` > `xy.config.js` > `package.json` > `默认命令行选项：--element 等`

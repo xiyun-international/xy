@@ -2,16 +2,20 @@ import { join, resolve } from 'path';
 import ora from 'ora';
 import execa from 'execa';
 import { merge } from 'lodash';
-import { existsSync, statSync } from 'fs-extra';
+import { existsSync, statSync, readFileSync } from 'fs-extra';
 import { copy } from 'fs-jetpack';
 import assert from 'assert';
 import chalk from 'chalk';
+import glob from 'glob';
+import write from 'write';
+// import fs from 'fs';
 
 import {
   getParsedData,
   UrlParse,
   makeSureMaterialsTempPathExist,
 } from './utils';
+import { fstat } from 'fs';
 
 interface OraInter {
   start: Function;
@@ -166,11 +170,38 @@ async function download(url: string, destPath: string) {
   await copyFiles(ctx.sourcePath, destPath);
 }
 
+/**
+ * 生成组件引用文件
+ * @param path 路径
+ */
+function generateExportFile(blockPath: string) {
+  const files = glob.sync(blockPath + '*/src/index.vue');
+  const regexp = RegExp('name:\\s?[\\\'|"](\\w+)[\\\'|"]', 'g');
+  let importStr = "import Vue from 'vue';\n";
+  let installStr = '\n';
+  files.forEach(filePath => {
+    const dirName = /\.\/src\/blocks\/([a-zA-Z-_]+)/.exec(filePath)[1];
+    const content = readFileSync(resolve(filePath), 'utf8');
+    let matches;
+    while ((matches = regexp.exec(content)) !== null) {
+      const componentName = matches[1];
+      importStr += `import ${componentName} from '@/blocks/${dirName}/src/index.vue';\n`;
+      installStr += `Vue.component(${componentName}.name, ${componentName});\n`;
+    }
+  });
+
+  write.sync(resolve(blockPath, 'index.js'), importStr + installStr, {
+    overwrite: true,
+  });
+}
+
 type opts = {
   // 下载集合的选项
   collection: boolean;
   // 下载的目标路径
   path: string;
+  // 是否扫描 blocks 目录并生成组件引用文件
+  scan: boolean;
 };
 
 /**
@@ -197,6 +228,17 @@ async function run(opts: opts, args: Array<any>): Promise<void> {
       await download(pkgJson.blocks[key], destPath);
     });
   }
+
+  // --scan 选项，是否要扫描 blocks 目录并生成引用组件的文件
+  process.on('beforeExit', () => {
+    if (opts.scan) {
+      if (existsSync(resolve('./src/blocks/'))) {
+        generateExportFile('./src/blocks/');
+      } else {
+        throw new Error('"./src/blocks/"目录不存在，无法生成引用文件。');
+      }
+    }
+  });
 }
 
 export default run;

@@ -3166,6 +3166,13 @@ add-dom-event-listener@^1.0.2:
   dependencies:
     object-assign "4.x"
 
+add-filename-increment@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/add-filename-increment/download/add-filename-increment-1.0.0.tgz#106feea10dcda5d2bfe25a5e83d347382f9dd97d"
+  integrity sha1-EG/uoQ3NpdK/4lpeg9NHOC+d2X0=
+  dependencies:
+    strip-filename-increment "^2.0.1"
+
 address@^1.0.3:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/address/download/address-1.1.0.tgz#ef8e047847fcd2c5b6f50c16965f924fd99fe709"
@@ -15224,6 +15231,11 @@ strip-eof@^1.0.0:
   resolved "https://registry.npm.taobao.org/strip-eof/download/strip-eof-1.0.0.tgz#bb43ff5598a6eb05d89b59fcd129c983313606bf"
   integrity sha1-u0P/VZim6wXYm1n80SnJgzE2Br8=
 
+strip-filename-increment@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npm.taobao.org/strip-filename-increment/download/strip-filename-increment-2.0.1.tgz#3feca2ebd529d4cdcad0281a9bbb2660b096fcc6"
+  integrity sha1-P+yi69Up1M3K0Cgam7smYLCW/MY=
+
 strip-final-newline@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/strip-final-newline/download/strip-final-newline-2.0.0.tgz#89b852fb2fcbe936f6f4b3187afb0a12c1ab58ad"
@@ -17138,6 +17150,13 @@ write@1.0.3:
   integrity sha1-CADhRSO5I6OH5BUSPIZWFqrg9cM=
   dependencies:
     mkdirp "^0.5.1"
+
+write@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/write/download/write-2.0.0.tgz#d6320a5f764fbd6ee93022f61273d62fa23dbd04"
+  integrity sha1-1jIKX3ZPvW7pMCL2EnPWL6I9vQQ=
+  dependencies:
+    add-filename-increment "^1.0.0"
 
 ws@^5.2.0:
   version "5.2.2"
