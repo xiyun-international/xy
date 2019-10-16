@@ -23,7 +23,7 @@ router('foo');
 $ xy generator --scaffold user
 ```
 然后会在你项目的`src/views/`目录下安装好下面这些文件：
-```text
+```
 user/
   |--create/
     |--index.vue
@@ -38,7 +38,7 @@ user/
 ```
 
 这个时候，generator 会调用 router 方法根据所生成的目录，在`src/router`中创建路由
-```text
+```
 routes/  
   user/
     index.js #user 的路由配置项
