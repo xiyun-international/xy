@@ -3,7 +3,7 @@ import express from 'express';
 import chokidar from 'chokidar';
 import { join } from 'path';
 import signale from 'signale';
-import { windowPath, cleanRequireCache } from './utils';
+// import portfinder from 'portfinder';
 import getMockData from './get-mock-files';
 import matchMock from './match-mock';
 
@@ -17,38 +17,42 @@ interface Options {
   errors: Array<string>;
   config: object;
   absPagesPath: string;
-  absSrcPath: string;
+  path: string;
   watch: boolean;
 }
 
 export default async function(opts: Options) {
-  const { watch } = opts;
+  const { watch, path = '**/__mock__/*.[jt]s' } = opts;
+
   const spinner = ora();
-  let port = 80;
+  let port = 80; //固定端口 冲突时会报错
   let watcher = null;
   let mockData = null;
 
+  // portfinder.basePort = 3000;
+  // port = await portfinder.getPortPromise();
+
   const HOME_PAGE = 'homepage';
 
-  await fetchMockData();
-
   if (watch) {
-    console.log(join(process.cwd(), '**/__mock__/*.[jt]s'));
-    watcher = chokidar.watch(join(process.cwd(), '**/__mock__/*.[jt]s'), {
+    watcher = chokidar.watch(join(process.cwd(), path), {
       ignored: '**/node_modules/**',
     });
     watcher.on('all', (event, path) => {
       spinner.start(`[${event}] ${path}, reload mock data`);
 
       // cleanRequireCache(paths);
-      fetchMockData();
+      fetchMockData(path);
       spinner.stop();
       signale.success(`Mock files parse success`);
     });
+  } else {
+    await fetchMockData(path);
   }
-  function fetchMockData() {
+  function fetchMockData(path: string) {
     mockData = getMockData({
       spinner,
+      path,
     });
   }
   let mockServer = new Promise((resolve, reject) => {
@@ -70,7 +74,11 @@ export default async function(opts: Options) {
       }
     });
     app.listen(port, err => {
-      signale.info(`server is listening at ${port} port`);
+      signale.info(`
+      Server running at \n
+      - http://127.0.0.1:${port}\n
+      - http://localhost:${port}
+      `);
       if (err) {
         reject(err);
       }

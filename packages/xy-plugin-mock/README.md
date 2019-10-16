@@ -1,13 +1,13 @@
 # xy-plugin-mock
 
 提供给 xy 命令使用的插件，用于为组件提供 mock 数据。
-当前只支持扫描根目录下 __mock__ 文件
 
-请求只支持 get 和 post，后续会陆续完善
+请求支持 get 和 post 两种方式
 
 | 参数    | 说明            |
 | ------- | --------------- |
-| --watch    | 监听__mock__文件夹内的数据变化 |
+| --watch    | 监听__mock__文件夹内的 mock 数据变化 |
+| --path    | 扫描指定路径下的 mock 数据，默认扫描根目录下 __mock__ 文件 |
 
 
 #### 使用方法
@@ -15,9 +15,10 @@
 ```js
 import { mock } from 'xy-plugin-block';
 
-xy mock [--watch]
+xy mock --watch // 监听模式
+xy mock --path="**/__mock__/a.js" // 扫描指定匹配路径下的 mock 数据
 ```
-#### __mock__ 内文件样例
+#### mock 数据样例
 ```js
 module.exports = {
   '/api/a': { a: 1 },

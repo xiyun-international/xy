@@ -1,4 +1,3 @@
-import { existsSync } from 'fs';
 import bodyParser from 'body-parser';
 import multer from 'multer';
 import assert from 'assert';
@@ -79,16 +78,14 @@ function parseKey(key) {
 
 export function getMockFiles(opts) {
   let mockFiles = glob
-    .sync('**/__mock__/*.[jt]s', {
+    .sync(opts.path, {
       ignore: ['**/node_modules/**'],
     })
     .map(p => join(process.cwd(), p));
   // 处理一下路径，不然在 win 下面会报错
   mockFiles = mockFiles.map(p => windowPath(p));
 
-  // debug(`load mock data from ${absMockPath}, including files ${JSON.stringify(mockFiles)}`);
   return mockFiles;
-  //   }
 }
 
 export function getMockConfigFromFiles(files) {

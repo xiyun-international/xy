@@ -6,4 +6,5 @@ module.exports = {
     res.end(JSON.stringify({ b: 1 }));
   },
   '/api/d': { a: 1 },
+  '/api/x': { a: 1 },
 };
