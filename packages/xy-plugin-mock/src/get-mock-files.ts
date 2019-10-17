@@ -2,7 +2,7 @@ import bodyParser from 'body-parser';
 import multer from 'multer';
 import assert from 'assert';
 import pathToRegexp from 'path-to-regexp';
-import { join } from 'path';
+import { join, resolve } from 'path';
 import { windowPath } from './utils';
 import glob from 'glob';
 
@@ -10,7 +10,7 @@ const VALID_METHODS = ['post', 'get', 'put', 'patch', 'delete'];
 const BODY_PARSED_METHODS = ['post', 'get', 'put', 'patch', 'delete'];
 let spinner = null;
 
-function createHandler(method, path, handler) {
+function createHandler(method, handler) {
   return function(req, res, next) {
     if (BODY_PARSED_METHODS.includes(method)) {
       bodyParser.json({ limit: '5mb', strict: false })(req, res, () => {
@@ -44,7 +44,7 @@ export function normalizeConfig(config) {
       type === 'function' || type === 'object',
       `mock value of ${key} should be function or object, but got ${type}`,
     );
-    const { method, path } = parseKey(key);
+    const { method, path = '**/__mock__/*.[jt]s' } = parseKey(key);
     const keys = [];
     const re = pathToRegexp(path, keys);
     memo.push({
@@ -52,7 +52,7 @@ export function normalizeConfig(config) {
       path,
       re,
       keys,
-      handler: createHandler(method, path, handler),
+      handler: createHandler(method, handler),
     });
     return memo;
   }, []);
@@ -81,7 +81,7 @@ export function getMockFiles(opts) {
     .sync(opts.path, {
       ignore: ['**/node_modules/**'],
     })
-    .map(p => join(process.cwd(), p));
+    .map(p => resolve(process.cwd(), p));
   // 处理一下路径，不然在 win 下面会报错
   mockFiles = mockFiles.map(p => windowPath(p));
 

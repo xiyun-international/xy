@@ -7,4 +7,5 @@ module.exports = {
   },
   '/api/d': { a: 1 },
   '/api/x': { a: 1 },
+  '/api/w': { a: 1 },
 };

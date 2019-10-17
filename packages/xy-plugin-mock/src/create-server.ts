@@ -1,9 +1,10 @@
 import ora from 'ora';
 import express from 'express';
 import chokidar from 'chokidar';
-import { join } from 'path';
+import { join, resolve } from 'path';
 import signale from 'signale';
 // import portfinder from 'portfinder';
+import { windowPath } from './utils';
 import getMockData from './get-mock-files';
 import matchMock from './match-mock';
 
@@ -35,19 +36,26 @@ export default async function(opts: Options) {
   const HOME_PAGE = 'homepage';
 
   if (watch) {
-    watcher = chokidar.watch(join(process.cwd(), path), {
+    watcher = chokidar.watch(resolve(process.cwd(), path), {
       ignored: '**/node_modules/**',
     });
-    watcher.on('all', (event, path) => {
-      spinner.start(`[${event}] ${path}, reload mock data`);
+    watcher.on('all', (event, pathWatch) => {
+      spinner.start(`[${event}] ${pathWatch}, reload mock data`);
 
-      // cleanRequireCache(paths);
-      fetchMockData(path);
+      cleanRequireCache();
+      fetchMockData(pathWatch);
       spinner.stop();
       signale.success(`Mock files parse success`);
     });
   } else {
     await fetchMockData(path);
+  }
+  function cleanRequireCache() {
+    Object.keys(require.cache).forEach(file => {
+      if (require.cache[file]) {
+        delete require.cache[file];
+      }
+    });
   }
   function fetchMockData(path: string) {
     mockData = getMockData({
@@ -55,7 +63,7 @@ export default async function(opts: Options) {
       path,
     });
   }
-  let mockServer = new Promise((resolve, reject) => {
+  new Promise((resolve, reject) => {
     const app = express();
     app.use(function XY_MOCK(req, res, next) {
       const match = mockData && matchMock(req, mockData);
