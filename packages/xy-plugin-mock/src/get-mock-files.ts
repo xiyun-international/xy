@@ -2,7 +2,7 @@ import bodyParser from 'body-parser';
 import multer from 'multer';
 import assert from 'assert';
 import pathToRegexp from 'path-to-regexp';
-import { join, resolve } from 'path';
+import { resolve } from 'path';
 import { windowPath } from './utils';
 import glob from 'glob';
 

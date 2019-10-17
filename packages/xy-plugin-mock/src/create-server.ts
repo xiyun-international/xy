@@ -6,11 +6,6 @@ import signale from 'signale';
 import getMockData from './get-mock-files';
 import matchMock from './match-mock';
 
-interface OraInter {
-  start: Function;
-  fail: Function;
-  succeed: Function;
-}
 interface Options {
   cwd: string;
   errors: Array<string>;
