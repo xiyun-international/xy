@@ -1,0 +1,33 @@
+{
+  "name": "@xiyun/xy-plugin-mock",
+  "version": "1.1.20",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "homepage": "https://github.com/xiyun-international/xy#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiyun-international/xy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xiyun-international/xy/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chokidar": "^3.2.1",
+    "express": "^4.17.1",
+    "glob": "^7.1.4",
+    "got": "^9.6.0",
+    "multer": "^1.4.2",
+    "ora": "^4.0.2",
+    "path-to-regexp": "^3.1.0",
+    "signale": "^1.4.0"
+  },
+  "gitHead": "248cbf962eab10124062f09b06b18b8d322ceb07"
+}
