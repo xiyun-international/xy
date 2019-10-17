@@ -28,5 +28,6 @@
     "ora": "^4.0.2",
     "path-to-regexp": "^3.1.0",
     "signale": "^1.4.0"
-  }
+  },
+  "gitHead": "f5caf969379f0941404db64a1a25741ca2a688c4"
 }
