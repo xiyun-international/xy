@@ -1,10 +1,8 @@
 import ora from 'ora';
 import express from 'express';
 import chokidar from 'chokidar';
-import { join, resolve } from 'path';
+import { resolve } from 'path';
 import signale from 'signale';
-// import portfinder from 'portfinder';
-import { windowPath } from './utils';
 import getMockData from './get-mock-files';
 import matchMock from './match-mock';
 
@@ -29,9 +27,6 @@ export default async function(opts: Options) {
   let port = 80; //固定端口 冲突时会报错
   let watcher = null;
   let mockData = null;
-
-  // portfinder.basePort = 3000;
-  // port = await portfinder.getPortPromise();
 
   const HOME_PAGE = 'homepage';
 
