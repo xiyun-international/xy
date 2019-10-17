@@ -66,13 +66,12 @@ export default async function(opts: Options) {
         'PUT, POST, GET, DELETE, OPTIONS',
       ); //设置方法
       if (req.method == 'OPTIONS') {
-        res.send(200); // 意思是，在正常的请求之前，会发送一个验证，是否可以请求。
+        res.sendStatus(200); // 意思是，在正常的请求之前，会发送一个验证，是否可以请求。
       } else {
         next();
       }
     });
     app.use(function XY_MOCK(req, res, next) {
-      res.header('Access-Control-Allow-Origin', '*');
       const match = mockData && matchMock(req, mockData);
       if (match) {
         signale.info(`mock matched: [${match.method}] ${match.path}`);
