@@ -24,7 +24,6 @@ export default async function(opts: Options) {
   let mockData = null;
 
   const HOME_PAGE = 'homepage';
-
   if (watch) {
     watcher = chokidar.watch(resolve(process.cwd(), path), {
       ignored: '**/node_modules/**',
@@ -33,7 +32,7 @@ export default async function(opts: Options) {
       spinner.start(`[${event}] ${pathWatch}, reload mock data`);
 
       cleanRequireCache();
-      fetchMockData(pathWatch);
+      fetchMockData(path); //每次要收集所有路径的数据
       spinner.stop();
       signale.success(`Mock files parse success`);
     });
