@@ -46,10 +46,12 @@ module.paths.unshift(path.resolve(userHome, '.xy', 'plugins', 'node_modules'));
 // 根据宿主目录，./xy/plugins/packages.json 注入到 Service 中
 const xyPluginPkg = path.resolve(userHome, '.xy', 'plugins', 'package.json');
 if (fs.existsSync(xyPluginPkg)) {
-  const dependencies = require(xyPluginPkg).dependencies;
-  Object.keys(dependencies).forEach(item => {
-    pluginList.push(require(item).default);
-  });
+  const packageContent = require(xyPluginPkg);
+  if (Array.isArray(packageContent.dependencies)) {
+    Object.keys(dependencies).forEach(item => {
+      pluginList.push(require(item).default);
+    });
+  }
 }
 
 const service = new Service(args._[0], args, {
