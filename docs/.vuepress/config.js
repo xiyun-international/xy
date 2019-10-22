@@ -49,6 +49,7 @@ module.exports = {
             'plugins/init',
             'plugins/block-dev',
             'plugins/block-create',
+            'plugins/mock',
           ],
         },
       ],
