@@ -1,5 +1,5 @@
 /**
- * Convert Windows backslash paths to slash paths
+ * Convert Windows backslash paths to slash paths.
  * @param path
  */
 export function windowPath(path: string = ''): string {
