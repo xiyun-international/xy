@@ -185,7 +185,7 @@ function generateExportFile(blockPath: string) {
     let matches;
     while ((matches = regexp.exec(content)) !== null) {
       const componentName = matches[1];
-      importStr += `import ${componentName} from '@/blocks/${dirName}/src/index.vue';\n`;
+      importStr += `import ${componentName} from './blocks/${dirName}/src/index.vue';\n`;
       installStr += `Vue.component(${componentName}.name, ${componentName});\n`;
     }
   });
