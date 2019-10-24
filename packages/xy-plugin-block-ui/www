@@ -1,0 +1,5 @@
+#! /usr/bin/env sh
+
+SHELL_FOLDER=$(cd "$(dirname "$0")";pwd)
+cd $SHELL_FOLDER
+npm run serve
