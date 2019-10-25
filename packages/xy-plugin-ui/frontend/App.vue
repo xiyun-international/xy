@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
       <div>
@@ -12,7 +12,7 @@
       <div>
         <a-button type="primary" @click="gfq">请求 graphql 接口</a-button>
       </div>
-    </div>
+    </div> -->
     <router-view />
   </div>
 </template>
