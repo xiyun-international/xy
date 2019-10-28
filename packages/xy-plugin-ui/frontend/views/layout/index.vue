@@ -9,6 +9,10 @@
         >
         <img src="./logo.png" class="logo" />
         <xy-menu />
+        <div class="create">
+          <a-button shape="circle" icon="plus" />
+          <div>创建菜单</div>
+        </div>
       </a-layout-sider>
       <a-layout>
         <a-layout-content class="content">
@@ -48,10 +52,30 @@ export default {
     display: none;
   }
 }
-.ant-layout {
+/deep/ .ant-layout {
   background: #fff;
   .ant-layout-sider {
     background: #fff;
+  }
+  .ant-layout-sider-children {
+    position: relative;
+    .create {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      // .ant-btn-circle {
+      //   width: 48px;
+      //   height: 48px;
+      //   .anticon-plus {
+      //     font-size: 24px;
+      //   }
+      // }
+      div {
+        font-size: 12px;
+        margin-top: 5px;
+        color: rgba(255, 255, 255, 0.65);
+      }
+    }
   }
 }
 
@@ -62,6 +86,7 @@ export default {
     height: calc(~'100vh' - 80px);
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
     .logo {
       width: 60px;
       margin: 26px;
