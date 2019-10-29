@@ -1,22 +1,30 @@
-const express = require('express');
-const Router = require('./rouer');
-const graphql = require('./graphql');
-const WebSocket = require('./websocket');
+module.exports = function(app) {
+  console.log('appppp ---------------');
+  const express = require('express');
 
-// 主入口
-module.exports = function run(app) {
-  // 开启 graphql 服务
-  graphql(app);
+  // 全局变量
+  require('./plugins/global-varies');
 
-  // 为 req.body 提供解析
-  // 解析 application/json
+  // // 开发环境临时: 调试时设置工作目录
+  // process.cwd = () => {
+  //   return "D:/前端开发/code_test/learn-engineering/learn-vue-cli/learn-cli-ui_dev-server/_test-area";
+  // };
+
+  // 生产环境: 复写进程的工作目录, 用于文件处理
+  process.cwd = () => {
+    // return process.env.workDir
+    return `D:/前端开发/code_test/learn-engineering/learn-vue-cli/learn-cli-ui_dev-server_graphql/_test-area`;
+  };
+
+  // socket
+  require('./plugins/socket');
+
   app.use(express.json());
-  // 解析 application/x-www-form-urlencoded
-  app.use(express.urlencoded({ extended: true }));
+  app.use(express.urlencoded({ extended: false }));
 
-  // 路由转发
-  app.use('/api', Router);
+  // routes
+  require('./routes/index')(app);
 
-  // 开启 WebSocket 服务
-  WebSocket(8081);
+  // graphql
+  require('./graphql/index')(app);
 };
