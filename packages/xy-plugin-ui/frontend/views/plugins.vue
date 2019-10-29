@@ -101,6 +101,36 @@ export default {
             set: true,
           },
         },
+        {
+          picUrl:
+            'https://screenshots.imgix.net/primefaces/primereact/tooltip/3.1.8/5d42e64160fbc6001439e70d/0cef694d-4e56-4141-924f-b34954036079.png?w=300&h=200&fit=fillmax&fm=webp',
+          title: 'xy-detail',
+          name: '工作流详情',
+          btn: {
+            test: true,
+            set: true,
+          },
+        },
+        {
+          picUrl:
+            'https://screenshots.imgix.net/primefaces/primereact/tooltip/3.1.8/5d42e64160fbc6001439e70d/0cef694d-4e56-4141-924f-b34954036079.png?w=300&h=200&fit=fillmax&fm=webp',
+          title: 'xy-detail',
+          name: '工作流详情',
+          btn: {
+            test: true,
+            set: true,
+          },
+        },
+        {
+          picUrl:
+            'https://screenshots.imgix.net/primefaces/primereact/tooltip/3.1.8/5d42e64160fbc6001439e70d/0cef694d-4e56-4141-924f-b34954036079.png?w=300&h=200&fit=fillmax&fm=webp',
+          title: 'xy-detail',
+          name: '工作流详情',
+          btn: {
+            test: true,
+            set: true,
+          },
+        },
       ],
       pageSizeOptions: ['10', '20', '30', '40', '50'],
       current: 1,
@@ -123,6 +153,15 @@ export default {
 /deep/ .ant-input-affix-wrapper .ant-input-prefix,
 .ant-input-affix-wrapper .ant-input-suffix {
   color: #c2c2c2;
+}
+/deep/ .ant-tabs  {
+  .ant-col-8 {
+    padding-right: 16px;
+    margin-bottom: 16px;
+    &:nth-child( 3n ) {
+      padding-right: 0px;
+    }
+  }
 }
 .p16 {
   padding: 16px;
@@ -199,7 +238,8 @@ export default {
 }
 .page {
   position: absolute;
+  text-align: right;
+  bottom: 68px;
   right: 48px;
-  bottom: 58px;
 }
 </style>
