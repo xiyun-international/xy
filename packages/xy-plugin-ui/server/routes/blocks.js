@@ -3,7 +3,6 @@ const router = require('express').Router();
 // 返回 block 组件列表
 router.get('/blocks', function(req, res) {
   const rawBlocks = require('../public/blocks-data.json');
-  console.log(req.query, 'req.query');
 
   // 处理成标准格式数据(建议修改源数据)
   let blocks = [];

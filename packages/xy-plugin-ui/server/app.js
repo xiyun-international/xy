@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
 
-  // routes
+  // routes, 暂时保留 restful 的接口, 暂时别删
   require('./routes/index')(app);
 
   // graphql

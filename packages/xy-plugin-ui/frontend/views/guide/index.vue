@@ -20,8 +20,6 @@
 
 
     <div ref="xterm"></div>
-
-    <!-- <a-button @click='fn'>通过 socket 发送消息 </a-button> -->
   </div>
 </template>
 
@@ -56,7 +54,6 @@ export default {
     initSocket() {
       this.socket = io.connect("http://localhost:3001")
 
-      // 监听服务端的dialog事件
       this.socket.on("task-info",(data) => {
         this.writeTerm(data)
       })
@@ -121,11 +118,6 @@ export default {
         this.term.writeln(str)
       })
     },
-
-    // fn() {
-    //   // 发送一个事件到服务端
-    //   this.socket.emit('dialog','hello from 客户端')
-    // },
   }
 };
 </script>

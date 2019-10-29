@@ -1,5 +1,4 @@
 module.exports = function(app) {
-  const accountApi = require('./account');
   const blockApi = require('./blocks');
 
   // -------------- 查询和变更的定义 --------------
@@ -7,8 +6,6 @@ module.exports = function(app) {
   const QueryType = new GraphQLObjectType({
     name: 'Query',
     fields: {
-      ...accountApi.query,
-      ...accountApi.mutation,
       ...blockApi.query,
       ...blockApi.mutation,
     },

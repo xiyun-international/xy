@@ -40,22 +40,6 @@
         ></tag-select>
       </a-card>
 
-      <!-- <div>已下载的block: </div>
-      <a-card
-        :key="blockIndex"
-        :title="block.name"
-        style="width: 300px"
-        v-for="(block, blockIndex) in downloadedBlocks"
-      >
-        <p>{{ dep.version }}</p>
-      </a-card>-->
-
-      <!-- <a-button
-        :loading="isDownloadBlock"
-        @click="downloadBlock"
-        type="primary"
-      >下载 context 组件</a-button>-->
-
       <div class="content-list">
         <div
           :key="blockIndex"
@@ -130,7 +114,6 @@ export default {
       },
       blocks: [],
 
-      downloadedBlocks: [],
       isDownloadBlock: false,
 
       term: null,
@@ -306,7 +289,6 @@ export default {
     initSocket() {
       this.socket = io.connect("http://localhost:3001")
 
-      // 监听服务端的dialog事件
       this.socket.on("task-info",(data) => {
         this.writeTerm(data)
       })

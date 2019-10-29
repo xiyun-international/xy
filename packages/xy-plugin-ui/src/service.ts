@@ -29,6 +29,7 @@ export default function service(opts: opts, args: Array<any>) {
     process.stdout.write(data);
   });
 
+  // 黑魔法, 暂时别删, 删了window上服务跑不起来
   start.stderr.on('data', data => {
     process.stdout.write(data);
   });
