@@ -5,5 +5,4 @@ module.exports = {
   '/api/b': (req, res) => {
     res.end(JSON.stringify({ b: 1 }));
   },
-  '/api/d': { a: 1 },
 };
