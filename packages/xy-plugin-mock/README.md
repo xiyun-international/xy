@@ -17,11 +17,23 @@ xy add @xiyun/xy-plugin-mock
 ## 示例
 命令如下：
 ```shell
-xy mock <--options>
+xy mock [options]
 ```
-扫描所有 mock 数据文件(默认):
+扫描所有 mock 数据文件(默认)︰
 ```shell
 xy mock
+```
+mock 数据文件格式如下︰
+```shell
+module.exports = {
+  '/api/a': { a: 1 }, // 默认 get 请求
+  'POST /api/a': { a: 1 },
+  '/api/users/:userId': { a: 1 },
+  '/api/b': (req, res) => {
+    res.end(JSON.stringify({ b: 1 }));
+  },
+  '/api/d': { a: 1 },
+};
 ```
 仅扫描符合指定用模板或文件名的 mock 数据文件︰
 ```shell
