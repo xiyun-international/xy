@@ -1,7 +1,6 @@
 <template>
   <div>
     <!-- <div class="banner"></div> -->
-
     <div>当前的 npm包: dependencies:</div>
     <a-card
       :key="depIndex"
@@ -51,10 +50,6 @@ export default {
   mounted() {
     this.initSocket()
     this.initXterm()
-
-    this.$get('test').then((res) => {
-      console.log(res, 'cwdnode')
-    })
   },
 
   methods: {

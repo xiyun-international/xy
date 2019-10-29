@@ -4,17 +4,12 @@ type opts = {};
 export default function service(opts: opts, args: Array<any>) {
   console.log('正在开启 UI 服务');
 
-  console.log(process.cwd(), 'process.cwd() -------------------');
-
-  const env = Object.assign(process.env, {
-    workDir: process.cwd(),
-    _____sss___: 'sss',
-  });
-
-  const start = cp.spawn('npm', ['run', 'serve'], {
+  const start = cp.spawn('npm.cmd', ['run', 'serve'], {
     cwd: __dirname,
     // 将当前的工作目录传递给子进程, 用于操作文件
-    env,
+    env: Object.assign(process.env, {
+      workDir: process.cwd(),
+    }),
   });
 
   start.stdout.on('data', data => {
@@ -30,6 +25,10 @@ export default function service(opts: opts, args: Array<any>) {
     ) {
       return;
     }
+    process.stdout.write(data);
+  });
+
+  start.stderr.on('data', data => {
     process.stdout.write(data);
   });
 }
