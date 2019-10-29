@@ -11,7 +11,7 @@ yarn add @xiyun/cli
 ```
 再执行
 ```shell
-yarn add @xiyun/xy-plugin-mock
+xy add @xiyun/xy-plugin-mock
 ```
 
 ## 示例
