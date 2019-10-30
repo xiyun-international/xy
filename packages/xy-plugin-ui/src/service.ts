@@ -4,8 +4,13 @@ type opts = {};
 export default function service(opts: opts, args: Array<any>) {
   console.log('正在开启 UI 服务');
 
-  const start = cp.spawn('npm', ['run', 'serve'], {
+  const command = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+  const start = cp.spawn(command, ['run', 'serve'], {
     cwd: __dirname,
+    // 将当前的工作目录传递给子进程, 用于操作文件
+    env: Object.assign(process.env, {
+      workDir: process.cwd(),
+    }),
   });
 
   start.stdout.on('data', data => {
@@ -21,6 +26,11 @@ export default function service(opts: opts, args: Array<any>) {
     ) {
       return;
     }
+    process.stdout.write(data);
+  });
+
+  // 黑魔法, 暂时别删, 删了window上服务跑不起来
+  start.stderr.on('data', data => {
     process.stdout.write(data);
   });
 }

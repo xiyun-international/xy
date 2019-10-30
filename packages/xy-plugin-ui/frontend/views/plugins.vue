@@ -69,14 +69,8 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
-
 export default {
   name: 'plugins',
-  components: {
-    HelloWorld,
-  },
   data() {
     return {
       compName: '',
@@ -87,7 +81,7 @@ export default {
         },
         {
           name: '小程序',
-          icon: 'wechat',
+          icon: 'mobile',
         },
       ],
       data: [

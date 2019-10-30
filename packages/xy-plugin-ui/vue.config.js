@@ -6,14 +6,8 @@ module.exports = {
     config.resolve.alias['@'] = path.resolve('frontend');
   },
   devServer: {
-    proxy: {
-      '/ui-ws': {
-        target: 'ws://localhost:8081/',
-        ws: true,
-      },
-    },
-    before: function(app, server) {
-      serverApp(app, server);
+    before: function(app) {
+      serverApp(app);
     },
     open: true,
   },

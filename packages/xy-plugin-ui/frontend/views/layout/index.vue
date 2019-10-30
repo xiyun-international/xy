@@ -7,7 +7,7 @@
         collapsible
         v-model="collapsed"
         >
-        <img src="./logo.png" class="logo" />
+        <img src="../../assets/logo.png" class="logo" />
         <xy-menu />
         <div class="create">
           <a-button shape="circle" icon="plus" />
@@ -17,6 +17,7 @@
       <a-layout>
         <a-layout-content class="content">
           <router-view></router-view>
+          <xy-footer />
         </a-layout-content>
       </a-layout>
     </a-layout>
@@ -56,6 +57,7 @@ export default {
   background: #fff;
   .ant-layout-sider {
     background: #fff;
+    text-align: center;
   }
   .ant-layout-sider-children {
     position: relative;
@@ -63,13 +65,6 @@ export default {
       position: absolute;
       bottom: 20px;
       width: 100%;
-      // .ant-btn-circle {
-      //   width: 48px;
-      //   height: 48px;
-      //   .anticon-plus {
-      //     font-size: 24px;
-      //   }
-      // }
       div {
         font-size: 12px;
         margin-top: 5px;
@@ -93,6 +88,9 @@ export default {
     }
     .bgColor {
       background: #3f3854;
+    }
+    .content {
+      position: relative;
     }
   }
 }

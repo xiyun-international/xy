@@ -1,0 +1,136 @@
+{
+  "antd": [
+    {
+      "name": "context",
+      "title": "内容组件",
+      "categories": [
+        "信息展示"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/context"
+    },
+    {
+      "name": "countdown-button",
+      "title": "倒计时按钮",
+      "categories": [
+        "按钮"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/countdown-button"
+    },
+    {
+      "name": "flow-detail",
+      "title": "审批流详情组件",
+      "categories": [
+        "信息展示"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/flow-detail"
+    },
+    {
+      "name": "iframe",
+      "title": "订购应用",
+      "categories": [
+        "信息展示"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/frame"
+    },
+    {
+      "name": "select-city",
+      "title": "城市多选弹窗",
+      "categories": [
+        "信息展示"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/select-city"
+    },
+    {
+      "name": "sens-text",
+      "title": "敏感文字查看",
+      "categories": [
+        "信息展示"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/sens-text"
+    },
+    {
+      "name": "time-line",
+      "title": "时间轴",
+      "categories": [
+        "信息展示"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/time-line"
+    },
+    {
+      "name": "title",
+      "title": "标题组件",
+      "categories": [
+        "信息展示"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/title"
+    },
+    {
+      "name": "verification",
+      "title": "短信安全验证",
+      "categories": [
+        "验证"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/verification"
+    },
+    {
+      "name": "wrapper",
+      "title": "包裹容器",
+      "categories": [
+        "信息展示"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/wrapper"
+    }
+  ],
+  "ele": [
+    {
+      "name": "verification",
+      "title": "ele - 短信安全验证",
+      "categories": [
+        "验证"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/verification"
+    },
+    {
+      "name": "context",
+      "title": "ele - 内容组件",
+      "categories": [
+        "信息展示"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/context"
+    },
+    {
+      "name": "wrapper",
+      "title": "ele - 包裹容器",
+      "categories": [
+        "信息展示"
+      ],
+      "screenshot": "../../assets/logo.png",
+      "version": "1.0.0",
+      "repository": "https://github.com/xiyun-international/blocks/tree/master/packages/antd/wrapper"
+    }
+  ]
+}

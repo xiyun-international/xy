@@ -2,7 +2,8 @@
   <div>
     <a-menu
       @click="handleClick"
-      :defaultSelectedKeys="['1']"
+      
+      v-model="selectedKeys"
       :openKeys.sync="openKeys"
       theme="dark"
       mode="inline"
@@ -29,13 +30,22 @@ export default {
       openKeys: [],
       menu: [
         {
-        name: '业务组件',
-        icon: 'appstore',
-        url: './plugins',
+          name: '业务组件',
+          icon: 'appstore',
+          url: './block',
         },
+        // {
+        //   name: '依赖',
+        //   icon: 'profile',
+        //   url: './guide',
+        // },
       ],
       collapsed: false,
+      selectedKeys: ['./block'],
     };
+  },
+  created() {
+    this.$router.push('./block');
   },
   methods: {
     handleClick(e) {
@@ -45,6 +55,10 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+/deep/ .ant-menu {
+  text-align: left;
+  padding: 0 15%;
+}
 /deep/ .ant-layout-sider .ant-menu.ant-menu-dark .ant-menu-sub .ant-menu-item {
   padding-left: 53px !important;
 }

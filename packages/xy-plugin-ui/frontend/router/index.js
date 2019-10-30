@@ -1,35 +1,23 @@
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Plugins from '../views/plugins.vue';
-import Layout from '../views/layout/index.vue';
+import Router from 'vue-router';
+import layout from '@/views/layout/index.vue';
+import children from './children';
 
-Vue.use(VueRouter);
+// 解决vue-router3.1+重复路由报错的问题
+const originalPush = Router.prototype.push;
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err);
+};
 
-const routes = [
-  {
-    path: '/',
-    component: Layout,
-    children: [
-      {
-        path: '/plugins',
-        name: 'plugins',
-        component: Plugins,
-      },
-      {
-        path: '/about',
-        name: 'about',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-          import(/* webpackChunkName: "about" */ '../views/About.vue'),
-      },
-    ],
-  },
-];
+Vue.use(Router);
 
-const router = new VueRouter({
-  routes,
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'layout',
+      component: layout,
+      children,
+    },
+  ],
 });
-
-export default router;
