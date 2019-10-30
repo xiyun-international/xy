@@ -48,12 +48,12 @@
           <a href="#">
             <div class="mask">
               <a-row class="info">
-                <a-col :span="11" class="t-LL">
+                <a-col :span="12" class="t-LL">
                   <strong>{{ item.title }}</strong>
                 </a-col>
-                <a-col :span="13">
+                <a-col :span="12">
                   <a-button type="link" icon="download" @click="downloadBlock(item)">下载</a-button>
-                  <a-button type="link" icon="ellipsis">更多信息</a-button>
+                  <a-button type="link" icon="ellipsis" @click="toGit(item.repository)">更多信息</a-button>
                 </a-col>
               </a-row>
             </div>
@@ -269,11 +269,17 @@ export default {
       this.query.categories = categories;
     },
 
+    toGit(repository) {
+      window.open(repository);  
+    },
   },
 };
 </script>
 
 <style lang="less" scoped>
+.home {
+  padding-bottom: 26px
+}
 /deep/ .ant-input {
   border-radius: 30px;
   background: #d5dae647;
@@ -284,11 +290,7 @@ export default {
   color: #c2c2c2;
 }
 /deep/ .ant-col-8 {
-  padding-right: 16px;
-  margin-bottom: 16px;
-  &:nth-child(3n) {
-    padding-right: 0px;
-  }
+  padding: 8px;
 }
 .p16 {
   padding: 16px;
@@ -325,7 +327,7 @@ export default {
 }
 .list-item {
   position: relative;
-  min-height: 100px;
+  height: 350px;
   border: 1px solid #dcdee4;
   border-radius: 6px;
   transition: all 0.25s ease-out;
@@ -335,6 +337,7 @@ export default {
     opacity: 1;
   }
   img {
+    width: 100%;
     margin-top: 6px;
     margin-bottom: 6px;
   }
@@ -377,7 +380,7 @@ export default {
 .page {
   position: absolute;
   text-align: right;
-  bottom: 48px;
+  bottom: 88px;
   right: 48px;
 }
 </style>

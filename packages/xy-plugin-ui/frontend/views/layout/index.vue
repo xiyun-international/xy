@@ -9,10 +9,10 @@
         >
         <img src="../../assets/logo.png" class="logo" />
         <xy-menu />
-        <div class="create">
+        <!-- <div class="create">
           <a-button shape="circle" icon="plus" />
           <div>创建菜单</div>
-        </div>
+        </div> -->
       </a-layout-sider>
       <a-layout>
         <a-layout-content class="content">
@@ -88,9 +88,6 @@ export default {
     }
     .bgColor {
       background: #3f3854;
-    }
-    .content {
-      position: relative;
     }
   }
 }

@@ -72,10 +72,9 @@ export default {
 </script>
 <style lang="less" scoped>
 .footer {
-  flex: auto 0 0;
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
+  position: fixed;
+  bottom: 40px;
+  width: calc(~"100% - 280px");
   z-index: 3;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   .hide-term {
@@ -93,12 +92,7 @@ export default {
     margin-right: 12px;
   }
   .content {
-    display: flex;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-align: center;
-    align-items: center;
-    font-size: 12px;
+    border-bottom-right-radius: 5px;
     height: 26px;
     background: #1d2935;
     color: #fff;
