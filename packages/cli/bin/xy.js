@@ -23,18 +23,23 @@ Object.keys(dependencies).forEach(key => {
 });
 
 // 自动注册插件 2.使用yarn link引入的插件
-const xy = fs.existsSync('node_modules/@xiyun');
+const xy = fs.existsSync(path.resolve('./', 'node_modules', '@xiyun'));
 if (xy) {
-  const xyPkg = fs.readdirSync('./node_modules/@xiyun');
-  Object.keys(xyPkg).forEach(key => {
-    if (xyPkg[key].indexOf('xy-plugin') !== -1) {
-      const xyPlugin = require('@xiyun/' + xyPkg[key]).default;
-      if (pluginList.length > 0) {
-        if (pluginList.indexOf(xyPlugin) == -1) {
-          pluginList.push(xyPlugin);
-        }
-      } else {
-        pluginList.push(xyPlugin);
+  const listKeys = [];
+  pluginList.forEach(plugin => {
+    listKeys.push(plugin.name);
+  });
+  const xyPkg = fs.readdirSync(path.resolve('./', 'node_modules', '@xiyun'));
+  xyPkg.forEach(key => {
+    if (key.indexOf('xy-plugin') !== -1) {
+      const tmpPlugin = require(path.resolve(
+        './',
+        'node_modules',
+        '@xiyun',
+        key,
+      )).default;
+      if (listKeys.indexOf(tmpPlugin.name) === -1) {
+        pluginList.push(tmpPlugin);
       }
     }
   });
@@ -42,14 +47,19 @@ if (xy) {
 
 // 处理外部装载的插件
 module.paths.unshift(path.resolve(userHome, '.xy', 'plugins', 'node_modules'));
-
-// 根据宿主目录，./xy/plugins/packages.json 注入到 Service 中
 const xyPluginPkg = path.resolve(userHome, '.xy', 'plugins', 'package.json');
 if (fs.existsSync(xyPluginPkg)) {
-  const packageContent = require(xyPluginPkg);
-  if (Array.isArray(packageContent.dependencies)) {
-    Object.keys(dependencies).forEach(item => {
-      pluginList.push(require(item).default);
+  const listKeys = [];
+  pluginList.forEach(plugin => {
+    listKeys.push(plugin.name);
+  });
+  const userDependencies = require(xyPluginPkg).dependencies;
+  if (userDependencies) {
+    Object.keys(userDependencies).forEach(item => {
+      const tmpPlugin = require(item).default;
+      if (listKeys.indexOf(tmpPlugin.name) === -1) {
+        pluginList.push(tmpPlugin);
+      }
     });
   }
 }
