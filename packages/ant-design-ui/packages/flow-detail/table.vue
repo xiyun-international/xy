@@ -22,7 +22,7 @@
             :colspan="td.options?td.options.colspan:''"
             :style="td.options?td.options.style:{}"
           >
-            <template v-if="td.type==='text'">{{ td.value }}</template>
+            <span v-if="td.type==='text'" v-html="td.value"></span>
             <template v-if="td.components==='v-viewer'||td.components==='download'">
               <template v-for="(img,imgIndex) in td.value">
                 <div v-viewer :key="imgIndex">

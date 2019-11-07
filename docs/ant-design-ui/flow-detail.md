@@ -38,7 +38,7 @@ export default {
                     [
                     {
                         type: 'text',
-                        value: '业务线',
+                        value: '业务线<br/>业务线',
                         // 选项
                         options: {
                         colspan: 1,
