@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/xy-plugin-upload",
-  "version": "1.3.18",
+  "version": "1.3.19",
   "author": "changwenxia <13522695700@163.com>",
   "license": "ISC",
   "main": "lib/index.js",
