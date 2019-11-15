@@ -1,6 +1,6 @@
 <template>
-  <div class="t-MT10">
-    <a-card v-for="(block,bIndex) in data" :key="bIndex" class="t-MB20 xy-card">
+  <div>
+    <a-card v-for="(block,bIndex) in data" :key="bIndex">
       <template slot="title" v-if="block.info.examin">
         <span :style="getExaminStyle(block.info.examin.status)">
           <a-icon :type="getExaminIcon(block.info.examin.status)" />
@@ -85,10 +85,6 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.xy-card {
-  width: 90%;
-  margin-left: 5%;
-}
 .ant-card-body >div:first-child>.xy-title-wrapper:first-child {
     margin-top: 0;
 }
