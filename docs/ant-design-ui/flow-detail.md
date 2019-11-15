@@ -318,7 +318,7 @@ export default {
                         value: [
                         {
                             name: 'xiyun.jpg',
-                            src: 'http://www.baidu.com/img/baidu_resultlogo@2.png',
+                            src: 'http://media.springernature.com/original/springer-static/image/art:10.1186/s12889-016-3402-5/MediaObjects/12889_2016_3402_Fig3_HTML.gif',
                             desc: '2019-01-23',
                         },
                         {
