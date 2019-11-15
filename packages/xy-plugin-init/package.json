@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/xy-plugin-init",
-  "version": "1.3.17",
+  "version": "1.3.24",
   "description": "> TODO: description",
   "author": "huqiangqiang <huqiangqiang@xiyun.com.cn>",
   "homepage": "https://github.com/xiyun-international/xy#readme",
@@ -24,7 +24,7 @@
     "url": "https://github.com/xiyun-international/xy/issues"
   },
   "dependencies": {
-    "@xiyun/xy-plugin-block": "^1.3.17",
+    "@xiyun/xy-plugin-block": "^1.3.24",
     "chalk": "^2.4.2",
     "signale": "^1.4.0"
   },
