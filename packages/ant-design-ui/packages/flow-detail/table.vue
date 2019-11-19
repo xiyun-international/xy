@@ -95,7 +95,8 @@ export default {
 img {
   cursor: pointer;
   margin: 5px;
-  width: 100px;
+  width: 80px;
+  height: 60px;
   display: inline-block;
 }
 .d-LB {
