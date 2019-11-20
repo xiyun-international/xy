@@ -39,6 +39,7 @@ export default {
     FlowTabs,
     XyTitle,
   },
+
   methods: {
     getFieldType(type) {
       return type === 'table' ? 'flow-table' : 'flow-tabs';
@@ -92,6 +93,12 @@ export default {
   color: rgba(0, 0, 0, 0.65);
   font-weight: unset;
   float: right;
+}
+</style>
+
+<style>
+.viewer-open {
+    overflow: scroll !important;
 }
 </style>
 

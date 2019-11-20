@@ -25,7 +25,7 @@
             <span v-if="td.type==='text'" v-html="td.value"></span>
             <template v-if="td.components==='v-viewer'||td.components==='download'">
               <template v-for="(img,imgIndex) in td.value">
-                <div v-viewer :key="imgIndex" class="d-LB">
+                <div :key="imgIndex" class="d-LB">
                   <img :src="img.src" />
                   <a v-if="td.components==='download'" :href="img.src" style="display: block;">{{ img.name }}</a>
                   <div>{{ img.desc }}</div>
@@ -47,11 +47,6 @@
 </template>
 
 <script>
-import Viewer from 'v-viewer'
-import 'viewerjs/dist/viewer.css'
-import Vue from 'vue'
-Vue.use(Viewer)
-
 import XySensText from '../sens-text';
 
 export default {
