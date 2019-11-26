@@ -27,7 +27,7 @@
               <template v-for="(img,imgIndex) in td.value">
                 <div :key="imgIndex" class="d-LB">
                   <img :src="img.src" />
-                  <a v-if="td.components==='download'" :href="img.src" style="display: block;">{{ img.name }}</a>
+                  <a v-if="td.components==='download'" :href="img.src" style="display: block;" :download="img.name">{{ img.name }}</a>
                   <div>{{ img.desc }}</div>
                 </div>
               </template>
