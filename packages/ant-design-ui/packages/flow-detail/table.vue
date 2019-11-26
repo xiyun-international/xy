@@ -25,9 +25,9 @@
             <span v-if="td.type==='text'" v-html="td.value"></span>
             <template v-if="td.components==='v-viewer'||td.components==='download'">
               <template v-for="(img,imgIndex) in td.value">
-                <div :key="imgIndex" class="d-LB">
+                <div :key="imgIndex" class="d-LB img-block">
                   <img :src="img.src" />
-                  <a v-if="td.components==='download'" :href="img.downloadUrl || img.src" style="display: block;" :download="img.name">
+                  <a v-if="td.components==='download'" :href="img.downloadUrl" style="display: block;" :download="img.name">
                     <a-icon type="download" />
                     {{ img.name }}
                   </a>
@@ -93,9 +93,12 @@ export default {
 img {
   cursor: pointer;
   margin: 5px;
-  width: 80px;
-  height: 60px;
+  width: 100px;
+  height: 80px;
   display: inline-block;
+}
+.img-block {
+  padding: 0 5px;
 }
 .d-LB {
   display:inline-block;
