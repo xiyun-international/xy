@@ -36,11 +36,12 @@
                   <a v-if="td.components === 'download'"
                     :href="img.downloadUrl" style="display: block;"
                     :download="img.name"
+                    :title="img.name"
                   >
                     <a-icon type="download" />
                     {{ img.name }}
                   </a>
-                  <div>{{ img.desc }}</div>
+                  <div :title="img.desc">{{ img.desc }}</div>
                 </div>
               </template>
             </template>
@@ -102,8 +103,6 @@ export default {
 img {
   cursor: pointer;
   margin: 5px;
-  width: 100px;
-  height: 80px;
   display: inline-block;
 }
 
