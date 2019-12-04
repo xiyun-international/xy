@@ -8,7 +8,7 @@
         </span>
         <span class="sub-title">备注：{{ block.info.examin.message }}</span>
       </template>
-      <template slot="title" v-else>
+      <template slot="title" v-if="block.info.title">
           {{ block.info.title }}
           <span class="sub-title">{{ block.info.subTitle }}</span>
       </template>
