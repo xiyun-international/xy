@@ -1,7 +1,7 @@
 'use strict';
 
-const xyPluginUpload = require('..');
+const xyPluginQiniu = require('..');
 
-describe('xy-plugin-upload', () => {
+describe('xy-plugin-qiniu', () => {
   it('needs tests');
 });

@@ -1,5 +1,5 @@
 {
-  "name": "@xiyun/xy-plugin-upload",
+  "name": "@xiyun/xy-plugin-qiniu",
   "version": "1.3.22",
   "license": "ISC",
   "main": "lib/index.js",

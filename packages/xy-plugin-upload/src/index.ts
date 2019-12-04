@@ -1,8 +1,8 @@
 import Upload from './upload';
 
 export default {
-  name: 'xy-plugin-upload',
-  command: 'upload',
+  name: 'xy-plugin-qiniu',
+  command: 'qiniu',
   onRun: async api => {
     const { opts } = api;
     opts['_'].splice(0, 1);
