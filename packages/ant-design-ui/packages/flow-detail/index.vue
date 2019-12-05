@@ -1,16 +1,18 @@
 <template>
   <div>
     <a-card v-for="(block,bIndex) in data" :key="bIndex">
-      <template slot="title" v-if="block.info.examin">
-        <span :style="getExaminStyle(block.info.examin.status)">
-          <a-icon :type="getExaminIcon(block.info.examin.status)" />
-          {{ block.info.examin.text }}
-        </span>
-        <span class="sub-title">备注：{{ block.info.examin.message }}</span>
-      </template>
-      <template slot="title" v-if="block.info.title">
-          {{ block.info.title }}
-          <span class="sub-title">{{ block.info.subTitle }}</span>
+      <template v-if="block.info">
+        <template slot="title" v-if="block.info.examin">
+          <span :style="getExaminStyle(block.info.examin.status)">
+            <a-icon :type="getExaminIcon(block.info.examin.status)" />
+            {{ block.info.examin.text }}
+          </span>
+          <span class="sub-title">备注：{{ block.info.examin.message }}</span>
+        </template>
+        <template slot="title" v-if="block.info.title">
+            {{ block.info.title }}
+            <span class="sub-title">{{ block.info.subTitle }}</span>
+        </template>
       </template>
       <div v-for="patch in block.patchs" :key="patch.tilte">
         <xy-title isShowIcon>{{ patch.title }}</xy-title>
