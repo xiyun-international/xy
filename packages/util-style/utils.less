@@ -9,9 +9,9 @@ each(range(@minWidth, @maxWidth), {
 
 // 文本对齐，示例：.t-TAC
 @textAlign: {
-  tal: left;
-  tac: center;
-  tar: right;
+  TAL: left;
+  TAC: center;
+  TAR: right;
 }
 each(@textAlign, {
   .t-@{key} {
@@ -21,8 +21,8 @@ each(@textAlign, {
 
 // 浮动方式，示例：.t-FL
 @float: {
-  fl: left;
-  fr: right;
+  FL: left;
+  FR: right;
 }
 each(@float, {
   .t-@{key} {
