@@ -43,6 +43,7 @@
                     <a-icon type="download" />
                     {{ img.name }}
                   </a>
+                  <div v-else>{{ img.name }}</div>
                   <div :title="img.desc">{{ img.desc }}</div>
                 </div>
               </template>
