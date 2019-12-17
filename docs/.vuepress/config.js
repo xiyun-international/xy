@@ -102,6 +102,7 @@ module.exports = {
             'verification',
             'select-city',
             'flow-detail',
+            'pic-upload',
           ],
         },
       ],
