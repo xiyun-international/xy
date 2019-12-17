@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .noticeTitle {
   width: 100%;
   color: #f68b7a;

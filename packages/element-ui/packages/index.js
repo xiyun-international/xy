@@ -10,6 +10,7 @@ import XyTransfer from './transfer';
 import XyFrame from './frame';
 import XySelectPanel from './select-panel';
 import XySteps from './steps';
+import XyNotice from './notice';
 
 const components = [
   XyTitle,
@@ -23,6 +24,7 @@ const components = [
   XyFrame,
   XySelectPanel,
   XySteps,
+  XyNotice,
 ];
 
 const install = Vue => {
@@ -50,6 +52,7 @@ export {
   XyFrame,
   XySelectPanel,
   XySteps,
+  XyNotice,
 };
 
 export default {
