@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/element-ui",
-  "version": "1.2.42",
+  "version": "1.3.39",
   "main": "./lib/index.umd.min.js",
   "style": "./lib/index.css",
   "files": [
@@ -11,6 +11,7 @@
   "license": "MIT",
   "repository": "https://github.com/xiyun-international/xy/tree/master/packages/element-ui",
   "dependencies": {
+    "@xiyun/util-style": "^1.3.38",
     "element-ui": "~2.7.2",
     "lodash": "^4.17.11"
   },

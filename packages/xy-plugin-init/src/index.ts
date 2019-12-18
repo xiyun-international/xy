@@ -21,6 +21,8 @@ export default {
     copyFile(sourceFile, target, err => {
       if (!err) {
         signale.success(`${map[filename]} 文件设置成功`);
+      } else {
+        signale.error(err);
       }
     });
   },

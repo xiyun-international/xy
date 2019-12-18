@@ -5,6 +5,7 @@ import pathToRegexp from 'path-to-regexp';
 import { resolve } from 'path';
 import { windowPath } from './utils';
 import glob from 'glob';
+import mockjs from 'mockjs';
 
 const VALID_METHODS = ['post', 'get', 'put', 'patch', 'delete'];
 const BODY_PARSED_METHODS = ['post', 'get', 'put', 'patch', 'delete'];
@@ -27,10 +28,13 @@ function createHandler(method, handler) {
     function sendData() {
       if (typeof handler === 'function') {
         multer().any()(req, res, () => {
-          handler(req, res, next);
+          let result = handler(req, res, next);
+          if (res) {
+            res.json(result);
+          }
         });
       } else {
-        res.json(handler);
+        res.json(mockjs.mock(handler));
       }
     }
   };
@@ -105,6 +109,7 @@ export function getMockConfigFromFiles(files) {
 
 function getMockConfig(opts) {
   const files = getMockFiles(opts);
+
   return getMockConfigFromFiles(files);
 }
 
