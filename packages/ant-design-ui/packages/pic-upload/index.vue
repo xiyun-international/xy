@@ -90,6 +90,7 @@ export default {
     forceDisable: Boolean,
     token: {
       type: String,
+      default: '',
     }
   },
   data() {
