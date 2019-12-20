@@ -48,7 +48,7 @@ export function normalizeConfig(config) {
       type === 'function' || type === 'object',
       `mock value of ${key} should be function or object, but got ${type}`,
     );
-    const { method, path = '**/__mock__/*.[jt]s' } = parseKey(key);
+    const { method, path } = parseKey(key);
     const keys = [];
     const re = pathToRegexp(path, keys);
     memo.push({
