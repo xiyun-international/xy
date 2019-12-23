@@ -19,7 +19,7 @@ xy add @xiyun/xy-plugin-mock
 ```shell
 xy mock [options]
 ```
-扫描所有 mock 数据文件(默认):︰
+扫描所有 mock 数据文件(默认)，默认运行监听模式，mock 文件变化无需重新执行︰
 ```shell
 xy mock
 ```
@@ -32,19 +32,15 @@ module.exports = {
   '/api/b': (req, res) => {
     res.end(JSON.stringify({ b: 1 }));
   },
-   "/random": function () { 
+   "/random": function () {
     return Math.random() < 0.1 ? 1 : 0;
   },
   '/api/w':  {
-    'list|100': [{ 'value|1-100': 50, 'type|0-2': 1 }], // 支持 Mock.js 语法 
+    'list|100': [{ 'value|1-100': 50, 'type|0-2': 1 }], // 支持 Mock.js 语法
   },
 };
 ```
 仅扫描符合指定用模板或文件名的 mock 数据文件︰
 ```shell
 xy mock --path="**/__mock__/a.js"
-```
-运行监听模式，mock 文件变化无需重新执行 xy mock 命令︰
-```shell
-xy mock --watch
 ```

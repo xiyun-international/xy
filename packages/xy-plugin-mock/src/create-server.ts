@@ -17,7 +17,7 @@ interface Options {
 }
 
 export default async function(opts: Options) {
-  const { watch, path = '**/__mock__/**/*.[jt]s' } = opts;
+  const { watch = true, path = '**/__mock__/**/*.[jt]s' } = opts;
 
   const spinner = ora();
   let port = 8999; //固定端口 冲突时会报错
