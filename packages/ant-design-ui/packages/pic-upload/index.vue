@@ -16,7 +16,10 @@
           :headers="{ Authorization: token }"
           @change="handleUploadChange"
         >
-          <div v-if="fileList.length < max" :class="['upload-button', { disabled: forceDisable }]">
+          <div
+            v-if="fileList.length < max"
+            :class="['upload-button', { disabled: forceDisable }]"
+          >
             <i class="icon-plus"></i>
             <span class="btn-txt">点击上传</span>
           </div>
@@ -30,14 +33,22 @@
         </div>
 
         <template v-for="(file, index) in fileList">
-          <div v-if="file.status === 'uploading'" :key="index" class="uploading">
+          <div
+            v-if="file.status === 'uploading'"
+            :key="index"
+            class="uploading"
+          >
             <span>文件上传中</span>
             <div class="progress">
               <div class="bar" :style="{ width: `${file.percent}%` }"></div>
             </div>
           </div>
 
-          <div v-else-if="file.status === 'error'" :key="index" class="file-list">
+          <div
+            v-else-if="file.status === 'error'"
+            :key="index"
+            class="file-list"
+          >
             <div class="error-tip">图片上传失败</div>
             <div class="file-option">
               <span @click="handleRemoveFile(index)">删除</span>
@@ -53,7 +64,11 @@
             />
             <div class="file-option">
               <span @click="handleRemoveFile(index)">删除</span>
-              <a :href="file.middle_src || file.response.data.middle_src" target="_blank">预览</a>
+              <a
+                :href="file.middle_src || file.response.data.middle_src"
+                target="_blank"
+                >预览</a
+              >
             </div>
           </div>
         </template>
@@ -91,7 +106,7 @@ export default {
     token: {
       type: String,
       default: '',
-    }
+    },
   },
   data() {
     return {
@@ -178,17 +193,17 @@ export default {
 
     onUploadDone(file) {
       const idx = _.findIndex(this.fileList, o => o.uid === file.uid);
-      if (file.response.code !== 100000) {
+      if (file.response.code !== 100000 && file.response.code !== 10000) {
         this.fileList[idx].status = 'error';
       } else {
-        const { data = {} } = file.response;
+        const data = file.response.data || file.response.resultObject;
         this.fileList[idx] = {
           ...this.fileList[idx],
           name: file.name,
           image_id: data.image_id,
-          middle_src: data.middle_src,
+          middle_src: data.middle_src || data.url,
           path: data.path,
-          small_src: data.small_src,
+          small_src: data.small_src || data.url,
           status: 'done',
         };
         this.$emit('change', this.fileList);
@@ -344,7 +359,7 @@ export default {
       .a-upload-position {
         position: relative;
         margin-right: 20px;
-        margin-bottom: 20px
+        margin-bottom: 20px;
       }
       .reference {
         font-size: 12px;
