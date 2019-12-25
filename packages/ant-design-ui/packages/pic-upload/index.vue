@@ -206,6 +206,7 @@ export default {
           small_src: data.small_src || data.url,
           status: 'done',
         };
+        this.$emit('done', file);
         this.$emit('change', this.fileList);
       }
     },
