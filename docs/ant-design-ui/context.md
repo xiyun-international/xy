@@ -80,13 +80,44 @@ context 组件分块展示：
 </xy-context>
 ```
 
+#### 代码示例 - 使用 xy-context-item
+
+```html
+<xy-context
+    :breadcrumb="[
+      { name: '服务商中心'},
+      { name: '协作费管理', path: ''},
+      { name: '账单详情' }
+    ]"
+    title="账单详情"
+    tag="审核中"
+    :tag-status="5"
+  >
+    <xy-context-item title="概览图">
+      概览图数据
+    <xy-context-item>
+    <xy-context-item title="项目验收信息">
+      项目验收信息
+    <xy-context-item>
+    <xy-context-item title="操作日志">
+      项目验收信息
+    </xy-context-item>
+</xy-context>
+```
+
 #### API
 
 | 属性 | 类型 | 说明 | 默认值 |
-| ------| ------ | ------ | :------: |
+| --- | --- | --- | :-: |
 | breadcrumb | Array | 面包屑数据 | [] |
 | title | String | 如果不提供 title，则默认会读取面包屑最后一项作为标题 | '' |
-| tag | String | 出现在标题右侧的tag | '' |
-| tagStatus | Number | 表示tag状态，可选值有2，3，5 | 0 |
+| tag | String | 出现在标题右侧的 tag | '' |
+| tagStatus | Number | 表示 tag 状态，可选值有 2，3，5 | 0 |
 | slot | VNode | 组件内容 | 无 |
 | slot="right" | VNode | 标题右侧内容 | 无 |
+
+#### API - xy-context-item
+
+| 属性 | 类型 | 说明 | 默认值 |
+| --- | --- | --- | :-: |
+| title | String | 标题 | '' |
