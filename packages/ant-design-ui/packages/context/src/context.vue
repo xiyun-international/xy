@@ -4,9 +4,9 @@
       <template v-if="isHasBreadcrumb">
         <a-breadcrumb class="breadcrumb">
           <a-breadcrumb-item v-for="item in breadcrumb" :key="item.name">
-            <router-link v-if="item.path" :to="item.path">{{
-              item.name
-            }}</router-link>
+            <router-link v-if="item.path" :to="item.path">
+              {{ item.name }}
+            </router-link>
             <span v-else>{{ item.name }}</span>
           </a-breadcrumb-item>
         </a-breadcrumb>
