@@ -6,6 +6,7 @@ import XyCountdownButton from './countdown-button/index';
 import XySensText from './sens-text/index';
 import XyVerification from './verification/index';
 import XyContext from './context/index';
+import XyContextItem from './context-item/index';
 import XyFrame from './frame/index';
 import XySelectCity from './select-city/index';
 import XyFlowDetail from './flow-detail/index';
@@ -19,6 +20,7 @@ const components = [
   XySensText,
   XyVerification,
   XyContext,
+  XyContextItem,
   XyFrame,
   XySelectCity,
   XyFlowDetail,
@@ -46,6 +48,7 @@ export {
   XySensText,
   XyVerification,
   XyContext,
+  XyContextItem,
   XyFrame,
   XySelectCity,
   XyFlowDetail,

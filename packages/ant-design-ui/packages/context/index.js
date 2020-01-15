@@ -1,6 +1,6 @@
-import XyContext from './index.vue';
+import XyContext from './src/context.vue';
 
-XyContext.install = function (Vue) {
+XyContext.install = function(Vue) {
   Vue.component(XyContext.name, XyContext);
 };
 

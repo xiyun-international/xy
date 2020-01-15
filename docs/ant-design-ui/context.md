@@ -8,7 +8,7 @@
 
 使用 context 组件后，你只需要关心内容的展现，无需再写面包屑，标题等样式：
 
-<div style="background: #EDF0F4; border: 1px solid #ccc;height: 500px;">
+<div style="background: #EDF0F4; border: 1px solid #ccc;height: 800px;">
   <antd-xy-context
     :breadcrumb="[
       { name: '服务商中心'},
@@ -25,6 +25,31 @@
     <div slot="right">
       <a-button type="primary">打印账单</a-button>
     </div>
+  </antd-xy-context>
+</div>
+
+context 组件分块展示：
+
+<div style="background: #EDF0F4; border: 1px solid #ccc;height: 600px;">
+  <antd-xy-context
+    :breadcrumb="[
+      { name: '服务商中心'},
+      { name: '协作费管理', path: ''}, 
+      { name: '账单详情' }
+    ]"
+    title="账单详情"
+    tag="审核中"
+    :tag-status="5"
+  >
+    <antd-xy-context-item title="概览图">
+      概览图数据
+    </antd-xy-context-item>
+    <antd-xy-context-item title="项目验收信息">
+      项目验收信息
+    </antd-xy-context-item>
+    <antd-xy-context-item title="操作日志">
+      项目验收信息
+    </antd-xy-context-item>
   </antd-xy-context>
 </div>
 

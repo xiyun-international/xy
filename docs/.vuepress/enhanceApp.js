@@ -20,6 +20,7 @@ import {
   XySensText as AntdXySensText,
   XyVerification as AntdXyVerification,
   XyContext as AntdXyContext,
+  XyContextItem as AntdXyContextItem,
   XyFrame as AntdXyFrame,
   XySelectCity as AntdXySelectCity,
   XyFlowDetail as AntdXyFlowDetail,
@@ -50,6 +51,7 @@ export default ({ Vue }) => {
   Vue.component('AntdXySensText', AntdXySensText);
   Vue.component('AntdXyVerification', AntdXyVerification);
   Vue.component('AntdXyContext', AntdXyContext);
+  Vue.component('AntdXyContextItem', AntdXyContextItem);
   Vue.component('AntdXyFrame', AntdXyFrame);
   Vue.component('AntdXySelectCity', AntdXySelectCity);
   Vue.component('AntdXyFlowDetail', AntdXyFlowDetail);

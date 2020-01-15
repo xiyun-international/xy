@@ -34,6 +34,10 @@ export default {
       type: String,
       default: '#20a0ff',
     },
+    top: {
+      type: Boolean,
+      default: false,
+    },
     noTopMargin: {
       type: Boolean,
       default: false,
@@ -51,7 +55,7 @@ export default {
       return this.large ? 'large-title' : 'small-title';
     },
     noTopMarginClass() {
-      return this.noTopMargin ? 'no-top-margin' : '';
+      return this.noTopMargin || this.top ? 'no-top-margin' : '';
     },
     isHasSubTitle() {
       return this.subTitle !== '';
@@ -61,7 +65,7 @@ export default {
 </script>
 <style scoped lang="less">
   .xy-title-wrapper {
-    margin: 24px 0;
+    margin: 20px 0;
     overflow: hidden;
     .xy-title {
       display: inline-block;
@@ -78,20 +82,20 @@ export default {
     }
     .xy-sub-title {
       font-size: 12px;
-      color: rgb(156, 156, 156);
+      color: #000000;
       font-weight: 400;
       margin-left: 8px;
     }
     .xy-title-icon {
-      padding-left: 13px;
+      padding-left: 8px;
       &::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
-        width: 5px;
+        width: 2px;
         height: 100%;
-        background: #20a0ff;
+        background: #20A0FF;
       }
     }
     .xy-title-right {
