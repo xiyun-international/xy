@@ -7,6 +7,12 @@
             <router-link v-if="item.path" :to="item.path">
               {{ item.name }}
             </router-link>
+            <span v-else-if="item.href" @click="onClick(item)">
+              {{ item.name }}
+            </span>
+            <span v-else-if="item.handler" @click="onClick(item)">
+              {{ item.name }}
+            </span>
             <span v-else>{{ item.name }}</span>
           </a-breadcrumb-item>
         </a-breadcrumb>
@@ -107,6 +113,21 @@ export default {
       });
 
       this.isRenderItem = isRenderItem;
+    },
+
+    /**
+     * 针对 iFrame 情况，点击面包屑直接 location.href 地址
+     *
+     * 1. href 如果指定，优先级最大；其次才是 handler；
+     */
+    onClick(item) {
+      if (item.href && this.$xy) {
+        window.location.href = this.$xy.components.context.href + item.href;
+      } else {
+        if (item.handler && typeof item.handler === 'function') {
+          item.handler();
+        }
+      }
     },
   },
 };
