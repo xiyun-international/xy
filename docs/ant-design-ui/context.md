@@ -34,8 +34,9 @@ context 组件分块展示：
   <antd-xy-context
     :breadcrumb="[
       { name: '服务商中心'},
-      { name: 'iFrame 跳转到其它项目', path: '', href: '/customer/list' }, 
-      { name: '事件', path: '', handler: () => '123' }, 
+      { name: '路径跳转', path: '/shop/list' }, 
+      { name: 'iFrame 跳转到其它项目', href: '/customer/list' }, 
+      { name: '自定义事件', path: '', handler: () => '123' }, 
       { name: '账单详情' }
     ]"
     title="账单详情"
@@ -87,7 +88,9 @@ context 组件分块展示：
 <xy-context
     :breadcrumb="[
       { name: '服务商中心'},
-      { name: '协作费管理', path: ''},
+      { name: '路径跳转', path: '/shop/list' }, 
+      { name: 'iFrame 跳转到其它项目', href: '/customer/list' }, 
+      { name: '自定义事件', path: '', handler: () => '123' },
       { name: '账单详情' }
     ]"
     title="账单详情"

@@ -4,15 +4,15 @@
       <template v-if="isHasBreadcrumb">
         <a-breadcrumb class="breadcrumb">
           <a-breadcrumb-item v-for="item in breadcrumb" :key="item.name">
-            <router-link v-if="item.path" :to="item.path">
+            <span v-if="item.href" @click="onHref(item)">
+              {{ item.name }}
+            </span>
+            <span v-else-if="item.handler" @click="onHandler(item)">
+              {{ item.name }}
+            </span>
+            <router-link v-else-if="item.path" :to="item.path">
               {{ item.name }}
             </router-link>
-            <span v-else-if="item.href" @click="onClick(item)">
-              {{ item.name }}
-            </span>
-            <span v-else-if="item.handler" @click="onClick(item)">
-              {{ item.name }}
-            </span>
             <span v-else>{{ item.name }}</span>
           </a-breadcrumb-item>
         </a-breadcrumb>
@@ -117,16 +117,19 @@ export default {
 
     /**
      * 针对 iFrame 情况，点击面包屑直接 location.href 地址
-     *
-     * 1. href 如果指定，优先级最大；其次才是 handler；
      */
-    onClick(item) {
+    onHref(item) {
       if (item.href && this.$xy) {
         window.location.href = this.$xy.components.context.href + item.href;
-      } else {
-        if (item.handler && typeof item.handler === 'function') {
-          item.handler();
-        }
+      }
+    },
+
+    /**
+     * 点击面包屑自定义事件
+     */
+    onHandler(item) {
+      if (item.handler && typeof item.handler === 'function') {
+        item.handler();
       }
     },
   },
