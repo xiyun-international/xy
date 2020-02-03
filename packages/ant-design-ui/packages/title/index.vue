@@ -3,6 +3,9 @@
     <div class="xy-title" :class="[iconClass, sizeClass]">
       <slot></slot>
       <span v-if="isHasSubTitle" class="xy-sub-title">{{subTitle}}</span>
+      <div v-else class="xy-sub-title">
+        <slot name="sub-title"></slot>
+      </div>
     </div>
     <div class="xy-title-right">
       <slot name="right"></slot>
@@ -81,8 +84,8 @@ export default {
       vertical-align: sub;
     }
     .xy-sub-title {
+      display: inline;
       font-size: 12px;
-      color: #000000;
       font-weight: 400;
       margin-left: 8px;
     }
