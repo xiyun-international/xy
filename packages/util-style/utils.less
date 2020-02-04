@@ -19,6 +19,30 @@ each(@textAlign, {
   }
 })
 
+// 常规色列表
+@fontColors: {
+  0: #000;
+  3: #333;
+  4: #444;
+  5: #555;
+  6: #666;
+  7: #777;
+  8: #888;
+  9: #999;
+  a: #aaa;
+  b: #bbb;
+  c: #ccc;
+  d: #ddd;
+  e: #eee;
+  f: #fff;
+}
+
+each(@fontColors, {
+  .t-FC@{key} {
+    color: @value;
+  }
+})
+
 // 浮动方式，示例：.t-FL
 @float: {
   FL: left;
