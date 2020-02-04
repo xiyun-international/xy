@@ -19,7 +19,7 @@ each(@textAlign, {
   }
 })
 
-// 常规色列表
+// 字体常规色
 @fontColors: {
   0: #000;
   3: #333;
@@ -40,6 +40,30 @@ each(@textAlign, {
 each(@fontColors, {
   .t-FC@{key} {
     color: @value;
+  }
+})
+
+// 背景常规色
+@backgroundColors: {
+  0: #000;
+  3: #333;
+  4: #444;
+  5: #555;
+  6: #666;
+  7: #777;
+  8: #888;
+  9: #999;
+  a: #aaa;
+  b: #bbb;
+  c: #ccc;
+  d: #ddd;
+  e: #eee;
+  f: #fff;
+}
+
+each(@backgroundColors, {
+  .t-BC@{key} {
+    background-color: @value;
   }
 })
 
