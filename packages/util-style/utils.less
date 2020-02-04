@@ -67,6 +67,15 @@ each(@backgroundColors, {
   }
 })
 
+@fontSizes:0,12,14,16,18,20,22,24,26,28,30;
+each(@fontSizes, {
+  .t-FS@{value} {
+    font-size: (@value * 1px);
+  }
+})
+
+
+
 // 浮动方式，示例：.t-FL
 @float: {
   FL: left;
