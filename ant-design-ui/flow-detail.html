@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>flow-detail 审批流详情组件 | 禧云前端生态</title>
+    <meta name="description" content="让禧云的 ISV 合作伙伴只需专注于业务">
+    <link rel="icon" href="favicon.ico">
+    
+    <link rel="preload" href="/xy/assets/css/0.styles.41ee7fad.css" as="style"><link rel="preload" href="/xy/assets/js/app.19409720.js" as="script"><link rel="preload" href="/xy/assets/js/2.3408ee05.js" as="script"><link rel="preload" href="/xy/assets/js/16.d2acc50a.js" as="script"><link rel="prefetch" href="/xy/assets/js/10.91a89609.js"><link rel="prefetch" href="/xy/assets/js/11.a14f23b1.js"><link rel="prefetch" href="/xy/assets/js/12.8c5eacd4.js"><link rel="prefetch" href="/xy/assets/js/13.fbd81dc7.js"><link rel="prefetch" href="/xy/assets/js/14.63ce9d09.js"><link rel="prefetch" href="/xy/assets/js/15.cbfbe143.js"><link rel="prefetch" href="/xy/assets/js/17.492130e4.js"><link rel="prefetch" href="/xy/assets/js/18.0151933c.js"><link rel="prefetch" href="/xy/assets/js/19.ec1d3891.js"><link rel="prefetch" href="/xy/assets/js/20.d4bb6310.js"><link rel="prefetch" href="/xy/assets/js/21.fdca4595.js"><link rel="prefetch" href="/xy/assets/js/22.5f5a44d9.js"><link rel="prefetch" href="/xy/assets/js/23.d8e0d891.js"><link rel="prefetch" href="/xy/assets/js/24.56cf6cae.js"><link rel="prefetch" href="/xy/assets/js/25.35c56093.js"><link rel="prefetch" href="/xy/assets/js/26.77e7f9ee.js"><link rel="prefetch" href="/xy/assets/js/27.f74ae9c0.js"><link rel="prefetch" href="/xy/assets/js/28.5b0aa75a.js"><link rel="prefetch" href="/xy/assets/js/29.6c41f431.js"><link rel="prefetch" href="/xy/assets/js/3.fa22502c.js"><link rel="prefetch" href="/xy/assets/js/30.c9e0990c.js"><link rel="prefetch" href="/xy/assets/js/31.882425ee.js"><link rel="prefetch" href="/xy/assets/js/32.9e9093f8.js"><link rel="prefetch" href="/xy/assets/js/33.e4915843.js"><link rel="prefetch" href="/xy/assets/js/34.e9e9bbdb.js"><link rel="prefetch" href="/xy/assets/js/35.1ac030ea.js"><link rel="prefetch" href="/xy/assets/js/36.59176dd2.js"><link rel="prefetch" href="/xy/assets/js/37.67201ad0.js"><link rel="prefetch" href="/xy/assets/js/38.34c3f247.js"><link rel="prefetch" href="/xy/assets/js/39.08e7e03d.js"><link rel="prefetch" href="/xy/assets/js/4.7beb8d8b.js"><link rel="prefetch" href="/xy/assets/js/40.6aeb4009.js"><link rel="prefetch" href="/xy/assets/js/41.2e4c009c.js"><link rel="prefetch" href="/xy/assets/js/42.24c29086.js"><link rel="prefetch" href="/xy/assets/js/43.7117ddd7.js"><link rel="prefetch" href="/xy/assets/js/44.6391d9f4.js"><link rel="prefetch" href="/xy/assets/js/45.73de1176.js"><link rel="prefetch" href="/xy/assets/js/46.c31982a9.js"><link rel="prefetch" href="/xy/assets/js/47.daab8682.js"><link rel="prefetch" href="/xy/assets/js/48.18b560a1.js"><link rel="prefetch" href="/xy/assets/js/49.8955daa1.js"><link rel="prefetch" href="/xy/assets/js/5.f66fd57c.js"><link rel="prefetch" href="/xy/assets/js/50.3d4a8649.js"><link rel="prefetch" href="/xy/assets/js/51.be293397.js"><link rel="prefetch" href="/xy/assets/js/52.f25055aa.js"><link rel="prefetch" href="/xy/assets/js/53.01f21537.js"><link rel="prefetch" href="/xy/assets/js/54.26d8e986.js"><link rel="prefetch" href="/xy/assets/js/55.b0b5ddc6.js"><link rel="prefetch" href="/xy/assets/js/56.5ca8772c.js"><link rel="prefetch" href="/xy/assets/js/57.bbe23343.js"><link rel="prefetch" href="/xy/assets/js/58.1e816bed.js"><link rel="prefetch" href="/xy/assets/js/6.4d8e3c7e.js"><link rel="prefetch" href="/xy/assets/js/7.0ed3a88d.js"><link rel="prefetch" href="/xy/assets/js/8.7de242a4.js"><link rel="prefetch" href="/xy/assets/js/9.e2f648c0.js">
+    <link rel="stylesheet" href="/xy/assets/css/0.styles.41ee7fad.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/xy/" class="home-link router-link-active"><!----> <span class="site-name">禧云前端生态</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/xy/guide/" class="nav-link">指南</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="生态系统" class="dropdown-title"><span class="title">生态系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/xy/cli/" class="nav-link">@xiyun/cli</a></li><li class="dropdown-item"><!----> <a href="/xy/utils/" class="nav-link">@xiyun/utils</a></li><li class="dropdown-item"><!----> <a href="/xy/style/" class="nav-link">底层样式</a></li><li class="dropdown-item"><!----> <a href="/xy/element-ui/" class="nav-link">Element UI 组件</a></li><li class="dropdown-item"><!----> <a href="/xy/ant-design-ui/" class="nav-link router-link-active">Ant Design UI 组件</a></li></ul></div></div><div class="nav-item"><a href="/xy/contribute/" class="nav-link">参与贡献</a></div><div class="nav-item"><a href="https://github.com/xiyun-international" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/xy/guide/" class="nav-link">指南</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="生态系统" class="dropdown-title"><span class="title">生态系统</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/xy/cli/" class="nav-link">@xiyun/cli</a></li><li class="dropdown-item"><!----> <a href="/xy/utils/" class="nav-link">@xiyun/utils</a></li><li class="dropdown-item"><!----> <a href="/xy/style/" class="nav-link">底层样式</a></li><li class="dropdown-item"><!----> <a href="/xy/element-ui/" class="nav-link">Element UI 组件</a></li><li class="dropdown-item"><!----> <a href="/xy/ant-design-ui/" class="nav-link router-link-active">Ant Design UI 组件</a></li></ul></div></div><div class="nav-item"><a href="/xy/contribute/" class="nav-link">参与贡献</a></div><div class="nav-item"><a href="https://github.com/xiyun-international" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>开发指南</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/xy/ant-design-ui/" class="sidebar-link">快速上手</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>基础组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/xy/ant-design-ui/title.html" class="sidebar-link">title 标题</a></li><li><a href="/xy/ant-design-ui/wrapper.html" class="sidebar-link">wrapper 包裹容器</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>业务组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/xy/ant-design-ui/context.html" class="sidebar-link">context 内容包裹组件</a></li><li><a href="/xy/ant-design-ui/frame.html" class="sidebar-link">frame 订购应用</a></li><li><a href="/xy/ant-design-ui/timeline.html" class="sidebar-link">time-line 时间轴</a></li><li><a href="/xy/ant-design-ui/countdown.html" class="sidebar-link">countdown 倒计时按钮</a></li><li><a href="/xy/ant-design-ui/sens-text.html" class="sidebar-link">sens-text 敏感文字查看</a></li><li><a href="/xy/ant-design-ui/verification.html" class="sidebar-link">verification 短信安全验证组件</a></li><li><a href="/xy/ant-design-ui/select-city.html" class="sidebar-link">select-city 城市多选弹窗</a></li><li><a href="/xy/ant-design-ui/flow-detail.html" class="active sidebar-link">flow-detail 审批流详情组件</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/xy/ant-design-ui/pic-upload.html" class="sidebar-link">pic-upload 上传图片</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="flow-detail-审批流详情组件"><a href="#flow-detail-审批流详情组件" class="header-anchor">#</a> flow-detail 审批流详情组件</h3> <h4 id="概述"><a href="#概述" class="header-anchor">#</a> 概述</h4> <p>审批流详情组件是根据一定的数据自动生成当前审批节点详情页的一个组件。</p> <h4 id="组件示例"><a href="#组件示例" class="header-anchor">#</a> 组件示例</h4> <div data-v-73e4af76><div class="ant-card ant-card-bordered" data-v-73e4af76><div class="ant-card-head"><div class="ant-card-head-wrapper"><div class="ant-card-head-title"><span style="color:#faad14;" data-v-73e4af76><i aria-label="icon: exclamation-circle" class="anticon anticon-exclamation-circle" data-v-73e4af76 data-v-73e4af76><svg viewBox="64 64 896 896" data-icon="exclamation-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" data-v-73e4af76><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 688a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"></path></svg></i>
+          当前状态：待审批
+        </span> <span class="sub-title" data-v-73e4af76>备注：营业执照照片不符合要求</span>
+          邯郸二中 
+          <span class="sub-title" data-v-73e4af76>项目编号：201906186844</span></div></div></div><div class="ant-card-body">  <div data-v-73e4af76><div class="xy-title-wrapper" data-v-32629c0a data-v-73e4af76><div class="xy-title xy-title-icon small-title" data-v-32629c0a>项目基本信息 <div class="xy-sub-title" data-v-32629c0a></div></div> <div class="xy-title-right" data-v-32629c0a></div></div> <div class="ant-table" data-v-0ae01d61 data-v-73e4af76><table data-v-0ae01d61><!----> <tbody class="ant-table-tbody" data-v-0ae01d61><tr class="ant-table-row ant-table-row-level-0" data-v-0ae01d61><td colspan="1" style="font-weight:bold;" data-v-0ae01d61><span data-v-0ae01d61>业务线<br/>业务线</span> <!----> <!----></td><td colspan="3" data-v-0ae01d61><span data-v-0ae01d61>中学事业部</span> <!----> <!----></td></tr><tr class="ant-table-row ant-table-row-level-0" data-v-0ae01d61><td colspan="1" style="font-weight:bold;" data-v-0ae01d61><span data-v-0ae01d61>餐饮中心名称</span> <!----> <!----></td><td colspan="1" data-v-0ae01d61><span data-v-0ae01d61>232323hj-223	</span> <!----> <!----></td><td colspan="1" style="font-weight:bold;" data-v-0ae01d61><span data-v-0ae01d61>联系人手机号</span> <!----> <!----></td><td colspan="1" data-v-0ae01d61><!----> <!----> <div class="sens-text-wrapper" data-v-15fcd26a data-v-0ae01d61><span data-v-15fcd26a>182****2083</span> <div class="icon-container" data-v-15fcd26a><svg t="1565244511956" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="672" data-spm-anchor-id="a313x.7781069.0.i1" width="200" height="200" class="eye" style="color:#20A0FF;" data-v-15fcd26a><path d="M941.677 391.71c9.338-14.006 6.225-32.681-6.225-43.575-14.006-10.894-32.681-7.781-43.575 6.225-1.557 1.556-174.3 205.426-379.728 205.426-199.2 0-379.727-205.426-381.283-206.982-10.895-12.45-31.125-14.006-43.576-3.113-12.45 10.894-14.006 31.125-3.113 43.576 3.113 4.668 40.463 46.687 99.6 93.375l-79.37 82.482c-12.45 12.45-10.893 32.681 1.557 43.575 3.113 6.225 10.894 9.338 18.676 9.338 7.78 0 15.562-3.113 21.787-9.338l85.594-88.706c40.463 28.013 88.707 54.47 141.62 73.144l-32.682 110.495c-4.668 17.118 4.67 34.237 21.788 38.906h9.337c14.006 0 26.457-9.338 29.569-23.344l32.681-110.495c24.9 4.669 51.357 7.782 77.813 7.782s52.913-3.113 77.814-7.782l32.68 108.939c3.114 14.006 17.12 23.343 29.57 23.343 3.113 0 6.225 0 7.782-1.556 17.118-4.67 26.456-21.787 21.788-38.906L649.099 595.58c52.914-18.676 101.157-45.132 141.62-73.144l84.038 87.15c6.225 6.225 14.006 9.338 21.787 9.338 7.781 0 15.563-3.113 21.787-9.337 12.45-12.451 12.45-31.125 1.557-43.576l-79.37-82.481c63.808-46.689 101.16-91.82 101.16-91.82z" p-id="673" fill="#409EFF" data-spm-anchor-id="a313x.7781069.0.i2" data-v-15fcd26a></path></svg></div></div></td></tr><tr class="ant-table-row ant-table-row-level-0" data-v-0ae01d61><td colspan="1" style="font-weight:bold;" data-v-0ae01d61><span data-v-0ae01d61>餐饮中心名称</span> <!----> <!----></td><td colspan="1" data-v-0ae01d61><span data-v-0ae01d61>232323hj	</span> <!----> <!----></td><td colspan="1" style="font-weight:bold;" data-v-0ae01d61><span data-v-0ae01d61>联系人手机号</span> <!----> <!----></td><td colspan="1" data-v-0ae01d61><!----> <!----> <div class="sens-text-wrapper" data-v-15fcd26a data-v-0ae01d61><span data-v-15fcd26a>183****3288</span> <div class="icon-container" data-v-15fcd26a><svg t="1565244511956" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="672" data-spm-anchor-id="a313x.7781069.0.i1" width="200" height="200" class="eye" style="color:#20A0FF;" data-v-15fcd26a><path d="M941.677 391.71c9.338-14.006 6.225-32.681-6.225-43.575-14.006-10.894-32.681-7.781-43.575 6.225-1.557 1.556-174.3 205.426-379.728 205.426-199.2 0-379.727-205.426-381.283-206.982-10.895-12.45-31.125-14.006-43.576-3.113-12.45 10.894-14.006 31.125-3.113 43.576 3.113 4.668 40.463 46.687 99.6 93.375l-79.37 82.482c-12.45 12.45-10.893 32.681 1.557 43.575 3.113 6.225 10.894 9.338 18.676 9.338 7.78 0 15.562-3.113 21.787-9.338l85.594-88.706c40.463 28.013 88.707 54.47 141.62 73.144l-32.682 110.495c-4.668 17.118 4.67 34.237 21.788 38.906h9.337c14.006 0 26.457-9.338 29.569-23.344l32.681-110.495c24.9 4.669 51.357 7.782 77.813 7.782s52.913-3.113 77.814-7.782l32.68 108.939c3.114 14.006 17.12 23.343 29.57 23.343 3.113 0 6.225 0 7.782-1.556 17.118-4.67 26.456-21.787 21.788-38.906L649.099 595.58c52.914-18.676 101.157-45.132 141.62-73.144l84.038 87.15c6.225 6.225 14.006 9.338 21.787 9.338 7.781 0 15.563-3.113 21.787-9.337 12.45-12.451 12.45-31.125 1.557-43.576l-79.37-82.481c63.808-46.689 101.16-91.82 101.16-91.82z" p-id="673" fill="#409EFF" data-spm-anchor-id="a313x.7781069.0.i2" data-v-15fcd26a></path></svg></div></div></td></tr></tbody></table></div></div><div data-v-73e4af76><div class="xy-title-wrapper" data-v-32629c0a data-v-73e4af76><div class="xy-title xy-title-icon small-title" data-v-32629c0a>变更汇总表 <div class="xy-sub-title" data-v-32629c0a></div></div> <div class="xy-title-right" data-v-32629c0a></div></div> <div class="ant-table" data-v-0ae01d61 data-v-73e4af76><table data-v-0ae01d61><thead class="ant-table-thead" data-v-0ae01d61><tr data-v-0ae01d61><th colspan="1" data-v-0ae01d61>
+          设备及配件
+        </th><th colspan="1" data-v-0ae01d61>
+          变更前
+        </th><th colspan="1" data-v-0ae01d61>
+          变更后
+        </th><th colspan="1" data-v-0ae01d61>
+          本次变更内容
+        </th></tr></thead> <tbody class="ant-table-tbody" data-v-0ae01d61><tr class="ant-table-row ant-table-row-level-0" data-v-0ae01d61><td colspan="1" data-v-0ae01d61><span data-v-0ae01d61>设备1</span> <!----> <!----></td><td colspan="1" data-v-0ae01d61><span data-v-0ae01d61>D : 3</span> <!----> <!----></td><td colspan="1" data-v-0ae01d61><span data-v-0ae01d61>D : 5</span> <!----> <!----></td><td colspan="1" data-v-0ae01d61><span data-v-0ae01d61>D : +2</span> <!----> <!----></td></tr><tr class="ant-table-row ant-table-row-level-0" data-v-0ae01d61><td colspan="1" data-v-0ae01d61><span data-v-0ae01d61>设备2</span> <!----> <!----></td><td colspan="1" data-v-0ae01d61><span data-v-0ae01d61>D : 3</span> <!----> <!----></td><td colspan="1" data-v-0ae01d61><span data-v-0ae01d61>D : 5</span> <!----> <!----></td><td colspan="1" data-v-0ae01d61><span data-v-0ae01d61>D : +2</span> <!----> <!----></td></tr></tbody></table></div></div><div data-v-73e4af76><div class="xy-title-wrapper" data-v-32629c0a data-v-73e4af76><div class="xy-title xy-title-icon small-title" data-v-32629c0a>tap多页 <div class="xy-sub-title" data-v-32629c0a></div></div> <div class="xy-title-right" data-v-32629c0a></div></div> <div class="ant-tabs ant-tabs-top ant-tabs-line" data-v-73e4af76><div role="tablist" tabIndex="0" class="ant-tabs-bar ant-tabs-top-bar"><div class="ant-tabs-nav-container"><span unselectable="unselectable" class="ant-tabs-tab-prev ant-tabs-tab-btn-disabled"><span class="ant-tabs-tab-prev-icon"><i aria-label="icon: left" class="ant-tabs-tab-prev-icon-target anticon anticon-left"><svg viewBox="64 64 896 896" data-icon="left" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"></path></svg></i></span></span><span unselectable="unselectable" class="ant-tabs-tab-next ant-tabs-tab-btn-disabled"><span class="ant-tabs-tab-next-icon"><i aria-label="icon: right" class="ant-tabs-tab-next-icon-target anticon anticon-right"><svg viewBox="64 64 896 896" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path></svg></i></span></span><div class="ant-tabs-nav-wrap"><div class="ant-tabs-nav-scroll"><div class="ant-tabs-nav ant-tabs-nav-animated"><div><div role="tab" aria-disabled="false" aria-selected="true" class="ant-tabs-tab-active ant-tabs-tab">tab1</div><div role="tab" aria-disabled="false" aria-selected="false" class=" ant-tabs-tab">tab2</div></div><div class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"></div></div></div></div></div></div><div tabIndex="0" role="presentation" style="width:0;height:0;overflow:hidden;position:absolute;"></div><div class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content" style="margin-left:0%;"><div role="tabpanel" aria-hidden="false" class="ant-tabs-tabpane ant-tabs-tabpane-active"><div tabIndex="0" role="presentation" style="width:0;height:0;overflow:hidden;position:absolute;"></div><div><div class="xy-title-wrapper" data-v-32629c0a><div class="xy-title xy-title-icon small-title" data-v-32629c0a>tab11 <div class="xy-sub-title" data-v-32629c0a></div></div> <div class="xy-title-right" data-v-32629c0a></div></div> <div class="ant-table" data-v-0ae01d61><table data-v-0ae01d61><!----> <tbody class="ant-table-tbody" data-v-0ae01d61></tbody></table></div></div><div tabIndex="0" role="presentation" style="width:0;height:0;overflow:hidden;position:absolute;"></div></div><div role="tabpanel" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-inactive"></div></div><div tabIndex="0" role="presentation" style="width:0;height:0;overflow:hidden;position:absolute;"></div></div></div></div></div><div class="ant-card ant-card-bordered" data-v-73e4af76><div class="ant-card-head"><div class="ant-card-head-wrapper"><div class="ant-card-head-title">
+          邯郸三中 
+          <span class="sub-title" data-v-73e4af76>项目编号：201906186844</span></div></div></div><div class="ant-card-body"><!---->  <div data-v-73e4af76><div class="xy-title-wrapper" data-v-32629c0a data-v-73e4af76><div class="xy-title xy-title-icon small-title" data-v-32629c0a>项目基本信息 <div class="xy-sub-title" data-v-32629c0a></div></div> <div class="xy-title-right" data-v-32629c0a></div></div> <div class="ant-table" data-v-0ae01d61 data-v-73e4af76><table data-v-0ae01d61><!----> <tbody class="ant-table-tbody" data-v-0ae01d61><tr class="ant-table-row ant-table-row-level-0" data-v-0ae01d61><td colspan="1" style="font-weight:bold;" data-v-0ae01d61><span data-v-0ae01d61>资质证书照片</span> <!----> <!----></td><td colspan="" data-v-0ae01d61><!----> <div class="d-LB img-block" data-v-0ae01d61><div data-v-0ae01d61><img src="http://media.springernature.com/original/springer-static/image/art:10.1186/s12889-016-3402-5/MediaObjects/12889_2016_3402_Fig3_HTML.gif" data-tittle="xiyun.jpg" data-v-0ae01d61></div> <div data-v-0ae01d61>xiyun.jpg</div> <div title="2019-01-23" data-v-0ae01d61>2019-01-23</div></div><div class="d-LB img-block" data-v-0ae01d61><div data-v-0ae01d61><img src="http://www.baidu.com/img/baidu_resultlogo@2.png" data-tittle="xiyun.jpg" data-v-0ae01d61></div> <div data-v-0ae01d61>xiyun.jpg</div> <div title="2019-01-23" data-v-0ae01d61>2019-01-23</div></div><div class="d-LB img-block" data-v-0ae01d61><div data-v-0ae01d61><img src="http://www.baidu.com/img/baidu_resultlogo@2.png" data-tittle="xiyun.jpg" data-v-0ae01d61></div> <div data-v-0ae01d61>xiyun.jpg</div> <div title="2019-01-23" data-v-0ae01d61>2019-01-23</div></div> <!----></td><td colspan="1" style="font-weight:bold;" data-v-0ae01d61><span data-v-0ae01d61>附件</span> <!----> <!----></td><td colspan="" data-v-0ae01d61><!----> <div class="d-LB img-block" data-v-0ae01d61><div data-v-0ae01d61><img src="http://www.baidu.com/img/baidu_resultlogo@2.png" data-tittle="xiyun1.jpg" data-v-0ae01d61></div> <a download="xiyun1.jpg" title="xiyun1.jpg" style="display: block;" data-v-0ae01d61><i aria-label="icon: download" class="anticon anticon-download" data-v-0ae01d61 data-v-0ae01d61><svg viewBox="64 64 896 896" data-icon="download" width="1em" height="1em" fill="currentColor" aria-hidden="true" data-v-0ae01d61><path d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"></path></svg></i>
+                  xiyun1.jpg
+                </a> <div title="2019-01-23" data-v-0ae01d61>2019-01-23</div></div> <!----></td></tr></tbody></table></div></div></div></div></div> <h4 id="代码示例"><a href="#代码示例" class="header-anchor">#</a> 代码示例</h4> <div class="language-html line-numbers-mode"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>xy-flow-detail</span> <span class="token attr-name">:data</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>data<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span> // data为详情数据
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="数据结构说明"><a href="#数据结构说明" class="header-anchor">#</a> 数据结构说明</h4> <h4 id="整体结构概览"><a href="#整体结构概览" class="header-anchor">#</a> 整体结构概览</h4> <blockquote><p>我们将数据分为大块和小块，每一个大块包含一组完整的审批数据，里面的小块是审批数据的细项内容。</p></blockquote> <p>[
+大块数据 {
+小块数据 [
+{每个小块内容},
+{每个小块内容},
+],
+},
+大块数据 {
+小块数据 [
+{每个小块内容},
+{每个小块内容},
+],
+},
+]</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+#### 详细数据结构示例
+
+```js
+[
+  {
+    // 定义大块本身的信息
+    info: {
+      title: '标题',
+      subTitle: '子标题',
+      // 审批状态
+      examin: {
+        // 状态码
+        // 需要根据业务定义出所有全状态码
+        // 0-待审批，1-审批中，2-审批驳回，3-审批通过
+        status: 2,
+        text: '当前状态：审批驳回',
+        // 依附于审批状态的额外信息
+        message: '营业执照照片不符合要求'
+      },
+    },
+    // 小块数据
+    patchs: [
+      {
+        // 标题
+        title: '小块标题',
+        // 类型
+        type: 'table',
+        // 字段
+        fields: {
+          // 有 head 就是普通表格，没有 head，就只渲染 body
+          head: [
+            {},{},{},
+            {
+              title: '标题1',
+              options: {
+                colspan: 1,
+              },
+            },
+          ],
+          body: [
+            [{},{},{},{}],
+            // 定义表格数据结构
+            [
+              {
+                // 类型为普通文本的字段
+                type: 'text',
+                value: '标题',
+                // 选项
+                options: {
+                  colspan: 1,
+                  style: {
+                    fontWeight: 'bold',
+                  }
+                }
+              },
+              {
+                // 类型为指定组件的字段
+                type: 'components',
+                components: 'sensitive',
+                value: '15010992073',
+                options: {
+                  colspan: 3,
+                }
+              },
+              {
+                // 类型为图片预览的组件
+                type: 'components',
+                components: 'v-viewer',
+                value: [
+                  {
+                    name: 'xiyun.jpg',
+                    src: './images/23984sdfiuwoer.jpg',
+                    desc: '上传时间：2019-01-23',
+                  }
+                ],
+              },
+              {
+                // 类型为下载的组件
+                type: 'components',
+                components: 'download',
+                value: [
+                  {
+                    name: 'xiyun.zip',
+                    src: './files/23984sdfiuwoer.zip',
+                  }
+                ],
+              }
+            ],
+            [{},{},{},{}],
+          ],
+        }
+      },
+
+      {
+        type: 'tap',
+        title: 'tap多页',
+        fields: [
+          // 每一个 tap 页的数据
+          {},{},{},
+          {
+            // 某个 tap 页本身的信息
+            info: {
+              // tap 页名称
+              name: '阿迪达斯',
+              // tap 唯一 key
+              key: '1',
+            },
+            // 小块数据
+            patchs: [
+              {},{}
+            ]
+          },
+        ]
+      }
+    ]
+  },
+]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/xy/ant-design-ui/select-city.html" class="prev">select-city 城市多选弹窗</a></span> <span class="next"><a href="/xy/ant-design-ui/pic-upload.html">pic-upload 上传图片</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/xy/assets/js/app.19409720.js" defer></script><script src="/xy/assets/js/2.3408ee05.js" defer></script><script src="/xy/assets/js/16.d2acc50a.js" defer></script>
+  </body>
+</html>
