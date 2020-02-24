@@ -80,7 +80,7 @@ export default {
       ],
     };
   },
-  mounted() {
+  created() {
     this.handleTitle();
     this.handleContextItem();
   },
