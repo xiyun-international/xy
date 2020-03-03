@@ -16,7 +16,7 @@
       </template>
       <div v-for="patch in block.patchs" :key="patch.tilte">
         <xy-title isShowIcon v-if="patch.title">{{ patch.title }}</xy-title>
-        <div :class="!patch.title?'t-MT24':''"></div>
+        <div :class="!patch.title ? 't-MT24' : ''"></div>
         <component :is="getFieldType(patch.type)" :data="patch.fields"></component>
       </div>
     </a-card>
