@@ -143,7 +143,7 @@ export default {
             },
             {
                 // 标题
-                title: '变更汇总表',
+                title: '',
                 // 内容
                 type: 'table', // 定义小块类型
                 fields: {
