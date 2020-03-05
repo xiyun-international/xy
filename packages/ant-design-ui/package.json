@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/ant-design-ui",
-  "version": "1.4.11",
+  "version": "1.4.12",
   "main": "./lib/index.umd.min.js",
   "style": "./lib/index.css",
   "files": [
