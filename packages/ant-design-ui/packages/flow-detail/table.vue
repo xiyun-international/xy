@@ -33,7 +33,7 @@
               <template v-for="(img, imgIndex) in td.value">
                 <div :key="imgIndex" class="d-LB img-block">
                   <div>
-                  <img :src="img.src" :data-tittle="img.name" />
+                  <img :src="img.src || img.small" :data-view="img.url" :data-tittle="img.name" />
                   </div>
                   <a v-if="td.components === 'download'"
                     :href="img.downloadUrl" style="display: block;"
