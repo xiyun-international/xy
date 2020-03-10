@@ -150,28 +150,52 @@ export default {
                 // 有 head 就是普通表格，没有 head，就只渲染 body
                 head: [
                     {
-                    title: '设备及配件',
-                    options: {
-                        colspan: 1,
-                    },
-                    },
-                    {
-                    title: '变更前',
-                    options: {
-                        colspan: 1,
-                    },
+                      title: '设备及配件',
+                      options: {
+                          colspan: 1,
+                      },
                     },
                     {
-                    title: '变更后',
-                    options: {
-                        colspan: 1,
-                    },
+                      title: '变更前',
+                      options: {
+                          colspan: 1,
+                      },
                     },
                     {
-                    title: '本次变更内容',
-                    options: {
-                        colspan: 1,
+                      title: '变更后',
+                      options: {
+                          colspan: 1,
+                      },
                     },
+                      {
+                      title: '本次变更内容',
+                      options: {
+                          colspan: 1,
+                      },
+                    },
+                    {
+                      title: '设备及配件',
+                      options: {
+                          colspan: 1,
+                      },
+                    },
+                    {
+                      title: '变更前',
+                      options: {
+                          colspan: 1,
+                      },
+                    },
+                    {
+                      title: '变更后',
+                      options: {
+                          colspan: 1,
+                      },
+                    },
+                      {
+                      title: '本次变更内容',
+                      options: {
+                          colspan: 1,
+                      },
                     },
                 ],
                 body: [
@@ -209,11 +233,75 @@ export default {
                         colspan: 1,
                         },
                     },
+                    {
+                        type: 'text',
+                        value: '设备1',
+                        // 选项
+                        options: {
+                        colspan: 1,
+                        },
+                    },
+                    {
+                        // 字段
+                        type: 'text',
+                        value: 'D : 3',
+                        options: {
+                        colspan: 1,
+                        },
+                    },
+                    {
+                        // 字段
+                        type: 'text',
+                        value: 'D : 5',
+                        options: {
+                        colspan: 1,
+                        },
+                    },
+                    {
+                        // 字段
+                        type: 'text',
+                        value: 'D : +2',
+                        options: {
+                        colspan: 1,
+                        },
+                    },
                     ],
                     [
                     {
                         type: 'text',
                         value: '设备2',
+                        // 选项
+                        options: {
+                        colspan: 1,
+                        },
+                    },
+                    {
+                        // 字段
+                        type: 'text',
+                        value: 'D : 3',
+                        options: {
+                        colspan: 1,
+                        },
+                    },
+                    {
+                        // 字段
+                        type: 'text',
+                        value: 'D : 5',
+                        options: {
+                        colspan: 1,
+                        },
+                    },
+                    {
+                        // 字段
+                        type: 'text',
+                        value: 'D : +2',
+                        options: {
+                        colspan: 1,
+                        },
+                    },
+                    {
+                        type: 'text',
+                        value: '设备1',
                         // 选项
                         options: {
                         colspan: 1,

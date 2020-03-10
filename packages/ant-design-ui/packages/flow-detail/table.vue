@@ -35,15 +35,13 @@
                   <div>
                   <img :src="img.src || img.small" :data-view="img.src || img.url" :data-tittle="img.name" />
                   </div>
-                  <a v-if="td.components === 'download'"
-                    :href="img.downloadUrl" style="display: block;"
+                  <a :href="img.downloadUrl" class="d-B"
                     :download="img.name"
                     :title="img.name"
                   >
                     <a-icon type="download" />
                     {{ img.name }}
                   </a>
-                  <div v-else>{{ img.name }}</div>
                   <div :title="img.desc">{{ img.desc }}</div>
                 </div>
               </template>
@@ -100,6 +98,9 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.ant-table tr>td {
+  min-width: 85px;
+}
 .ant-table-thead > tr > th {
   text-align: left;
 }
@@ -108,7 +109,9 @@ img {
   margin: 5px;
   display: inline-block;
 }
-
+.d-B {
+  display: block;
+}
 .d-LB {
   display: inline-block;
 }
