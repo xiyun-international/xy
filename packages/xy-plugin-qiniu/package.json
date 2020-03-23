@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/xy-plugin-qiniu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "ISC",
   "main": "lib/index.js",
   "directories": {
