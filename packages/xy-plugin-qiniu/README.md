@@ -16,9 +16,13 @@ yarn add @xiyun/xy-plugin-qiniu
 
 ## 使用方法
 ```shell
-xy qiniu <qiniuConfig-file> <img-file> 
+xy qiniu <img-file> 
+?在接下来请输入您的七牛配置文件目录：（）qiniuConfig-file
+? 请输入您要上传到的七牛目录，根目录无需输入：（）a/
 ```
 # 选项
+img-file 图片地址，支持相对路径和绝对路径
+
 qiniuConfig-file 七牛账号配置文件地址，支持相对路径和绝对路径
 
 在本地需要将七牛账号配置项写到 qiniuConfig.json 中，格式如下：
@@ -30,18 +34,21 @@ qiniuConfig-file 七牛账号配置文件地址，支持相对路径和绝对路
   "domain": "自定义域名地址"
 }
 ```
-img-file 图片地址，支持相对路径和绝对路径
+a/  上传到的七牛目录，七牛将根据你的目录加上文件名称返回地址，如果不填默认是根目录，示例：
+图片名称是 1.jpg，上传到的七牛目录是 a/,七牛返回图片地址是：http://xxx.com/a/1.jpg
+图片名称是 1.jpg，上传到的七牛目录默认根目录,七牛返回图片地址是：http://xxx.com/1.jpg
+
 
 
 
 ## 使用示例:
 上传相对路径图片：
 ```shell
-xy qiniu ./qiniuConfig.json  ./2.jpg
+xy qiniu ./2.jpg
 ```
 上传绝对路径图片：
 ```shell
-xy qiniu /Users/Downloads/qiniuConfig.json /Users/Downloads/1.jpg
+xy qiniu /Users/Downloads/1.jpg
 ```
 
 
