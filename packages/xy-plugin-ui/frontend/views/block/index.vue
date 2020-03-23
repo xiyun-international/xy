@@ -41,17 +41,17 @@
         </span>
       </a-tab-pane>
     </a-tabs>
-    <a-row class="P16">
+    <a-row class="P16 h-full">
       <a-col :span="8" v-for="(item,index) in blocks" :key="index">
         <div class="list-item">
           <img :src="item.screenshot" />
           <a href="#">
             <div class="mask">
               <a-row class="info">
-                <a-col :span="12" class="t-LL">
+                <a-col :span="11" class="t-LL">
                   <strong>{{ item.title }}</strong>
                 </a-col>
-                <a-col :span="12">
+                <a-col :span="13">
                   <a-button type="link" icon="download" @click="downloadBlock(item)">下载</a-button>
                   <a-button type="link" icon="ellipsis" @click="toGit(item.repository)">更多信息</a-button>
                 </a-col>
@@ -325,6 +325,9 @@ export default {
 .P16 {
   padding: 0 16px;
 }
+.h-full {
+  height: calc(~'100vh' - 260px);
+  overflow: scroll;
 .list-item {
   position: relative;
   height: 350px;
@@ -376,6 +379,7 @@ export default {
     white-space: nowrap;
     margin-right: 5px;
   }
+}
 }
 .page {
   position: absolute;

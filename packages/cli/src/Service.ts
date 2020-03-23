@@ -92,7 +92,9 @@ export default class Service {
     if (onRun) {
       onRun(this);
     } else {
-      signale.error(`Command ${chalk.underline.cyan(name)} does not exists`);
+      signale.error(
+        `Command ${chalk.underline.cyan(this.cliCommand)} does not exists`,
+      );
     }
   }
 }

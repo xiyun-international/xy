@@ -73,7 +73,9 @@ export default {
     }
   }
 }
-
+.content {
+  overflow: hidden;
+}
 .outside {
   background: #d5dae6;
   padding: 40px;

@@ -38,7 +38,7 @@ export default {
                     [
                     {
                         type: 'text',
-                        value: '业务线',
+                        value: '业务线<br/>业务线',
                         // 选项
                         options: {
                         colspan: 1,
@@ -316,6 +316,16 @@ export default {
                         type: 'components',
                         components: 'v-viewer',
                         value: [
+                        {
+                            name: 'xiyun.jpg',
+                            src: 'http://media.springernature.com/original/springer-static/image/art:10.1186/s12889-016-3402-5/MediaObjects/12889_2016_3402_Fig3_HTML.gif',
+                            desc: '2019-01-23',
+                        },
+                        {
+                            name: 'xiyun.jpg',
+                            src: 'http://www.baidu.com/img/baidu_resultlogo@2.png',
+                            desc: '2019-01-23',
+                        },
                         {
                             name: 'xiyun.jpg',
                             src: 'http://www.baidu.com/img/baidu_resultlogo@2.png',

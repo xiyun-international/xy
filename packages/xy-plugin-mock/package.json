@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/xy-plugin-mock",
-  "version": "1.3.16",
+  "version": "1.3.27",
   "main": "lib/index.js",
   "license": "MIT",
   "homepage": "https://github.com/xiyun-international/xy#readme",
@@ -25,6 +25,7 @@
     "express": "^4.17.1",
     "glob": "^7.1.4",
     "got": "^9.6.0",
+    "mockjs": "^1.1.0",
     "multer": "^1.4.2",
     "ora": "^4.0.2",
     "path-to-regexp": "^3.1.0",

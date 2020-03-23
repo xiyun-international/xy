@@ -4,35 +4,50 @@
       <thead v-if="data.head" class="ant-table-thead">
         <tr>
           <th
-            v-for="(thead,tIndex) in data.head"
+            v-for="(thead, tIndex) in data.head"
             :key="tIndex"
             :colspan="thead.options.colspan"
-          >{{ thead.title }}</th>
+          >
+            {{ thead.title }}
+          </th>
         </tr>
       </thead>
       <tbody class="ant-table-tbody">
         <tr
           class="ant-table-row ant-table-row-level-0"
-          v-for="(tr,index) in data.body"
+          v-for="(tr, index) in data.body"
           :key="index"
         >
           <td
-            v-for="(td,tdIndex) in tr"
+            v-for="(td, tdIndex) in tr"
             :key="tdIndex"
-            :colspan="td.options?td.options.colspan:''"
-            :style="td.options?td.options.style:{}"
+            :colspan="td.options ? td.options.colspan : ''"
+            :style="td.options ? td.options.style : {}"
           >
-            <template v-if="td.type==='text'">{{ td.value }}</template>
-            <template v-if="td.components==='v-viewer'||td.components==='download'">
-              <template v-for="(img,imgIndex) in td.value">
-                <div v-viewer :key="imgIndex">
-                  <img :src="img.src" />
-                  <a v-if="td.components==='download'" :href="img.src" style="display: block;">{{ img.name }}</a>
-                  <div>{{ img.desc }}</div>
+            <span v-if="td.type === 'text'" v-html="td.value"></span>
+            <template
+              v-if="
+                td.components === 'v-viewer' || td.components === 'download'
+              "
+            >
+              <template v-for="(img, imgIndex) in td.value">
+                <div :key="imgIndex" class="d-LB img-block">
+                  <div>
+                  <img :src="img.src" :data-tittle="img.name" />
+                  </div>
+                  <a v-if="td.components === 'download'"
+                    :href="img.downloadUrl" style="display: block;"
+                    :download="img.name"
+                    :title="img.name"
+                  >
+                    <a-icon type="download" />
+                    {{ img.name }}
+                  </a>
+                  <div :title="img.desc">{{ img.desc }}</div>
                 </div>
               </template>
             </template>
-            <template v-if="td.type==='components'">
+            <template v-if="td.type === 'components'">
               <component
                 :is="getComponent(td.components)"
                 :text="td.value"
@@ -47,11 +62,6 @@
 </template>
 
 <script>
-import Viewer from 'v-viewer'
-import 'viewerjs/dist/viewer.css'
-import Vue from 'vue'
-Vue.use(Viewer)
-
 import XySensText from '../sens-text';
 
 export default {
@@ -97,6 +107,8 @@ img {
   margin: 5px;
   display: inline-block;
 }
+
+.d-LB {
+  display: inline-block;
+}
 </style>
-
-

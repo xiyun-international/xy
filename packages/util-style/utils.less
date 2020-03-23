@@ -1,5 +1,6 @@
 // 百分比宽度，从 40% 到 100%，示例：.t-W100
-@minWidth: 40; @maxWidth: 100;
+@minWidth: 40;
+@maxWidth: 100;
 each(range(@minWidth, @maxWidth), {
   .t-W@{value} {
     width: (@value * 1%);
@@ -7,7 +8,11 @@ each(range(@minWidth, @maxWidth), {
 })
 
 // 文本对齐，示例：.t-TAC
-@textAlign: {TAL: left; TAC: center; TAR: right;}
+@textAlign: {
+  tal: left;
+  tac: center;
+  tar: right;
+}
 each(@textAlign, {
   .t-@{key} {
     text-align: @value;
@@ -15,7 +20,10 @@ each(@textAlign, {
 })
 
 // 浮动方式，示例：.t-FL
-@float: {FL: left;FR: right;}
+@float: {
+  fl: left;
+  fr: right;
+}
 each(@float, {
   .t-@{key} {
     float: @value;
@@ -83,3 +91,16 @@ each(range(0, 40), {
   //   border-bottom-left-radius: (@value * 1px);
   // }
 })
+
+// font align
+.t-FAL {
+  text-align: left;
+}
+
+.t-FAC {
+  text-align: center;
+}
+
+.t-FAR {
+  text-align: right;
+}
