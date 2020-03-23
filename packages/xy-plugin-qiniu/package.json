@@ -11,6 +11,8 @@
     "lib"
   ],
   "dependencies": {
-    "qiniu": "^7.2.2"
+    "qiniu": "^7.2.2",
+    "assert": "^2.0.0",
+    "inquirer": "^6.4.1"
   }
 }

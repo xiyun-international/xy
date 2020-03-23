@@ -2,8 +2,7 @@ const fs = require('fs');
 const path = require('path');
 import fileConfig from './config';
 
-async function UploadImage(filePath) {
-  const qiniuConfig = filePath.shift();
+async function UploadImage(filePath: [], qiniuConfig: string, prefix: string) {
   fs.stat(qiniuConfig, function(eror, stats) {
     if (eror) {
       console.warn('请重新选择路径');
@@ -15,7 +14,6 @@ async function UploadImage(filePath) {
           const config = fileConfig(
             JSON.parse(fs.readFileSync(qiniuConfig, 'utf-8')),
           );
-
           // 上传文件
           if (filePath.length === 0) {
             console.log('请选择上传文件');
@@ -38,7 +36,7 @@ async function UploadImage(filePath) {
                   throw Error('请输入要上传的文件路径');
                   return false;
                 }
-                upload(file, config);
+                upload(file, config, prefix);
               });
             });
           });
@@ -53,9 +51,10 @@ async function UploadImage(filePath) {
   });
 }
 
-function upload(file, config) {
+function upload(file, config, prefix) {
   // 上传到服务器的名称,和本地名称保持一致
   var key = file.substring(file.lastIndexOf('/') + 1, file.length);
+  if (prefix !== '') key = prefix.concat(key);
   const fileType = /\.(png|jpeg|jpg|gif|webp)(\?.*)?$/;
   if (fileType.test(path.extname(file))) {
     // 文件上传
