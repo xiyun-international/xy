@@ -1,7 +1,7 @@
 # qiniu
 
 ## 简介
-qiniu 插件是为项目提供将图片上传到七牛的工具，图片支持格式： png、jpeg、jpg、gif、webp。
+qiniu 插件是为项目提供将文件上传到七牛的工具，支持所有文件格式。
 
 ## 安装
 使用 xy-plugin-qiniu 首先需要安装 @vue/cli
@@ -16,12 +16,12 @@ yarn add @xiyun/xy-plugin-qiniu
 
 ## 使用方法
 ```shell
-xy qiniu <img-file> 
+xy qiniu <file-Path> 
 ?在接下来请输入您的七牛配置文件目录：（）qiniuConfig-file --config
 ? 请输入您要上传到的七牛目录，根目录无需输入：（）
 ```
 ## 选项
-**img-file：** 图片地址，支持相对路径和绝对路径
+**file-Path：** 文件地址，支持相对路径和绝对路径
 
 **qiniuConfig-file --config：** 七牛账号配置文件地址，支持相对路径和绝对路径
 
@@ -49,11 +49,11 @@ domain：空间名称->空间概览->CDN 加速域名，对应的域名地址。
 
 
 ## 使用示例:
-上传相对路径图片：
+上传相对路径文件：
 ```shell
 xy qiniu ./2.jpg
 ```
-上传绝对路径图片：
+上传绝对路径文件：
 ```shell
 xy qiniu /Users/Downloads/1.jpg
 ```
