@@ -1,0 +1,7 @@
+{
+  "name": "vue-cli-plugin-mock",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "yuyue",
+  "license": "MIT"
+}
