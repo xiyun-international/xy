@@ -1,5 +1,5 @@
 <template>
-  <div class="xy-context">
+  <div class="xy-context" ref="context">
     <div class="context-header">
       <template v-if="isHasBreadcrumb">
         <a-breadcrumb class="breadcrumb">
@@ -78,16 +78,31 @@ export default {
         '#FA4B4B',
         '#13CE66',
       ],
+      monitor: null,
     };
   },
   created() {
     this.handleTitle();
     this.handleContextItem();
   },
+  mounted() {
+    if (this.isIframe) {
+      this.postMessage();
+      this.mutationObserver();
+    }
+  },
   computed: {
     isHasBreadcrumb() {
       return this.breadcrumb.length > 0;
     },
+    isIframe() {
+      return window.self !== window.parent;
+    }
+  },
+  beforeDestroy() {
+    if (this.monitor) {
+      this.monitor.disconnect();
+    }
   },
   methods: {
     /**
@@ -132,6 +147,36 @@ export default {
         item.handler();
       }
     },
+
+    /**
+     * 监听页面数据是否变动
+     */
+    mutationObserver() {
+      this.monitor = new MutationObserver(mutationsList => {
+        if (mutationsList.length > 0) {
+          this.postMessage();
+        }
+      });
+
+      this.monitor.observe(this.$refs.context, {
+        childList: true,
+        subtree: true,
+      });
+    },
+
+    /**
+     * 发送 postMessage 消息
+     */
+    postMessage() {
+      const div = this.$refs.context;
+      console.log(div.clientHeight);
+      const height = div ? div.clientHeight : 400;
+      window.parent.postMessage({
+        isLoading: false,
+        height: height,
+      }, '*');
+    }
+
   },
 };
 </script>
