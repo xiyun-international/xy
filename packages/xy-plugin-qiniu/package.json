@@ -1,6 +1,6 @@
 {
   "name": "@xiyun/xy-plugin-qiniu",
-  "version": "1.0.1",
+  "version": "1.4.0",
   "license": "ISC",
   "main": "lib/index.js",
   "directories": {
@@ -11,8 +11,8 @@
     "lib"
   ],
   "dependencies": {
-    "qiniu": "^7.2.2",
     "assert": "^2.0.0",
-    "inquirer": "^6.4.1"
+    "inquirer": "^6.4.1",
+    "qiniu": "^7.2.2"
   }
 }
