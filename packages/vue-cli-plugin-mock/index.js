@@ -17,9 +17,9 @@ module.exports = (api, options) => {
       }
     });
   }
-
+  if (process.env.NODE_ENV !== 'development') return false;
   api.chainWebpack(webpackConfig => {
-    webpackConfig.devServer.set('before', (app, server) => {
+    webpackConfig.devServer.set('before', app => {
       mockData = getMockData({
         spinner,
         path,
@@ -34,31 +34,27 @@ module.exports = (api, options) => {
           next();
         }
       });
-      server.compiler.hooks.beforeCompile.tap('beforeCompile', async () => {
-        if (process.env.NODE_ENV === 'development') {
-          const watcher = chokidar.watch(resolve(path), {
-            ignored: '**/node_modules/**',
-            persistent: true,
-          });
 
-          watcher.on('change', async () => {
-            cleanRequireCache();
-            mockData = await getMockData({
-              spinner,
-              path,
-            });
-            app.use((req, res, next) => {
-              const match = mockData && matchMock(req, mockData);
-              if (match) {
-                signale.info(`mock matched: [${match.method}] ${match.path}`);
-                match.handler(req, res, next);
-                res.end();
-              } else {
-                next();
-              }
-            });
-          });
-        }
+      const watcher = chokidar.watch(resolve(path), {
+        ignored: '**/node_modules/**',
+      });
+
+      watcher.on('change', async () => {
+        cleanRequireCache();
+        mockData = await getMockData({
+          spinner,
+          path,
+        });
+        app.use((req, res, next) => {
+          const match = mockData && matchMock(req, mockData);
+          if (match) {
+            signale.info(`mock matched: [${match.method}] ${match.path}`);
+            match.handler(req, res, next);
+            res.end();
+          } else {
+            next();
+          }
+        });
       });
     });
   });
