@@ -1,4 +1,4 @@
-# vue-cli-plugin-mock
+# @xiyun/vue-cli-plugin-mock
 
 ## 简介
 mock 插件是为 Vue 项目提供 mock 数据的工具，支持 [Mock.js](https://github.com/nuysoft/Mock/wiki) 语法。
