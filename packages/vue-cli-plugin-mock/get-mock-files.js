@@ -2,8 +2,7 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const assert = require('assert');
 const pathToRegexp = require('path-to-regexp');
-const resolve = require('path').resolve;
-const windowPath = require('./utils').windowPath;
+const path = require('path');
 const glob = require('glob');
 const mockjs = require('mockjs');
 
@@ -81,24 +80,19 @@ function parseKey(key) {
 }
 
 function getMockFiles(opts) {
-  // console.log(opts);
   let mockFiles = glob
     .sync(opts.path, {
       ignore: ['**/node_modules/**'],
     })
-    .map(p => resolve(process.cwd(), p));
-  // console.log(91,mockFiles);
+    .map(p => path.resolve(process.cwd(), p));
 
   // 处理一下路径，不然在 win 下面会报错
-  //   mockFiles = mockFiles.map(p => windowPath(p));
-  // console.log(95,mockFiles);
+  mockFiles = mockFiles.map(p => path.normalize(p));
   return mockFiles;
 }
 
 function getMockConfigFromFiles(files) {
-  // console.log(97,files);
   return files.reduce((memo, mockFile) => {
-    // console.log(99);
     try {
       const m = require(mockFile); // eslint-disable-line
       return {
@@ -112,9 +106,7 @@ function getMockConfigFromFiles(files) {
 }
 
 function getMockConfig(opts) {
-  // console.log(2233);
   const files = getMockFiles(opts);
-  // console.log(115,files);
   return getMockConfigFromFiles(files);
 }
 
