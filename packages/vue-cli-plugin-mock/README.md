@@ -6,7 +6,7 @@ mock 插件是为 Vue 项目提供 mock 数据的工具，支持 [Mock.js](https
 ## 安装
 
 ```shell
-yarn add @xiyun/vue-cli-plugin-mock
+yarn add @xiyun/vue-cli-plugin-mock -D
 ```
 
 ## 示例
