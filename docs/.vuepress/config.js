@@ -107,6 +107,7 @@ module.exports = {
             'select-city',
             'flow-detail',
             'pic-upload',
+            'col',
           ],
         },
       ],

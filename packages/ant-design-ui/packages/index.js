@@ -11,6 +11,8 @@ import XyFrame from './frame/index';
 import XySelectCity from './select-city/index';
 import XyFlowDetail from './flow-detail/index';
 import XyPicUpload from './pic-upload/index';
+import XyCol from './col/col/index';
+import XyColItem from './col/col-item/index';
 
 const components = [
   XyTitle,
@@ -25,6 +27,8 @@ const components = [
   XySelectCity,
   XyFlowDetail,
   XyPicUpload,
+  XyCol,
+  XyColItem,
 ];
 
 const install = Vue => {
@@ -53,6 +57,8 @@ export {
   XySelectCity,
   XyFlowDetail,
   XyPicUpload,
+  XyCol,
+  XyColItem,
 };
 
 export default {

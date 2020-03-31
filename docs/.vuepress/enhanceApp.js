@@ -25,6 +25,8 @@ import {
   XySelectCity as AntdXySelectCity,
   XyFlowDetail as AntdXyFlowDetail,
   XyPicUpload as AntdXyPicUpload,
+  XyCol as AntdXyCol,
+  XyColItem as AntdXyColItem,
 } from '../../packages/ant-design-ui/packages/index';
 import {
   XyTitle as EleXyTitle,
@@ -56,6 +58,8 @@ export default ({ Vue }) => {
   Vue.component('AntdXySelectCity', AntdXySelectCity);
   Vue.component('AntdXyFlowDetail', AntdXyFlowDetail);
   Vue.component('AntdXyPicUpload', AntdXyPicUpload);
+  Vue.component('AntdXyCol', AntdXyCol);
+  Vue.component('AntdXyColItem', AntdXyColItem);
 
   Vue.component('EleXyTitle', EleXyTitle);
   Vue.component('EleXyWrapper', EleXyWrapper);
