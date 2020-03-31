@@ -10,12 +10,11 @@ module.exports = (api, options) => {
   const path = options.path || '**/__mock__/**/*.[jt]s';
   let mockData = [];
 
-  function cleanRequireCache() {
-    Object.keys(require.cache).forEach(file => {
-      if (require.cache[file]) {
-        delete require.cache[file];
-      }
-    });
+  function cleanRequireCache(filePath) {
+    if (require.cache[filePath]) {
+      console.log(filePath);
+      delete require.cache[filePath];
+    }
   }
   if (process.env.NODE_ENV !== 'development') return false;
   api.chainWebpack(webpackConfig => {
@@ -35,12 +34,10 @@ module.exports = (api, options) => {
         }
       });
 
-      const watcher = chokidar.watch(resolve(path), {
-        ignored: '**/node_modules/**',
-      });
+      const watcher = chokidar.watch(resolve(path));
 
-      watcher.on('change', async () => {
-        cleanRequireCache();
+      watcher.on('change', async filePath => {
+        cleanRequireCache(filePath);
         mockData = await getMockData({
           spinner,
           path,
