@@ -1,0 +1,13 @@
+{
+  "name": "@xiyun/vue-cli-plugin-micro",
+  "version": "1.0.0",
+  "author": "changwenxia",
+  "license": "ISC",
+  "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/xiyun-international/xy/issues"
+  },
+  "dependencies": {
+    "signale": "^1.4.0"
+  }
+}
